@@ -1,0 +1,56 @@
+##   Handle line endings automatically for files detected as
+##   text and leave all files detected as binary untouched.
+##   This will handle all files NOT defined below.
+*                 text=auto
+
+# Source code
+*.css             text diff=css
+*.htm             text diff=html
+*.html            text diff=html
+*.js              text
+*.map             text -diff
+.husky/*          text eol=lf
+
+# Docker
+Dockerfile        text
+
+# Configs
+.editorconfig     text
+.env              text
+.gitattributes    text
+.gitconfig        text
+*.lock            text -diff
+package.json      text eol=lf
+pnpm-lock.yaml    text eol=lf -diff
+*.yaml            text
+browserslist      text
+Makefile          text
+makefile          text
+
+# Documentation
+*.md              text diff=markdown
+*README*          text
+
+# Graphics
+*.gif             binary
+*.gifv            binary
+*.ico             binary
+*.jpg             binary
+*.pdf             binary
+*.png             binary
+*.svg             text
+*.svgz            binary
+*.webp            binary
+
+# Fonts
+*.ttf             binary
+*.eot             binary
+*.otf             binary
+*.woff            binary
+*.woff2           binary
+
+# RC files (like .babelrc or .eslintrc)
+*.*rc             text
+
+# Ignore files (like .gitignore)
+*.*ignore         text

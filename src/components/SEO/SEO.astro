@@ -1,0 +1,45 @@
+---
+import { APP_CONFIG } from 'appConfig';
+
+const { title, description, keywords, banner, contentType } = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const bannerURL = new URL(banner, Astro.url);
+
+const META_TAGS = [
+  { name: 'name', content: title },
+  { name: 'description', content: description },
+  { name: 'keywords', content: keywords },
+  { name: 'author', content: APP_CONFIG.META.author },
+  { name: 'image', content: bannerURL },
+  // Open Graph tags
+  { property: 'og:site_name', content: APP_CONFIG.META.name },
+  { property: 'og:type', content: contentType },
+  { property: 'og:title', content: title },
+  { property: 'og:description', content: description },
+  { property: 'og:image', content: bannerURL },
+  { property: 'og:url', content: Astro.url },
+  // Twitter tags
+  { name: 'twitter:site', content: APP_CONFIG.META.social.twitter },
+  { name: 'twitter:creator', content: APP_CONFIG.META.social.twitter },
+  { name: 'twitter:card', content: 'summary_large_image' },
+  { name: 'twitter:title', content: title },
+  { name: 'twitter:description', content: description },
+  { name: 'twitter:image', content: bannerURL },
+  { name: 'twitter:url', content: Astro.url },
+  // Add to homescreen for Chrome on Android. Fallback for PWA
+  { name: 'application-name', content: APP_CONFIG.META.name },
+  // iOS Safari
+  { name: 'apple-mobile-web-app-title', content: APP_CONFIG.META.name },
+  { name: 'apple-mobile-web-app-capable', content: 'yes' },
+  { name: 'apple-mobile-web-app-status-bar-style', content: 'black' },
+  // PWA
+  { name: 'theme-color', content: APP_CONFIG.META.app.background },
+  { name: 'mask-icon', content: '/icons/icon-512-512.png', color: APP_CONFIG.META.app.background },
+  { name: 'generator', content: Astro.generator },
+];
+---
+
+<title>{title}</title>
+<link rel="canonical" href={canonicalURL} />
+{META_TAGS.map(({ content, ...rest }) => <meta {...rest} content={content} />)}

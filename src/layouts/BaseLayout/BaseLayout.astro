@@ -1,0 +1,27 @@
+---
+import 'node_modules/modern-normalize/modern-normalize.css';
+import './BaseLayout.css';
+import SEO from 'components/SEO/SEO.astro';
+import { APP_CONFIG } from 'appConfig';
+
+const {
+  title = APP_CONFIG.META.name,
+  keywords = APP_CONFIG.META.keywords,
+  description = APP_CONFIG.META.description,
+  banner = APP_CONFIG.META.banner,
+  contentType = APP_CONFIG.META.type,
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <SEO title={title} keywords={keywords} description={description} banner={banner} contentType={contentType} />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

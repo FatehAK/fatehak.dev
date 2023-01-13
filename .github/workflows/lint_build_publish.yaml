@@ -1,0 +1,99 @@
+on:
+  push:
+    branches:
+      - '**'
+    paths-ignore:
+      - '**/README.md'
+
+name: lint_build_publish
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+
+      - name: Setup Node and pnpm-store cache
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'pnpm'
+
+      - name: Dump versions
+        run: |
+          echo "node: $(node -v)"
+          echo "npm: $(npm -v)"
+          echo "pnpm: $(pnpm -v)"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Setup script cache
+        uses: actions/cache@v3
+        with:
+          path: node_modules/.cache
+          key: script-cache-${{ hashFiles('**/pnpm-lock.yaml') }}-run-id-${{ github.run_id }}
+          restore-keys: script-cache-${{ hashFiles('**/pnpm-lock.yaml') }}-run-id-
+
+      - name: Run lint
+        run: pnpm lint
+
+  build:
+    name: Build
+    needs: lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+
+      - name: Setup Node and pnpm-store cache
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm build
+
+      - name: Cache build
+        uses: actions/cache@v3
+        with:
+          path: dist
+          key: ${{ github.sha }}-${{ github.run_number }}
+
+  publish:
+    name: Publish
+    needs: build
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}-${{ github.job }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Restore Build
+        uses: actions/cache@v3
+        with:
+          path: dist
+          key: ${{ github.sha }}-${{ github.run_number }}
+
+      - name: Publish to Cloudflare Pages
+        uses: cloudflare/pages-action@1
+        id: cfp
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          projectName: fatehak
+          directory: dist
+
+      - run: |
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Deployed to ${{ steps.cfp.outputs.environment }} environment" >> $GITHUB_STEP_SUMMARY

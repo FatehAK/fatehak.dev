@@ -1,0 +1,21 @@
+{
+  "eslint.enable": true,
+  "stylelint.enable": true,
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/.cache": true,
+    "**/.dist": true,
+    "**/.idea": true,
+    "**/.parcel-cache": true,
+    "**/.tar": true,
+    "**/.vscode": true,
+    "dist": true,
+    "node_modules": true
+  },
+  "explorerExclude.backup": {}
+}

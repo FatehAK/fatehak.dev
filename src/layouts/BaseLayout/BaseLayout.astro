@@ -11,6 +11,8 @@ const {
   banner = APP_CONFIG.META.banner,
   contentType = APP_CONFIG.META.type,
 } = Astro.props;
+
+const isProd = import.meta.env.BUILD === 'production';
 ---
 
 <!DOCTYPE html>
@@ -23,5 +25,6 @@ const {
   </head>
   <body>
     <slot />
+    {isProd && <script src={`https://static.cloudflareinsights.com/beacon.min.js?token=${APP_CONFIG.CLOUDFLARE_ANALYTICS_TOKEN}`} defer />}
   </body>
 </html>

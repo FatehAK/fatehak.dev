@@ -6,7 +6,7 @@
     "start": "BUILD=development astro dev",
     "build:dev": "BUILD=development astro build",
     "build:prod": "BUILD=production astro build",
-    "preview": "BUILD=production astro preview",
+    "preview": "astro preview",
     "astro": "astro",
     "clean": "pnpm rimraf dist node_modules/.vite node_modules/.cache",
     "lint": "concurrently -g -n \"prettier,stylelint,eslint\" -c \"bgGreen.bold,bgMagenta.bold,bgBlue.bold\" \"pnpm prettier-check\" \"pnpm stylelint-check\" \"pnpm eslint-check\"",

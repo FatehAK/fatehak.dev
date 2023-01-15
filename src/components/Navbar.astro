@@ -1,0 +1,115 @@
+---
+import NavLink from './NavLink.astro';
+import ThemeToggle from './ThemeToggle.astro';
+
+const pages = [
+  {
+    name: 'Home',
+    path: '/',
+  },
+  {
+    name: 'Work',
+    path: '/work',
+  },
+  {
+    name: 'Blog',
+    path: '/blog',
+  },
+  {
+    name: 'Snippets',
+    path: '/snippets',
+  },
+];
+---
+
+<header>
+  <a class="unset absolute z-10 left-[50%] -top-[100rem] translate-x-[-50%] bg-white text-black px-8 py-2 focus:top-[initial]" href="#main">
+    Skip to content
+  </a>
+  {/* desktop navbar */}
+  <nav class="hidden md:inline">
+    <section class="text-text-bold">
+      <ul class="unset flex gap-4 [&>li]:p-0">
+        {
+          pages.map(page => (
+            <li>
+              <NavLink href={page.path}>{page.name}</NavLink>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </nav>
+  {/* mobile hamburger menu */}
+  <nav class="md:hidden">
+    <button id="ham-menu-open">
+      <i class="fa-solid fa-bars" aria-hidden="true" title="Open mobile menu"></i>
+      <span class="fa-sr-only">Open mobile menu</span>
+    </button>
+    <section id="ham-menu" class="hide-menu fixed top-0 left-0 z-10 w-full h-full transition-transform bg-black/75 border-primary-main">
+      <div class="bg-bg-body w-[75%] h-full drop-shadow-2xl">
+        <button id="ham-menu-close" class="px-6 h-[5rem] text-lg xml-[1px]">
+          <i class="fa-solid fa-xmark" aria-hidden="true" title="Close mobile menu"></i>
+          <span class="fa-sr-only">Close mobile menu</span>
+        </button>
+        <ul class="unset flex flex-col text-text-bold gap-4 [&>li]:p-0 px-6">
+          {
+            pages.map(page => (
+              <li>
+                <NavLink href={page.path}>{page.name}</NavLink>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+  </nav>
+  {/* nav links right */}
+  <div class="max-[375px]:hidden justify-self-end py-2 flex items-center content-center text-text-bold">
+    <a class="unset text-xl ml-4 hover:text-text-link" href="/rss.xml">
+      <i class="fa-solid fa-rss" aria-hidden="true" title="RSS feed"></i>
+      <span class="fa-sr-only">RSS feed</span>
+    </a>
+    <a class="unset text-xl ml-4 hover:text-text-link" href="https://github.com/fatehak">
+      <i class="fa-brands fa-github" aria-hidden="true" title="Fateh on GitHub"></i>
+      <span class="fa-sr-only">Fateh on GitHub</span>
+    </a>
+    <a class="unset text-xl ml-4 hover:text-text-link" href="https://twitter.com/fateh_ak_">
+      <i class="fa-brands fa-twitter" aria-hidden="true" title="Fateh on Twitter"></i>
+      <span class="fa-sr-only">Fateh on Twitter</span>
+    </a>
+  </div>
+  <ThemeToggle />
+</header>
+
+<script>
+  document.querySelector('#ham-menu-open').addEventListener('click', () => {
+    const menuElem = document.querySelector('#ham-menu');
+    menuElem.classList.remove('hide-menu');
+    menuElem.classList.add('show-menu');
+    document.body.style.overflow = 'hidden';
+  });
+  document.querySelector('#ham-menu-close').addEventListener('click', () => {
+    const menuElem = document.querySelector('#ham-menu');
+    menuElem.classList.remove('show-menu');
+    menuElem.classList.add('hide-menu');
+    document.body.style.overflow = 'auto';
+  });
+</script>
+
+<style>
+  header {
+    display: grid;
+    grid-area: header;
+    grid-template-columns: minmax(0, 1fr) minmax(0, max-content) minmax(0, max-content);
+    align-items: center;
+  }
+
+  .hide-menu {
+    transform: translateX(-100%);
+  }
+
+  .show-menu {
+    transform: translateX(0%);
+  }
+</style>

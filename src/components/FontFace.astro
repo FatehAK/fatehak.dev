@@ -1,0 +1,70 @@
+---
+/*
+  This is not a layout but just a component that's used in page layouts.
+  Easiest way to use a Google font is to embed it as a <link>. But we're
+  gonna load fonts the fastest way.
+
+  Here's the formula for best font load performance.
+  1. Serve from same origin as woff/woff2
+  2. Load font @font-face definitions as inline styles in page <head>
+  3. Preload the same origin font URLs
+
+  Hosting providers like Netlify/Vercel automatically cache your
+  public assets (fonts) and serve from their CDN closest to the users.
+
+  Read more here to understand font load performance
+  https://sia.codes/posts/making-google-fonts-faster
+
+  woff/woff2 assets downloaded using google-webfonts-helper:
+  https://gwfh.mranftl.com/fonts/open-sans?subsets=latin
+*/
+---
+
+<Fragment>
+  <link rel="preload" href="/fonts/inconsolata/inconsolata-v31-latin-regular.woff2" as="font" type="font/woff2" crossorigin="crossorigin" />
+  <link rel="preload" href="/fonts/inconsolata/inconsolata-v31-latin-500.woff2" as="font" type="font/woff2" crossorigin="crossorigin" />
+  <link rel="preload" href="/fonts/inconsolata/inconsolata-v31-latin-700.woff2" as="font" type="font/woff2" crossorigin="crossorigin" />
+  <link rel="preload" href="/fonts/nunito/nunito-v25-latin-700.woff2" as="font" type="font/woff2" crossorigin="crossorigin" />
+  <link rel="preload" href="/fonts/nunito/nunito-v25-latin-800.woff2" as="font" type="font/woff2" crossorigin="crossorigin" />
+  <style is:inline>
+    /* inconsolata-regular - latin */
+    @font-face {
+      font-family: Inconsolata;
+      font-weight: 400;
+      font-style: normal;
+      src: local(''), url('/fonts/inconsolata/inconsolata-v31-latin-regular.woff2') format('woff2');
+    }
+
+    /* inconsolata-500 - latin */
+    @font-face {
+      font-family: Inconsolata;
+      font-weight: 500;
+      font-style: normal;
+      src: local(''), url('/fonts/inconsolata/inconsolata-v31-latin-500.woff2') format('woff2');
+    }
+
+    /* inconsolata-700 - latin */
+    @font-face {
+      font-family: Inconsolata;
+      font-weight: 700;
+      font-style: normal;
+      src: local(''), url('/fonts/inconsolata/inconsolata-v31-latin-700.woff2') format('woff2');
+    }
+
+    /* nunito-700 - latin */
+    @font-face {
+      font-family: Nunito;
+      font-weight: 700;
+      font-style: normal;
+      src: local(''), url('/fonts/nunito/nunito-v25-latin-700.woff2') format('woff2');
+    }
+
+    /* nunito-800 - latin */
+    @font-face {
+      font-family: Nunito;
+      font-weight: 800;
+      font-style: normal;
+      src: local(''), url('/fonts/nunito/nunito-v25-latin-800.woff2') format('woff2');
+    }
+  </style>
+</Fragment>

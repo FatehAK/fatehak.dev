@@ -68,19 +68,6 @@ module.exports = {
       files: ['**/*.astro/*.js', '*.astro/*.js'],
       parser: '@typescript-eslint/parser',
     },
-    {
-      files: ['*.jsx'],
-      // apply rules for react in `overrides` .jsx to not clash with .astro files
-      extends: ['plugin:react/recommended', 'plugin:react-hooks/recommended', 'plugin:jsx-a11y/recommended', 'plugin:react/jsx-runtime'],
-      plugins: ['react'],
-      rules: {
-        'react/jsx-no-useless-fragment': 'off',
-        'react/function-component-definition': ['error', { namedComponents: 'arrow-function' }],
-      },
-      parserOptions: {
-        ecmaFeatures: { jsx: true },
-      },
-    },
   ],
   settings: {
     'import/parsers': {
@@ -95,7 +82,6 @@ module.exports = {
           ['layout', './src/layouts'],
           ['pages', './src/pages'],
           ['components', './src/components'],
-          ['context', './src/context'],
           ['utils', './src/utils'],
           ['theme', './src/theme'],
           ['constants', './src/constants'],

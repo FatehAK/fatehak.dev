@@ -12,42 +12,17 @@ module.exports = {
   rules: {
     ...propertyOrder.rules,
     'plugin/declaration-block-no-ignored-properties': true,
-    'comment-empty-line-before': [
-      'always',
-      {
-        except: ['first-nested'],
-        ignore: ['after-comment', 'stylelint-commands'],
-      },
-    ],
+    'comment-empty-line-before': ['always', { except: ['first-nested'], ignore: ['after-comment', 'stylelint-commands'] }],
     'custom-property-empty-line-before': 'never',
+    'declaration-block-no-redundant-longhand-properties': [true, { ignoreShorthands: ['/grid/'] }],
+    // tailwind
+    'at-rule-no-unknown': [true, { ignoreAtRules: ['tailwind', 'apply', 'layer', 'config'] }],
+    'function-no-unknown': [true, { ignoreFunctions: ['theme'] }],
   },
   overrides: [
     {
       files: '**/*.astro',
       customSyntax: 'postcss-html',
-    },
-    {
-      files: '**/*.{styles.js,jsx}',
-      customSyntax: '@stylelint/postcss-css-in-js',
-      rules: {
-        'function-url-quotes': 'never',
-        'property-no-vendor-prefix': true,
-        'string-no-newline': true,
-        'value-no-vendor-prefix': true,
-        'no-empty-source': null,
-        'no-extra-semicolons': null,
-        // /* pcss-lin */ placeholder comments are added during parsing
-        'comment-empty-line-before': [
-          'always',
-          {
-            except: ['first-nested'],
-            ignore: ['stylelint-commands'],
-            ignoreComments: [/pcss-lin/],
-          },
-        ],
-        //  '//' comments create unknown word issues while linting. Force using /* */
-        'no-invalid-double-slash-comments': true,
-      },
     },
   ],
 };

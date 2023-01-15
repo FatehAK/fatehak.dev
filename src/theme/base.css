@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    scroll-behavior: smooth;
+    font-family: theme('fontFamily.body');
+    font-size: 1.125em; /* base font-size 1px larger for better visibility */
+    line-height: 1.75;
+    color: theme('colors.text.body');
+    background-color: theme('colors.bg.body');
+    transition: background-color 0.3s ease;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: theme('fontFamily.heading');
+  }
+}
+
+@layer components {
+  /* ------ GLOBAL STYLES - START ------ */
+  strong {
+    font-weight: 600;
+    color: theme('colors.text.bold');
+  }
+
+  mark {
+    color: theme('colors.text.selection');
+    background-color: theme('colors.bg.selection');
+  }
+
+  /*
+        if you want an anchor tag to not have this style,
+        just add a class `unset` to it.
+    */
+  a:not(.unset) {
+    font-weight: 500;
+    color: theme('colors.text.bold');
+    text-decoration: none;
+    background-repeat: no-repeat;
+    border-bottom: 1.25px solid theme('colors.text.link');
+  }
+
+  a:not(.unset):hover {
+    color: theme('colors.text.link');
+  }
+
+  code:not(pre code, .unset) {
+    margin-bottom: 1.25em;
+    padding: 0.125rem 0.25rem;
+    font-size: 0.875em;
+    font-weight: 600;
+    color: theme('colors.text.code');
+    background-color: theme('colors.bg.code');
+    border: 1px solid theme('colors.border.code');
+    border-radius: 0.25rem;
+  }
+
+  html.dark code:not(pre code) {
+    background-color: rgb(var(--color-bg-code) / 15%);
+    border-color: rgb(var(--color-border-code) / 15%);
+  }
+
+  ul:not(.unset) {
+    padding-left: 0;
+    list-style: none;
+  }
+
+  ul > li {
+    position: relative;
+    padding-left: 1.375rem;
+  }
+
+  ul:not(.unset) > li::before {
+    content: '»';
+    position: absolute;
+    left: 0;
+    color: rgb(var(--color-text-muted));
+  }
+
+  ol:not(.unset) {
+    padding-left: 1.125rem;
+  }
+
+  ol:not(.unset) > li::marker {
+    color: rgb(var(--color-text-muted));
+  }
+
+  ul:not(.unset) > li,
+  ol:not(.unset) > li {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+
+  ::selection {
+    color: theme('colors.text.selection');
+    background: theme('colors.bg.selection');
+  }
+
+  /* ------ GLOBAL STYLES - END ------ */
+
+  /* ------ REUSABLE UTILS - START ------ */
+  .animated-link {
+    position: relative;
+    text-decoration: none;
+    box-decoration-break: clone;
+  }
+
+  .animated-link::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: -3px;
+    left: 0;
+    transform-origin: left center;
+    transform: translateZ(0) scaleX(0);
+    height: 2px;
+    background-image: linear-gradient(to right, theme('colors.text.link'), theme('colors.text.link'));
+    transition: all 0.15s ease-in-out;
+  }
+
+  .animated-link:hover::after {
+    transform: translateZ(0) scale(1);
+  }
+
+  .animated-link.show::after {
+    transform: translateZ(0) scale(1);
+  }
+
+  /* ------ REUSABLE UTILS - END ------ */
+}

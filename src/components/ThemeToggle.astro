@@ -1,0 +1,88 @@
+---
+---
+
+<theme-toggle>
+  <button
+    class="justify-self-end bg-text-heading/10 dark:bg-white/10 ml-4 inline-flex h-6 w-11 items-center rounded-full"
+    id="theme-toggle"
+    role="switch"
+    type="button"
+    tabindex="0"
+    aria-checked="false"
+  >
+    <span class="sr-only">Toggle theme</span>
+    <span id="theme-toggle-circle" class="light inline-block h-4 w-4 rounded-full bg-gradient-to-tr invisible">
+      <span class="absolute top-0 right-0 w-[10px] h-[10px] rounded-full bg-gray-700 scale-[0]"></span>
+    </span>
+  </button>
+</theme-toggle>
+
+<script>
+  function updateTheme(mode) {
+    if (mode === 'dark') {
+      document.documentElement.classList.remove('light');
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      document.documentElement.classList.add('light');
+      localStorage.setItem('theme', 'light');
+    }
+  }
+
+  class ThemeToggle extends HTMLElement {
+    constructor() {
+      super();
+      let currentMode = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+      const toggle = this.querySelector('button');
+      const iconElem = toggle?.querySelector('#theme-toggle-circle');
+
+      if (iconElem) {
+        // set the toggle mode based on the html classname set in ThemeScript.astro
+        if (currentMode === 'dark') {
+          iconElem.classList.remove('light');
+          iconElem.classList.add('dark');
+        }
+
+        // we load the toggle invisible to prevent flash
+        // remove visibility class after setting initial dark/light class
+        iconElem.classList.remove('invisible');
+
+        toggle?.addEventListener('click', () => {
+          if (currentMode === 'dark') {
+            const modeToSwitch = 'light';
+            iconElem.classList.remove('dark');
+            iconElem.classList.add('light');
+            updateTheme(modeToSwitch);
+            currentMode = modeToSwitch;
+          } else {
+            const modeToSwitch = 'dark';
+            iconElem.classList.remove('light');
+            iconElem.classList.add('dark');
+            updateTheme(modeToSwitch);
+            currentMode = modeToSwitch;
+          }
+
+          // prevent slide animation on page load for dark mode
+          if (!iconElem.classList.contains('duration-300')) {
+            iconElem.classList.add('duration-300');
+          }
+        });
+      }
+    }
+  }
+
+  customElements.define('theme-toggle', ThemeToggle);
+</script>
+
+<style>
+  .light {
+    transform: translateX(0.25rem);
+    background-image: linear-gradient(to bottom, #fbbf24, #d97706);
+  }
+
+  .dark {
+    transform: translateX(1.5rem);
+    background-image: linear-gradient(to top, #67e8f9, #06b6d4);
+  }
+</style>

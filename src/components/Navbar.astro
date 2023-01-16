@@ -8,12 +8,8 @@ const pages = [
     path: '/',
   },
   {
-    name: 'Work',
-    path: '/work',
-  },
-  {
-    name: 'Blog',
-    path: '/blog',
+    name: 'Posts',
+    path: '/posts',
   },
   {
     name: 'Snippets',
@@ -43,16 +39,18 @@ const pages = [
   {/* mobile hamburger menu */}
   <nav class="md:hidden">
     <button id="ham-menu-open">
-      <i class="fa-solid fa-bars" aria-hidden="true" title="Open mobile menu"></i>
-      <span class="fa-sr-only">Open mobile menu</span>
+      <i class="fa-solid fa-bars" aria-hidden="true" title="Open hamburger menu"></i>
+      <span class="fa-sr-only">Open hamburger menu</span>
     </button>
     <section id="ham-menu" class="hide-menu fixed top-0 left-0 z-10 w-full h-full transition-transform bg-black/75 border-primary-main">
       <div class="bg-bg-body w-[75%] h-full drop-shadow-2xl">
-        <button id="ham-menu-close" class="px-6 h-[5rem] text-lg xml-[1px]">
-          <i class="fa-solid fa-xmark" aria-hidden="true" title="Close mobile menu"></i>
-          <span class="fa-sr-only">Close mobile menu</span>
-        </button>
-        <ul class="unset flex flex-col text-text-bold gap-4 [&>li]:p-0 px-6">
+        <div class="flex justify-end">
+          <button id="ham-menu-close" class="px-6 h-[5rem] text-xl xml-[1px]">
+            <i class="fa-solid fa-xmark" aria-hidden="true" title="Close hamburger menu"></i>
+            <span class="fa-sr-only">Close hamburger menu</span>
+          </button>
+        </div>
+        <ul class="unset flex flex-col text-text-bold gap-8 [&>li]:p-0 px-6">
           {
             pages.map(page => (
               <li>
@@ -83,18 +81,22 @@ const pages = [
 </header>
 
 <script>
-  document.querySelector('#ham-menu-open').addEventListener('click', () => {
-    const menuElem = document.querySelector('#ham-menu');
-    menuElem.classList.remove('hide-menu');
-    menuElem.classList.add('show-menu');
+  const hamMenu = document.querySelector('#ham-menu');
+  function showMenu() {
+    hamMenu.classList.remove('hide-menu');
+    hamMenu.classList.add('show-menu');
     document.body.style.overflow = 'hidden';
-  });
-  document.querySelector('#ham-menu-close').addEventListener('click', () => {
-    const menuElem = document.querySelector('#ham-menu');
-    menuElem.classList.remove('show-menu');
-    menuElem.classList.add('hide-menu');
+  }
+  function hideMenu() {
+    hamMenu.classList.remove('show-menu');
+    hamMenu.classList.add('hide-menu');
     document.body.style.overflow = 'auto';
+  }
+  hamMenu.addEventListener('click', evt => {
+    if (evt.target === hamMenu) hideMenu();
   });
+  document.querySelector('#ham-menu-open').addEventListener('click', showMenu);
+  document.querySelector('#ham-menu-close').addEventListener('click', hideMenu);
 </script>
 
 <style>

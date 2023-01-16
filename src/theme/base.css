@@ -6,7 +6,7 @@
   :root {
     scroll-behavior: smooth;
     font-family: theme('fontFamily.body');
-    font-size: 1.125em; /* base font-size 1px larger for better visibility */
+    font-size: 100%;
     line-height: 1.75;
     color: theme('colors.text.body');
     background-color: theme('colors.bg.body');
@@ -35,10 +35,6 @@
     background-color: theme('colors.bg.selection');
   }
 
-  /*
-        if you want an anchor tag to not have this style,
-        just add a class `unset` to it.
-    */
   a:not(.unset) {
     font-weight: 500;
     color: theme('colors.text.bold');
@@ -104,34 +100,4 @@
   }
 
   /* ------ GLOBAL STYLES - END ------ */
-
-  /* ------ REUSABLE UTILS - START ------ */
-  .animated-link {
-    position: relative;
-    text-decoration: none;
-    box-decoration-break: clone;
-  }
-
-  .animated-link::after {
-    content: '';
-    position: absolute;
-    right: 0;
-    bottom: -3px;
-    left: 0;
-    transform-origin: left center;
-    transform: translateZ(0) scaleX(0);
-    height: 2px;
-    background-image: linear-gradient(to right, theme('colors.text.link'), theme('colors.text.link'));
-    transition: all 0.15s ease-in-out;
-  }
-
-  .animated-link:hover::after {
-    transform: translateZ(0) scale(1);
-  }
-
-  .animated-link.show::after {
-    transform: translateZ(0) scale(1);
-  }
-
-  /* ------ REUSABLE UTILS - END ------ */
 }

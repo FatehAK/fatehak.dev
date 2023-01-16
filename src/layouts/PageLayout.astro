@@ -41,7 +41,7 @@ const isProd = import.meta.env.BUILD === 'production';
     <link href="/fontawesome/css/bareminimum.css" rel="stylesheet" />
     {isProd && <script src={`https://static.cloudflareinsights.com/beacon.min.js?token=${APP_CONFIG.CLOUDFLARE_ANALYTICS_TOKEN}`} defer />}
   </head>
-  <body class="min-h-screen max-w-3xl mx-auto px-6 sm:px-8">
+  <body class="min-h-screen max-w-4xl mx-auto px-6 sm:px-8">
     <Navbar />
     <main id="main">
       <slot />

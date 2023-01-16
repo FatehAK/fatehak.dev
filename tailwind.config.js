@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        body: ['Inconsolata', 'sans-serif'],
+        body: ['Inter', 'sans-serif'],
         heading: ['Nunito', 'sans-serif'],
       },
       colors: {

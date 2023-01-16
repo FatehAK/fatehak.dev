@@ -45,6 +45,7 @@ module.exports = {
               'text-decoration': 'none',
               'border-bottom': '1.25px solid rgb(var(--color-text-link))',
               color: 'rgb(var(--color-text-bold))',
+              transition: 'color 0.2s',
               '&:hover': {
                 color: 'rgb(var(--color-text-link))',
               },

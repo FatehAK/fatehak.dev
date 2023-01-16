@@ -7,7 +7,7 @@
     scroll-behavior: smooth;
     font-family: theme('fontFamily.body');
     font-size: 100%;
-    line-height: 1.75;
+    line-height: 1.84;
     color: theme('colors.text.body');
     background-color: theme('colors.bg.body');
     transition: background-color 0.3s ease;
@@ -41,6 +41,7 @@
     text-decoration: none;
     background-repeat: no-repeat;
     border-bottom: 1.25px solid theme('colors.text.link');
+    transition: color 0.2s;
   }
 
   a:not(.unset):hover {

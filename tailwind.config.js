@@ -4,7 +4,6 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        body: ['Inter', 'sans-serif'],
         heading: ['Nunito', 'sans-serif'],
       },
       colors: {

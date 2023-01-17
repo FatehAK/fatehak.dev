@@ -3,10 +3,10 @@ import codeImage from 'assets/code.svg';
 import magicImage from 'assets/magic.svg';
 ---
 
-<section class="sm:mt-4 mb-4">
-  <div class="flex flex-col-reverse sm:grid sm:grid-cols-[2fr_180px] items-start sm:pt-4 overflow-hidden">
-    <div class="flex flex-col sm:pr-8">
-      <h1 class="font-extrabold text-[2em] md:text-[2.5em] pb-4 text-black leading-[1.25]">
+<section class="mt-4 mb-4 md:mt-0">
+  <div class="grid grid-cols-[2fr_180px] items-start pt-4 md:pt-0 overflow-hidden md:flex md:flex-col-reverse">
+    <div class="flex flex-col pr-8 md:pr-0">
+      <h1 class="font-extrabold text-[2.5em] md:text-[2em] pb-4 text-black leading-[1.25]">
         <span class="dark:inline text-text-heading intro-heading"
           >Hi, I'm <span
             class="bg-clip-text text-transparent bg-gradient-to-br from-[#fbbf24] via-[#f59e0b] to-[#d97706] dark:from-[#67e8f9] dark:via-[#22d3ee] dark:to-[#06b6d4]"
@@ -15,7 +15,7 @@ import magicImage from 'assets/magic.svg';
         </span>
       </h1>
 
-      <p class="mb-4 sm:mb-6">
+      <p class="mb-6 sm:mb-4">
         <span>Front-End Engineer, Open Sourcerer</span>
         <span class="inline-block w-8 h-8 magic-vector-wrapper">
           <img src={magicImage} alt="magic" class="inline w-full magic-vector" />
@@ -40,8 +40,8 @@ import magicImage from 'assets/magic.svg';
         </a>
       </div>
     </div>
-    <div class="w-full flex justify-center mb-6 sm:mb-0 code-flip">
-      <div class="w-16 h-16 sm:w-20 sm:h-20">
+    <div class="w-full flex justify-center md:mb-6 code-flip">
+      <div class="w-20 h-20 sm:w-16 sm:h-16">
         <img src={codeImage} alt="coding" />
       </div>
     </div>

@@ -23,7 +23,7 @@ const pages = [
     Skip to content
   </a>
   {/* desktop navbar */}
-  <nav class="hidden md:inline">
+  <nav class="inline md:hidden">
     <section class="text-text-bold">
       <ul class="unset flex gap-4 [&>li]:p-0">
         {
@@ -37,7 +37,7 @@ const pages = [
     </section>
   </nav>
   {/* mobile hamburger menu */}
-  <nav class="md:hidden">
+  <nav class="hidden md:block">
     <button id="ham-menu-open">
       <i class="fa-solid fa-bars" aria-hidden="true" title="Open hamburger menu"></i>
       <span class="fa-sr-only">Open hamburger menu</span>

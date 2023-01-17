@@ -2,6 +2,11 @@ module.exports = {
   content: ['./src/**/*.astro'],
   darkMode: 'class',
   theme: {
+    screens: {
+      lg: { max: '1366px' },
+      md: { max: '700px' },
+      sm: { max: '450px' },
+    },
     extend: {
       fontFamily: {
         heading: ['Nunito', 'sans-serif'],
@@ -90,7 +95,6 @@ module.exports = {
               width: '96%',
               margin: '0 auto',
               color: 'rgb(var(--color-text-muted))',
-              'font-size': '1.125em',
               'padding-top': '1.5rem',
               'padding-bottom': '0.5rem',
               'padding-left': '1.5rem',

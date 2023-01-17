@@ -1,5 +1,9 @@
 ---
 import PageLayout from 'layouts/PageLayout.astro';
+import PageSEO from 'components/PageSEO.astro';
+import { APP_CONFIG } from 'appConfig';
 ---
 
-<PageLayout />
+<PageLayout>
+  <PageSEO title={`${APP_CONFIG.USER.name} | Posts`} slot="seo" />
+</PageLayout>

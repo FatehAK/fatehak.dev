@@ -1,17 +1,19 @@
 export const APP_CONFIG = {
-  PROD_BASE_URL: 'https://fatehak.pages.dev',
+  SITE_URL: 'https://fatehak.pages.dev',
   META: {
-    name: 'fatehak.dev',
-    author: 'FatehAK',
-    description: 'Curious About Code',
-    keywords: 'fatehak, developer, frontend developer, ui',
+    title: 'FatehAK • Hello World!',
+    description: 'Front-End Engineer, Open Sourcerer',
+    keywords: 'fatehak, developer, front-end engineer, ui',
     banner: '',
-    app: {
-      background: '#26323b',
-    },
-    type: 'website',
+  },
+  USER: {
+    name: 'FatehAK',
+    shortName: 'Fateh',
     social: {
       twitter: '@Fateh_AK_',
+      email: 'fa7ehak@gmail.com',
+      linkedin: 'https://linkedin.com/in/fatehak',
+      github: 'https://github.com/fatehak',
     },
   },
   CLOUDFLARE_ANALYTICS_TOKEN: '7f556488383a4b9fb52323be73ba0485',

@@ -1,0 +1,42 @@
+---
+import { APP_CONFIG } from 'appConfig';
+
+const {
+  title = APP_CONFIG.META.title,
+  description = APP_CONFIG.META.description,
+  keywords = APP_CONFIG.META.keywords,
+  banner = APP_CONFIG.META.banner,
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const bannerURL = new URL(banner, Astro.url);
+
+const META_TAGS = [
+  { name: 'title', content: title },
+  { name: 'description', content: description },
+  { name: 'keywords', content: keywords },
+  { name: 'author', content: APP_CONFIG.USER.name },
+  { name: 'image', content: bannerURL },
+  { name: 'theme-color', content: '#26323b' },
+  { name: 'generator', content: Astro.generator },
+  // Open Graph tags
+  { property: 'og:title', content: title },
+  { property: 'og:site_name', content: APP_CONFIG.META.title },
+  { property: 'og:type', content: 'website' },
+  { property: 'og:description', content: description },
+  { property: 'og:image', content: bannerURL },
+  { property: 'og:url', content: Astro.url },
+  // Twitter tags
+  { name: 'twitter:title', content: title },
+  { name: 'twitter:site', content: APP_CONFIG.USER.social.twitter },
+  { name: 'twitter:creator', content: APP_CONFIG.USER.social.twitter },
+  { name: 'twitter:card', content: 'summary_large_image' },
+  { name: 'twitter:description', content: description },
+  { name: 'twitter:image', content: bannerURL },
+  { name: 'twitter:url', content: Astro.url },
+];
+---
+
+<title>{title}</title>
+<link rel="canonical" href={canonicalURL} />
+{META_TAGS.map(({ content, ...rest }) => <meta {...rest} content={content} />)}

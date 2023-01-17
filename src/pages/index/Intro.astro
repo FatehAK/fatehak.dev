@@ -1,16 +1,18 @@
 ---
+import Social from 'components/Social.astro';
 import magicImage from 'assets/magic.svg';
+import { APP_CONFIG } from 'appConfig';
 ---
 
 <section class="mt-4 mb-4 md:mt-0">
   <div class="grid grid-cols-[2fr_180px] items-start pt-4 md:pt-0 overflow-hidden md:flex md:flex-col-reverse">
     <div class="flex flex-col pr-8 md:pr-0">
       <h1 class="pb-4 text-text-heading tracking-wider intro-heading text-[3.1rem] md:text-[2.5rem] leading-[1.25]">
+        <span>Hi, I'm&nbsp;</span>
         <span
-          >Hi, I'm <span
-            class="bg-clip-text text-transparent bg-gradient-to-br from-[#fbbf24] via-[#f59e0b] to-[#d97706] dark:from-[#67e8f9] dark:via-[#22d3ee] dark:to-[#06b6d4]"
-            >Fateh</span
-          >
+          class="bg-clip-text animate-gradient text-transparent bg-gradient-to-br from-[#ffd388] via-[#f59e0b] to-[#ffd388] dark:from-[#8AFFFF] dark:via-[#22d3ee] dark:to-[#8AFFFF]"
+        >
+          {APP_CONFIG.USER.shortName}
         </span>
       </h1>
 
@@ -24,20 +26,7 @@ import magicImage from 'assets/magic.svg';
           engineering clean and performant web applications.
         </span>
       </p>
-      <div>
-        <a class="unset text-xl hover:text-text-link" href="mailto:fa7ehak@gmail.com">
-          <i class="fa-solid fa-envelope" aria-hidden="true" title="Mail"></i>
-          <span class="fa-sr-only">Fateh's Mail</span>
-        </a>
-        <a class="unset text-xl hover:text-text-link ml-4" href="https://github.com/fatehak" target="_blank" rel="noopener noreferrer">
-          <i class="fa-brands fa-github" aria-hidden="true" title="GitHub"></i>
-          <span class="fa-sr-only">Fateh's GitHub</span>
-        </a>
-        <a class="unset text-xl hover:text-text-link ml-4" href="https://linkedin.com/in/fatehak" target="_blank" rel="noopener noreferrer">
-          <i class="fa-brands fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i>
-          <span class="fa-sr-only">Fateh's LinkedIn</span>
-        </a>
-      </div>
+      <Social />
     </div>
     <div class="w-full flex justify-center md:mb-6 code-flip">
       <div class="w-20 h-20 sm:w-16 sm:h-16">
@@ -60,6 +49,10 @@ import magicImage from 'assets/magic.svg';
     font-family: Pacifico, cursive;
   }
 
+  .animate-gradient {
+    animation: gradient-transition 4s ease infinite;
+  }
+
   .magic-vector-wrapper {
     margin-right: -0.88rem;
   }
@@ -74,6 +67,19 @@ import magicImage from 'assets/magic.svg';
     animation-duration: 0.6s;
     animation-fill-mode: both;
     animation-delay: 0.2s;
+  }
+
+  @keyframes gradient-transition {
+    0%,
+    100% {
+      background-position: 0;
+      background-size: 200% 200%;
+    }
+
+    50% {
+      background-position: 100%;
+      background-size: 200% 200%;
+    }
   }
 
   @keyframes flip {

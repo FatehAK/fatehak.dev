@@ -7,7 +7,7 @@ import { APP_CONFIG, COMPRESSION_CONFIG } from './appConfig';
 
 const isProd = process.env.BUILD === 'production';
 export default defineConfig({
-  site: APP_CONFIG.PROD_BASE_URL,
+  site: APP_CONFIG.SITE_URL,
   integrations: [AstroTailwindPlugin({ config: { applyBaseStyles: false } }), isProd && AstroCompress(COMPRESSION_CONFIG)],
   server: { port: 3000, host: true },
   vite: {

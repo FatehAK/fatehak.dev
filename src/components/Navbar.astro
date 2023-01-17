@@ -1,5 +1,6 @@
 ---
 import NavLink from './NavLink.astro';
+import Social from './Social.astro';
 import ThemeToggle from './ThemeToggle.astro';
 
 const pages = [
@@ -38,19 +39,19 @@ const pages = [
   </nav>
   {/* mobile hamburger menu */}
   <nav class="hidden md:block">
-    <button id="ham-menu-open">
+    <button id="ham-menu-open" class="text-text-bold text-lg">
       <i class="fa-solid fa-bars" aria-hidden="true" title="Open hamburger menu"></i>
       <span class="fa-sr-only">Open hamburger menu</span>
     </button>
     <section id="ham-menu" class="hide-menu fixed top-0 left-0 z-10 w-full h-full transition-transform bg-black/75 border-primary-main">
-      <div class="bg-bg-body w-[75%] h-full drop-shadow-2xl">
+      <div class="flex flex-col justify-between bg-bg-body w-[75%] h-full drop-shadow-2xl px-6">
         <div class="flex justify-end">
-          <button id="ham-menu-close" class="px-6 h-[5rem] text-xl xml-[1px]">
+          <button id="ham-menu-close" class="h-[5rem] text-xl xml-[1px] text-text-bold">
             <i class="fa-solid fa-xmark" aria-hidden="true" title="Close hamburger menu"></i>
             <span class="fa-sr-only">Close hamburger menu</span>
           </button>
         </div>
-        <ul class="unset flex flex-col text-text-bold gap-8 [&>li]:p-0 px-6">
+        <ul class="unset flex flex-col justify-center text-text-bold gap-8 [&>li]:p-0">
           {
             pages.map(page => (
               <li>
@@ -59,11 +60,12 @@ const pages = [
             ))
           }
         </ul>
+        <div class="py-10"><Social /></div>
       </div>
     </section>
   </nav>
   {/* nav links right */}
-  <div class="max-[375px]:hidden justify-self-end py-2 flex items-center content-center text-text-bold">
+  <div class="justify-self-end py-2 flex items-center content-center text-text-bold">
     <a class="unset text-xl ml-4 hover:text-text-link" href="/rss.xml">
       <i class="fa-solid fa-rss" aria-hidden="true" title="RSS feed"></i>
       <span class="fa-sr-only">RSS feed</span>

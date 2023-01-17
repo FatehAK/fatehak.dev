@@ -1,0 +1,18 @@
+---
+import { APP_CONFIG } from 'appConfig';
+---
+
+<div class="text-text-bold">
+  <a class="unset text-xl hover:text-text-link" href={`mailto:${APP_CONFIG.USER.social.email}`}>
+    <i class="fa-solid fa-envelope" aria-hidden="true" title="Mail"></i>
+    <span class="fa-sr-only">{APP_CONFIG.USER.shortName}'s Mail</span>
+  </a>
+  <a class="unset text-xl hover:text-text-link ml-4" href={APP_CONFIG.USER.social.github} target="_blank" rel="noopener noreferrer">
+    <i class="fa-brands fa-github" aria-hidden="true" title="GitHub"></i>
+    <span class="fa-sr-only">{APP_CONFIG.USER.shortName}'s GitHub</span>
+  </a>
+  <a class="unset text-xl hover:text-text-link ml-4" href={APP_CONFIG.USER.social.linkedin} target="_blank" rel="noopener noreferrer">
+    <i class="fa-brands fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i>
+    <span class="fa-sr-only">{APP_CONFIG.USER.shortName}'s LinkedIn</span>
+  </a>
+</div>

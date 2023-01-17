@@ -11,18 +11,24 @@ const isActive = isHome || isOtherPages;
 
 <style>
   .nav-link {
-    --c: theme('colors.text.link');
-    --s: 3.84px;
-
-    padding-bottom: calc(2.8 * var(--s));
+    position: relative;
     text-decoration: none;
-    background: conic-gradient(from 135deg at top, var(--c) 90deg, #0000 0) left 0 bottom var(--s) / calc(2 * var(--s)) var(--s) repeat-x,
-      conic-gradient(from -45deg at bottom, var(--c) 90deg, #0000 0) left var(--s) bottom 0 / calc(2 * var(--s)) var(--s) repeat-x;
-    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0) 50% 100% / var(--p, 0%) padding-box no-repeat;
-    transition: 0.4s;
   }
 
-  .nav-link:is(:hover, .show) {
-    --p: 100%;
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: -9px;
+    left: 0;
+    transform-origin: left center;
+    transform: translateZ(0) scaleX(0);
+    height: 3px;
+    background-image: linear-gradient(to right, theme('colors.text.link'), theme('colors.text.link'));
+    transition: all 0.15s ease-in-out;
+  }
+
+  .nav-link:is(:hover, .show)::after {
+    transform: translateZ(0) scale(1);
   }
 </style>

@@ -78,7 +78,7 @@ module.exports = {
               color: 'rgb(var(--color-text-heading))',
             },
             'h1, h2': {
-              'font-weight': '600',
+              'font-weight': '700',
             },
             'h3, h4, h5': {
               'font-weight': '500',

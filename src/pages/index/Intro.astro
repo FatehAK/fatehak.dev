@@ -1,13 +1,12 @@
 ---
-import codeImage from 'assets/code.svg';
 import magicImage from 'assets/magic.svg';
 ---
 
 <section class="mt-4 mb-4 md:mt-0">
   <div class="grid grid-cols-[2fr_180px] items-start pt-4 md:pt-0 overflow-hidden md:flex md:flex-col-reverse">
     <div class="flex flex-col pr-8 md:pr-0">
-      <h1 class="font-extrabold text-[2.5em] md:text-[2em] pb-4 text-black leading-[1.25]">
-        <span class="dark:inline text-text-heading intro-heading"
+      <h1 class="pb-4 text-text-heading tracking-wider intro-heading text-[3.1rem] md:text-[2.5rem] leading-[1.25]">
+        <span
           >Hi, I'm <span
             class="bg-clip-text text-transparent bg-gradient-to-br from-[#fbbf24] via-[#f59e0b] to-[#d97706] dark:from-[#67e8f9] dark:via-[#22d3ee] dark:to-[#06b6d4]"
             >Fateh</span
@@ -42,7 +41,15 @@ import magicImage from 'assets/magic.svg';
     </div>
     <div class="w-full flex justify-center md:mb-6 code-flip">
       <div class="w-20 h-20 sm:w-16 sm:h-16">
-        <img src={codeImage} alt="coding" />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 256 256"
+          fill="none"
+          stroke="#1fd0eb"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="12"><path d="M64 88l-48 40 48 40m128-80l48 40-48 40M160 40L96 216"></path></svg
+        >
       </div>
     </div>
   </div>
@@ -51,15 +58,14 @@ import magicImage from 'assets/magic.svg';
 <style>
   .intro-heading {
     font-family: Pacifico, cursive;
-    letter-spacing: 0.2rem;
   }
 
   .magic-vector-wrapper {
-    margin-right: -14px;
+    margin-right: -0.88rem;
   }
 
   .magic-vector {
-    margin: -20px -10px 0 -6px;
+    margin: -1.2rem -2rem 0 -0.4rem;
   }
 
   .code-flip {

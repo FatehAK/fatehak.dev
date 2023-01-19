@@ -4,13 +4,13 @@ import magicImage from 'assets/magic.svg';
 import { APP_CONFIG } from 'appConfig';
 ---
 
-<section class="mt-4 mb-4 md:mt-0">
+<section class="mt-4 mb-14 md:mt-0">
   <div class="grid grid-cols-[2fr_180px] items-start pt-4 md:pt-0 overflow-hidden md:flex md:flex-col-reverse">
     <div class="flex flex-col pr-8 md:pr-0">
       <h1 class="pb-4 text-text-heading tracking-wider intro-heading text-[3.1rem] md:text-[2.5rem] leading-[1.25]">
         <span>Hi, I'm&nbsp;</span>
         <span
-          class="bg-clip-text animate-gradient text-transparent bg-gradient-to-br from-[#ffd388] via-[#f59e0b] to-[#ffd388] dark:from-[#8AFFFF] dark:via-[#22d3ee] dark:to-[#8AFFFF]"
+          class="bg-clip-text text-transparent bg-gradient-to-br from-[#ffd388] via-primary to-[#ffd388] dark:from-[#8AFFFF] dark:via-primary dark:to-[#8AFFFF]"
         >
           {APP_CONFIG.USER.shortName}
         </span>
@@ -31,10 +31,10 @@ import { APP_CONFIG } from 'appConfig';
     <div class="w-full flex justify-center md:mb-6 code-flip">
       <div class="w-20 h-20 sm:w-16 sm:h-16">
         <svg
+          class="stroke-primary"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 256 256"
           fill="none"
-          stroke="#1fd0eb"
           stroke-linecap="round"
           stroke-linejoin="round"
           stroke-width="12"><path d="M64 88l-48 40 48 40m128-80l48 40-48 40M160 40L96 216"></path></svg
@@ -47,10 +47,6 @@ import { APP_CONFIG } from 'appConfig';
 <style>
   .intro-heading {
     font-family: Pacifico, cursive;
-  }
-
-  .animate-gradient {
-    animation: gradient-transition 4s ease infinite;
   }
 
   .magic-vector-wrapper {
@@ -67,19 +63,6 @@ import { APP_CONFIG } from 'appConfig';
     animation-duration: 0.6s;
     animation-fill-mode: both;
     animation-delay: 0.2s;
-  }
-
-  @keyframes gradient-transition {
-    0%,
-    100% {
-      background-position: 0;
-      background-size: 200% 200%;
-    }
-
-    50% {
-      background-position: 100%;
-      background-size: 200% 200%;
-    }
   }
 
   @keyframes flip {

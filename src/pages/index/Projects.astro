@@ -1,0 +1,165 @@
+---
+import genzoLogo from 'assets/genzo-logo.png';
+import viteImageOptimizerLogo from 'assets/vite-logo.svg';
+import navigoLogo from 'assets/navigo-logo.png';
+import notebyteLogo from 'assets/notebyte-logo.png';
+import memriseLogo from 'assets/memrise-logo.svg';
+import { APP_CONFIG } from 'appConfig';
+
+const projectList = [
+  {
+    name: 'genzo',
+    logo: genzoLogo,
+    githubURL: 'https://github.com/FatehAK/genzo-cli',
+    liveURL: 'https://www.npmjs.com/package/genzo',
+    description: 'Rapidly scaffold your projects with custom templates using the CLI ⚡️',
+    technologies: ['Node', 'CLI'],
+  },
+  {
+    name: 'vite-plugin',
+    logo: viteImageOptimizerLogo,
+    githubURL: 'https://github.com/FatehAK/vite-plugin-image-optimizer',
+    liveURL: 'https://www.npmjs.com/package/vite-plugin-image-optimizer',
+    description: 'Optimize your image assets using Sharp.js and SVGO at build time.',
+    technologies: ['Node', 'Vite'],
+  },
+  {
+    name: 'navigo',
+    logo: navigoLogo,
+    githubURL: 'https://github.com/FatehAK/navigo',
+    liveURL: 'https://navigo-app.pages.dev',
+    description: 'Discover places near you by drawing on the Map with PWA support.',
+    technologies: ['React', 'PWA', 'Vite'],
+  },
+  {
+    name: 'notebyte',
+    logo: notebyteLogo,
+    githubURL: 'https://github.com/FatehAK/notebyte',
+    liveURL: 'https://notebyte.onrender.com',
+    description: 'Jot down your thoughts with this simple note taking web app ✏️',
+    technologies: ['Node', 'Express', 'Mongo'],
+  },
+  {
+    name: 'memrise',
+    logo: memriseLogo,
+    githubURL: 'https://github.com/FatehAK/memrise',
+    liveURL: 'https://memrise.pages.dev/',
+    description: 'Boost your memory with this matchup game written in Vanilla JS ✨',
+    technologies: ['JS', 'HTML', 'CSS'],
+  },
+];
+
+const hasOddProjects = projectList.length % 2 !== 0;
+---
+
+<section class="mb-14">
+  <h2 class="font-bold text-2xl md:text-xl pb-4 text-text-heading">Projects</h2>
+  <div class="grid gap-11 md:gap-9 grid-cols-2 md:grid-cols-1 px-2 md:px-0">
+    {
+      projectList.map((p, index) => (
+        <div class="flex card" style={`animation-delay: 0.${index}s`}>
+          <div class="unset flex flex-col relative rounded-lg dark:bg-[#101822] card-inner">
+            <div class="flex justify-between items-center mb-2">
+              <div class="flex items-center">
+                <img class="mr-3" src={p.logo} width="20" height="20" alt={p.name} />
+                <a class="unset flex items-center card-link" href={p.liveURL} target="_blank" rel="noopener noreferrer">
+                  <p class="font-bold text-text-bold text-lg">{p.name}</p>
+                  <i class="fa-solid fa-arrow-up-right-from-square text-sm ml-2" />
+                </a>
+              </div>
+              <div class="flex items-center">
+                <a class="unset" href={p.githubURL} target="_blank" rel="noopener noreferrer">
+                  <i class="fa-brands fa-github text-xl hover:text-text-link transition-colors" aria-hidden="true" title="View on GitHub" />
+                  <span class="fa-sr-only">{p.name}'s GitHub URL</span>
+                </a>
+              </div>
+            </div>
+            <p>{p.description}</p>
+            <div class="flex mt-6">
+              {p.technologies.map((tech, idx) => (
+                <div class={`flex justify-center items-center border dark:border-[#2b3045] pill ${idx > 0 ? 'ml-3' : ''}`}>{tech}</div>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))
+    }
+    <div
+      class={`flex card items-center justify-center ${hasOddProjects ? '' : 'col-span-2 md:col-span-1'}`}
+      style={`animation-delay: 0.${projectList.length}s`}
+    >
+      <span>
+        {hasOddProjects && <i class="fa-solid fa-arrow-right text-primary mr-1 md:hidden" />}
+        View more on&nbsp;
+      </span>
+      <span>
+        <a class="flex items-center transition-colors" href={APP_CONFIG.USER.social.github} target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-github text-xl hover:text-text-link" aria-hidden="true" title="GitHub"></i>
+          <span class="ml-1">GitHub</span>
+        </a>
+      </span>
+    </div>
+  </div>
+</section>
+
+<style>
+  .card {
+    opacity: 0;
+    animation: card-fadein 0.8s ease;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes card-fadein {
+    to {
+      opacity: 1;
+    }
+  }
+
+  .card-inner {
+    position: relative;
+    padding: 1.6rem;
+    transition: all 0.3s;
+  }
+
+  .card-inner::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translate3d(0, 0, 0); /* safari fix */
+    backface-visibility: hidden; /* safari fix */
+    background-image: linear-gradient(235deg, theme('colors.secondary'), theme('colors.bg.body'), theme('colors.primary'));
+    filter: blur(6px);
+    transition: all 0.3s;
+  }
+
+  .card-link {
+    border-bottom: 1.25px solid transparent;
+    transition: all 0.3s;
+  }
+
+  @media (hover: hover) {
+    .card-inner:hover::after {
+      top: -4px;
+      right: -4px;
+      bottom: -4px;
+      left: -4px;
+      filter: blur(9px);
+    }
+
+    .card-link:hover {
+      color: theme('colors.text.link');
+      border-bottom: 1.25px solid theme('colors.text.link');
+    }
+  }
+
+  .pill {
+    width: 58px;
+    height: 22px;
+    font-size: 0.7rem;
+    border-radius: 0.625rem;
+  }
+</style>

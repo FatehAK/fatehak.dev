@@ -34,19 +34,6 @@
     background-color: theme('colors.bg.selection');
   }
 
-  a:not(.unset) {
-    font-weight: 500;
-    color: theme('colors.text.bold');
-    text-decoration: none;
-    background-repeat: no-repeat;
-    border-bottom: 1.25px solid theme('colors.text.link');
-    transition: color 0.2s;
-  }
-
-  a:not(.unset):hover {
-    color: theme('colors.text.link');
-  }
-
   code:not(pre code, .unset) {
     margin-bottom: 1.25em;
     padding: 0.125rem 0.25rem;
@@ -97,6 +84,20 @@
   ::selection {
     color: theme('colors.text.selection');
     background: theme('colors.bg.selection');
+  }
+
+  a:not(.unset) {
+    font-weight: 500;
+    color: theme('colors.text.bold');
+    text-decoration: none;
+    border-bottom: 1.25px solid theme('colors.text.link');
+    transition: color 0.2s;
+  }
+
+  @media (hover: hover) {
+    a:not(.unset):hover {
+      color: theme('colors.text.link');
+    }
   }
 
   /* ------ GLOBAL STYLES - END ------ */

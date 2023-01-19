@@ -24,11 +24,17 @@ const isActive = isHome || isOtherPages;
     transform-origin: left center;
     transform: translateZ(0) scaleX(0);
     height: 3px;
-    background-image: linear-gradient(to right, theme('colors.text.link'), theme('colors.text.link'));
+    background-color: theme('colors.text.link');
     transition: all 0.15s ease-in-out;
   }
 
-  .nav-link:is(:hover, .show)::after {
+  .nav-link.show::after {
     transform: translateZ(0) scale(1);
+  }
+
+  @media (hover: hover) {
+    .nav-link:hover::after {
+      transform: translateZ(0) scale(1);
+    }
   }
 </style>

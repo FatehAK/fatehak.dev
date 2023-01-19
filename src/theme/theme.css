@@ -1,41 +1,31 @@
 /* light theme */
 .theme-default {
-  --color-primary-main: 245 158 11; /* tailwind amber-500 */
-  --color-label-blue: 186 230 253;
-  --color-label-gray: 226 232 240;
-  --color-label-yellow: 253 230 138;
-  --color-label-orange: 254 215 170;
-  --color-label-red: 254 205 211;
-  --color-text-body: 55 65 81; /* tailwind gray-700 #374151 */
-  --color-text-heading: 17 24 39; /* tailwind gray-900 #111827 */
-  --color-text-bold: 17 24 39; /* tailwind gray-900 #111827 */
-  --color-text-muted: 107 114 128; /* tailwind gray-500 */
-  --color-text-link: 245 158 11; /* tailwind amber-500 */
-  --color-text-code: 0 0 0; /* black */
-  --color-text-selection: 0 0 0; /* black */
-  --color-bg-body: 255 255 255; /* white */
-  --color-bg-code: 255 247 237; /* tailwind orange-50 */
+  --color-bg-body: 255 255 255; /* #fff */
+  --color-primary: 245 158 11; /* #f59e0b */
+  --color-secondary: 34 211 238; /* #22d3ee */
+  --color-text-selection: 0 0 0; /* #000 */
   --color-bg-selection: 254 240 138; /* #fef08a */
-  --color-border-code: 255 237 213; /* tailwind orange-100 */
+  --color-text-heading: 17 24 39; /* #111827 */
+  --color-text-body: 55 65 81; /* #374151 */
+  --color-text-bold: 17 24 39; /* #111827 */
+  --color-text-muted: 107 114 128; /* #6b7280 */
+  --color-text-code: 0 0 0; /* #000 */
+  --color-bg-code: 255 247 237; /* #fff7ed */
+  --color-border-code: 255 237 213; /* #ffedd5 */
 }
 
 /* dark theme */
 .theme-default.dark {
-  --color-primary-main: 248 113 113; /* #f87171 */
-  --color-label-blue: 3 105 161;
-  --color-label-gray: 51 65 85;
-  --color-label-yellow: 161 98 7;
-  --color-label-orange: 194 65 12;
-  --color-label-red: 190 18 60;
-  --color-text-body: 209 213 219; /* tailwind gray-300 */
-  --color-text-heading: 255 255 255; /* white */
-  --color-text-bold: 255 255 255; /* white */
-  --color-text-muted: 156 163 175; /* tailwind gray-400 */
-  --color-text-link: 248 113 113; /* #f87171 */
-  --color-text-code: 255 255 255; /* black */
-  --color-text-selection: 0 0 0; /* black */
   --color-bg-body: 14 20 27; /* #0e141b */
-  --color-bg-code: 234 179 8; /* yellow-500 */
-  --color-bg-selection: 103 232 249; /* #67e8f9 */
-  --color-border-code: 254 243 199; /* yellow-100 */
+  --color-primary: 34 211 238; /* #22d3ee */
+  --color-secondary: 248 113 113; /* #f87171 */
+  --color-text-selection: 0 0 0; /* #fff */
+  --color-bg-selection: 34 211 238; /* #22d3ee */
+  --color-text-heading: 255 255 255; /* #fff */
+  --color-text-body: 209 213 219; /* #d1d5db */
+  --color-text-bold: 255 255 255; /* #fff */
+  --color-text-muted: 156 163 175; /* #9ca3af */
+  --color-text-code: 255 255 255; /* #000 */
+  --color-bg-code: 234 179 8; /* #eab308 */
+  --color-border-code: 254 243 199; /* #fef9c3 */
 }

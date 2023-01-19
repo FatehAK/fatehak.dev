@@ -22,11 +22,11 @@
     if (mode === 'dark') {
       document.documentElement.classList.remove('light');
       document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
+      sessionStorage.setItem('theme', 'dark');
     } else {
       document.documentElement.classList.remove('dark');
       document.documentElement.classList.add('light');
-      localStorage.setItem('theme', 'light');
+      sessionStorage.setItem('theme', 'light');
     }
   }
 
@@ -78,11 +78,11 @@
 <style>
   .light {
     transform: translateX(0.25rem);
-    background-image: linear-gradient(to bottom, #fbbf24, #d97706);
+    background-image: linear-gradient(to bottom, theme('colors.primary'), #ed8610);
   }
 
   .dark {
     transform: translateX(1.5rem);
-    background-image: linear-gradient(to top, #67e8f9, #06b6d4);
+    background-image: linear-gradient(to bottom, theme('colors.primary'), #03a3bf);
   }
 </style>

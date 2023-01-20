@@ -28,7 +28,6 @@ const isProd = import.meta.env.BUILD === 'production';
       })();
     </script>
     <FontFace />
-    <link href="/fontawesome/css/bareminimum.css" rel="stylesheet" />
     {isProd && <script src={`https://static.cloudflareinsights.com/beacon.min.js?token=${APP_CONFIG.CLOUDFLARE_ANALYTICS_TOKEN}`} defer />}
   </head>
   <body class="h-full max-w-4xl mx-auto px-8 sm:px-6">

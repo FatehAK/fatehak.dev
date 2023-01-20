@@ -1,6 +1,9 @@
 module.exports = {
   content: ['./src/**/*.astro'],
   darkMode: 'class',
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
   theme: {
     screens: {
       lg: { max: '1366px' },

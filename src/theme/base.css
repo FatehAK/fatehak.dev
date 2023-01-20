@@ -94,7 +94,7 @@
     transition: color 0.2s;
   }
 
-  @media (hover: hover) {
+  @media (hover: hover) and (pointer: fine) {
     a:not(.unset):hover {
       color: theme('colors.text.link');
     }

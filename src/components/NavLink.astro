@@ -13,28 +13,28 @@ const isActive = isHome || isOtherPages;
   .nav-link {
     position: relative;
     text-decoration: none;
-  }
 
-  .nav-link::after {
-    content: '';
-    position: absolute;
-    right: 0;
-    bottom: -9px;
-    left: 0;
-    transform-origin: left center;
-    transform: translateZ(0) scaleX(0);
-    height: 3px;
-    background-color: theme('colors.text.link');
-    transition: all 0.15s ease-in-out;
-  }
+    &::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      bottom: -9px;
+      left: 0;
+      transform-origin: left center;
+      transform: translateZ(0) scaleX(0);
+      height: 3px;
+      background-color: theme('colors.text.link');
+      transition: all 0.15s ease-in-out;
+    }
 
-  .nav-link.show::after {
-    transform: translateZ(0) scale(1);
-  }
-
-  @media (hover: hover) and (pointer: fine) {
-    .nav-link:hover::after {
+    &.show::after {
       transform: translateZ(0) scale(1);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover::after {
+        transform: translateZ(0) scale(1);
+      }
     }
   }
 </style>

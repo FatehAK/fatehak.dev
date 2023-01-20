@@ -21,6 +21,7 @@ module.exports = {
           body: 'rgb(var(--color-bg-body) / <alpha-value>)',
           code: 'rgb(var(--color-bg-code) / <alpha-value>)',
           selection: 'rgb(var(--color-bg-selection) / <alpha-value>)',
+          'scrollbar-thumb': 'rgb(var(--color-scrollbar-thumb) / <alpha-value>)',
         },
         primary: 'rgb(var(--color-primary) / <alpha-value>)',
         secondary: 'rgb(var(--color-secondary) / <alpha-value>)',

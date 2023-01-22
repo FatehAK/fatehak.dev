@@ -5,27 +5,28 @@ import ThemeToggle from './ThemeToggle.astro';
 
 const pages = [
   {
-    name: 'Home',
+    name: 'home',
     path: '/',
   },
   {
-    name: 'Posts',
-    path: '/posts',
+    name: 'blog',
+    path: '/blog',
   },
   {
-    name: 'Snippets',
+    name: 'about',
+    path: '/about',
+  },
+  {
+    name: 'snippets',
     path: '/snippets',
   },
 ];
 ---
 
-<header>
-  <a class="unset absolute z-10 left-[50%] -top-[100rem] translate-x-[-50%] bg-white text-black px-8 py-2 focus:top-[initial]" href="#main">
-    Skip to content
-  </a>
-  {/* desktop navbar */}
-  <nav class="inline md:hidden">
-    <section class="text-text-bold">
+<header id="nav-container" class="fixed z-10 top-0 left-0 w-full flex justify-center items-center bg-bg-body">
+  <nav class="w-full max-w-3xl flex justify-between items-center px-8 sm:px-6">
+    {/* desktop navbar */}
+    <div class="text-text-bold md:hidden">
       <ul class="unset flex gap-4 [&>li]:p-0">
         {
           pages.map(page => (
@@ -35,47 +36,45 @@ const pages = [
           ))
         }
       </ul>
-    </section>
-  </nav>
-  {/* mobile hamburger menu */}
-  <nav class="hidden md:block">
-    <button id="ham-menu-open" class="text-text-bold text-lg">
-      <i class="fa-solid fa-bars" aria-hidden="true" title="Open hamburger menu"></i>
-      <span class="fa-sr-only">Open hamburger menu</span>
-    </button>
-    <section id="ham-menu" class="hide-menu fixed top-0 left-0 z-10 w-full h-full transition-transform bg-black/75 border-primary-main">
-      <div class="flex flex-col justify-between bg-bg-body w-[75%] h-full drop-shadow-2xl px-6">
-        <div class="flex justify-end">
-          <button id="ham-menu-close" class="h-[5rem] text-xl xml-[1px] text-text-bold">
-            <i class="fa-solid fa-xmark" aria-hidden="true" title="Close hamburger menu"></i>
-            <span class="fa-sr-only">Close hamburger menu</span>
-          </button>
+    </div>
+    {/* mobile hamburger menu */}
+    <div class="hidden md:block">
+      <button id="ham-menu-open" class="text-text-bold text-lg">
+        <i class="fa-solid fa-bars" aria-hidden="true" title="Open hamburger menu"></i>
+        <span class="fa-sr-only">Open hamburger menu</span>
+      </button>
+      <section id="ham-menu" class="hide-menu z-20 fixed top-0 left-0 w-full h-full transition-transform bg-black/75 border-primary-main">
+        <div class="flex flex-col justify-between bg-bg-body w-[75%] h-full drop-shadow-2xl px-6">
+          <div class="flex justify-end">
+            <button id="ham-menu-close" class="h-[5rem] text-xl xml-[1px] text-text-bold">
+              <i class="fa-solid fa-xmark" aria-hidden="true" title="Close hamburger menu"></i>
+              <span class="fa-sr-only">Close hamburger menu</span>
+            </button>
+          </div>
+          <ul class="unset flex flex-col justify-center text-text-bold gap-8 [&>li]:p-0">
+            {
+              pages.map(page => (
+                <li>
+                  <NavLink href={page.path}>{page.name}</NavLink>
+                </li>
+              ))
+            }
+          </ul>
+          <div class="py-10"><Social /></div>
         </div>
-        <ul class="unset flex flex-col justify-center text-text-bold gap-8 [&>li]:p-0">
-          {
-            pages.map(page => (
-              <li>
-                <NavLink href={page.path}>{page.name}</NavLink>
-              </li>
-            ))
-          }
-        </ul>
-        <div class="py-10"><Social /></div>
-      </div>
-    </section>
+      </section>
+    </div>
+    {/* nav links right */}
+    <div class="flex items-center">
+      <ThemeToggle />
+    </div>
   </nav>
-  {/* nav links right */}
-  <div class="justify-self-end py-2 flex items-center content-center text-text-bold">
-    <a class="unset text-xl ml-4 hover:text-text-link transition-colors" href="/rss.xml">
-      <i class="fa-solid fa-rss" aria-hidden="true" title="RSS feed"></i>
-      <span class="fa-sr-only">RSS feed</span>
-    </a>
-  </div>
-  <ThemeToggle />
 </header>
 
 <script>
   const hamMenu = document.querySelector('#ham-menu');
+  const navContainer = document.querySelector('#nav-container');
+
   function showMenu() {
     hamMenu.classList.remove('hide-menu');
     hamMenu.classList.add('show-menu');
@@ -89,16 +88,36 @@ const pages = [
   hamMenu.addEventListener('click', evt => {
     if (evt.target === hamMenu) hideMenu();
   });
+
   document.querySelector('#ham-menu-open').addEventListener('click', showMenu);
   document.querySelector('#ham-menu-close').addEventListener('click', hideMenu);
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > 0) {
+      navContainer.classList.add('scroll');
+    } else {
+      navContainer.classList.remove('scroll');
+    }
+  });
 </script>
 
 <style>
   header {
-    display: grid;
-    grid-area: header;
-    grid-template-columns: minmax(0, 1fr) minmax(0, max-content) minmax(0, max-content);
-    align-items: center;
+    height: 5rem;
+    border: 0;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s;
+
+    &.scroll {
+      border-bottom: 1px solid theme('colors.border.nav');
+
+      @media (min-width: theme('screens.md.max')) {
+        height: 4.4rem;
+      }
+    }
+
+    @media (max-width: theme('screens.md.max')) {
+      height: 4.4rem;
+    }
   }
 
   .hide-menu {

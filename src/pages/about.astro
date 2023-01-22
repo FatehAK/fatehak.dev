@@ -1,0 +1,91 @@
+---
+import PageLayout from 'layouts/PageLayout.astro';
+import PageSEO from 'components/PageSEO.astro';
+import { APP_CONFIG } from 'appConfig';
+
+const techItems = ['React, Next.js', 'HTML, CSS', 'Node.js', 'Webpack, Vite', 'Jest', 'AWS', 'GitHub Actions', 'Docker', 'CI/CD'];
+---
+
+<PageLayout>
+  <PageSEO title={`${APP_CONFIG.USER.name} | About`} slot="seo" />
+  <section class="mt-8 md:mt-0">
+    <h2 class="font-bold text-2xl md:text-xl pb-4">About Me</h2>
+    <p>Hey there <span class="hand-wave">👋</span>, I'm Fateh, a Senior Front-End engineer with 4+ years of experience.</p>
+    <p class="mt-3 text-justify md:text-left">
+      Working on the front-end has always been my passion. I get a kick out of exploring the ever-changing world of front-end tech since
+      there is always something new to learn and experiment with. <span class="sm:hidden"
+        >I like to give that first impression which makes the user want to stay within the page.</span
+      >
+    </p>
+    <p class="mt-3 text-justify md:text-left">
+      My most recent obsession has been around dev tooling and bundlers, and I’m always open to talk about all things front-end, performance
+      and open source!
+    </p>
+    <div class="mt-6">
+      <p>Few technologies I enjoy working with:</p>
+      <div class="grid gap-3 grid-cols-3 md:grid-cols-2 sm:grid-cols-1 mt-4">
+        {
+          techItems.map(item => (
+            <div class="tech-item">
+              <i class="fa-solid fa-arrow-right text-primary mr-3" />
+              <span>{item}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</PageLayout>
+
+<style>
+  .hand-wave:hover {
+    transform-origin: 70% 70%;
+    display: inline-block;
+    animation-name: wave-animation;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes wave-animation {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    10% {
+      transform: rotate(14deg);
+    }
+
+    20% {
+      transform: rotate(-8deg);
+    }
+
+    30% {
+      transform: rotate(14deg);
+    }
+
+    40% {
+      transform: rotate(-4deg);
+    }
+
+    50% {
+      transform: rotate(10deg);
+    }
+
+    60%,
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+
+  .tech-item {
+    & > i {
+      transition: transform 0.2s;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover > i {
+        transform: translateX(5px);
+      }
+    }
+  }
+</style>

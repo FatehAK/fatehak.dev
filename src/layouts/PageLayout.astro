@@ -10,7 +10,7 @@ const isProd = import.meta.env.BUILD === 'production';
 ---
 
 <!DOCTYPE html>
-<html class="theme-default" lang="en">
+<html class="theme-pure" lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -30,9 +30,9 @@ const isProd = import.meta.env.BUILD === 'production';
     <FontFace />
     {isProd && <script src={`https://static.cloudflareinsights.com/beacon.min.js?token=${APP_CONFIG.CLOUDFLARE_ANALYTICS_TOKEN}`} defer />}
   </head>
-  <body class="min-h-screen max-w-4xl mx-auto px-8 sm:px-6">
+  <body class="min-h-screen">
     <Navbar />
-    <main id="main">
+    <main id="main" class="max-w-3xl mx-auto px-8 sm:px-6">
       <slot />
     </main>
     <Footer />

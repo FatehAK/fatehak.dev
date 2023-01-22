@@ -5,9 +5,14 @@
 @layer base {
   :root {
     scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* for navbar */
+    font-family: theme('fontFamily.body');
     font-size: 100%;
+    font-feature-settings: 'case' 1, 'rlig' 1, 'calt' 0;
     line-height: 1.84;
     color: theme('colors.text.body');
+    text-rendering: optimizelegibility;
+    tab-size: 4;
     background-color: theme('colors.bg.body');
     transition: background-color 0.3s ease;
   }
@@ -15,33 +20,6 @@
   ::selection {
     color: theme('colors.text.selection');
     background: theme('colors.bg.selection');
-  }
-
-  /* custom scroll bar */
-  html {
-    scrollbar-color: theme('colors.bg.scrollbar-thumb') transparent;
-    scrollbar-width: thin;
-  }
-
-  ::-webkit-scrollbar {
-    width: 20px;
-    background-color: transparent;
-  }
-
-  ::-webkit-scrollbar-track {
-    background-color: transparent;
-    border-radius: 100px;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background-color: theme('colors.bg.scrollbar-thumb');
-    background-clip: content-box;
-    border: 7px solid transparent;
-    border-radius: 100px;
-
-    &:hover {
-      background-color: theme('colors.primary');
-    }
   }
 }
 
@@ -52,12 +30,50 @@
   h4,
   h5,
   h6 {
-    font-family: theme('fontFamily.heading');
+    font-weight: bold;
+    color: theme('colors.text.heading');
   }
 
-  /* ------ GLOBAL STYLES - START ------ */
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.4rem;
+  }
+
+  h4 {
+    font-size: 1.3px;
+  }
+
+  h5 {
+    font-size: 1.2rem;
+  }
+
+  h6 {
+    font-size: 1.1rem;
+  }
+
+  a:not(.unset) {
+    font-weight: 500;
+    color: theme('colors.text.bold');
+    text-decoration: none;
+    border-bottom: 1.25px solid theme('colors.text.link');
+    transition: color 0.2s;
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        color: theme('colors.text.link');
+      }
+    }
+  }
+
   strong {
-    font-weight: 600;
+    font-weight: 700;
     color: theme('colors.text.bold');
   }
 
@@ -70,7 +86,7 @@
     margin-bottom: 1.25em;
     padding: 0.125rem 0.25rem;
     font-size: 0.875em;
-    font-weight: 600;
+    font-weight: 700;
     color: theme('colors.text.code');
     background-color: theme('colors.bg.code');
     border: 1px solid theme('colors.border.code');
@@ -112,20 +128,4 @@
     margin-top: 0.5em;
     margin-bottom: 0.5em;
   }
-
-  a:not(.unset) {
-    font-weight: 500;
-    color: theme('colors.text.bold');
-    text-decoration: none;
-    border-bottom: 1.25px solid theme('colors.text.link');
-    transition: color 0.2s;
-
-    @media (hover: hover) and (pointer: fine) {
-      &:hover {
-        color: theme('colors.text.link');
-      }
-    }
-  }
-
-  /* ------ GLOBAL STYLES - END ------ */
 }

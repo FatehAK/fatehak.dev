@@ -1,9 +1,9 @@
 ---
-import genzoLogo from 'assets/genzo-logo.png';
-import viteImageOptimizerLogo from 'assets/vite-logo.svg';
-import navigoLogo from 'assets/navigo-logo.png';
-import notebyteLogo from 'assets/notebyte-logo.png';
-import memriseLogo from 'assets/memrise-logo.svg';
+import genzoLogo from 'assets/projects/genzo-logo.png';
+import viteImageOptimizerLogo from 'assets/projects/vite-logo.svg';
+import navigoLogo from 'assets/projects/navigo-logo.png';
+import notebyteLogo from 'assets/projects/notebyte-logo.png';
+import memriseLogo from 'assets/projects/memrise-logo.svg';
 import { APP_CONFIG } from 'appConfig';
 
 const projectList = [
@@ -12,7 +12,7 @@ const projectList = [
     logo: genzoLogo,
     githubURL: 'https://github.com/FatehAK/genzo-cli',
     liveURL: 'https://www.npmjs.com/package/genzo',
-    description: 'Rapidly scaffold your projects with custom templates using the CLI ⚡️',
+    description: 'Rapidly scaffold your projects with custom templates in the CLI ⚡️',
     technologies: ['Node', 'CLI'],
   },
   {
@@ -20,7 +20,7 @@ const projectList = [
     logo: viteImageOptimizerLogo,
     githubURL: 'https://github.com/FatehAK/vite-plugin-image-optimizer',
     liveURL: 'https://www.npmjs.com/package/vite-plugin-image-optimizer',
-    description: 'Optimize your image assets using Sharp.js and SVGO at build time.',
+    description: 'Optimize your images using Sharp.js and SVGO at build time.',
     technologies: ['Node', 'Vite'],
   },
   {
@@ -28,7 +28,7 @@ const projectList = [
     logo: navigoLogo,
     githubURL: 'https://github.com/FatehAK/navigo',
     liveURL: 'https://navigo-app.pages.dev',
-    description: 'Discover places near you by drawing on the Map with PWA support.',
+    description: 'Discover new places by drawing on the Map with PWA support.',
     technologies: ['React', 'PWA', 'Vite'],
   },
   {
@@ -36,7 +36,7 @@ const projectList = [
     logo: notebyteLogo,
     githubURL: 'https://github.com/FatehAK/notebyte',
     liveURL: 'https://notebyte.onrender.com',
-    description: 'Jot down your thoughts with this simple note taking web app ✏️',
+    description: 'Jot down your thoughts with this simple note taking app ✏️',
     technologies: ['Node', 'Express', 'Mongo'],
   },
   {
@@ -44,7 +44,7 @@ const projectList = [
     logo: memriseLogo,
     githubURL: 'https://github.com/FatehAK/memrise',
     liveURL: 'https://memrise.pages.dev/',
-    description: 'Boost your memory with this matchup game written in Vanilla JS ✨',
+    description: 'Boost your memory with this match-up game coded in Vanilla JS ✨',
     technologies: ['JS', 'HTML', 'CSS'],
   },
 ];
@@ -53,12 +53,12 @@ const hasOddProjects = projectList.length % 2 !== 0;
 ---
 
 <section class="mb-14">
-  <h2 class="font-bold text-2xl md:text-xl pb-4 text-text-heading">Projects</h2>
-  <div class="grid gap-11 md:gap-9 grid-cols-2 md:grid-cols-1 px-2 md:px-0">
+  <h2 class="pb-8">Projects</h2>
+  <div class="grid gap-6 md:gap-7 grid-cols-2 md:grid-cols-1">
     {
       projectList.map((p, index) => (
         <div class="flex card" style={`animation-delay: 0.${index}s`}>
-          <div class="unset flex flex-col relative rounded-lg dark:bg-[#101822] card-inner">
+          <div class="w-full flex flex-col relative rounded-lg bg-bg-body card-inner">
             <div class="flex justify-between items-center mb-2">
               <div class="flex items-center">
                 <img class="mr-3" src={p.logo} width="20" height="20" alt={p.name} />

@@ -11,7 +11,7 @@
     aria-checked="false"
   >
     <span class="sr-only">Toggle theme</span>
-    <span id="theme-toggle-circle" class="light inline-block h-4 w-4 rounded-full bg-gradient-to-tr invisible">
+    <span id="theme-toggle-circle" class="light-icon inline-block h-4 w-4 rounded-full bg-gradient-to-tr invisible">
       <span class="absolute top-0 right-0 w-[10px] h-[10px] rounded-full bg-gray-700 scale-[0]"></span>
     </span>
   </button>
@@ -19,14 +19,23 @@
 
 <script>
   function updateTheme(mode) {
+    const themeColorMeta = document.head.querySelector('meta[name="theme-color"]');
     if (mode === 'dark') {
       document.documentElement.classList.remove('light');
       document.documentElement.classList.add('dark');
       sessionStorage.setItem('theme', 'dark');
+      if (themeColorMeta) {
+        // @ts-ignore
+        themeColorMeta.content = '#101822';
+      }
     } else {
       document.documentElement.classList.remove('dark');
       document.documentElement.classList.add('light');
       sessionStorage.setItem('theme', 'light');
+      if (themeColorMeta) {
+        // @ts-ignore
+        themeColorMeta.content = '#fff';
+      }
     }
   }
 
@@ -40,8 +49,8 @@
       if (iconElem) {
         // set the toggle mode based on the html classname set in ThemeScript.astro
         if (currentMode === 'dark') {
-          iconElem.classList.remove('light');
-          iconElem.classList.add('dark');
+          iconElem.classList.remove('light-icon');
+          iconElem.classList.add('dark-icon');
         }
 
         // we load the toggle invisible to prevent flash
@@ -50,17 +59,15 @@
 
         toggle?.addEventListener('click', () => {
           if (currentMode === 'dark') {
-            const modeToSwitch = 'light';
-            iconElem.classList.remove('dark');
-            iconElem.classList.add('light');
-            updateTheme(modeToSwitch);
-            currentMode = modeToSwitch;
+            iconElem.classList.remove('dark-icon');
+            iconElem.classList.add('light-icon');
+            updateTheme('light');
+            currentMode = 'light';
           } else {
-            const modeToSwitch = 'dark';
-            iconElem.classList.remove('light');
-            iconElem.classList.add('dark');
-            updateTheme(modeToSwitch);
-            currentMode = modeToSwitch;
+            iconElem.classList.remove('light-icon');
+            iconElem.classList.add('dark-icon');
+            updateTheme('dark');
+            currentMode = 'dark';
           }
 
           // prevent slide animation on page load for dark mode
@@ -76,12 +83,12 @@
 </script>
 
 <style>
-  .light {
+  .light-icon {
     transform: translateX(0.25rem);
     background-image: linear-gradient(to bottom, theme('colors.primary'), #ed8610);
   }
 
-  .dark {
+  .dark-icon {
     transform: translateX(1.5rem);
     background-image: linear-gradient(to bottom, theme('colors.primary'), #03a3bf);
   }

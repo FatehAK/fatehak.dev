@@ -21,38 +21,37 @@
 ---
 
 <Fragment>
-  <link rel="preload" href="/fonts/pacifico/pacifico-bold.woff2" as="font" type="font/woff2" crossorigin="crossorigin" />
+  <link rel="preload" href="/fonts/inter/inter-v12-latin-regular.woff2" as="font" type="font/woff2" crossorigin="crossorigin" />
+  <link rel="preload" href="/fonts/inter/inter-v12-latin-500.woff2" as="font" type="font/woff2" crossorigin="crossorigin" />
+  <link rel="preload" href="/fonts/inter/inter-v12-latin-700.woff2" as="font" type="font/woff2" crossorigin="crossorigin" />
   <link rel="preload" href="/fontawesome/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="crossorigin" />
   <link rel="preload" href="/fontawesome/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="crossorigin" />
-  <link rel="preload" href="/fonts/pacifico/pacifico-bold.woff2" as="font" type="font/woff2" crossorigin="crossorigin" />
-  <link rel="preload" href="/fonts/nunito/nunito-v25-latin-700.woff2" as="font" type="font/woff2" crossorigin="crossorigin" />
-  <link rel="preload" href="/fonts/nunito/nunito-v25-latin-800.woff2" as="font" type="font/woff2" crossorigin="crossorigin" />
   <style is:inline>
-    /* pacifico-bold */
+    /* inter-regular - latin */
     @font-face {
-      font-family: Pacifico;
+      font-family: Inter;
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+      src: local(''), url('/fonts/inter/inter-v12-latin-regular.woff2') format('woff2');
+    }
+
+    /* inter-500 - latin */
+    @font-face {
+      font-family: Inter;
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+      src: local(''), url('/fonts/inter/inter-v12-latin-500.woff2') format('woff2');
+    }
+
+    /* inter-700 - latin */
+    @font-face {
+      font-family: Inter;
       font-weight: 700;
       font-style: normal;
       font-display: swap;
-      src: local(''), url('../fonts/pacifico/pacifico-bold.woff2') format('woff2');
-    }
-
-    /* nunito-700 - latin */
-    @font-face {
-      font-family: Nunito;
-      font-weight: 700;
-      font-style: normal;
-      font-display: swap;
-      src: local(''), url('/fonts/nunito/nunito-v25-latin-700.woff2') format('woff2');
-    }
-
-    /* nunito-800 - latin */
-    @font-face {
-      font-family: Nunito;
-      font-weight: 800;
-      font-style: normal;
-      font-display: swap;
-      src: local(''), url('/fonts/nunito/nunito-v25-latin-800.woff2') format('woff2');
+      src: local(''), url('/fonts/inter/inter-v12-latin-700.woff2') format('woff2');
     }
   </style>
   <link href="/fontawesome/css/bareminimum.css" rel="stylesheet" />

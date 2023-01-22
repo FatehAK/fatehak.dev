@@ -7,7 +7,7 @@ const isOtherPages = typeof href === 'string' && href.length > 1 ? path.substrin
 const isActive = isHome || isOtherPages;
 ---
 
-<a href={href} class:list={[className, { show: isActive }, 'unset nav-link']} {...props}><slot /></a>
+<a href={href} class:list={[className, { show: isActive }, 'unset text-text-bold nav-link']} {...props}><slot /></a>
 
 <style>
   .nav-link {
@@ -18,7 +18,7 @@ const isActive = isHome || isOtherPages;
       content: '';
       position: absolute;
       right: 0;
-      bottom: -9px;
+      bottom: -6px;
       left: 0;
       transform-origin: left center;
       transform: translateZ(0) scaleX(0);

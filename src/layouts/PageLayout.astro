@@ -10,7 +10,7 @@ const isProd = import.meta.env.BUILD === 'production';
 ---
 
 <!DOCTYPE html>
-<html class="theme-pure" lang="en">
+<html data-theme="dark" lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -21,9 +21,7 @@ const isProd = import.meta.env.BUILD === 'production';
       (function () {
         if (typeof window !== 'undefined') {
           const storageTheme = sessionStorage.getItem('theme');
-          if (!storageTheme || storageTheme === 'dark') {
-            document.documentElement.classList.add('dark');
-          }
+          if (storageTheme) document.documentElement.setAttribute('data-theme', storageTheme);
         }
       })();
     </script>

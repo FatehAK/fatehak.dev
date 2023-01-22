@@ -20,34 +20,26 @@
 <script>
   function updateTheme(mode) {
     const themeColorMeta = document.head.querySelector('meta[name="theme-color"]');
+    document.documentElement.setAttribute('data-theme', mode);
+    sessionStorage.setItem('theme', mode);
     if (mode === 'dark') {
-      document.documentElement.classList.remove('light');
-      document.documentElement.classList.add('dark');
-      sessionStorage.setItem('theme', 'dark');
-      if (themeColorMeta) {
-        // @ts-ignore
-        themeColorMeta.content = '#101822';
-      }
+      // @ts-ignore
+      themeColorMeta.content = '#101822';
     } else {
-      document.documentElement.classList.remove('dark');
-      document.documentElement.classList.add('light');
-      sessionStorage.setItem('theme', 'light');
-      if (themeColorMeta) {
-        // @ts-ignore
-        themeColorMeta.content = '#fff';
-      }
+      // @ts-ignore
+      themeColorMeta.content = '#fff';
     }
   }
 
   class ThemeToggle extends HTMLElement {
     constructor() {
       super();
-      let currentMode = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+      let currentMode = document.documentElement.getAttribute('data-theme');
       const toggle = this.querySelector('button');
       const iconElem = toggle?.querySelector('#theme-toggle-circle');
 
       if (iconElem) {
-        // set the toggle mode based on the html classname set in ThemeScript.astro
+        // set the toggle mode based on the html classname
         if (currentMode === 'dark') {
           iconElem.classList.remove('light-icon');
           iconElem.classList.add('dark-icon');

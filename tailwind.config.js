@@ -1,6 +1,6 @@
 module.exports = {
   content: ['./src/**/*.astro'],
-  darkMode: 'class',
+  darkMode: ['class', '[data-theme="dark"]'],
   future: {
     hoverOnlyWhenSupported: true,
   },

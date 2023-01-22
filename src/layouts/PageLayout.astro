@@ -18,6 +18,7 @@ const isProd = import.meta.env.BUILD === 'production';
     <link rel="shortcut icon" href="/icons/logo.ico" type="image/x-icon" />
     <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
     <meta name="mask-icon" content="/icons/icon-512-512.png" color="#101822" />
+    <meta name="theme-color" content="#101822" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <link rel="manifest" href="/manifest.webmanifest" />
@@ -36,7 +37,7 @@ const isProd = import.meta.env.BUILD === 'production';
   </head>
   <body class="min-h-screen">
     <Navbar />
-    <main id="main" class="max-w-3xl mx-auto px-8 sm:px-6">
+    <main id="main" class="w-full max-w-3xl mx-auto px-8 sm:px-6">
       <slot />
     </main>
     <Footer />

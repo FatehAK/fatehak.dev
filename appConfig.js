@@ -4,7 +4,7 @@ export const APP_CONFIG = {
     title: 'Fateh • Hello World!',
     description: 'Front-End Engineer, Open Sourcerer',
     keywords: 'fatehak, developer, front-end engineer, ui',
-    banner: '',
+    banner: 'banner.png',
   },
   USER: {
     name: 'FatehAK',

@@ -15,6 +15,12 @@ const isProd = import.meta.env.BUILD === 'production';
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <link rel="shortcut icon" href="/icons/logo.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+    <meta name="mask-icon" content="/icons/icon-512-512.png" color="#101822" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <link rel="manifest" href="/manifest.webmanifest" />
     <slot name="seo" />
     <script is:inline>
       // figure out user's preferred theme and set it as html class

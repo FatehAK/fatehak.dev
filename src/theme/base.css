@@ -30,36 +30,41 @@
   h4,
   h5,
   h6 {
-    font-weight: bold;
     color: theme('colors.text.heading');
   }
 
   h1 {
-    transform: translateY(90px);
+    transform: translate3d(0, 100%, 0);
     font-size: 3rem;
+    font-weight: bold;
     line-height: 1.25;
-    animation: slideup 0.4s ease;
-    animation-fill-mode: forwards;
+    animation: slide-up 0.8s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+    animation-delay: 0.1s;
   }
 
   h2 {
     font-size: 1.5rem;
+    font-weight: bold;
   }
 
   h3 {
     font-size: 1.4rem;
+    font-weight: bold;
   }
 
   h4 {
     font-size: 1.3px;
+    font-weight: bold;
   }
 
   h5 {
     font-size: 1.2rem;
+    font-weight: bold;
   }
 
   h6 {
     font-size: 1.1rem;
+    font-weight: 500;
   }
 
   a:not(.unset) {
@@ -154,10 +159,13 @@
   }
 }
 
-@keyframes slideup {
-  to {
-    transform: translateY(0);
-    opacity: 1;
+@keyframes slide-up {
+  0% {
+    transform: translate3d(0, 100%, 0);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
   }
 }
 

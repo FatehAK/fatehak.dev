@@ -35,7 +35,11 @@
   }
 
   h1 {
+    transform: translateY(90px);
     font-size: 3rem;
+    line-height: 1.25;
+    animation: slideup 0.4s ease;
+    animation-fill-mode: forwards;
   }
 
   h2 {
@@ -127,5 +131,45 @@
   ol:not(.unset) > li {
     margin-top: 0.5em;
     margin-bottom: 0.5em;
+  }
+
+  /* utils */
+  .gradient-text {
+    color: transparent;
+    background-image: linear-gradient(
+      to bottom right,
+      theme('colors.gradient.shade1'),
+      theme('colors.primary'),
+      theme('colors.gradient.shade1')
+    );
+    background-clip: text;
+    animation: gradient-move 4s ease infinite;
+  }
+
+  /* animations */
+  @keyframes fadein {
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideup {
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes gradient-move {
+    0%,
+    100% {
+      background-position: 0;
+      background-size: 200% 200%;
+    }
+
+    50% {
+      background-position: 100%;
+      background-size: 200% 200%;
+    }
   }
 }

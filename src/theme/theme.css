@@ -13,6 +13,7 @@
   --color-bg-code: 234 179 8; /* #eab308 */
   --color-border-code: 254 243 199; /* #fef9c3 */
   --color-nav-border: 44 48 52; /* #2c3034 */
+  --gradient-shade-1: 138 255 255 /* #8affff; */;
 
   color-scheme: dark;
 }
@@ -32,6 +33,7 @@
   --color-bg-code: 255 247 237; /* #fff7ed */
   --color-border-code: 255 237 213; /* #ffedd5 */
   --color-nav-border: 44 48 52; /* #2c3034 */
+  --gradient-shade-1: 255 211 136; /* #ffd388 */
 
   color-scheme: light;
 }

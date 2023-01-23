@@ -37,6 +37,9 @@ module.exports = {
           code: 'rgb(var(--color-border-code) / <alpha-value>)',
           nav: 'rgb(var(--color-nav-border) / <alpha-value>)',
         },
+        gradient: {
+          shade1: 'rgb(var(--gradient-shade-1) / <alpha-value>)',
+        },
       },
     },
   },

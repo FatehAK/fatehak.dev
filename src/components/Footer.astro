@@ -3,7 +3,7 @@ import { APP_CONFIG } from 'appConfig';
 import Logo from './Logo.astro';
 ---
 
-<footer class="w-full border-t border-t-border-nav">
+<footer class="w-full border-t border-t-border-nav overflow-hidden">
   <div class="h-full max-w-3xl mx-auto flex items-center text-sm px-8 sm:px-6 [&>div]:flex-1">
     <div>
       <a
@@ -39,7 +39,9 @@ import Logo from './Logo.astro';
     </div>
     <div class="text-text-bold flex justify-end">
       <a class="unset" href="/">
-        <Logo width="24" height="24" />
+        <div class="animated-logo">
+          <Logo width="24" height="24" />
+        </div>
         <span class="fa-sr-only">Home</span>
       </a>
     </div>
@@ -49,5 +51,42 @@ import Logo from './Logo.astro';
 <style>
   footer {
     grid-area: footer;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .animated-logo:hover {
+      backface-visibility: visible;
+      animation-name: flip;
+      animation-duration: 0.6s;
+      animation-fill-mode: both;
+      animation-delay: 0.2s;
+    }
+  }
+
+  @keyframes flip {
+    0% {
+      transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 0) rotate3d(0, 1, 0, -360deg);
+      animation-timing-function: ease-out;
+    }
+
+    40% {
+      transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 80px) rotate3d(0, 1, 0, -190deg);
+      animation-timing-function: ease-out;
+    }
+
+    50% {
+      transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 80px) rotate3d(0, 1, 0, -170deg);
+      animation-timing-function: ease-in;
+    }
+
+    80% {
+      transform: perspective(400px) scale3d(0.95, 0.95, 0.95) translate3d(0, 0, 0) rotate3d(0, 1, 0, 0deg);
+      animation-timing-function: ease-in;
+    }
+
+    100% {
+      transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 0) rotate3d(0, 1, 0, 0deg);
+      animation-timing-function: ease-in;
+    }
   }
 </style>

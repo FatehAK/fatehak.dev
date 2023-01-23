@@ -6,15 +6,14 @@ import { APP_CONFIG } from 'appConfig';
 
 <section class="mt-12 mb-14 overflow-hidden">
   <div class="flex flex-col pr-8 md:pr-0">
-    <h1 class="pb-4 leading-[1.25]">
-      <span>Hi <span class="hand-wave mr-2">👋🏻</span> I’m</span>
-      <span
-        class="bg-clip-text text-transparent bg-gradient-to-br from-[#ffd388] via-primary to-[#ffd388] dark:from-[#8AFFFF] dark:via-primary dark:to-[#8AFFFF] my-name"
-      >
-        {APP_CONFIG.USER.shortName}
-      </span>
-    </h1>
-
+    <div class="overflow-hidden pb-4">
+      <h1>
+        <span>Hi <span class="hand-wave mr-2">👋🏻</span> I’m</span>
+        <span class="gradient-text">
+          {APP_CONFIG.USER.shortName}
+        </span>
+      </h1>
+    </div>
     <p class="mb-6 sm:mb-4">
       <span>Front-End Engineer, Open Sourcerer</span>
       <span class="inline-block w-8 h-8 magic-vector-wrapper">
@@ -30,29 +29,12 @@ import { APP_CONFIG } from 'appConfig';
 </section>
 
 <style>
-  .my-name {
-    animation: gradient-move 4s ease infinite;
-  }
-
-  @keyframes gradient-move {
-    0%,
-    100% {
-      background-position: 0;
-      background-size: 200% 200%;
-    }
-
-    50% {
-      background-position: 100%;
-      background-size: 200% 200%;
-    }
-  }
-
   .hand-wave {
     transform-origin: 70% 70%;
     display: inline-block;
     animation-name: wave-animation;
     animation-duration: 2.5s;
-    animation-delay: 0.1s;
+    animation-delay: 0.4s;
     animation-iteration-count: 1;
   }
 
@@ -63,7 +45,7 @@ import { APP_CONFIG } from 'appConfig';
 
   @keyframes wave-animation {
     0% {
-      transform: rotate(10deg);
+      transform: rotate(0deg);
     }
 
     10% {

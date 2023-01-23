@@ -3,7 +3,7 @@
 
 <theme-toggle>
   <button
-    class="justify-self-end bg-text-heading/10 dark:bg-white/10 ml-4 inline-flex h-6 w-11 items-center rounded-full"
+    class="bg-text-heading/10 ml-4 inline-flex h-6 w-11 items-center rounded-full"
     id="theme-toggle"
     role="switch"
     type="button"
@@ -11,7 +11,7 @@
     aria-checked="false"
   >
     <span class="sr-only">Toggle theme</span>
-    <span id="theme-toggle-circle" class="light-icon inline-block h-4 w-4 rounded-full bg-gradient-to-tr invisible">
+    <span id="theme-toggle-circle" class="light-icon icon inline-block h-4 w-4 rounded-full bg-gradient-to-tr invisible">
       <span class="absolute top-0 right-0 w-[10px] h-[10px] rounded-full bg-gray-700 scale-[0]"></span>
     </span>
   </button>
@@ -75,13 +75,15 @@
 </script>
 
 <style>
+  .icon {
+    background-image: linear-gradient(to bottom, theme('colors.primary.DEFAULT'), theme('colors.primary.dark'));
+  }
+
   .light-icon {
     transform: translateX(0.25rem);
-    background-image: linear-gradient(to bottom, theme('colors.primary'), #ed8610);
   }
 
   .dark-icon {
     transform: translateX(1.5rem);
-    background-image: linear-gradient(to bottom, theme('colors.primary'), #03a3bf);
   }
 </style>

@@ -28,19 +28,6 @@
   font-family: 'Font Awesome 6 Brands';
 }
 
-.sr-only,
-.fa-sr-only {
-  position: absolute;
-  overflow: hidden;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  white-space: nowrap;
-  clip: rect(0, 0, 0, 0);
-  border-width: 0;
-}
-
 /* ---------------- brands ---------------- */
 :root,
 :host {

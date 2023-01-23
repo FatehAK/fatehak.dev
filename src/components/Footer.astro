@@ -3,7 +3,7 @@ import { APP_CONFIG } from 'appConfig';
 import Logo from './Logo.astro';
 ---
 
-<footer class="w-full border-t border-t-border-nav overflow-hidden">
+<footer class="w-full border-t border-text-body/10 overflow-hidden">
   <div class="h-full max-w-3xl mx-auto flex items-center text-sm px-8 sm:px-6 [&>div]:flex-1">
     <div>
       <a
@@ -13,7 +13,7 @@ import Logo from './Logo.astro';
         rel="noopener noreferrer"
       >
         <i class="fa-brands fa-github" aria-hidden="true" title="GitHub"></i>
-        <span class="fa-sr-only">{APP_CONFIG.USER.shortName}'s GitHub</span>
+        <span class="sr-only">{APP_CONFIG.USER.shortName}'s GitHub</span>
       </a>
       <a
         class="unset text-lg hover:text-text-link transition-colors ml-4"
@@ -22,11 +22,11 @@ import Logo from './Logo.astro';
         rel="noopener noreferrer"
       >
         <i class="fa-brands fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i>
-        <span class="fa-sr-only">{APP_CONFIG.USER.shortName}'s LinkedIn</span>
+        <span class="sr-only">{APP_CONFIG.USER.shortName}'s LinkedIn</span>
       </a>
       <a class="unset text-lg hover:text-text-link transition-colors ml-4" href="/rss.xml">
         <i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i>
-        <span class="fa-sr-only">RSS feed</span>
+        <span class="sr-only">RSS feed</span>
       </a>
     </div>
     <div class="text-center md:hidden">
@@ -42,7 +42,7 @@ import Logo from './Logo.astro';
         <div class="animated-logo">
           <Logo width="24" height="24" />
         </div>
-        <span class="fa-sr-only">Home</span>
+        <span class="sr-only">Home</span>
       </a>
     </div>
   </div>

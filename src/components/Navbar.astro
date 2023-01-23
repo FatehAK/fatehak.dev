@@ -41,14 +41,14 @@ const pages = [
     <div class="hidden md:block">
       <button id="ham-menu-open" class="text-text-bold text-lg">
         <i class="fas fa-bars" aria-hidden="true" title="Open hamburger menu"></i>
-        <span class="fa-sr-only">Open hamburger menu</span>
+        <span class="sr-only">Open hamburger menu</span>
       </button>
-      <section id="ham-menu" class="hide-menu z-20 fixed top-0 left-0 w-full h-full transition-transform bg-black/75 border-primary">
+      <section id="ham-menu" class="hide-menu z-20 fixed top-0 left-0 w-full h-full transition-transform bg-bg-body/80 border-primary">
         <div class="flex flex-col justify-between bg-bg-body w-[75%] h-full drop-shadow-2xl px-6">
           <div class="flex justify-end">
             <button id="ham-menu-close" class="h-[5rem] text-xl xml-[1px] text-text-bold">
               <i class="fas fa-xmark" aria-hidden="true" title="Close hamburger menu"></i>
-              <span class="fa-sr-only">Close hamburger menu</span>
+              <span class="sr-only">Close hamburger menu</span>
             </button>
           </div>
           <ul class="unset flex flex-col justify-center text-text-bold gap-8 [&>li]:p-0">
@@ -105,7 +105,7 @@ const pages = [
     transition: all 0.3s;
 
     &.scroll {
-      border-bottom: 1px solid theme('colors.border.nav');
+      border-bottom: 1px solid theme('colors.text.body' / 10%);
 
       @media (min-width: theme('screens.md.max')) {
         height: 4.4rem;

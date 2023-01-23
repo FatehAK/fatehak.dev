@@ -138,38 +138,38 @@
     color: transparent;
     background-image: linear-gradient(
       to bottom right,
-      theme('colors.gradient.shade1'),
-      theme('colors.primary'),
-      theme('colors.gradient.shade1')
+      theme('colors.primary.light'),
+      theme('colors.primary.DEFAULT'),
+      theme('colors.primary.light')
     );
     background-clip: text;
     animation: gradient-move 4s ease infinite;
   }
+}
 
-  /* animations */
-  @keyframes fadein {
-    to {
-      opacity: 1;
-    }
+/* animations */
+@keyframes fadein {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideup {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes gradient-move {
+  0%,
+  100% {
+    background-position: 0;
+    background-size: 200% 200%;
   }
 
-  @keyframes slideup {
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-
-  @keyframes gradient-move {
-    0%,
-    100% {
-      background-position: 0;
-      background-size: 200% 200%;
-    }
-
-    50% {
-      background-position: 100%;
-      background-size: 200% 200%;
-    }
+  50% {
+    background-position: 100%;
+    background-size: 200% 200%;
   }
 }

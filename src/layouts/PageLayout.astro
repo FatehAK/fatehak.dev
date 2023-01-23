@@ -37,7 +37,7 @@ const isProd = import.meta.env.BUILD === 'production';
   </head>
   <body class="min-h-screen">
     <Navbar />
-    <main id="main" class="w-full max-w-3xl mx-auto px-8 sm:px-6">
+    <main id="main" class="w-full max-w-3xl px-8 sm:px-6">
       <slot />
     </main>
     <Footer />
@@ -50,10 +50,12 @@ const isProd = import.meta.env.BUILD === 'production';
           'footer';
         grid-template-columns: minmax(0, 1fr);
         grid-template-rows: 5rem minmax(0, 1fr) 5rem;
+        justify-items: center;
       }
 
       main {
         grid-area: main;
+        padding-bottom: 8rem;
       }
     </style>
   </body>

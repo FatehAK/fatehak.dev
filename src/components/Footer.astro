@@ -1,47 +1,53 @@
 ---
+import { APP_CONFIG } from 'appConfig';
+import Logo from './Logo.astro';
 ---
 
-<footer class="text-sm leading-[1.75] mt-4">
-  <div>
-    This blog is built with
-    <a
-      class="unset gradient-link tracking-wider font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#f57111] to-[#f79605] hover:after:bg-gradient-to-r hover:after:from-[#f57111] hover:after:to-[#f79605]"
-      href={'https://github.com/fatehak'}
-      target="_blank"
-    >
-      Blogster</a
-    >.
+<footer class="w-full border-t border-t-border-nav">
+  <div class="h-full max-w-3xl mx-auto flex items-center text-sm px-8 sm:px-6 [&>div]:flex-1">
+    <div>
+      <a
+        class="unset text-lg hover:text-text-link transition-colors"
+        href={APP_CONFIG.USER.social.github}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <i class="fa-brands fa-github" aria-hidden="true" title="GitHub"></i>
+        <span class="fa-sr-only">{APP_CONFIG.USER.shortName}'s GitHub</span>
+      </a>
+      <a
+        class="unset text-lg hover:text-text-link transition-colors ml-4"
+        href={APP_CONFIG.USER.social.linkedin}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <i class="fa-brands fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i>
+        <span class="fa-sr-only">{APP_CONFIG.USER.shortName}'s LinkedIn</span>
+      </a>
+      <a class="unset text-lg hover:text-text-link transition-colors ml-4" href="/rss.xml">
+        <i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i>
+        <span class="fa-sr-only">RSS feed</span>
+      </a>
+    </div>
+    <div class="text-center md:hidden">
+      Crafted with
+      <i class="fas fa-heart text-[#f53f64]"></i>
+      +
+      <i class="fas fa-mug-hot"></i>
+      +
+      <a class="tracking-wider" href="https://astro.build/" rel="noopener noreferrer" target="_blank">Astro</a>
+    </div>
+    <div class="text-text-bold flex justify-end">
+      <a class="unset" href="/">
+        <Logo width="24" height="24" />
+        <span class="fa-sr-only">Home</span>
+      </a>
+    </div>
   </div>
 </footer>
 
 <style>
   footer {
-    display: flex;
     grid-area: footer;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
-
-  .gradient-link {
-    position: relative;
-    text-decoration: none;
-    box-decoration-break: clone;
-  }
-
-  .gradient-link::after {
-    content: '';
-    position: absolute;
-    right: 0;
-    bottom: -2px;
-    left: 0;
-    transform-origin: left center;
-    transform: translateZ(0) scaleX(0);
-    height: 2px;
-    transition: all 0.15s ease-in-out;
-  }
-
-  .gradient-link:hover::after {
-    transform: translateZ(0) scale(1);
   }
 </style>

@@ -9,7 +9,7 @@ const techItems = ['React, Next.js', 'HTML, CSS', 'Node.js', 'Webpack, Vite', 'J
 <PageLayout>
   <PageSEO title={`${APP_CONFIG.USER.shortName} | About`} slot="seo" />
   <section class="mt-8 md:mt-0">
-    <h2 class="font-bold text-2xl md:text-xl pb-4">About Me</h2>
+    <h1 class="pb-4">About Me</h1>
     <p>Hey there <span class="hand-wave">👋</span>, I'm Fateh, a Senior Front-End engineer with 4+ years of experience.</p>
     <p class="mt-3 text-justify md:text-left">
       Working on the front-end has always been my passion. I get a kick out of exploring the ever-changing world of front-end tech since
@@ -27,7 +27,7 @@ const techItems = ['React, Next.js', 'HTML, CSS', 'Node.js', 'Webpack, Vite', 'J
         {
           techItems.map(item => (
             <div class="tech-item">
-              <i class="fa-solid fa-arrow-right text-primary mr-3" />
+              <i class="fas fa-arrow-right text-primary mr-3" />
               <span>{item}</span>
             </div>
           ))

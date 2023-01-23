@@ -5,7 +5,9 @@
 
 .fa,
 .fa-solid,
-.fa-brands {
+.fas,
+.fa-brands,
+.fab {
   display: var(--fa-display, inline-block);
   font-style: normal;
   font-variant: normal;
@@ -110,4 +112,12 @@
 
 .fa-arrow-up-right-from-square::before {
   content: '\f08e';
+}
+
+.fa-heart::before {
+  content: '\f004';
+}
+
+.fa-mug-hot::before {
+  content: '\f7b6';
 }

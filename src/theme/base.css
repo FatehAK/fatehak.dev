@@ -34,11 +34,9 @@
   }
 
   h1 {
-    transform: translate3d(0, 100%, 0);
     font-size: 3rem;
     font-weight: bold;
     line-height: 1.25;
-    animation: slide-up 0.8s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
   }
 
   h2 {
@@ -149,6 +147,12 @@
     background-clip: text;
     animation: gradient-move 4s ease infinite;
   }
+
+  .slideup-text {
+    will-change: transform;
+    transform: translateY(80px) translateZ(0);
+    animation: slide-up 0.8s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+  }
 }
 
 /* animations */
@@ -160,7 +164,7 @@
 
 @keyframes slide-up {
   to {
-    transform: translate3d(0, 0, 0);
+    transform: translateY(0) translateZ(0);
   }
 }
 

@@ -25,7 +25,6 @@ export default defineConfig({
     build: {
       target: getTargetBrowsers(),
       minify: isProd ? 'esbuild' : false,
-      sourcemap: isProd ? 'hidden' : true,
     },
   },
 });

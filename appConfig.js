@@ -1,7 +1,7 @@
 export const APP_CONFIG = {
   SITE_URL: 'https://fatehak.pages.dev',
   META: {
-    title: 'Fateh • Hello World!',
+    title: 'FatehAK - Front-End Engineer, Open Sourcerer',
     description: 'Front-End Engineer, Open Sourcerer',
     keywords: 'fatehak, developer, front-end engineer, ui',
     banner: 'banner.png',

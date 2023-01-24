@@ -7,7 +7,7 @@ const isOtherPages = typeof href === 'string' && href.length > 1 ? path.substrin
 const isActive = isHome || isOtherPages;
 ---
 
-<a href={href} class:list={[className, { show: isActive }, 'unset text-text-bold nav-link']} {...props}><slot /></a>
+<a href={href} rel="prefetch" class:list={[className, { show: isActive }, 'unset text-text-bold nav-link']} {...props}><slot /></a>
 
 <style>
   .nav-link {

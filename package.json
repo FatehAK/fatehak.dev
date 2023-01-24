@@ -26,6 +26,7 @@
     "maintained node versions"
   ],
   "dependencies": {
+    "@astrojs/prefetch": "^0.1.1",
     "tailwindcss": "^3.2.4"
   },
   "devDependencies": {

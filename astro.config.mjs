@@ -3,13 +3,26 @@ import { paramCase } from 'change-case';
 import AstroCompress from 'astro-compress';
 import AstroTailwindPlugin from '@astrojs/tailwind';
 import getTargetBrowsers from 'browserslist-to-esbuild';
+import AstroPrefetch from '@astrojs/prefetch';
 import { APP_CONFIG, COMPRESSION_CONFIG } from './appConfig';
-
 const isProd = process.env.BUILD === 'production';
+
+// https://astro.build/config
 export default defineConfig({
   site: APP_CONFIG.SITE_URL,
-  integrations: [AstroTailwindPlugin({ config: { applyBaseStyles: false } }), isProd && AstroCompress(COMPRESSION_CONFIG)],
-  server: { port: 3000, host: true },
+  integrations: [
+    AstroTailwindPlugin({
+      config: {
+        applyBaseStyles: false,
+      },
+    }),
+    AstroPrefetch({ throttle: 3 }),
+    isProd && AstroCompress(COMPRESSION_CONFIG),
+  ],
+  server: {
+    port: 3000,
+    host: true,
+  },
   vite: {
     build: {
       target: getTargetBrowsers(),

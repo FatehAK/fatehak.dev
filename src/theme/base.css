@@ -39,7 +39,6 @@
     font-weight: bold;
     line-height: 1.25;
     animation: slide-up 0.8s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
-    animation-delay: 0.1s;
   }
 
   h2 {
@@ -160,11 +159,7 @@
 }
 
 @keyframes slide-up {
-  0% {
-    transform: translate3d(0, 100%, 0);
-  }
-
-  100% {
+  to {
     transform: translate3d(0, 0, 0);
   }
 }

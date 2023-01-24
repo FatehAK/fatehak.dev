@@ -33,11 +33,10 @@ const isProd = import.meta.env.BUILD === 'production';
       })();
     </script>
     <FontFace />
-    {isProd && <script src={`https://static.cloudflareinsights.com/beacon.min.js?token=${APP_CONFIG.CLOUDFLARE_ANALYTICS_TOKEN}`} defer />}
   </head>
   <body class="min-h-screen">
     <Navbar />
-    <main id="main" class="w-full max-w-3xl px-8 sm:px-6">
+    <main class="w-full max-w-3xl px-8 sm:px-6">
       <slot />
     </main>
     <Footer />
@@ -58,5 +57,14 @@ const isProd = import.meta.env.BUILD === 'production';
         padding-bottom: 8rem;
       }
     </style>
+    {
+      isProd && (
+        <script
+          is:inline
+          src={`https://static.cloudflareinsights.com/beacon.min.js?token=${APP_CONFIG.CLOUDFLARE_ANALYTICS_TOKEN}`}
+          defer
+        />
+      )
+    }
   </body>
 </html>

@@ -54,6 +54,7 @@ export const PWA_CONFIG = {
     cleanupOutdatedCaches: true,
     maximumFileSizeToCacheInBytes: 4194304,
     globPatterns: ['**/*.{html,css,js,svg,png,ico,json,woff2,txt}'],
+    navigateFallback: '/404',
   },
 };
 

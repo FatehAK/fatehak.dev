@@ -17,8 +17,7 @@
       "constants/*": ["./src/constants/*"],
       "assets/*": ["./src/assets/*"],
       "appConfig": ["./appConfig.js"]
-    },
-    "types": ["vite-plugin-pwa/info"]
+    }
   },
   "exclude": ["node_modules", "**/node_modules/*", "dist"]
 }

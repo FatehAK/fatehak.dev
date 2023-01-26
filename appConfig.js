@@ -21,43 +21,6 @@ export const APP_CONFIG = {
   CLOUDFLARE_ANALYTICS_TOKEN: '7f556488383a4b9fb52323be73ba0485',
 };
 
-export const PWA_CONFIG = {
-  base: '/',
-  scope: '/',
-  includeAssets: ['favicon.ico', 'robots.txt', 'icons/*.png', 'icons/*.svg'],
-  manifest: {
-    name: APP_CONFIG.META.appName,
-    short_name: APP_CONFIG.META.appName,
-    description: APP_CONFIG.META.description,
-    background_color: APP_CONFIG.META.appBackground,
-    theme_color: APP_CONFIG.META.appBackground,
-    start_url: '.',
-    orientation: 'any',
-    display: 'standalone',
-    icons: [
-      {
-        src: '/icons/icon-512-512.png',
-        sizes: '512x512',
-        type: 'image/png',
-        purpose: 'any maskable',
-      },
-      {
-        src: '/icons/logo.svg',
-        sizes: '48x48 72x72 96x96 128x128 256x256 512x512',
-        type: 'image/svg+xml',
-        purpose: 'any maskable',
-      },
-    ],
-  },
-  workbox: {
-    sourcemap: false,
-    cleanupOutdatedCaches: true,
-    maximumFileSizeToCacheInBytes: 4194304,
-    globPatterns: ['**/*.{html,css,js,svg,png,ico,json,woff2,txt}'],
-    navigateFallback: '/404',
-  },
-};
-
 export const COMPRESSION_CONFIG = {
   js: false,
   img: {

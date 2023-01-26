@@ -1,0 +1,16 @@
+{
+  "name": "fatehak.dev",
+  "short_name": "fatehak.dev",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#101822",
+  "lang": "en",
+  "scope": "/",
+  "description": "Front-End Engineer, Open Sourcerer",
+  "theme_color": "#101822",
+  "orientation": "any",
+  "icons": [
+    { "src": "/icons/icon-512-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/icons/logo.svg", "sizes": "48x48 72x72 96x96 128x128 256x256 512x512", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

@@ -35,8 +35,7 @@
     "@commitlint/cli": "^17.4.2",
     "@typescript-eslint/parser": "^5.49.0",
     "@vite-pwa/astro": "^0.0.1",
-    "vite-plugin-pwa": "^0.14.1",
-    "astro": "^2.0.0",
+    "astro": "^2.0.1",
     "astro-compress": "^1.1.28",
     "browserslist-to-esbuild": "^1.2.0",
     "concurrently": "^7.6.0",
@@ -66,7 +65,9 @@
     "stylelint-config-standard": "^29.0.0",
     "stylelint-declaration-block-no-ignored-properties": "^2.6.0",
     "stylelint-formatter-pretty": "^3.1.1",
-    "stylelint-order": "^6.0.1"
+    "stylelint-order": "^6.0.1",
+    "vite-plugin-pwa": "^0.14.1",
+    "workbox-window": "^6.5.4"
   },
   "engines": {
     "node": ">=18"

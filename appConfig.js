@@ -22,6 +22,9 @@ export const APP_CONFIG = {
 };
 
 export const PWA_CONFIG = {
+  base: '/',
+  scope: '/',
+  includeAssets: ['favicon.ico', 'robots.txt', 'icons/*.png', 'icons/*.svg'],
   manifest: {
     name: APP_CONFIG.META.appName,
     short_name: APP_CONFIG.META.appName,
@@ -31,7 +34,6 @@ export const PWA_CONFIG = {
     start_url: '.',
     orientation: 'any',
     display: 'standalone',
-    includeAssets: ['favicon.ico', 'robots.txt', 'icons/*.png', 'icons/*.svg'],
     icons: [
       {
         src: '/icons/icon-512-512.png',
@@ -47,11 +49,11 @@ export const PWA_CONFIG = {
       },
     ],
   },
-  registerType: 'prompt',
   workbox: {
     sourcemap: false,
     cleanupOutdatedCaches: true,
     maximumFileSizeToCacheInBytes: 4194304,
+    globPatterns: ['**/*.{html,css,js,svg,png,ico,json,woff2,txt}'],
   },
 };
 

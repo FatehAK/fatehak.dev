@@ -1,0 +1,40 @@
+<div
+  id="pwa-toast"
+  class="fixed z-10 m-4 p-3 text-left text-[0.9rem] rounded-md border border-solid border-text-body/10"
+  role="alert"
+  aria-labelledby="toast-message"
+>
+  <div class="mb-2">
+    <span id="pwa-toast-message"></span>
+  </div>
+  <div class="text-right">
+    <button type="button" id="pwa-refresh" class="mr-1 py-1 px-3 border border-solid rounded-md outline-none border-text-body/10"
+      >Refresh</button
+    >
+    <button type="button" id="pwa-close" class="py-1 px-3 border border-solid rounded-md border-text-body/10">Close</button>
+  </div>
+</div>
+
+<style>
+  #pwa-toast {
+    right: 0;
+    bottom: 0;
+    display: none;
+    width: calc(100% - 2rem);
+    max-width: 25rem;
+    background: theme('colors.bg.body' / 96%);
+    box-shadow: 1px 1px 5px 0 theme('colors.text.body' / 10%);
+  }
+
+  #pwa-toast.show {
+    display: block;
+  }
+
+  #pwa-refresh {
+    display: none;
+  }
+
+  #pwa-toast.show.refresh #pwa-refresh {
+    display: inline-block;
+  }
+</style>

@@ -51,6 +51,7 @@ module.exports = {
         pathGroupsExcludedImportTypes: ['react'],
       },
     ],
+    'import/no-unresolved': ['error', { ignore: ['^virtual:'] }],
   },
   plugins: ['only-warn'],
   overrides: [

@@ -1,9 +1,11 @@
 ---
 import 'theme/theme.css';
 import 'theme/base.css';
+import { pwaInfo } from 'virtual:pwa-info';
 import FontFace from 'components/FontFace.astro';
 import Navbar from 'components/Navbar.astro';
 import Footer from 'components/Footer.astro';
+import PWAToast from 'components/PWAToast.astro';
 import { APP_CONFIG } from 'appConfig';
 
 const isProd = import.meta.env.BUILD === 'production';
@@ -26,6 +28,8 @@ const isProd = import.meta.env.BUILD === 'production';
     <meta name="msapplication-TileColor" content={APP_CONFIG.META.appBackground} />
     <meta name="application-name" content={APP_CONFIG.META.appName} />
     <slot name="seo" />
+    <script src="../pwa.js"></script>
+    {pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />}
     <script is:inline>
       // figure out user's preferred theme and set it as html class
       (function () {
@@ -60,6 +64,7 @@ const isProd = import.meta.env.BUILD === 'production';
         padding-bottom: 8rem;
       }
     </style>
+    <PWAToast />
     {
       isProd && (
         <script

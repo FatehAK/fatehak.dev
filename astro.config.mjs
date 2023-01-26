@@ -18,9 +18,6 @@ export default defineConfig({
     isProd && AstroCompress(COMPRESSION_CONFIG),
   ],
   server: ({ command }) => ({ port: command === 'dev' ? 3000 : 4000, host: true }),
-  build: {
-    format: 'file',
-  },
   vite: {
     build: {
       target: getTargetBrowsers(),

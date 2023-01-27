@@ -7,6 +7,7 @@ on:
 
 env:
   BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
+  ASTRO_TELEMETRY_DISABLED: true
 
 name: lint_build_publish
 

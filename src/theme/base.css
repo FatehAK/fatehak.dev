@@ -5,6 +5,7 @@
 @layer base {
   :root {
     --navbar-height: 5rem;
+    --footer-height: 5rem;
 
     scroll-behavior: smooth;
     scroll-padding-top: var(--navbar-height); /* for navbar */

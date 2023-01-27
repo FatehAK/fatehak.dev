@@ -51,7 +51,7 @@ const isProd = import.meta.env.BUILD === 'production';
           'main'
           'footer';
         grid-template-columns: minmax(0, 1fr);
-        grid-template-rows: 5rem minmax(0, 1fr) 5rem;
+        grid-template-rows: var(--navbar-height) minmax(0, 1fr) var(--footer-height);
         justify-items: center;
       }
 

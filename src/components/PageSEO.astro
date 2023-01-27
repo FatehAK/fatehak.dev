@@ -3,8 +3,8 @@ import { APP_CONFIG } from 'appConfig';
 
 const { title = APP_CONFIG.META.title, description = APP_CONFIG.META.description, banner = 'banner.png' } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const bannerURL = new URL(banner, Astro.url);
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
+const bannerURL = new URL(banner, Astro.site).toString();
 
 const META_TAGS = [
   { name: 'title', content: title },

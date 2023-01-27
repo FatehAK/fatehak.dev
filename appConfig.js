@@ -14,6 +14,7 @@ export const APP_CONFIG = {
       email: 'fa7ehak@gmail.com',
       linkedin: 'https://linkedin.com/in/fatehak',
       github: 'https://github.com/fatehak',
+      behance: 'https://www.behance.net/fateh_ak_/projects',
     },
   },
   CLOUDFLARE_ANALYTICS_TOKEN: '7f556488383a4b9fb52323be73ba0485',
@@ -21,6 +22,9 @@ export const APP_CONFIG = {
 
 export const COMPRESSION_CONFIG = {
   js: false,
+  html: {
+    removeAttributeQuotes: false,
+  },
   img: {
     png: { quality: 100 },
     jpeg: { quality: 100 },

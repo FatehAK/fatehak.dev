@@ -56,6 +56,10 @@
   content: '\f0e1';
 }
 
+.fa-behance:before {
+  content: '\f1b4';
+}
+
 /* ---------------- solid ---------------- */
 
 :root,

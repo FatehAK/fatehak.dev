@@ -61,7 +61,7 @@ const hasOddProjects = projectList.length % 2 !== 0;
           <div class="w-full flex flex-col relative rounded-lg bg-bg-body card-inner">
             <div class="flex justify-between items-center mb-2">
               <div class="flex items-center">
-                <img class="mr-3" src={p.logo} width="20" height="20" alt={p.name} />
+                <img class="mr-3" src={p.logo} width="20" height="20" loading="lazy" decoding="async" alt={p.name} />
                 <a class="unset flex items-center card-link" href={p.liveURL} target="_blank" rel="noopener noreferrer">
                   <p class="font-bold text-text-bold text-lg">{p.name}</p>
                   <i class="fas fa-arrow-up-right-from-square text-sm ml-2" />
@@ -74,7 +74,7 @@ const hasOddProjects = projectList.length % 2 !== 0;
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <i class="fa-brands fa-github" aria-hidden="true" title="View on GitHub" />
+                  <i class="fab fa-github" aria-hidden="true" title="View on GitHub" />
                   <span class="sr-only">{p.name}'s GitHub URL</span>
                 </a>
               </div>
@@ -94,11 +94,11 @@ const hasOddProjects = projectList.length % 2 !== 0;
       style={`animation-delay: ${projectList.length * 0.08}s`}
     >
       <span>
-        {hasOddProjects && <i class="fas fa-arrow-right text-primary mr-1 md:hidden" />}
-        View more on&nbsp;
-      </span>
-      <span>
-        <a href={APP_CONFIG.USER.social.github} target="_blank" rel="noopener noreferrer">GitHub</a>
+        ...more on&nbsp;<a href={APP_CONFIG.USER.social.github} target="_blank" rel="noopener noreferrer">GitHub</a>&nbsp;&&nbsp;<a
+          href={APP_CONFIG.USER.social.behance}
+          target="_blank"
+          rel="noopener noreferrer">Behance</a
+        >&nbsp;🚀
       </span>
     </div>
   </div>

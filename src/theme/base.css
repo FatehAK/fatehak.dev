@@ -119,6 +119,11 @@
     border-color: rgb(var(--color-border-code) / 15%);
   }
 
+  img {
+    /* https://css-tricks.com/almanac/properties/c/content-visibility/ */
+    content-visibility: auto;
+  }
+
   ul:not(.unset) {
     padding-left: 0;
     list-style: none;

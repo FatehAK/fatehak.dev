@@ -28,7 +28,6 @@ const isProd = import.meta.env.BUILD === 'production';
     <meta name="application-name" content={APP_CONFIG.META.appName} />
     <slot name="seo" />
     <script is:inline>
-      // figure out user's preferred theme and set it as html class
       (function () {
         if (typeof window !== 'undefined') {
           const storageTheme = sessionStorage.getItem('theme');

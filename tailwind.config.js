@@ -18,6 +18,7 @@ module.exports = {
       current: 'currentColor',
       bg: {
         body: 'rgb(var(--color-bg-body) / <alpha-value>)',
+        gradient: 'rgb(var(--color-bg-gradient) / <alpha-value>)',
         code: 'rgb(var(--color-bg-code) / <alpha-value>)',
         selection: 'rgb(var(--color-bg-selection) / <alpha-value>)',
       },

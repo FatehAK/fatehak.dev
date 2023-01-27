@@ -1,6 +1,7 @@
 /* dark theme */
 [data-theme='dark'] {
   --color-bg-body: 16 24 34; /* #101822 */
+  --color-bg-gradient: 11 16 24; /* #0b1018 */
   --color-primary: 34 211 238; /* #22d3ee */
   --color-primary-light: 138 255 255 /* #8affff */;
   --color-primary-dark: 3 163 191 /* #03a3bf */;
@@ -21,6 +22,7 @@
 /* light theme */
 [data-theme='light'] {
   --color-bg-body: 255 255 255; /* #fff */
+  --color-bg-gradient: 249 250 253; /* #f9fafd */
   --color-primary: 244 112 114; /* #f47072 */
   --color-primary-light: 239 182 173; /* #efb6ad */
   --color-primary-dark: 235 110 114; /* #eb6e72 */

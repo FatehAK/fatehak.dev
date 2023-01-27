@@ -4,8 +4,10 @@
 
 @layer base {
   :root {
+    --navbar-height: 5rem;
+
     scroll-behavior: smooth;
-    scroll-padding-top: 80px; /* for navbar */
+    scroll-padding-top: var(--navbar-height); /* for navbar */
     font-family: theme('fontFamily.body');
     font-size: 100%;
     font-feature-settings: 'case' 1, 'rlig' 1, 'calt' 0;
@@ -13,13 +15,24 @@
     color: theme('colors.text.body');
     text-rendering: optimizelegibility;
     tab-size: 4;
-    background-color: theme('colors.bg.body');
-    transition: background-color 0.3s ease;
+    background: theme('colors.bg.body');
   }
 
   ::selection {
     color: theme('colors.text.selection');
     background: theme('colors.bg.selection');
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    z-index: -999;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    background: linear-gradient(180deg, theme('colors.bg.body'), theme('colors.bg.body') var(--navbar-height), theme('colors.bg.gradient'));
   }
 }
 

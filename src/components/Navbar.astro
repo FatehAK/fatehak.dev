@@ -102,21 +102,21 @@ const pages = [
 
 <style>
   header {
-    height: 5rem;
+    height: var(--navbar-height);
     border: 0;
     border-bottom: 1px solid transparent;
-    transition: all 0.3s;
+    transition: height 0.3s ease, border-bottom 0.3s ease;
 
     &.scroll {
       border-bottom: 1px solid theme('colors.text.body' / 10%);
 
       @media (min-width: theme('screens.md.max')) {
-        height: 4.4rem;
+        height: calc(var(--navbar-height) - 1.6rem);
       }
     }
 
     @media (max-width: theme('screens.md.max')) {
-      height: 4.4rem;
+      height: calc(var(--navbar-height) - 1.6rem);
     }
   }
 

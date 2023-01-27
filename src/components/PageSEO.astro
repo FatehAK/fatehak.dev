@@ -1,12 +1,7 @@
 ---
 import { APP_CONFIG } from 'appConfig';
 
-const {
-  title = APP_CONFIG.META.title,
-  description = APP_CONFIG.META.description,
-  keywords = APP_CONFIG.META.keywords,
-  banner = APP_CONFIG.META.banner,
-} = Astro.props;
+const { title = APP_CONFIG.META.title, description = APP_CONFIG.META.description, banner = 'banner.png' } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const bannerURL = new URL(banner, Astro.url);
@@ -14,16 +9,18 @@ const bannerURL = new URL(banner, Astro.url);
 const META_TAGS = [
   { name: 'title', content: title },
   { name: 'description', content: description },
-  { name: 'keywords', content: keywords },
   { name: 'author', content: APP_CONFIG.USER.name },
   { name: 'image', content: bannerURL },
   { name: 'generator', content: Astro.generator },
   // Open Graph tags
   { property: 'og:title', content: title },
-  { property: 'og:site_name', content: APP_CONFIG.META.title },
+  { property: 'og:site_name', content: APP_CONFIG.META.appName },
   { property: 'og:type', content: 'website' },
   { property: 'og:description', content: description },
   { property: 'og:image', content: bannerURL },
+  { property: 'og:image:alt', content: APP_CONFIG.META.appName },
+  { property: 'og:image:width', content: 1280 },
+  { property: 'og:image:height', content: 720 },
   { property: 'og:url', content: Astro.url },
   // Twitter tags
   { name: 'twitter:title', content: title },

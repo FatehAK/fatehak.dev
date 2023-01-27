@@ -67,9 +67,9 @@ const hasOddProjects = projectList.length % 2 !== 0;
                   <i class="fas fa-arrow-up-right-from-square text-sm ml-2" />
                 </a>
               </div>
-              <div class="flex items-center">
-                <a class="unset" href={p.githubURL} target="_blank" rel="noopener noreferrer">
-                  <i class="fa-brands fa-github text-xl hover:text-text-link transition-colors" aria-hidden="true" title="View on GitHub" />
+              <div class="flex items-center [&>a]:border-none">
+                <a class="text-xl" href={p.githubURL} target="_blank" rel="noopener noreferrer">
+                  <i class="fa-brands fa-github" aria-hidden="true" title="View on GitHub" />
                   <span class="sr-only">{p.name}'s GitHub URL</span>
                 </a>
               </div>
@@ -93,8 +93,8 @@ const hasOddProjects = projectList.length % 2 !== 0;
         View more on&nbsp;
       </span>
       <span>
-        <a class="flex items-center transition-colors" href={APP_CONFIG.USER.social.github} target="_blank" rel="noopener noreferrer">
-          <i class="fa-brands fa-github text-xl hover:text-text-link" aria-hidden="true" title="GitHub"></i>
+        <a class="flex items-center" href={APP_CONFIG.USER.social.github} target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-github text-xl" aria-hidden="true" title="GitHub"></i>
           <span class="ml-1">GitHub</span>
         </a>
       </span>

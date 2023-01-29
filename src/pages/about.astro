@@ -1,42 +1,37 @@
 ---
 import PageLayout from 'layouts/PageLayout.astro';
 import PageSEO from 'components/PageSEO.astro';
+import Heading from 'components/Heading.astro';
 import { APP_CONFIG } from 'appConfig';
 
-const techItems = ['React, Next.js', 'HTML, CSS', 'Node.js', 'Webpack, Vite', 'Jest', 'AWS', 'GitHub Actions', 'Docker', 'CI/CD'];
+const techItems = ['React, Next.js', 'Node.js', 'Astro', 'Vite, Webpack', 'Jest', 'AWS', 'GitHub Actions', 'Docker'];
 ---
 
 <PageLayout>
   <PageSEO title={`${APP_CONFIG.USER.name} | About`} slot="seo" />
   <section class="mt-12">
-    <div class="overflow-hidden mb-4"><h1 class="slideup-text">About <span class="gradient-text">Me</span></h1></div>
+    <Heading text="About" gradientText="Me" />
     <p>
       <span
-        >Hey there&nbsp;👋🏻&nbsp;&nbsp;I’m Fateh, a Senior Front-End engineer based in <span class="font-[500] text-text-bold"
-          >Chennai, India</span
-        >. Previously worked with</span
-      >
-      <a href="https://www.thoughtworks.com/" target="_blank" rel="noopener noreferrer">Thoughtworks</a><span
-        >, currently on a mini personal break.</span
+        >Hey there&nbsp;👋🏻&nbsp;&nbsp;I’m Fateh, a Front-End engineer based in <span class="font-[500] text-text-bold">Chennai, India</span
+        >.</span
       >
     </p>
     <p class="mt-3">
-      I have <span class="font-[500] text-text-bold">4+ years</span> of experience engineering complex, performant web apps in diverse domains
-      with modern tools and technologies.
+      I’ve worked with <a href="https://www.thoughtworks.com/" target="_blank" rel="noopener noreferrer">Thoughtworks</a> previously and have
+      <span class="font-[500] text-text-bold">4+ years</span> of experience developing complex, performant web apps with modern tools and technologies.
     </p>
     <p class="mt-3">
-      Working on the front-end has always been my passion. I get a kick out of exploring the ever-changing world of front-end tech since
-      there is always something new to learn and experiment with. <span class="sm:hidden"
-        >I like to give that first impression which makes the user want to stay within the page.</span
-      >
+      Front-End is my passion! I get a kick out of exploring its ever-changing world since there is always something new to learn and
+      experiment. I like to give users that first impression that makes them want to stay on the page.
     </p>
-    <p class="mt-3 text-justify md:text-left">
-      My most recent obsession has been around dev tooling and bundlers, and I’m always open to talk about all things front-end, performance
-      and open source!
+    <p class="mt-3">
+      I’m a knowledge seeker and have an innately curious persona. I find building websites accessible by people around the world on a
+      multitude of devices pretty amazing!
     </p>
-    <div class="mt-12">
-      <h6 class="pb-4">Few technologies I enjoy working with:</h6>
-      <div class="grid gap-3 grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
+    <div class="mt-3">
+      <p class="mb-3 font-[500] text-text-bold">Few technologies in my current stack:</p>
+      <div class="grid gap-3 grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
         {
           techItems.map((item, index) => (
             <div class="tech-item" style={`animation-delay: ${index * 0.06}s`}>
@@ -47,7 +42,34 @@ const techItems = ['React, Next.js', 'HTML, CSS', 'Node.js', 'Webpack, Vite', 'J
         }
       </div>
     </div>
+    <p class="mt-3">
+      My most recent obsession has been around dev tooling and bundlers, and I’m always open to chat about all things front-end,
+      performance, and open source!
+    </p>
+    <p class="mt-3">
+      I’m just off a personal break and <span class="font-[500] text-text-bold">currently open</span> to explore new opportunities.
+    </p>
+    <p class="mt-3">
+      You can reach me at <a href={`mailto:${APP_CONFIG.USER.social.email}`} onclick="this.href=this.href.replace('@@','.')"
+        >fa7ehak[at]gmail<span class="hidden">@@</span>.com</a
+      >
+    </p>
+    <p class="mt-3">
+      <a href="/resume" target="_blank" rel="noopener noreferrer">View my resume</a>
+      <i class="fas fa-arrow-up-right-from-square text-sm"></i>
+    </p>
+    <div class="mt-8 flex justify-center">
+      <div class="line-seperator"></div>
+    </div>
   </section>
+  <div class="mt-8 text-center">
+    <p class="relative">
+      <i class="fas fa-quote-left text-primary text-[1.6rem] relative left-0 -top-[4px]"></i>
+      <span class="quote-text">The Web presents a vast ocean of opportunity of which I’ve only scratched the surface</span>
+      <i class="fas fa-quote-right text-primary text-[1.6rem] relative right-0 -top-[4px]"></i>
+    </p>
+    <p class="mt-3">—&nbsp;&nbsp;Unknown</p>
+  </div>
 </PageLayout>
 
 <style>
@@ -64,5 +86,20 @@ const techItems = ['React, Next.js', 'HTML, CSS', 'Node.js', 'Webpack, Vite', 'J
         transform: translateX(5px);
       }
     }
+  }
+
+  .line-seperator {
+    width: 10rem;
+    height: 1px;
+    background: theme('colors.text.body' / 10%);
+  }
+
+  .quote-text {
+    font-family: 'Noto Serif', serif;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    letter-spacing: 0.01rem;
+    opacity: 0;
+    animation: fadein 0.4s ease forwards;
   }
 </style>

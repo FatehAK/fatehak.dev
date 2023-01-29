@@ -112,3 +112,11 @@
 .fa-mug-hot::before {
   content: '\f7b6';
 }
+
+.fa-quote-left::before {
+  content: '\f10d';
+}
+
+.fa-quote-right::before {
+  content: '\f10e';
+}

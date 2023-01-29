@@ -3,7 +3,7 @@ import NavLink from './NavLink.astro';
 import Social from './Social.astro';
 import ThemeToggle from './ThemeToggle.astro';
 
-const pages = [
+const links = [
   {
     name: 'home',
     path: '/',
@@ -29,9 +29,9 @@ const pages = [
     <div class="text-text-bold md:hidden">
       <ul class="unset flex gap-4 [&>li]:p-0">
         {
-          pages.map(page => (
+          links.map(link => (
             <li>
-              <NavLink href={page.path}>{page.name}</NavLink>
+              <NavLink href={link.path}>{link.name}</NavLink>
             </li>
           ))
         }
@@ -49,16 +49,16 @@ const pages = [
       >
         <div class="flex flex-col justify-between bg-bg-body w-[75%] h-full drop-shadow-2xl px-6">
           <div class="flex justify-end">
-            <button id="ham-menu-close" class="h-[5rem] text-xl xml-[1px] text-text-bold">
+            <button id="ham-menu-close" class="h-[5rem] text-xl text-text-bold">
               <i class="fas fa-xmark" aria-hidden="true" title="Close hamburger menu"></i>
               <span class="sr-only">Close hamburger menu</span>
             </button>
           </div>
           <ul class="unset flex flex-col justify-center text-text-bold gap-8 [&>li]:p-0">
             {
-              pages.map(page => (
+              links.map(link => (
                 <li>
-                  <NavLink href={page.path}>{page.name}</NavLink>
+                  <NavLink href={link.path}>{link.name}</NavLink>
                 </li>
               ))
             }

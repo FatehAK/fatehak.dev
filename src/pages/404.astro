@@ -1,12 +1,11 @@
 ---
 import PageLayout from 'layouts/PageLayout.astro';
+import Heading from 'components/Heading.astro';
 ---
 
 <PageLayout>
   <div class="mt-12">
-    <div class="overflow-hidden mb-8">
-      <h1>404 <span class="gradient-text">Not Found.</span></h1>
-    </div>
+    <Heading text="404" gradientText="Not Found." />
     <p class="mb-4">Maybe this link is broken. Maybe something was deleted, or moved. In any case, there's nothing to see here...</p>
     <a href="/">Go Home</a>
   </div>

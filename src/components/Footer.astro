@@ -8,21 +8,21 @@ import Logo from './Logo.astro';
     <div>
       <a
         class="unset text-lg hover:text-text-link transition-colors duration-200"
-        href={APP_CONFIG.USER.social.github}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <i class="fab fa-github" aria-hidden="true" title="GitHub"></i>
-        <span class="sr-only">{APP_CONFIG.USER.shortName}'s GitHub</span>
-      </a>
-      <a
-        class="unset text-lg hover:text-text-link transition-colors duration-200 ml-4"
         href={APP_CONFIG.USER.social.linkedin}
         target="_blank"
         rel="noopener noreferrer"
       >
         <i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i>
         <span class="sr-only">{APP_CONFIG.USER.shortName}'s LinkedIn</span>
+      </a>
+      <a
+        class="unset text-lg hover:text-text-link transition-colors duration-200 ml-4"
+        href={APP_CONFIG.USER.social.github}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <i class="fab fa-github" aria-hidden="true" title="GitHub"></i>
+        <span class="sr-only">{APP_CONFIG.USER.shortName}'s GitHub</span>
       </a>
       <a class="unset text-lg hover:text-text-link transition-colors duration-200 ml-4" href="/rss.xml">
         <i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i>

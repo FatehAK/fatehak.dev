@@ -3,9 +3,22 @@ import { APP_CONFIG } from 'appConfig';
 ---
 
 <div class="text-text-bold text-xl">
-  <a class="unset hover:text-text-link transition-colors duration-200" href={`mailto:${APP_CONFIG.USER.social.email}`}>
+  <a
+    class="unset hover:text-text-link transition-colors duration-200"
+    href={`mailto:${APP_CONFIG.USER.social.email}`}
+    onclick="this.href=this.href.replace('@@','.')"
+  >
     <i class="fas fa-envelope" aria-hidden="true" title="Mail"></i>
     <span class="sr-only">{APP_CONFIG.USER.shortName}'s Mail</span>
+  </a>
+  <a
+    class="ml-4 unset hover:text-text-link transition-colors duration-200"
+    href={APP_CONFIG.USER.social.linkedin}
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i>
+    <span class="sr-only">{APP_CONFIG.USER.shortName}'s LinkedIn</span>
   </a>
   <a
     class="ml-4 unset hover:text-text-link transition-colors duration-200"
@@ -22,16 +35,7 @@ import { APP_CONFIG } from 'appConfig';
     target="_blank"
     rel="noopener noreferrer"
   >
-    <i class="fab fa-behance" aria-hidden="true" title="GitHub"></i>
-    <span class="sr-only">{APP_CONFIG.USER.shortName}'s GitHub</span>
-  </a>
-  <a
-    class="ml-4 unset hover:text-text-link transition-colors duration-200"
-    href={APP_CONFIG.USER.social.linkedin}
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    <i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i>
-    <span class="sr-only">{APP_CONFIG.USER.shortName}'s LinkedIn</span>
+    <i class="fab fa-behance" aria-hidden="true" title="Behance"></i>
+    <span class="sr-only">{APP_CONFIG.USER.shortName}'s Behance</span>
   </a>
 </div>

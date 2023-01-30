@@ -21,6 +21,7 @@ module.exports = {
         gradient: 'rgb(var(--color-bg-gradient) / <alpha-value>)',
         code: 'rgb(var(--color-bg-code) / <alpha-value>)',
         selection: 'rgb(var(--color-bg-selection) / <alpha-value>)',
+        border: 'rgb(var(--color-text-body) / 10%)',
       },
       primary: {
         DEFAULT: 'rgb(var(--color-primary) / <alpha-value>)',
@@ -41,6 +42,15 @@ module.exports = {
       },
       border: {
         code: 'rgb(var(--color-border-code) / <alpha-value>)',
+      },
+    },
+    extend: {
+      height: {
+        navbar: '5rem',
+        footer: '5rem',
+      },
+      backgroundImage: {
+        'bg-gradient': 'linear-gradient(180deg, rgb(var(--color-bg-body)), rgb(var(--color-bg-body)), rgb(var(--color-bg-gradient)))',
       },
     },
   },

@@ -92,7 +92,7 @@ const links = [
   document.querySelector('#ham-menu-open').addEventListener('click', showMenu);
   document.querySelector('#ham-menu-close').addEventListener('click', hideMenu);
   window.addEventListener('scroll', function () {
-    if (window.scrollY > 0) {
+    if (window.scrollY > 10) {
       navContainer.classList.add('scroll');
     } else {
       navContainer.classList.remove('scroll');
@@ -102,21 +102,23 @@ const links = [
 
 <style>
   header {
-    height: var(--navbar-height);
+    height: theme('height.navbar');
     border: 0;
-    border-bottom: 1px solid transparent;
-    transition: height 0.3s ease, border-bottom 0.3s ease;
+    border-color: transparent;
+    border-style: solid;
+    border-bottom-width: 1px;
+    transition: height 0.3s ease, border-color 0.3s ease;
 
     &.scroll {
-      border-bottom: 1px solid theme('colors.text.body' / 10%);
+      border-color: theme('colors.bg.border');
 
       @media (min-width: theme('screens.md.max')) {
-        height: calc(var(--navbar-height) - 0.8rem);
+        height: calc(theme('height.navbar') - 0.8rem);
       }
     }
 
     @media (max-width: theme('screens.md.max')) {
-      height: calc(var(--navbar-height) - 0.8rem);
+      height: calc(theme('height.navbar') - 0.8rem);
     }
   }
 

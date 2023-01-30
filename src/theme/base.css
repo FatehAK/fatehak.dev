@@ -4,11 +4,8 @@
 
 @layer base {
   :root {
-    --navbar-height: 5rem;
-    --footer-height: 5rem;
-
     scroll-behavior: smooth;
-    scroll-padding-top: var(--navbar-height); /* for navbar */
+    scroll-padding-top: theme('height.navbar'); /* for navbar */
     font-family: theme('fontFamily.body');
     font-size: 100%;
     font-feature-settings: 'case' 1, 'rlig' 1, 'calt' 0;
@@ -33,7 +30,12 @@
     bottom: 0;
     left: 0;
     display: block;
-    background: linear-gradient(180deg, theme('colors.bg.body'), theme('colors.bg.body') var(--navbar-height), theme('colors.bg.gradient'));
+    background: linear-gradient(
+      180deg,
+      theme('colors.bg.body'),
+      theme('colors.bg.body') theme('height.navbar'),
+      theme('colors.bg.gradient')
+    );
   }
 }
 
@@ -170,6 +172,7 @@
   .slideup-text {
     will-change: transform;
     transform: translateY(80px) translateZ(0);
+    backface-visibility: hidden; /* safari fix */
     animation: slide-up 0.8s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
   }
 }

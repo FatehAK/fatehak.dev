@@ -93,10 +93,6 @@
   content: '\f09e';
 }
 
-.fa-envelope::before {
-  content: '\f0e0';
-}
-
 .fa-arrow-right::before {
   content: '\f061';
 }

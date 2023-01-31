@@ -9,10 +9,10 @@ const { posts } = Astro.props;
       style={`animation-delay: ${index * 0.08}s`}
     >
       <a class="unset" href={post.path}>
-        <h5 class="mb-1 transition-colors duration-200">{post.title}</h5>
-        <div class="text-sm text-text-body/50">
+        <h2 class="mb-1 text-[1.18rem] font-[500] transition-colors duration-200">{post.title}</h2>
+        <div class="text-sm text-text-body/[56%]">
           <span>{post.date}</span>
-          <span class="mx-1 text-bg-border">•</span>
+          <span class="mx-1 text-text-body/20">•</span>
           <span>{post.readingTime}</span>
         </div>
       </a>
@@ -27,7 +27,7 @@ const { posts } = Astro.props;
   }
 
   @media (hover: hover) and (pointer: fine) {
-    .post a:hover > h5 {
+    .post a:hover > h2 {
       color: theme('colors.primary.DEFAULT');
     }
   }

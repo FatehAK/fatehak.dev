@@ -1,62 +1,15 @@
 ---
-import genzoLogo from 'assets/projects/genzo-logo.png';
-import viteImageOptimizerLogo from 'assets/projects/vite-logo.svg';
-import navigoLogo from 'assets/projects/navigo-logo.png';
-import notebyteLogo from 'assets/projects/notebyte-logo.png';
-import memriseLogo from 'assets/projects/memrise-logo.svg';
 import { APP_CONFIG } from 'appConfig';
+import { projects } from './config';
 
-const projectList = [
-  {
-    name: 'genzo',
-    logo: genzoLogo,
-    githubURL: 'https://github.com/FatehAK/genzo-cli',
-    liveURL: 'https://www.npmjs.com/package/genzo',
-    description: 'Rapidly scaffold your projects with custom templates in the CLI ⚡️',
-    technologies: ['Node', 'CLI'],
-  },
-  {
-    name: 'vite-plugin',
-    logo: viteImageOptimizerLogo,
-    githubURL: 'https://github.com/FatehAK/vite-plugin-image-optimizer',
-    liveURL: 'https://www.npmjs.com/package/vite-plugin-image-optimizer',
-    description: 'Optimize your images using Sharp.js and SVGO at build time.',
-    technologies: ['Node', 'Vite'],
-  },
-  {
-    name: 'navigo',
-    logo: navigoLogo,
-    githubURL: 'https://github.com/FatehAK/navigo',
-    liveURL: 'https://navigo-app.pages.dev',
-    description: 'Discover new places by drawing on the Map with PWA support.',
-    technologies: ['React', 'PWA', 'Vite'],
-  },
-  {
-    name: 'notebyte',
-    logo: notebyteLogo,
-    githubURL: 'https://github.com/FatehAK/notebyte',
-    liveURL: 'https://notebyte.onrender.com',
-    description: 'Jot down your thoughts with this simple note taking app ✏️',
-    technologies: ['Node', 'Express', 'Mongo'],
-  },
-  {
-    name: 'memrise',
-    logo: memriseLogo,
-    githubURL: 'https://github.com/FatehAK/memrise',
-    liveURL: 'https://memrise.pages.dev/',
-    description: 'Boost your memory with this match-up game coded in Vanilla JS ✨',
-    technologies: ['JS', 'HTML', 'CSS'],
-  },
-];
-
-const hasOddProjects = projectList.length % 2 !== 0;
+const hasOddProjects = projects.length % 2 !== 0;
 ---
 
 <section>
   <h2 class="mb-6">Projects</h2>
   <div class="grid gap-6 md:gap-7 grid-cols-2 md:grid-cols-1">
     {
-      projectList.map((p, index) => (
+      projects.map((p, index) => (
         <div class="flex card" style={`animation-delay: ${index * 0.08}s`}>
           <div class="w-full flex flex-col relative rounded-lg card-inner">
             <div class="flex justify-between items-center mb-2">
@@ -82,7 +35,7 @@ const hasOddProjects = projectList.length % 2 !== 0;
             <p>{p.description}</p>
             <div class="flex mt-6">
               {p.technologies.map((tech, idx) => (
-                <div class={`flex justify-center items-center border border-bg-border pill ${idx > 0 ? 'ml-3' : ''}`}>{tech}</div>
+                <div class:list={['flex justify-center items-center border border-bg-border pill', { 'ml-3': idx > 0 }]}>{tech}</div>
               ))}
             </div>
           </div>
@@ -91,7 +44,7 @@ const hasOddProjects = projectList.length % 2 !== 0;
     }
     <div
       class={`flex card items-center justify-center ${hasOddProjects ? '' : 'col-span-2 md:col-span-1'}`}
-      style={`animation-delay: ${projectList.length * 0.08}s`}
+      style={`animation-delay: ${projects.length * 0.08}s`}
     >
       <span>
         ...more on&nbsp;<a href={APP_CONFIG.USER.social.github} target="_blank" rel="noopener noreferrer">GitHub</a>&nbsp;&&nbsp;<a

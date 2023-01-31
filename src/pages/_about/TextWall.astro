@@ -1,0 +1,71 @@
+---
+import { APP_CONFIG } from 'appConfig';
+import { technologies, resumeURL } from './config';
+---
+
+<Fragment>
+  <p>
+    <span
+      >Hey there&nbsp;👋🏻&nbsp;&nbsp;I’m Fateh, a Front-End engineer based in <span class="font-[500] text-text-bold">Chennai, India</span
+      >.</span
+    >
+  </p>
+  <p class="mt-3">
+    I’ve worked with <a href="https://www.thoughtworks.com/" target="_blank" rel="noopener noreferrer">Thoughtworks</a> previously and have
+    <span class="font-[500] text-text-bold">4+ years</span> of experience developing complex, performant web apps with modern tools and technologies.
+  </p>
+  <p class="mt-3">
+    Front-End is my passion! I get a kick out of exploring its ever-changing world since there is always something new to learn and
+    experiment. I like to give users that first impression that makes them want to stay on the page.
+  </p>
+  <p class="mt-3">
+    I’m a knowledge seeker and have an innately curious persona. I find building websites accessible by people around the world on a
+    multitude of devices pretty amazing!
+  </p>
+  <div class="mt-5">
+    <p class="mb-3 font-[500] text-text-bold">Few technologies in my current stack:</p>
+    <div class="grid gap-3 grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
+      {
+        technologies.map((item, index) => (
+          <div class="tech-item" style={`animation-delay: ${index * 0.06}s`}>
+            <i class="fas fa-arrow-right text-primary mr-3" />
+            <span>{item}</span>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+  <p class="mt-5">
+    My most recent obsession has been around dev tooling and bundlers, and I’m always open to chat about all things front-end, performance,
+    and open source!
+  </p>
+  <p class="mt-3">
+    I’m just off my personal break and <span class="font-[500] text-text-bold">currently open</span> to explore new opportunities.
+  </p>
+  <p class="mt-3">
+    You can reach me at <a href={`mailto:${APP_CONFIG.USER.social.email}`} onclick="this.href=this.href.replace('@@','.')"
+      >fa7ehak[at]gmail<span class="hidden">@@</span>.com</a
+    >
+  </p>
+  <p class="mt-3">
+    <span>View my&nbsp;</span><a href={resumeURL} target="_blank" rel="noopener noreferrer">Résumé</a><i
+      class="fas fa-arrow-up-right-from-square text-sm ml-1"></i>
+  </p>
+</Fragment>
+
+<style>
+  .tech-item {
+    opacity: 0;
+    animation: fadein 0.4s ease forwards;
+
+    & > i {
+      transition: transform 0.2s;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover > i {
+        transform: translateX(5px);
+      }
+    }
+  }
+</style>

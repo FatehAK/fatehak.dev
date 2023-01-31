@@ -1,0 +1,32 @@
+---
+const { posts } = Astro.props;
+---
+
+{
+  posts.map((post, index) => (
+    <div
+      class:list={['post pt-3 pb-4 border-b border-bg-border', { 'mb-3': index !== posts.length - 1 }]}
+      style={`animation-delay: ${index * 0.08}s`}
+    >
+      <a class="unset [&:hover>h5]:text-primary" href={post.path}>
+        <h5 class="mb-1 transition-colors duration-200">{post.title}</h5>
+        <div class="text-sm text-text-body/50">
+          <span>{post.date}</span>
+          <span class="mx-1 text-bg-border">•</span>
+          <span>{post.readingTime}</span>
+        </div>
+      </a>
+    </div>
+  ))
+}
+
+<style>
+  .post {
+    opacity: 0;
+    animation: fadein 0.8s ease forwards;
+  }
+
+  .pill {
+    font-size: 0.8rem;
+  }
+</style>

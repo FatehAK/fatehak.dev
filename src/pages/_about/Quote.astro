@@ -1,0 +1,23 @@
+---
+import { quote } from './config';
+---
+
+<div class="mt-8 text-center">
+  <p class="relative">
+    <i class="fas fa-quote-left text-primary text-[1.6rem] relative left-0 -top-[4px]"></i>
+    <span class="quote-text">{quote}</span>
+    <i class="fas fa-quote-right text-primary text-[1.6rem] relative right-0 -top-[4px]"></i>
+  </p>
+  <p class="mt-3">—&nbsp;&nbsp;Unknown</p>
+</div>
+
+<style>
+  .quote-text {
+    font-family: 'Noto Serif', serif;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    letter-spacing: 0.01rem;
+    opacity: 0;
+    animation: fadein 0.4s ease forwards;
+  }
+</style>

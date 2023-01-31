@@ -4,34 +4,32 @@ import magicImage from 'assets/magic.svg';
 import { APP_CONFIG } from 'appConfig';
 ---
 
-<section class="mt-12 mb-14 overflow-hidden">
-  <div class="flex flex-col pr-8 md:pr-0">
-    <div class="overflow-hidden mb-4">
-      <h1 class="slideup-text">
-        <span>Hi <span class="hand-wave mr-2">👋🏻</span> I’m</span>
-        <span class="gradient-text">
-          {APP_CONFIG.USER.shortName}
-        </span>
-      </h1>
-    </div>
-    <p class="mb-6 sm:mb-4">
-      <span>Front-End Engineer, Open Sourcerer</span>
-      <span class="inline-block w-8 h-8 magic-vector-wrapper">
-        <img src={magicImage} alt="magic" class="inline w-full magic-vector" width="32" height="32" />
+<section class="mb-14">
+  <div class="overflow-hidden mb-4">
+    <h1 class="slideup-text">
+      <span>Hi <span class="hand-wave mr-2">👋🏻</span> I’m</span>
+      <span class="gradient-text">
+        {APP_CONFIG.USER.shortName}
       </span>
-      <span>
-        , Previously at <a href="https://www.thoughtworks.com/" target="_blank" rel="noopener noreferrer">Thoughtworks</a> & <a
-          href="https://www.lynk.co.in/"
-          target="_blank"
-          rel="noopener noreferrer">Lynk</a
-        >. Love engineering clean and performant web applications.
-      </span>
-    </p>
-    <p class="mb-4">
-      Know more <a href="/about">about me</a>
-    </p>
-    <Social />
+    </h1>
   </div>
+  <p class="mb-6 sm:mb-4">
+    <span>Front-End Engineer, Open Sourcerer</span>
+    <span class="inline-block w-8 h-8 magic-vector-wrapper">
+      <img src={magicImage} alt="magic" class="inline w-full magic-vector" width="32" height="32" />
+    </span>
+    <span>
+      , Previously at <a href="https://www.thoughtworks.com/" target="_blank" rel="noopener noreferrer">Thoughtworks</a> & <a
+        href="https://www.lynk.co.in/"
+        target="_blank"
+        rel="noopener noreferrer">Lynk</a
+      >. Love engineering clean and performant web applications.
+    </span>
+  </p>
+  <p class="mb-4">
+    Know more <a href="/about">about me</a>
+  </p>
+  <Social />
 </section>
 
 <style>

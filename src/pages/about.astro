@@ -2,14 +2,13 @@
 import PageLayout from 'layouts/PageLayout.astro';
 import PageSEO from 'components/PageSEO.astro';
 import Heading from 'components/Heading.astro';
-import { APP_CONFIG } from 'appConfig';
 import TextWall from './_about/TextWall.astro';
 import Separator from './_about/Separator.astro';
 import Quote from './_about/Quote.astro';
 ---
 
 <PageLayout>
-  <PageSEO title={`${APP_CONFIG.USER.name} | About`} slot="seo" />
+  <PageSEO title="About" slot="seo" />
   <Heading text="About" gradientText="Me" />
   <TextWall />
   <Separator />

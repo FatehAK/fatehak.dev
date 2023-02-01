@@ -35,7 +35,11 @@ const hasOddProjects = projects.length % 2 !== 0;
             <p>{p.description}</p>
             <div class="flex mt-6">
               {p.technologies.map((tech, idx) => (
-                <div class:list={['flex justify-center items-center border border-bg-border pill', { 'ml-3': idx > 0 }]}>{tech}</div>
+                <div
+                  class:list={['flex justify-center items-center border border-bg-border pill', { 'ml-3': idx > 0 }]}
+                >
+                  {tech}
+                </div>
               ))}
             </div>
           </div>
@@ -47,10 +51,8 @@ const hasOddProjects = projects.length % 2 !== 0;
       style={`animation-delay: ${projects.length * 0.08}s`}
     >
       <span>
-        ...more on&nbsp;<a href={APP_CONFIG.USER.social.github} target="_blank" rel="noopener noreferrer">GitHub</a>&nbsp;&&nbsp;<a
-          href={APP_CONFIG.USER.social.behance}
-          target="_blank"
-          rel="noopener noreferrer">Behance</a
+        ...more on&nbsp;<a href={APP_CONFIG.USER.social.github} target="_blank" rel="noopener noreferrer">GitHub</a
+        >&nbsp;&&nbsp;<a href={APP_CONFIG.USER.social.behance} target="_blank" rel="noopener noreferrer">Behance</a
         >&nbsp;🚀
       </span>
     </div>

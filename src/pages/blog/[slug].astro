@@ -1,0 +1,38 @@
+---
+import { getCollection } from 'astro:content';
+import PageLayout from 'layouts/PageLayout.astro';
+import ArticleSEO from 'components/ArticleSEO.astro';
+
+export async function getStaticPaths() {
+  const isProd = import.meta.env.BUILD === 'production';
+
+  const postEntries = await getCollection('blog', ({ data }) => {
+    return isProd ? data.draft !== true : true;
+  });
+
+  return postEntries.map(entry => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+
+const { Content, remarkPluginFrontmatter } = await entry.render();
+
+const { title, description, publishDate, category, tags } = entry.data;
+---
+
+<PageLayout>
+  <ArticleSEO
+    slot="seo"
+    title={title}
+    description={description}
+    publishDate={publishDate}
+    category={category}
+    tags={tags}
+    readingTime={remarkPluginFrontmatter.readingTime}
+  />
+  <h1>{title}</h1>
+  <Content />
+</PageLayout>

@@ -3,11 +3,14 @@ const { href, class: className, ...props } = Astro.props;
 const path = Astro.url.pathname.replace(/\/$/, '');
 
 const isHome = href === '/' && path === '';
-const isOtherPages = typeof href === 'string' && href.length > 1 ? path.substring(1).startsWith(href.substring(1)) : false;
+const isOtherPages =
+  typeof href === 'string' && href.length > 1 ? path.substring(1).startsWith(href.substring(1)) : false;
 const isActive = isHome || isOtherPages;
 ---
 
-<a href={href} rel="prefetch" class:list={[className, { show: isActive }, 'unset text-text-bold nav-link']} {...props}><slot /></a>
+<a href={href} rel="prefetch" class:list={[className, { show: isActive }, 'unset text-text-bold nav-link']} {...props}
+  ><slot /></a
+>
 
 <style>
   .nav-link {

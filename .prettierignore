@@ -3,3 +3,4 @@ dist
 .idea
 .vscode
 pnpm-lock.yaml
+.astro

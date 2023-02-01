@@ -33,3 +33,6 @@ logs
 # System Files
 .DS_Store
 Thumbs.db
+
+# astro build files
+.astro

@@ -1,23 +1,35 @@
 ---
+import { getEntryBySlug } from 'astro:content';
+
 const { posts } = Astro.props;
 ---
 
 {
-  posts.map((post, index) => (
-    <div
-      class:list={['post pt-3 pb-4 border-b border-bg-border', { 'mb-3': index !== posts.length - 1 }]}
-      style={`animation-delay: ${index * 0.08}s`}
-    >
-      <a class="unset" href={post.path}>
-        <h2 class="mb-1 text-[1.18rem] font-[500] transition-colors duration-200">{post.title}</h2>
-        <div class="text-sm text-text-body/[56%]">
-          <span>{post.date}</span>
-          <span class="mx-1 text-text-body/20">•</span>
-          <span>{post.readingTime}</span>
-        </div>
-      </a>
-    </div>
-  ))
+  posts.map(async (post, index) => {
+    const postEntry = await getEntryBySlug('blog', post.slug);
+    const { remarkPluginFrontmatter } = await postEntry!.render();
+    return (
+      <div
+        class:list={['post pt-3 pb-4 border-b border-bg-border', { 'mb-3': index !== posts.length - 1 }]}
+        style={`animation-delay: ${index * 0.08}s`}
+      >
+        <a class="unset" href={`/blog/${post.slug}`}>
+          <h2 class="mb-1 text-[1.18rem] font-[500] transition-colors duration-200">{post.data.title}</h2>
+          <div class="text-sm text-text-body/[56%]">
+            <time datetime={post.data.publishDate.toISOString()}>
+              {post.data.publishDate.toLocaleDateString('en-us', {
+                year: 'numeric',
+                month: 'short',
+                day: '2-digit',
+              })}
+            </time>
+            <span class="mx-1 text-text-body/20">{''}•</span>
+            <span>{remarkPluginFrontmatter.readingTime}</span>
+          </div>
+        </a>
+      </div>
+    );
+  })
 }
 
 <style>

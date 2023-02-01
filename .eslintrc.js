@@ -1,6 +1,15 @@
 const getImportGroups = () => {
   const external = ['react', '@linaria/+(core|react)'];
-  const internal = ['layouts/**', 'pages/**', 'components/**', 'context/**', 'utils/**', 'theme/**', 'constants/**', 'assets/**'];
+  const internal = [
+    'layouts/**',
+    'pages/**',
+    'components/**',
+    'context/**',
+    'utils/**',
+    'theme/**',
+    'constants/**',
+    'assets/**',
+  ];
   return external
     .map(pattern => ({ pattern, group: 'external', position: 'before' }))
     .concat(
@@ -51,7 +60,7 @@ module.exports = {
         pathGroupsExcludedImportTypes: ['react'],
       },
     ],
-    'import/no-unresolved': ['error', { ignore: ['^virtual:'] }],
+    'import/no-unresolved': ['error', { ignore: ['^virtual:', '^astro:'] }],
   },
   plugins: ['only-warn'],
   overrides: [

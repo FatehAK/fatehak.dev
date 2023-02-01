@@ -51,7 +51,8 @@ module.exports = {
         footer: '5rem',
       },
       backgroundImage: {
-        'bg-gradient': 'linear-gradient(180deg, rgb(var(--color-bg-body)), rgb(var(--color-bg-body)), rgb(var(--color-bg-gradient)))',
+        'bg-gradient':
+          'linear-gradient(180deg, rgb(var(--color-bg-body)), rgb(var(--color-bg-body)), rgb(var(--color-bg-gradient)))',
       },
     },
   },

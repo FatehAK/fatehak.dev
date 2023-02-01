@@ -3,4 +3,5 @@ dist
 public
 .idea
 .vscode
+.astro
 !*.js

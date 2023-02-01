@@ -12,7 +12,10 @@ module.exports = {
   rules: {
     ...propertyOrder.rules,
     'plugin/declaration-block-no-ignored-properties': true,
-    'comment-empty-line-before': ['always', { except: ['first-nested'], ignore: ['after-comment', 'stylelint-commands'] }],
+    'comment-empty-line-before': [
+      'always',
+      { except: ['first-nested'], ignore: ['after-comment', 'stylelint-commands'] },
+    ],
     'custom-property-empty-line-before': 'never',
     'declaration-block-no-redundant-longhand-properties': [true, { ignoreShorthands: ['/grid/'] }],
     // tailwind

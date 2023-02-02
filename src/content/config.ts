@@ -1,18 +1,18 @@
 import { z, defineCollection } from 'astro:content';
 
-const DEFAULT_CATEGORY = 'Programming';
-
 const blogCollection = defineCollection({
   schema: z
     .object({
       draft: z.boolean().default(false),
-      featured: z.boolean().default(false),
       title: z.string(),
+      seoTitle: z.string(),
       highlight: z.union([z.string(), z.array(z.string())]).optional(),
       description: z.string(),
-      publishDate: z.date(),
-      modifiedDate: z.date().optional(), // TODO:
-      category: z.string().default(DEFAULT_CATEGORY),
+      date: z.string().transform(str => new Date(str)),
+      lastMod: z
+        .string()
+        .transform(str => new Date(str))
+        .optional(),
       tags: z.array(z.string()).default([]),
     })
     .strict(),

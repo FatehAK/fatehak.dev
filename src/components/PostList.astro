@@ -16,8 +16,8 @@ const { posts } = Astro.props;
         <a class="unset" href={`/blog/${post.slug}`}>
           <h2 class="mb-1 text-[1.18rem] font-[500] transition-colors duration-200">{post.data.title}</h2>
           <div class="text-sm text-text-body/[56%]">
-            <time datetime={post.data.publishDate.toISOString()}>
-              {post.data.publishDate.toLocaleDateString('en-us', {
+            <time datetime={post.data.date.toISOString()}>
+              {post.data.date.toLocaleDateString('en-us', {
                 year: 'numeric',
                 month: 'short',
                 day: '2-digit',

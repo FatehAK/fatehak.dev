@@ -1,7 +1,10 @@
 ---
+date: '2023-02-02T12:01:23.832Z'
+lastMod: '2023-02-02T13:58:03.562Z'
 title: Building an Alert Component in Svelte
+seoTitle: Building an Alert Component in Svelte
+highlight: Svelte
 description: A Noice description.
-publishDate: 2023-01-04
 tags:
   - svelte
   - guide

@@ -1,7 +1,7 @@
 ---
 import { APP_CONFIG } from 'appConfig';
 
-const { title, description, publishDate, category, tags = [], readingTime, banner = 'banner.png' } = Astro.props;
+const { title, description, date, lastMod, tags = [], readingTime, banner = 'banner.png' } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
 const bannerURL = new URL(banner, Astro.site).toString();
@@ -31,11 +31,12 @@ const META_TAGS = [
   { name: 'twitter:data2', content: readingTime },
   // article specific
   { property: 'article:author', content: APP_CONFIG.USER.name },
-  { property: 'article:published_time', content: publishDate.toISOString() },
-  { property: 'article:section', content: category },
-  // { property: 'article:modified_time', content: modifiedDate }, // TODO:
+  { property: 'article:published_time', content: date.toISOString() },
+  { property: 'article:section', content: 'Programming' },
   ...tags.map(tag => ({ property: 'article:tag', content: tag })),
 ];
+
+if (lastMod) META_TAGS.push({ property: 'article:modified_time', content: lastMod.toISOString() });
 ---
 
 <title>{title} - {APP_CONFIG.USER.name}</title>

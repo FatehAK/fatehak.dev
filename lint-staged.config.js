@@ -6,5 +6,6 @@ module.exports = {
   '**/*.{js,ts,mjs}': [eslintCmd, prettierCmd],
   '**/*.astro': [eslintCmd, stylelintCmd, prettierCmd],
   '**/*.css': [stylelintCmd, prettierCmd],
-  '**/*.{md,json}': [prettierCmd],
+  '**/*.json': [prettierCmd],
+  '**/*.{md,mdx}': ['node ./scripts/last-mod-updater.js', prettierCmd],
 };

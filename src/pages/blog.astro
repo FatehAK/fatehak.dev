@@ -7,9 +7,7 @@ import PostList from 'components/PostList.astro';
 
 const postEntries = await getCollection('blog', ({ data }) => data.draft !== true);
 
-const sortedPosts = postEntries.sort(
-  (a, b) => new Date(b.data.publishDate).valueOf() - new Date(a.data.publishDate).valueOf()
-);
+const sortedPosts = postEntries.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
 <PageLayout>

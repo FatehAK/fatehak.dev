@@ -1,7 +1,18 @@
 ---
-const { text, gradientText } = Astro.props;
+const { text, highlight } = Astro.props;
+
+let newText = text;
+if (highlight?.length) {
+  if (Array.isArray(highlight)) {
+    highlight.forEach(word => {
+      newText = newText.replaceAll(word, `<span class="gradient-text">${word}</span>`);
+    });
+  } else {
+    newText = newText.replaceAll(highlight, `<span class="gradient-text">${highlight}</span>`);
+  }
+}
 ---
 
 <div class="overflow-hidden mb-5">
-  <h1 class="slideup-text">{text} <span class="gradient-text">{gradientText}</span></h1>
+  <h1 class="slideup-text" set:html={newText} />
 </div>

@@ -72,8 +72,8 @@ const links = [
 </header>
 
 <script>
-  const hamMenu = document.querySelector('#ham-menu');
-  const navContainer = document.querySelector('#nav-container');
+  const hamMenu = document.querySelector('#ham-menu') as Element;
+  const navContainer = document.querySelector('#nav-container') as Element;
 
   function showMenu() {
     hamMenu.classList.remove('hide-menu');
@@ -89,15 +89,31 @@ const links = [
     if (evt.target === hamMenu) hideMenu();
   });
 
-  document.querySelector('#ham-menu-open').addEventListener('click', showMenu);
-  document.querySelector('#ham-menu-close').addEventListener('click', hideMenu);
-  window.addEventListener('scroll', function () {
-    if (window.scrollY > 10) {
-      navContainer.classList.add('scroll');
-    } else {
-      navContainer.classList.remove('scroll');
-    }
-  });
+  document.querySelector('#ham-menu-open')!.addEventListener('click', showMenu);
+  document.querySelector('#ham-menu-close')!.addEventListener('click', hideMenu);
+
+  let lastScrollY = window.scrollY;
+  window.addEventListener(
+    'scroll',
+    function () {
+      const st = window.scrollY;
+      if (st > 10) {
+        navContainer.classList.add('scroll');
+      } else {
+        navContainer.classList.remove('scroll');
+      }
+
+      if (st > 60 && st > lastScrollY) {
+        navContainer.classList.add('hide');
+        // downscroll code
+      } else if (st < lastScrollY) {
+        // upscroll code
+        navContainer.classList.remove('hide');
+      } // else was horizontal scroll
+      lastScrollY = st <= 0 ? 0 : st; // for mobile or negative scrolling
+    },
+    { capture: true, passive: true }
+  );
 </script>
 
 <style>
@@ -107,7 +123,7 @@ const links = [
     border-color: transparent;
     border-style: solid;
     border-bottom-width: 1px;
-    transition: height 0.3s ease, border-color 0.3s ease;
+    transition: height 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
 
     &.scroll {
       border-color: theme('colors.bg.border');
@@ -115,6 +131,10 @@ const links = [
       @media (min-width: theme('screens.md.max')) {
         height: calc(theme('height.navbar') - 0.8rem);
       }
+    }
+
+    &.hide {
+      transform: translateY(-100%);
     }
 
     @media (max-width: theme('screens.md.max')) {

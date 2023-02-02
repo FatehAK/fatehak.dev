@@ -15,7 +15,7 @@
     "prettier-fix": "prettier --loglevel warn --plugin-search-dir=. --cache --cache-strategy content --cache-location ./node_modules/.cache/.prettiercache --write .",
     "stylelint-check": "stylelint --max-warnings=25 --custom-formatter=node_modules/stylelint-formatter-pretty --aei --cache --cache-strategy content --cache-location ./node_modules/.cache/.stylelintcache '{**/*,*}.{css,astro}'",
     "stylelint-fix": "pnpm stylelint-check --fix",
-    "eslint-check": "eslint --max-warnings=25 --format=pretty --cache --cache-strategy content --cache-location ./node_modules/.cache/.eslintcache '{**/*,*}.{js,astro}'",
+    "eslint-check": "eslint --max-warnings=25 --format=pretty --cache --cache-strategy content --cache-location ./node_modules/.cache/.eslintcache '{**/*,*}.{js,ts,mjs,astro}'",
     "eslint-fix": "pnpm eslint-check --fix",
     "prepare": "husky install",
     "lint-staged": "lint-staged",

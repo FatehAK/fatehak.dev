@@ -96,23 +96,26 @@ const links = [
   window.addEventListener(
     'scroll',
     function () {
-      const st = window.scrollY;
-      if (st > 10) {
-        navContainer.classList.add('scroll');
-      } else {
-        navContainer.classList.remove('scroll');
-      }
+      function checkScroll() {
+        const st = window.scrollY;
+        if (st > 10) {
+          navContainer.classList.add('scroll');
+        } else {
+          navContainer.classList.remove('scroll');
+        }
 
-      if (st > 60 && st > lastScrollY) {
-        navContainer.classList.add('hide');
-        // downscroll code
-      } else if (st < lastScrollY) {
-        // upscroll code
-        navContainer.classList.remove('hide');
-      } // else was horizontal scroll
-      lastScrollY = st <= 0 ? 0 : st; // for mobile or negative scrolling
+        if (st > 60 && st > lastScrollY) {
+          navContainer.classList.add('hide');
+          // downscroll code
+        } else if (st < lastScrollY) {
+          // upscroll code
+          navContainer.classList.remove('hide');
+        } // else was horizontal scroll
+        lastScrollY = st <= 0 ? 0 : st; // for mobile or negative scrolling
+      }
+      window.requestAnimationFrame(checkScroll);
     },
-    { capture: true, passive: true }
+    { passive: true }
   );
 </script>
 

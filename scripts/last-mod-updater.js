@@ -3,6 +3,7 @@ const matter = require('gray-matter');
 
 (async () => {
   const [, , ...mdFilePaths] = process.argv;
+  const modifiedDate = new Date().toISOString();
 
   const handles = mdFilePaths.map(async path => {
     const file = matter.read(path);
@@ -13,7 +14,7 @@ const matter = require('gray-matter');
       const { date, lastMod: _, ...rest } = currentFrontmatter;
       const updatedFrontmatter = {
         date,
-        lastMod: new Date().toISOString(),
+        lastMod: modifiedDate,
         ...rest,
       };
       file.data = updatedFrontmatter;

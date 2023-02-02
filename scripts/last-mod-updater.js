@@ -9,7 +9,8 @@ const matter = require('gray-matter');
     const { data: currentFrontmatter } = file;
 
     if (!currentFrontmatter.draft) {
-      const { date, ...rest } = currentFrontmatter;
+      // eslint-disable-next-line no-unused-vars
+      const { date, lastMod: _, ...rest } = currentFrontmatter;
       const updatedFrontmatter = {
         date,
         lastMod: new Date().toISOString(),

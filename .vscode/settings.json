@@ -9,13 +9,17 @@
     "**/.DS_Store": true,
     "**/Thumbs.db": true,
     "**/.cache": true,
-    "**/.dist": true,
+    "**/dist": true,
+    "**/build": true,
+    "**/tar": true,
     "**/.idea": true,
     "**/.parcel-cache": true,
     "**/.tar": true,
     "**/.vscode": true,
+    "**/.dist": true,
     "dist": true,
-    "node_modules": true
+    "node_modules": true,
+    ".astro": true
   },
   "explorerExclude.backup": {}
 }

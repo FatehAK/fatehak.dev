@@ -1,13 +1,9 @@
 ---
+import Logo from './Logo.astro';
 import NavLink from './NavLink.astro';
-import Social from './Social.astro';
 import ThemeToggle from './ThemeToggle.astro';
 
 const links = [
-  {
-    name: 'home',
-    path: '/',
-  },
   {
     name: 'about',
     path: '/about',
@@ -23,38 +19,21 @@ const links = [
 ];
 ---
 
-<header id="nav-container" class="fixed z-10 top-0 left-0 w-full flex justify-center items-center bg-bg-body">
-  <nav class="w-full max-w-3xl flex justify-between items-center px-8 sm:px-6">
-    {/* desktop navbar */}
-    <div class="text-text-bold md:hidden">
-      <ul class="unset flex gap-4 [&>li]:p-0">
-        {
-          links.map(link => (
-            <li>
-              <NavLink href={link.path}>{link.name}</NavLink>
-            </li>
-          ))
-        }
-      </ul>
-    </div>
-    {/* mobile hamburger menu */}
-    <div class="hidden md:block">
-      <button id="ham-menu-open" class="text-text-bold text-lg">
-        <i class="fas fa-bars" aria-hidden="true" title="Open hamburger menu"></i>
-        <span class="sr-only">Open hamburger menu</span>
-      </button>
-      <section
-        id="ham-menu"
-        class="hide-menu z-20 fixed top-0 left-0 w-full h-full transition-transform duration-300 bg-bg-body/80 border-primary"
-      >
-        <div class="flex flex-col justify-between bg-bg-body w-[75%] h-full drop-shadow-2xl px-6">
-          <div class="flex justify-end">
-            <button id="ham-menu-close" class="h-[5rem] text-xl text-text-bold">
-              <i class="fas fa-xmark" aria-hidden="true" title="Close hamburger menu"></i>
-              <span class="sr-only">Close hamburger menu</span>
-            </button>
+<>
+  <div id="top-of-site-pixel-anchor"></div>
+  <header id="nav-container" class="fixed z-10 top-0 left-0 w-full flex justify-center items-center bg-bg-body">
+    <nav class="w-full max-w-3xl flex justify-between items-center px-8 sm:px-6">
+      <div class="flex items-center">
+        <a class="unset pr-5" href="/">
+          <div id="logo" data-spin="false">
+            <Logo width="29" height="29" />
           </div>
-          <ul class="unset flex flex-col justify-center text-text-bold gap-8 [&>li]:p-0">
+          <span class="sr-only">Home</span>
+        </a>
+      </div>
+      <div class="flex items-center">
+        <div class="text-text-bold">
+          <ul class="unset flex gap-4 [&>li]:p-0">
             {
               links.map(link => (
                 <li>
@@ -63,34 +42,15 @@ const links = [
               ))
             }
           </ul>
-          <div class="py-10"><Social /></div>
         </div>
-      </section>
-    </div>
-    <ThemeToggle />
-  </nav>
-</header>
+        <ThemeToggle />
+      </div>
+    </nav>
+  </header>
+</>
 
 <script>
-  const hamMenu = document.querySelector('#ham-menu') as Element;
-  const navContainer = document.querySelector('#nav-container') as Element;
-
-  function showMenu() {
-    hamMenu.classList.remove('hide-menu');
-    hamMenu.classList.add('show-menu');
-    document.body.style.overflow = 'hidden';
-  }
-  function hideMenu() {
-    hamMenu.classList.remove('show-menu');
-    hamMenu.classList.add('hide-menu');
-    document.body.style.overflow = 'auto';
-  }
-  hamMenu.addEventListener('click', evt => {
-    if (evt.target === hamMenu) hideMenu();
-  });
-
-  document.querySelector('#ham-menu-open')!.addEventListener('click', showMenu);
-  document.querySelector('#ham-menu-close')!.addEventListener('click', hideMenu);
+  const navContainer = document.querySelector('#nav-container') as HTMLElement;
 
   let lastScrollY = window.scrollY;
   window.addEventListener(
@@ -98,28 +58,55 @@ const links = [
     function () {
       function checkScroll() {
         const st = window.scrollY;
-        if (st > 10) {
-          navContainer.classList.add('scroll');
-        } else {
-          navContainer.classList.remove('scroll');
+        function checkNavBorder() {
+          if (st > 10) {
+            navContainer.classList.add('scroll');
+          } else {
+            navContainer.classList.remove('scroll');
+          }
         }
-
-        if (st > 60 && st > lastScrollY) {
-          navContainer.classList.add('hide');
-          // downscroll code
-        } else if (st < lastScrollY) {
-          // upscroll code
-          navContainer.classList.remove('hide');
-        } // else was horizontal scroll
-        lastScrollY = st <= 0 ? 0 : st; // for mobile or negative scrolling
+        function checkNavVisibility() {
+          if (st > 60 && st > lastScrollY) {
+            navContainer.classList.add('hide');
+            // downscroll code
+          } else if (st < lastScrollY) {
+            // upscroll code
+            navContainer.classList.remove('hide');
+          }
+          // for mobile or negative scrolling
+          lastScrollY = st <= 0 ? 0 : st;
+        }
+        checkNavBorder();
+        checkNavVisibility();
       }
+
+      checkScroll();
       window.requestAnimationFrame(checkScroll);
     },
     { passive: true }
   );
+
+  let isSpinning = true;
+  const logo = document.querySelector('#logo') as HTMLElement;
+  new IntersectionObserver(entry => {
+    if (entry[0].boundingClientRect.y < 0) {
+      logo.dataset.spin = 'false';
+    } else {
+      if (!isSpinning) logo.dataset.spin = 'true';
+      isSpinning = false;
+    }
+  }).observe(document.querySelector('#top-of-site-pixel-anchor') as HTMLElement);
 </script>
 
 <style>
+  #top-of-site-pixel-anchor {
+    position: absolute;
+    top: theme('height.navbar');
+    left: 0;
+    width: 1px;
+    height: 1px;
+  }
+
   header {
     height: theme('height.navbar');
     border: 0;
@@ -145,11 +132,17 @@ const links = [
     }
   }
 
-  .hide-menu {
-    transform: translateX(-100%);
+  #logo {
+    will-change: transform;
   }
 
-  .show-menu {
-    transform: translateX(0%);
+  #logo[data-spin='true'] {
+    animation: spin 0.9s forwards;
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(2turn);
+    }
   }
 </style>

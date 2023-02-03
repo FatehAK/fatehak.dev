@@ -52,7 +52,8 @@
   h1 {
     font-size: 3rem;
     font-weight: bold;
-    line-height: 1.25;
+    line-height: 1.15;
+    letter-spacing: -0.0669rem;
   }
 
   h2 {

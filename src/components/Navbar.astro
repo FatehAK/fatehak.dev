@@ -72,18 +72,25 @@ const { showReadingProgress = false } = Astro.props;
         const st = document.documentElement.scrollTop;
         const scrollHeight = document.documentElement.scrollHeight;
         const clientHeight = document.documentElement.clientHeight;
-        // check for bouncy scrolling on touch devices
-        const isBouncyScroll = st < 0 || st + clientHeight > scrollHeight;
 
+        function checkNavBorder() {
+          if (st > 10) {
+            navContainer.classList.add('scroll');
+          } else {
+            navContainer.classList.remove('scroll');
+          }
+        }
         function checkNavVisibility() {
-          if (st > 80 && st > lastScrollY) {
+          if (st > 60 && st > lastScrollY) {
             // downscroll code
             navContainer.classList.add('hide');
           } else if (st < lastScrollY) {
             // upscroll code
             navContainer.classList.remove('hide');
           }
-          lastScrollY = st;
+          // check for bouncy scrolling on touch devices
+          const isBouncing = st < 0 || st + clientHeight > scrollHeight;
+          if (!isBouncing) lastScrollY = st;
         }
         function checkReadingProgressMobile() {
           const footerHeight = 80; // 5rem = 80px
@@ -91,10 +98,9 @@ const { showReadingProgress = false } = Astro.props;
           readingProgressMobile.style.width = `${percent}%`;
         }
 
-        if (!isBouncyScroll) {
-          checkNavVisibility();
-          if (isScrollProgressVisible) checkReadingProgressMobile();
-        }
+        checkNavBorder();
+        checkNavVisibility();
+        if (isScrollProgressVisible) checkReadingProgressMobile();
       }
 
       checkScroll();
@@ -108,9 +114,7 @@ const { showReadingProgress = false } = Astro.props;
   new IntersectionObserver(entry => {
     if (entry[0].boundingClientRect.y < 0) {
       logo.dataset.spin = 'false';
-      navContainer.classList.add('bottom-border');
     } else {
-      navContainer.classList.remove('bottom-border');
       if (!isSpinning) logo.dataset.spin = 'true';
       isSpinning = false;
     }
@@ -120,7 +124,7 @@ const { showReadingProgress = false } = Astro.props;
 <style>
   #top-of-site-pixel-anchor {
     position: absolute;
-    top: calc(theme('height.navbar') - 2rem);
+    top: theme('height.navbar');
     left: 0;
     width: 1px;
     height: 1px;
@@ -144,13 +148,13 @@ const { showReadingProgress = false } = Astro.props;
 
   header {
     height: theme('height.navbar');
-    border: 0;
+    border: none;
     border-color: transparent;
     border-style: solid;
     border-bottom-width: 1px;
     transition: height 0.3s ease, border-color 0.3s ease, transform 0.3s ease-in-out;
 
-    &.bottom-border {
+    &.scroll {
       border-color: theme('colors.bg.border');
 
       @media (min-width: theme('screens.md.max')) {
@@ -172,6 +176,7 @@ const { showReadingProgress = false } = Astro.props;
 
     @media (max-width: theme('screens.md.max')) {
       height: calc(theme('height.navbar') - 0.8rem);
+      transition: height 0.3s ease, transform 0.3s ease-in-out;
     }
   }
 

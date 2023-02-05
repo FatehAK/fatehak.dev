@@ -7,6 +7,8 @@ import Footer from 'components/Footer.astro';
 import { APP_CONFIG } from 'appConfig';
 
 const isProd = import.meta.env.BUILD === 'production';
+
+const { showReadingProgress } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -48,7 +50,7 @@ const isProd = import.meta.env.BUILD === 'production';
     <FontFace />
   </head>
   <body class="min-h-screen">
-    <Navbar />
+    <Navbar showReadingProgress={showReadingProgress} />
     <main class="w-full max-w-3xl pt-12 px-8 sm:px-6">
       <slot />
     </main>

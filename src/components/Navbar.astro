@@ -17,11 +17,19 @@ const links = [
     path: '/notes',
   },
 ];
+
+const { showReadingProgress = false } = Astro.props;
 ---
 
 <>
   <div id="top-of-site-pixel-anchor"></div>
-  <header id="nav-container" class="fixed z-10 top-0 left-0 w-full flex justify-center items-center bg-bg-body">
+  <header
+    id="nav-container"
+    class:list={[
+      'fixed z-10 top-0 left-0 w-full flex flex-col justify-center items-center bg-bg-body',
+      { reading: showReadingProgress },
+    ]}
+  >
     <nav class="w-full max-w-3xl flex justify-between items-center px-8 sm:px-6">
       <div class="flex items-center">
         <a class="unset pr-5 text-primary" href="/">
@@ -44,20 +52,27 @@ const links = [
         <ThemeToggle />
       </div>
     </nav>
+    <div class="w-full">
+      <div id="reading-progress" data-reading={`${showReadingProgress}`}></div>
+    </div>
   </header>
 </>
 
 <script>
   const navContainer = document.querySelector('#nav-container') as HTMLElement;
+  const readingProgressElement = document.querySelector('#reading-progress') as HTMLElement;
 
   let lastScrollY = document.documentElement.scrollTop;
-  const scrollHeight = document.documentElement.scrollHeight;
-  const clientHeight = document.documentElement.clientHeight;
+  const showReadingProgress = readingProgressElement.dataset.reading === 'true';
+
   window.addEventListener(
     'scroll',
     function () {
       function checkScroll() {
         const st = document.documentElement.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+
         function checkNavBorder() {
           if (st > 10) {
             navContainer.classList.add('scroll');
@@ -66,7 +81,7 @@ const links = [
           }
         }
         function checkNavVisibility() {
-          if (st > 10 && st > lastScrollY) {
+          if (st > 50 && st > lastScrollY) {
             // downscroll code
             navContainer.classList.add('hide');
           } else if (st < lastScrollY) {
@@ -77,8 +92,14 @@ const links = [
           const isBouncing = st < 0 || st + clientHeight > scrollHeight;
           if (!isBouncing) lastScrollY = st;
         }
+        function checkReadingProgress() {
+          const footerHeight = 80; // 5rem = 80px
+          const width = (st / (scrollHeight - clientHeight - footerHeight)) * 100;
+          readingProgressElement.style.width = `${width}%`;
+        }
         checkNavBorder();
         checkNavVisibility();
+        if (showReadingProgress) checkReadingProgress();
       }
 
       checkScroll();
@@ -108,6 +129,22 @@ const links = [
     height: 1px;
   }
 
+  #reading-progress {
+    will-change: width;
+    position: absolute;
+    bottom: -1px;
+    display: block;
+    width: 0%;
+    height: 2px;
+    background: transparent;
+    background: theme('colors.primary.DEFAULT');
+    transition: width 0.3s;
+
+    @media (min-width: theme('screens.md.max')) {
+      display: none;
+    }
+  }
+
   header {
     height: theme('height.navbar');
     border: 0;
@@ -124,8 +161,16 @@ const links = [
       }
     }
 
-    &.hide {
+    &.hide:not(.reading) {
       transform: translateY(-100%);
+    }
+
+    &.hide.reading {
+      transform: translateY(-100%);
+
+      @media (max-width: theme('screens.md.max')) {
+        transform: translateY(-97%);
+      }
     }
 
     @media (max-width: theme('screens.md.max')) {

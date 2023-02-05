@@ -60,10 +60,10 @@ const { showReadingProgress = false } = Astro.props;
 
 <script>
   const navContainer = document.querySelector('#nav-container') as HTMLElement;
-  const readingProgressElement = document.querySelector('#reading-progress') as HTMLElement;
+  const readingProgressMobile = document.querySelector('#reading-progress') as HTMLElement;
 
   let lastScrollY = document.documentElement.scrollTop;
-  const showReadingProgress = readingProgressElement.dataset.reading === 'true';
+  const isScrollProgressVisible = readingProgressMobile.dataset.reading === 'true';
 
   window.addEventListener(
     'scroll',
@@ -85,15 +85,15 @@ const { showReadingProgress = false } = Astro.props;
           }
           lastScrollY = st;
         }
-        function checkReadingProgress() {
+        function checkReadingProgressMobile() {
           const footerHeight = 80; // 5rem = 80px
-          const width = (st / (scrollHeight - clientHeight - footerHeight)) * 100;
-          readingProgressElement.style.width = `${width}%`;
+          const percent = Math.min((st / (scrollHeight - clientHeight - footerHeight)) * 100, 100).toFixed(2);
+          readingProgressMobile.style.width = `${percent}%`;
         }
 
         if (!isBouncyScroll) {
           checkNavVisibility();
-          if (showReadingProgress) checkReadingProgress();
+          if (isScrollProgressVisible) checkReadingProgressMobile();
         }
       }
 

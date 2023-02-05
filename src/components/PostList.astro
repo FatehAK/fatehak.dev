@@ -1,18 +1,33 @@
 ---
 import { getEntryBySlug } from 'astro:content';
 
-const { posts } = Astro.props;
+const { posts, groupByYears = true } = Astro.props;
+
+let currentYear = '';
 ---
 
 {
   posts.map(async (post, index) => {
     const postEntry = await getEntryBySlug('blog', post.slug);
     const { remarkPluginFrontmatter } = await postEntry!.render();
+
+    const postYear = post.data.date.getFullYear();
+    const isYearChanged = postYear !== currentYear;
+    currentYear = postYear;
+
     return (
       <div
-        class:list={['post pt-3 pb-4 border-b border-bg-border', { 'mb-3': index !== posts.length - 1 }]}
+        class:list={[
+          'post pt-3 pb-4 border-b border-bg-border relative',
+          { 'mb-3': index !== posts.length - 1, 'pt-14': groupByYears && isYearChanged },
+        ]}
         style={`animation-delay: ${index * 0.08}s`}
       >
+        {groupByYears && isYearChanged && (
+          <span class="absolute -top-[22px] -left-[26px] text-text-muted font-bold text-[5.4rem] opacity-[14%] tracking-wide select-none -z-[1]">
+            {post.data.date.getFullYear()}
+          </span>
+        )}
         <a class="unset" href={`/blog/${post.slug}`}>
           <h2 class="mb-1 text-[1.18rem] font-[500] transition-colors duration-200">{post.data.title}</h2>
           <div class="text-sm text-text-muted">

@@ -1,0 +1,14 @@
+---
+import HashTag from 'components/svg/HashTag.astro';
+
+const { tags } = Astro.props;
+---
+
+{
+  tags.map(tag => (
+    <span class="inline-flex items-center text-[0.8rem] text-primary mb-2 font-[500] mr-[0.875rem] last:mr-0">
+      <HashTag width="14" height="14" />
+      <span class="capitalize ml-1">{tag}</span>
+    </span>
+  ))
+}

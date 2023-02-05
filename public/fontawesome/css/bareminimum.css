@@ -116,3 +116,7 @@
 .fa-quote-right::before {
   content: '\f10e';
 }
+
+.fa-clock::before {
+  content: '\f017';
+}

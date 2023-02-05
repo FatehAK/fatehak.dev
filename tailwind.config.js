@@ -35,8 +35,8 @@ module.exports = {
       text: {
         heading: 'rgb(var(--color-text-heading) / <alpha-value>)',
         body: 'rgb(var(--color-text-body) / <alpha-value>)',
+        muted: 'rgb(var(--color-text-body) / 56%)',
         bold: 'rgb(var(--color-text-bold) / <alpha-value>)',
-        muted: 'rgb(var(--color-text-muted) / <alpha-value>)',
         code: 'rgb(var(--color-text-code) / <alpha-value>)',
         link: 'rgb(var(--color-secondary) / <alpha-value>)',
         selection: 'rgb(var(--color-text-selection) / <alpha-value>)',

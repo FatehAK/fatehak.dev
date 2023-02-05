@@ -1,0 +1,42 @@
+---
+const { date, lastMod, readingTime } = Astro.props;
+
+const isPublishedDateSameAsModified = date.toLocaleDateString() === lastMod.toLocaleDateString();
+---
+
+<div class="flex sm:flex-col justify-between items-center sm:items-start text-sm text-text-muted mb-10">
+  <div>
+    <time datetime={date.toISOString()}>
+      {
+        date.toLocaleDateString('en-us', {
+          year: 'numeric',
+          month: 'short',
+          day: '2-digit',
+        })
+      }
+    </time>
+    {
+      !isPublishedDateSameAsModified && (
+        <>
+          <span class="mx-[0.14rem] text-text-body/20">∕</span>
+          <span>
+            <span>
+              <i class="fas fa-clock text-primary mr-2" />
+              Updated
+            </span>
+            <time datetime={lastMod.toISOString()}>
+              {lastMod.toLocaleDateString('en-us', {
+                year: 'numeric',
+                month: 'short',
+                day: '2-digit',
+              })}
+            </time>
+          </span>
+        </>
+      )
+    }
+  </div>
+  <div class="sm:mt-3">
+    <span>{readingTime}</span>
+  </div>
+</div>

@@ -3,6 +3,8 @@ import { getCollection } from 'astro:content';
 import PageLayout from 'layouts/PageLayout.astro';
 import ArticleSEO from 'components/ArticleSEO.astro';
 import Heading from 'components/Heading.astro';
+import PostInfo from './_components/PostInfo.astro';
+import Tags from './_components/Tags.astro';
 
 export async function getStaticPaths() {
   const isProd = import.meta.env.BUILD === 'production';
@@ -21,7 +23,8 @@ const { entry } = Astro.props;
 
 const { Content, remarkPluginFrontmatter } = await entry.render();
 
-const { title, seoTitle, highlight, description, date, lastMod, category, tags } = entry.data;
+const { title, seoTitle, highlight, description, date, lastMod, tags } = entry.data;
+const { readingTime } = remarkPluginFrontmatter;
 ---
 
 <PageLayout>
@@ -31,10 +34,11 @@ const { title, seoTitle, highlight, description, date, lastMod, category, tags }
     description={description}
     date={date}
     lastMod={lastMod}
-    category={category}
     tags={tags}
-    readingTime={remarkPluginFrontmatter.readingTime}
+    readingTime={readingTime}
   />
+  <Tags tags={tags} />
   <Heading text={title} highlight={highlight} />
+  <PostInfo date={date} lastMod={lastMod} readingTime={readingTime} />
   <Content />
 </PageLayout>

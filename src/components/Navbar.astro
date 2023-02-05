@@ -1,5 +1,5 @@
 ---
-import Logo from './Logo.astro';
+import Logo from './svg/Logo.astro';
 import NavLink from './NavLink.astro';
 import ThemeToggle from './ThemeToggle.astro';
 
@@ -24,10 +24,8 @@ const links = [
   <header id="nav-container" class="fixed z-10 top-0 left-0 w-full flex justify-center items-center bg-bg-body">
     <nav class="w-full max-w-3xl flex justify-between items-center px-8 sm:px-6">
       <div class="flex items-center">
-        <a class="unset pr-5" href="/">
-          <div id="logo" data-spin="false">
-            <Logo width="29" height="29" />
-          </div>
+        <a class="unset pr-5 text-primary" href="/">
+          <Logo width="29" height="29" id="logo" data-spin="false" />
           <span class="sr-only">Home</span>
         </a>
       </div>
@@ -83,7 +81,7 @@ const links = [
       checkScroll();
       window.requestAnimationFrame(checkScroll);
     },
-    { passive: true }
+    { capture: true, passive: true }
   );
 
   let isSpinning = true;
@@ -130,10 +128,6 @@ const links = [
     @media (max-width: theme('screens.md.max')) {
       height: calc(theme('height.navbar') - 0.8rem);
     }
-  }
-
-  #logo {
-    will-change: transform;
   }
 
   #logo[data-spin='true'] {

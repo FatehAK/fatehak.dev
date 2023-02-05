@@ -13,5 +13,7 @@ const sortedPosts = postEntries.sort((a, b) => b.data.date.valueOf() - a.data.da
 <PageLayout>
   <PageSEO title="Blog" slot="seo" />
   <Heading text="My Blog" highlight="Blog" />
-  <PostList posts={sortedPosts} />
+  <div class="-mt-3">
+    <PostList posts={sortedPosts} />
+  </div>
 </PageLayout>

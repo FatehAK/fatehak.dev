@@ -20,6 +20,7 @@ export default defineConfig({
     AstroTailwindPlugin({ config: { applyBaseStyles: false } }),
     AstroPrefetch({ throttle: 3 }),
     AstroMdx({
+      shikiConfig: { theme: 'dracula-soft' },
       remarkPlugins: [remarkReadingTime],
     }),
     AstroSitemap(),

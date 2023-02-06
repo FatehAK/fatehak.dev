@@ -1,6 +1,6 @@
 ---
 date: '2023-02-02T13:01:23.832Z'
-lastMod: '2023-02-06T11:43:46.170Z'
+lastMod: '2023-02-06T21:04:02.036Z'
 title: How to Save a JavaScript Function as a Bookmark
 seoTitle: How to Save a JavaScript Function as a Bookmark
 highlight: Bookmark
@@ -13,29 +13,14 @@ tags:
 A noice content
 
 ```js
-const isProd = process.env.BUILD === 'production';
-export default defineConfig({
-  site: SCRIPT.includes('astro build') ? APP_CONFIG.SITE_URL : LOCALHOST_URL,
-  integrations: [
-    AstroTailwindPlugin({ config: { applyBaseStyles: false } }),
-    AstroPrefetch({ throttle: 3 }),
-    AstroMdx({
-      remarkPlugins: [remarkReadingTime],
-      shikiConfig: { theme: 'dracula' },
-    }),
-    AstroSitemap(),
-    isProd && AstroCompress(COMPRESSION_CONFIG),
-  ],
-
-  server: ({ command }) => ({
-    port: command === 'dev' ? DEV_SERVER_PORT : 4000,
-    host: true,
-  }),
-  vite: {
-    build: {
-      target: getTargetBrowsers(),
-      minify: isProd ? 'esbuild' : false,
-    },
-  },
-});
+let isSpinning = true;
+const logo = document.querySelector('#logo') as HTMLElement;
+new IntersectionObserver(entry => {
+  if (entry[0].boundingClientRect.y < 0) {
+    logo.dataset.spin = 'false';
+  } else {
+    if (!isSpinning) logo.dataset.spin = 'true';
+    isSpinning = false;
+  }
+}).observe(document.querySelector('#top-of-site-pixel-anchor') as HTMLElement as HTMLElementas HTMLElementas HTMLElementas HTMLElementas HTMLElement);
 ```

@@ -13,6 +13,7 @@ module.exports = {
     },
     fontFamily: {
       body: ['Inter', 'sans-serif'],
+      mono: ['Menlo', 'monospace'],
     },
     colors: {
       transparent: 'transparent',

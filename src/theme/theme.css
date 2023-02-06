@@ -12,9 +12,9 @@
   --color-text-body: 209 213 219; /* #d1d5db */
   --color-text-bold: 255 255 255; /* #fff */
   --color-text-muted: 156 163 175; /* #9ca3af */
+  --color-bg-code: 29 38 47; /* #1f2932 */
+  --color-border-code: 39 51 62; /* #27333e */
   --color-text-code: 255 255 255; /* #fff */
-  --color-bg-code: 234 179 8; /* #eab308 */
-  --color-border-code: 254 243 199; /* #fef9c3 */
 
   color-scheme: dark;
 }
@@ -33,9 +33,9 @@
   --color-text-body: 55 65 81; /* #374151 */
   --color-text-bold: 17 24 39; /* #111827 */
   --color-text-muted: 107 114 128; /* #6b7280 */
+  --color-bg-code: 238 249 244; /* #12030a */
+  --color-border-code: 239 239 239; /* #efefef */
   --color-text-code: 0 0 0; /* #000 */
-  --color-bg-code: 255 247 237; /* #fff7ed */
-  --color-border-code: 255 237 213; /* #ffedd5 */
 
   color-scheme: light;
 }

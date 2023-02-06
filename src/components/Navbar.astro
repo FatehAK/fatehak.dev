@@ -176,6 +176,7 @@ const { showReadingProgress = false } = Astro.props;
 
     @media (max-width: theme('screens.md.max')) {
       height: calc(theme('height.navbar') - 0.8rem);
+      transition: height 0.3s ease, transform 0.3s ease-in-out;
     }
   }
 

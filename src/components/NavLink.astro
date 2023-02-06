@@ -35,6 +35,10 @@ const isActive = isHome || isOtherPages;
     }
 
     @media (hover: hover) and (pointer: fine) {
+      &::after {
+        transition: all 0.15s ease-in-out;
+      }
+
       &:hover::after {
         transform: translateZ(0) scale(1);
       }

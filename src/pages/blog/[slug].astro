@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import PageLayout from 'layouts/PageLayout.astro';
 import ArticleSEO from 'components/ArticleSEO.astro';
 import Heading from 'components/Heading.astro';
+import markdownComponents from 'components/markdown/index';
 import PostInfo from './_components/PostInfo.astro';
 import Tags from './_components/Tags.astro';
 
@@ -40,5 +41,5 @@ const { readingTime } = remarkPluginFrontmatter;
   <Tags tags={tags} />
   <Heading text={title} highlight={highlight} />
   <PostInfo date={date} lastMod={lastMod} readingTime={readingTime} />
-  <Content />
+  <Content components={markdownComponents} />
 </PageLayout>

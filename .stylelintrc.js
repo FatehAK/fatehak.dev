@@ -18,6 +18,7 @@ module.exports = {
     ],
     'custom-property-empty-line-before': 'never',
     'declaration-block-no-redundant-longhand-properties': [true, { ignoreShorthands: ['/grid/'] }],
+    'property-no-vendor-prefix': [true, { ignoreProperties: ['/transition/'] }],
     // tailwind
     'at-rule-no-unknown': [true, { ignoreAtRules: ['tailwind', 'apply', 'layer', 'config'] }],
     'function-no-unknown': [true, { ignoreFunctions: ['theme'] }],

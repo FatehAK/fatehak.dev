@@ -39,10 +39,14 @@ const { showReadingProgress } = Astro.props;
     <meta name="twitter:creator" content={APP_CONFIG.USER.social.twitter} />
     <meta name="twitter:card" content="summary_large_image" />
     <slot name="seo" />
-    <style id="transitionBlocker" is:inline>
-      *,
-      *::before,
-      *::after {
+    <style is:inline>
+      .no-transition *,
+      .no-transition *::before,
+      .no-transition *::after {
+        -webkit-transition: none !important;
+        -moz-transition: none !important;
+        -ms-transition: none !important;
+        -o-transition: none !important;
         transition: none !important;
       }
     </style>
@@ -51,7 +55,6 @@ const { showReadingProgress } = Astro.props;
         if (typeof window !== 'undefined') {
           const storageTheme = sessionStorage.getItem('theme');
           if (storageTheme) document.documentElement.setAttribute('data-theme', storageTheme);
-          // code to prevent transitions from firing on page load (Bug observed in Safari mobile's webkit engine)
           window.addEventListener('load', () => {
             document.getElementById('transitionBlocker').remove();
           });
@@ -60,7 +63,7 @@ const { showReadingProgress } = Astro.props;
     </script>
     <FontFace />
   </head>
-  <body class="min-h-screen">
+  <body class="min-h-screen no-transition">
     <Navbar showReadingProgress={showReadingProgress} />
     <main class="w-full max-w-3xl pt-12 px-8 sm:px-6">
       <slot />
@@ -83,6 +86,10 @@ const { showReadingProgress } = Astro.props;
         padding-bottom: 7rem;
       }
     </style>
+    <script is:inline>
+      // code to prevent transitions from firing on page load (Bug observed in Safari mobile's webkit engine)
+      document.body.classList.remove('no-transition');
+    </script>
     {
       isProd && (
         <script

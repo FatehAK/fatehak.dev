@@ -98,9 +98,10 @@ const hasOddProjects = projects.length % 2 !== 0;
 
   .card-link {
     box-shadow: inset 0 -1px 0 0 transparent;
-    transition: all 0.2s;
 
     @media (hover: hover) and (pointer: fine) {
+      transition: all 0.2s;
+
       &:hover {
         color: theme('colors.text.link');
         box-shadow: inset 0 -2px 0 0 theme('colors.text.link');

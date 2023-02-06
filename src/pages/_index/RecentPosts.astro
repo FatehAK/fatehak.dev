@@ -11,6 +11,13 @@ const sortedPosts = postEntries.sort((a, b) => b.data.date.valueOf() - a.data.da
   <h2>Recent Posts</h2>
   <PostList posts={sortedPosts} groupByYears={false} />
   <div class="mt-5">
-    <a href="/blog">View more</a><i class="fas fa-arrow-right text-primary ml-2"></i>
+    <a href="/blog" class="view-more">View more</a><i
+      class="fas fa-arrow-right text-primary ml-2 transition-transform duration-200"></i>
   </div>
 </section>
+
+<style>
+  .view-more:hover + i {
+    transform: translateX(5px);
+  }
+</style>

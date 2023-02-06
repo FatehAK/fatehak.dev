@@ -1,5 +1,4 @@
 ---
-import Social from 'components/Social.astro';
 import magicImage from 'assets/magic.svg';
 import { APP_CONFIG } from 'appConfig';
 ---
@@ -27,7 +26,20 @@ import { APP_CONFIG } from 'appConfig';
   <p class="mb-4">
     Know more <a href="/about">about me</a>
   </p>
-  <Social />
+  <div class="flex gap-3 text-text-bold text-xl items-center">
+    <a class="unset icon-link h-6 w-7" href={APP_CONFIG.USER.social.linkedin} target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i>
+      <span class="sr-only">{APP_CONFIG.USER.shortName}'s LinkedIn</span>
+    </a>
+    <a class="unset icon-link h-6 w-7" href={APP_CONFIG.USER.social.github} target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-github" aria-hidden="true" title="GitHub"></i>
+      <span class="sr-only">{APP_CONFIG.USER.shortName}'s GitHub</span>
+    </a>
+    <a class="unset icon-link h-6 w-7" href={APP_CONFIG.USER.social.behance} target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-behance" aria-hidden="true" title="Behance"></i>
+      <span class="sr-only">{APP_CONFIG.USER.shortName}'s Behance</span>
+    </a>
+  </div>
 </section>
 
 <style>

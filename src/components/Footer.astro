@@ -7,7 +7,7 @@ import Logo from './svg/Logo.astro';
   <div class="h-full max-w-3xl mx-auto flex items-center text-sm px-8 sm:px-6 [&>div]:flex-1">
     <div>
       <a
-        class="unset text-lg hover:text-text-link transition-colors duration-200"
+        class="unset text-lg icon-link"
         href={APP_CONFIG.USER.social.linkedin}
         target="_blank"
         rel="noopener noreferrer"
@@ -16,7 +16,7 @@ import Logo from './svg/Logo.astro';
         <span class="sr-only">{APP_CONFIG.USER.shortName}'s LinkedIn</span>
       </a>
       <a
-        class="unset text-lg hover:text-text-link transition-colors duration-200 ml-4"
+        class="unset text-lg icon-link ml-4"
         href={APP_CONFIG.USER.social.github}
         target="_blank"
         rel="noopener noreferrer"
@@ -24,7 +24,7 @@ import Logo from './svg/Logo.astro';
         <i class="fab fa-github" aria-hidden="true" title="GitHub"></i>
         <span class="sr-only">{APP_CONFIG.USER.shortName}'s GitHub</span>
       </a>
-      <a class="unset text-lg hover:text-text-link transition-colors duration-200 ml-4" href="/rss.xml">
+      <a class="unset text-lg icon-link ml-4" href="/rss.xml">
         <i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i>
         <span class="sr-only">RSS feed</span>
       </a>

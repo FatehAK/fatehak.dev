@@ -39,11 +39,22 @@ const { showReadingProgress } = Astro.props;
     <meta name="twitter:creator" content={APP_CONFIG.USER.social.twitter} />
     <meta name="twitter:card" content="summary_large_image" />
     <slot name="seo" />
+    <style id="transitionBlocker" is:inline>
+      *,
+      *::before,
+      *::after {
+        transition: none !important;
+      }
+    </style>
     <script is:inline>
       (function () {
         if (typeof window !== 'undefined') {
           const storageTheme = sessionStorage.getItem('theme');
           if (storageTheme) document.documentElement.setAttribute('data-theme', storageTheme);
+          // code to prevent transitions from firing on page load (Bug observed in Safari mobile's webkit engine)
+          window.addEventListener('load', () => {
+            document.getElementById('transitionBlocker').remove();
+          });
         }
       })();
     </script>

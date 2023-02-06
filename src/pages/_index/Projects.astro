@@ -21,12 +21,7 @@ const hasOddProjects = projects.length % 2 !== 0;
                 </a>
               </div>
               <div class="flex items-center">
-                <a
-                  class="text-xl unset hover:text-text-link transition-colors duration-200"
-                  href={p.githubURL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <a class="text-xl unset icon-link" href={p.githubURL} target="_blank" rel="noopener noreferrer">
                   <i class="fab fa-github" aria-hidden="true" title="View on GitHub" />
                   <span class="sr-only">{p.name}'s GitHub URL</span>
                 </a>

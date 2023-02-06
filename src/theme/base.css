@@ -89,7 +89,7 @@
     transition: all 0.2s ease;
 
     @media (hover: hover) and (pointer: fine) {
-      &:not(.unset):hover {
+      &:hover {
         color: theme('colors.bg.body');
         box-shadow: inset 0 -24px 0 0 theme('colors.text.link');
       }
@@ -175,6 +175,16 @@
     transform: translateY(80px) translateZ(0);
     backface-visibility: hidden; /* safari fix */
     animation: slide-up 0.8s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+  }
+
+  .icon-link {
+    transition: color 0.2s;
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        color: theme('colors.text.link');
+      }
+    }
   }
 }
 

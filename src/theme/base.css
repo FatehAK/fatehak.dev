@@ -178,9 +178,9 @@
   }
 
   .icon-link {
-    @media (hover: hover) and (pointer: fine) {
-      transition: color 0.2s;
+    transition: color 0.2s;
 
+    @media (hover: hover) and (pointer: fine) {
       &:hover {
         color: theme('colors.text.link');
       }

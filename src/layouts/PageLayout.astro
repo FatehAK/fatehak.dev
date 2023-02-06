@@ -55,9 +55,6 @@ const { showReadingProgress } = Astro.props;
         if (typeof window !== 'undefined') {
           const storageTheme = sessionStorage.getItem('theme');
           if (storageTheme) document.documentElement.setAttribute('data-theme', storageTheme);
-          window.addEventListener('load', () => {
-            document.getElementById('transitionBlocker').remove();
-          });
         }
       })();
     </script>

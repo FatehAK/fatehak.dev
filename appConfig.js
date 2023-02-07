@@ -1,3 +1,5 @@
+import themeJSON from './src/theme/syntax-highlight.json';
+
 export const APP_CONFIG = {
   SITE_URL: 'https://fatehak.pages.dev',
   META: {
@@ -58,4 +60,22 @@ export const COMPRESSION_CONFIG = {
     ],
   },
   logger: 0,
+};
+
+export const REHYPE_PRETTY_COFIG = {
+  keepBackground: false,
+  theme: themeJSON,
+  onVisitLine(node) {
+    // allow empty lines to be copy/pasted
+    if (node.children.length === 0) {
+      node.children = [{ type: 'text', value: ' ' }];
+    }
+  },
+  onVisitHighlightedLine(node) {
+    node.properties.className.push('highlighted');
+  },
+  onVisitHighlightedWord(node) {
+    // each word node has no className by default.
+    node.properties.className = ['word'];
+  },
 };

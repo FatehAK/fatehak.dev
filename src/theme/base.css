@@ -108,54 +108,6 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  pre {
-    overflow: hidden;
-    font-size: 0.86rem;
-    line-height: 1.7;
-    border: 1px solid theme('colors.border.code');
-    border-radius: 6px;
-  }
-
-  pre code {
-    counter-increment: step 0;
-    counter-reset: step;
-    overflow-x: auto;
-    display: block;
-    padding: 1rem 1.25rem;
-    background-color: theme('colors.bg.code');
-  }
-
-  pre code::selection {
-    color: transparent;
-    background: transparent;
-  }
-
-  [data-theme='light'] pre code > span {
-    transform: translate3d(0, 0, 0); /* safari fix */
-    backface-visibility: hidden; /* safari fix */
-    filter: invert(1);
-  }
-
-  [data-theme='light'] pre span::selection {
-    color: #000;
-    background: #25a09e;
-  }
-
-  pre code > span::before {
-    content: counter(step);
-    counter-increment: step;
-    user-select: none;
-    display: inline-block;
-    width: 0.9rem;
-    margin-right: 1rem;
-    color: rgb(88 112 124 / 60%);
-    text-align: right;
-  }
-
-  pre code > span:only-child::before {
-    content: none;
-  }
-
   mark {
     color: theme('colors.text.selection');
     background-color: theme('colors.bg.selection');

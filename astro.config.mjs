@@ -5,8 +5,9 @@ import getTargetBrowsers from 'browserslist-to-esbuild';
 import AstroPrefetch from '@astrojs/prefetch';
 import AstroSitemap from '@astrojs/sitemap';
 import AstroMdx from '@astrojs/mdx';
+import prettyCode from 'rehype-pretty-code';
 import remarkReadingTime from './scripts/remark-reading-time.js';
-import { APP_CONFIG, COMPRESSION_CONFIG } from './appConfig.js';
+import { APP_CONFIG, COMPRESSION_CONFIG, REHYPE_PRETTY_COFIG } from './appConfig.js';
 
 // use localhost url as the base when running dev server
 const DEV_SERVER_PORT = 3000;
@@ -20,13 +21,13 @@ export default defineConfig({
     AstroTailwindPlugin({ config: { applyBaseStyles: false } }),
     AstroPrefetch({ throttle: 3 }),
     AstroMdx({
-      shikiConfig: { theme: 'dracula-soft' },
+      syntaxHighlight: false,
       remarkPlugins: [remarkReadingTime],
+      rehypePlugins: [[prettyCode, REHYPE_PRETTY_COFIG]],
     }),
     AstroSitemap(),
     isProd && AstroCompress(COMPRESSION_CONFIG),
   ],
-
   server: ({ command }) => ({
     port: command === 'dev' ? DEV_SERVER_PORT : 4000,
     host: true,

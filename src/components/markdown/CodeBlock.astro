@@ -40,15 +40,7 @@ const langIcon = getLangIcon(lang);
     background-color: theme('colors.bg.code');
     border-radius: 10px;
 
-    @media (max-width: theme('screens.md.max')) {
-      margin-right: -1.4rem;
-      margin-left: -1.4rem;
-    }
-
-    @media (max-width: theme('screens.sm.max')) {
-      margin-right: -0.9rem;
-      margin-left: -0.9rem;
-    }
+    @apply break-padding;
   }
 
   /* code title */

@@ -1,3 +1,5 @@
+const plugin = require('tailwindcss/plugin');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.astro'],
@@ -57,4 +59,22 @@ module.exports = {
       },
     },
   },
+  plugins: [
+    plugin(function ({ addComponents, theme }) {
+      const mdQuery = `@media (max-width: ${theme('screens.md.max')})`;
+      const smQuery = `@media (max-width: ${theme('screens.sm.max')})`;
+      addComponents({
+        '.break-padding': {
+          [mdQuery]: {
+            marginRight: '-1.4rem',
+            marginLeft: '-1.4rem',
+          },
+          [smQuery]: {
+            marginRight: '-0.9rem',
+            marginLeft: '-0.9rem',
+          },
+        },
+      });
+    }),
+  ],
 };

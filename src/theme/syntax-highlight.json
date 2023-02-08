@@ -66,7 +66,7 @@
     {
       "scope": ["keyword", "keyword.operator.new", "storage.modifier.async"],
       "settings": {
-        "foreground": "#DD4F7D"
+        "foreground": "#e06d73"
       }
     },
     {
@@ -120,7 +120,7 @@
     {
       "scope": "storage.type",
       "settings": {
-        "foreground": "#DD4F7D"
+        "foreground": "#e06d73"
       }
     },
     {
@@ -281,13 +281,13 @@
         "keyword.other.use-as"
       ],
       "settings": {
-        "foreground": "#DD4F7D"
+        "foreground": "#e06d73"
       }
     },
     {
       "scope": ["meta.use support.class.builtin", "meta.other.inherited-class support.class.builtin"],
       "settings": {
-        "foreground": "#DD4F7D",
+        "foreground": "#e06d73",
         "fontStyle": "normal"
       }
     },
@@ -301,7 +301,7 @@
     {
       "scope": "meta.object-literal.key",
       "settings": {
-        "foreground": "#DD4F7D",
+        "foreground": "#e06d73",
         "fontStyle": "normal"
       }
     },
@@ -380,7 +380,7 @@
     {
       "scope": ["support.class.component.tsx", "support.class.component.jsx"],
       "settings": {
-        "foreground": "#DD4F7D",
+        "foreground": "#e06d73",
         "fontStyle": ""
       }
     },
@@ -393,7 +393,7 @@
     {
       "scope": "storage.modifier.tsx",
       "settings": {
-        "foreground": "#DD4F7D"
+        "foreground": "#e06d73"
       }
     },
     {
@@ -429,7 +429,7 @@
     {
       "scope": ["meta.structure.dictionary.json", "support.type.property-name.json"],
       "settings": {
-        "foreground": "#DD4F7D"
+        "foreground": "#e06d73"
       }
     },
     {
@@ -455,7 +455,7 @@
     {
       "scope": "punctuation.definition.heading.markdown",
       "settings": {
-        "foreground": "#DD4F7D",
+        "foreground": "#e06d73",
         "fontStyle": "bold"
       }
     },
@@ -468,32 +468,32 @@
     {
       "scope": ["punctuation.definition.bold.markdown", "punctuation.definition.italic.markdown"],
       "settings": {
-        "foreground": "#DD4F7D"
+        "foreground": "#e06d73"
       }
     },
     {
       "scope": ["punctuation.definition.string.begin.markdown", "punctuation.definition.string.end.markdown"],
       "settings": {
-        "foreground": "#DD4F7D"
+        "foreground": "#e06d73"
       }
     },
     {
       "scope": "punctuation.definition.metadata.markdown",
       "settings": {
-        "foreground": "#DD4F7D"
+        "foreground": "#e06d73"
       }
     },
     {
       "scope": ["markup.underline.link.markdown", "markup.underline.link.image.markdown", "meta.image.inline.markdown"],
       "settings": {
-        "foreground": "#DD4F7D",
+        "foreground": "#e06d73",
         "fontStyle": ""
       }
     },
     {
       "scope": ["markup.bold.markdown", "markup.italic.markdown"],
       "settings": {
-        "foreground": "#DD4F7D"
+        "foreground": "#e06d73"
       }
     },
     {
@@ -523,14 +523,14 @@
     {
       "scope": "keyword.other.fn.rust",
       "settings": {
-        "foreground": "#DD4F7D"
+        "foreground": "#e06d73"
       }
     },
     {
       "name": "PHP: Begin block",
       "scope": ["punctuation.section.embedded.begin.php", "keyword.other.class.php"],
       "settings": {
-        "foreground": "#DD4F7D"
+        "foreground": "#e06d73"
       }
     },
     {
@@ -564,7 +564,7 @@
       "name": "Prisma: Constant",
       "scope": "support.constant.constant.prisma",
       "settings": {
-        "foreground": "#DD4F7D"
+        "foreground": "#e06d73"
       }
     },
     {

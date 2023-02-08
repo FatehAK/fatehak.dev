@@ -11,7 +11,7 @@ const langIcon = getLangIcon(lang);
 <div class="code-block-inner">
   {langIcon && <img src={langIcon} alt={lang} class="lang-icon" width="17" height="17" />}
   <copy-code
-    class="copy-code w-[50px] h-[35px] absolute right-0 top-0 bg-bg-code transition-opacity border-solid border-l border-b-[0.5px] border-border-code duration-300"
+    class="copy-code w-[50px] h-[40px] absolute right-0 top-0 bg-bg-code transition-opacity border-solid border-l border-b-[0.5px] border-border-code duration-300"
   >
     <button
       type="button"
@@ -19,7 +19,7 @@ const langIcon = getLangIcon(lang);
       type="button"
       class="copy-code-btn flex justify-center items-center w-full h-full transition-opacity hover:opacity-80"
     >
-      <img src={copyImage} alt="copy" width="16" height="16" />
+      <img src={copyImage} alt="copy" width="17" height="17" class="select-none" />
     </button>
     <div class="copy-code-success hidden justify-center items-center w-full h-full">
       <img src={tickImage} alt="copy success" width="20" height="20" />
@@ -31,29 +31,39 @@ const langIcon = getLangIcon(lang);
 <style is:global>
   /* wrapper */
   div[data-rehype-pretty-code-fragment] {
+    /* one off colors */
+    --white: #d1d5db;
+    --cyan: #22d3ee;
+
     position: relative;
     overflow: hidden;
     background-color: theme('colors.bg.code');
-    border: 1px solid theme('colors.border.code');
-    border-radius: 6px;
+    border-radius: 10px;
+
+    @apply break-padding;
   }
 
   /* code title */
   div[data-rehype-pretty-code-title] {
     display: flex;
     align-items: center;
-    height: 35px;
+    height: 40px;
     padding: 0 1.25rem;
     padding-left: 42px;
-    font-size: 0.8rem;
+    font-size: 0.82rem;
     font-weight: 500;
+    color: var(--white);
     border-bottom: 0.5px solid theme('colors.border.code');
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   /* code title - lang icon */
   .lang-icon {
+    user-select: none;
     position: absolute;
-    top: 8px;
+    top: 11px;
     left: 16px;
     display: none;
   }
@@ -63,14 +73,19 @@ const langIcon = getLangIcon(lang);
   }
 
   pre {
-    font-size: 0.86rem;
+    font-size: 0.85rem;
     line-height: 1.7;
   }
 
   pre > code {
-    overflow-x: auto;
+    overflow: auto;
     display: grid;
+    max-height: 48rem;
     padding: 1rem 0;
+
+    @media (max-width: theme('screens.md.max')) {
+      max-height: unset;
+    }
   }
 
   pre > code::selection {
@@ -78,16 +93,13 @@ const langIcon = getLangIcon(lang);
     background: transparent;
   }
 
-  /* invert tokens for light mode */
-  [data-theme='light'] pre > code > .line > span {
-    transform: translate3d(0, 0, 0); /* safari fix */
-    backface-visibility: hidden; /* safari fix */
-    filter: invert(1);
-  }
+  pre > code > .line {
+    padding: 0 1.25rem;
+    border-left: 3px solid transparent;
 
-  [data-theme='light'] pre > code > .line span::selection {
-    color: rgb(0 0 0);
-    background: rgb(37 160 158);
+    @media (max-width: theme('screens.md.max')) {
+      padding: 0 1rem;
+    }
   }
 
   /* line number */
@@ -102,7 +114,7 @@ const langIcon = getLangIcon(lang);
     display: inline-block;
     width: 1rem;
     margin-right: 1rem;
-    color: theme('colors.text.muted' / 22%);
+    color: theme('colors.text.code' / 22%);
     text-align: right;
   }
 
@@ -111,44 +123,39 @@ const langIcon = getLangIcon(lang);
   }
 
   /* line highlighting */
-  pre > code > .line {
-    padding: 0 1.25rem;
-    border-left: 3px solid transparent;
-  }
-
   pre > code > .line.highlighted::before {
     font-weight: bold;
-    color: theme('colors.text.muted');
+    color: theme('colors.text.code');
   }
 
   pre > code > .line.highlighted {
-    background: theme('colors.primary.DEFAULT' / 10%);
-    border-left-color: theme('colors.primary.DEFAULT');
+    background: theme('colors.text.code' / 12%);
+    border-left-color: var(--cyan);
   }
 
   /* word highlighting */
   pre > code > .line .word {
     padding: 0.2rem 0.25rem;
-    background: theme('colors.primary.DEFAULT' / 10%);
+    background: theme('colors.text.code' / 12%);
     border-radius: 0.25rem;
-  }
-
-  [data-theme='light'] pre > code > .line .word {
-    background: rgb(37 160 158 / 10%);
   }
 
   /* copy code */
   .copy-code {
     opacity: 0;
+    background-color: theme('colors.border.code');
+    border-top-right-radius: 10px;
   }
 
   div[data-rehype-pretty-code-title] + .code-block-inner .copy-code {
     opacity: 1;
+    background-color: theme('colors.bg.code');
   }
 
   @media (hover: hover) and (pointer: fine) {
     .code-block-inner:hover .copy-code {
       opacity: 1;
+      background-color: theme('colors.border.code');
     }
   }
 </style>
@@ -162,7 +169,6 @@ const langIcon = getLangIcon(lang);
 
       copyCodeBtn?.addEventListener('click', () => {
         const contentNode = this.parentNode!.querySelector('code') as HTMLElement;
-
         navigator.clipboard
           .writeText(contentNode.textContent as string)
           .then(

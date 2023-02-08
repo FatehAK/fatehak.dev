@@ -78,10 +78,15 @@ const langIcon = getLangIcon(lang);
   }
 
   pre > code {
+    all: inherit;
     overflow: auto;
     display: grid;
     max-height: 48rem;
     padding: 1rem 0;
+    font-family: theme('fontFamily.mono');
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 
     @media (max-width: theme('screens.md.max')) {
       max-height: unset;

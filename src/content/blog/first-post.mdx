@@ -1,6 +1,6 @@
 ---
 date: '2023-02-02T13:01:23.832Z'
-lastMod: '2023-02-07T21:58:48.846Z'
+lastMod: '2023-02-08T16:18:17.109Z'
 title: How to Save a JavaScript Function as a Bookmark
 seoTitle: How to Save a JavaScript Function as a Bookmark
 highlight: Bookmark
@@ -11,6 +11,10 @@ tags:
 ---
 
 A noice content
+
+### Content
+
+This property is known as `document.querySelector(){:js}` which is something that must be used to select a element in the dom.
 
 ### JS
 
@@ -28,35 +32,6 @@ window.addEventListener(
       const st = document.documentElement.scrollTop;
       const scrollHeight = document.documentElement.scrollHeight;
       const clientHeight = document.documentElement.clientHeight;
-
-      function checkNavBorder() {
-        if (st > 10) {
-          navContainer.classList.add('scroll');
-        } else {
-          navContainer.classList.remove('scroll');
-        }
-      }
-      function checkNavVisibility() {
-        if (st > 60 && st > lastScrollY) {
-          // downscroll code
-          navContainer.classList.add('hide');
-        } else if (st < lastScrollY) {
-          // upscroll code
-          navContainer.classList.remove('hide');
-        }
-        // check for bouncy scrolling on touch devices
-        const isBouncing = st < 0 || st + clientHeight > scrollHeight;
-        if (!isBouncing) lastScrollY = st;
-      }
-      function checkReadingProgressMobile() {
-        const footerHeight = 80; // 5rem = 80px
-        const percent = Math.min((st / (scrollHeight - clientHeight - footerHeight)) * 100, 100).toFixed(2);
-        readingProgressMobile.style.width = `${percent}%`;
-      }
-
-      checkNavBorder();
-      checkNavVisibility();
-      if (isScrollProgressVisible) checkReadingProgressMobile();
     }
 
     checkScroll();
@@ -75,147 +50,4 @@ new IntersectionObserver(entry => {
     isSpinning = false;
   }
 }).observe(document.querySelector('#top-of-site-pixel-anchor') as HTMLElement);
-```
-
-### HTML
-
-Shiki handles all theme logic at build-time, so that the browser only ever sees already-computed style="color: #XXXXXX" attributes. This allows more granular theme support in a way that doesn't require any additional steps to add global CSS to your page.
-
-In some cases, a user may require custom client-side theming via CSS. To support this, you may use the css-variables theme with Shiki.
-
-```html showLineNumbers title="index.html"
-<div>
-  <button
-    type="button"
-    title="Copy"
-    type="button"
-    class="copy-code-btn flex justify-center items-center w-full h-full transition-opacity hover:opacity-80"
-  >
-    <img src="{copyImage}" alt="copy" width="16" height="16" />
-  </button>
-  <div class="copy-code-success hidden justify-center items-center w-full h-full">
-    <img src="{tickImage}" alt="copy success" width="20" height="20" />
-  </div>
-</div>
-```
-
-### CSS
-
-```css showLineNumbers title="styles.css"
-ul > li {
-  position: relative;
-  padding-left: 1.375rem;
-}
-
-ul:not(.unset) > li::before {
-  content: '»';
-  font-size: 3rem;
-  font-weight: bold;
-  line-height: 1.15;
-  letter-spacing: -0.0669rem;
-  color: rgb(var(--color-text-muted));
-}
-
-ol:not(.unset) {
-  padding-left: 1.125rem;
-}
-
-ol:not(.unset) > li::marker {
-  color: rgb(var(--color-text-muted));
-}
-
-@media (min-width: 500px) {
-  height: calc(1px - 0.8rem);
-}
-```
-
-### JSON
-
-```json {4} showLineNumbers title="appConfig.json"
-{
-  "name": "Markup Heading",
-  "scope": ["markup.heading", "markup.heading entity.name"],
-  "settings": {
-    "fontStyle": "bold",
-    "foreground": "#ff851a"
-  }
-}
-```
-
-### JSX
-
-```jsx
-import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from 'remix';
-import type { MetaFunction } from 'remix';
-import { HMSRoomProvider } from '@100mslive/react-sdk';
-
-export const meta: MetaFunction = () => {
-  return { title: 'Remix Video Chat' };
-};
-
-export default function App() {
-  return (
-    <html lang="en">
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <Meta />
-        <Links />
-      </head>
-      <body>
-        <HMSRoomProvider>
-          <Outlet />
-          <ScrollRestoration />
-          <Scripts />
-          {process.env.NODE_ENV === 'development' && <LiveReload />}
-        </HMSRoomProvider>
-      </body>
-    </html>
-  );
-}
-```
-
-### SHELL
-
-```bash
-## npm
-npm install --save @100mslive/react-sdk@latest
-## yarn
-yarn add @100mslive/react-sdk@latest @100mslive/react-icons@latest
-
-foo@bar:~$ whoami
-foo
-```
-
-### TS
-
-```tsx
-interface ResponseType {
-  error: null | string;
-  token: null | string;
-}
-
-export const links = () => {
-  return [{ rel: 'stylesheet', href: styles }];
-};
-
-export default function MeetingSlug() {
-  const { token, error } = useLoaderData<ResponseType>();
-  return (
-    <div>
-      {!(token || error) ? <h1>Loading...</h1> : null}
-      {token ? <Live token={token} /> : null}
-      {error ? (
-        <div className="error">
-          <h1>Error</h1>
-          <p>{error}</p>
-          <p>
-            Get RoomId from <a href="https://dashboard.100ms.live/rooms">here</a> and join with the role created in it
-            :)
-          </p>
-        </div>
-      ) : null}
-    </div>
-  );
-}
 ```

@@ -102,7 +102,13 @@
   }
 
   code {
+    padding: 3px 6px;
     font-family: theme('fontFamily.mono');
+    font-size: 0.875rem;
+    color: theme('colors.text.code-inline');
+    background-color: theme('colors.bg.code' / 90%);
+    border: 1px solid theme('colors.bg.border');
+    border-radius: 5px;
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

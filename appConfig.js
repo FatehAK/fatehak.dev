@@ -65,6 +65,10 @@ export const COMPRESSION_CONFIG = {
 export const REHYPE_PRETTY_COFIG = {
   keepBackground: false,
   theme: themeJSON,
+  tokensMap: {
+    // for inline code blocks
+    fn: 'entity.name.function',
+  },
   onVisitLine(node) {
     // allow empty lines to be copy/pasted
     if (node.children.length === 0) {

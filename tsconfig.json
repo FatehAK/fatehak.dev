@@ -12,7 +12,6 @@
     "paths": {
       "layouts/*": ["./src/layouts/*"],
       "pages/*": ["./src/pages/*"],
-      "lib/*": ["./src/lib/*"],
       "components/*": ["./src/components/*"],
       "utils/*": ["./src/utils/*"],
       "theme/*": ["./src/theme/*"],

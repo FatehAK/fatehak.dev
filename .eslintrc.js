@@ -1,15 +1,6 @@
 const getImportGroups = () => {
   const external = ['astro:', '@astrojs'];
-  const internal = [
-    'layouts/**',
-    'pages/**',
-    'components/**',
-    'lib/**',
-    'utils/**',
-    'theme/**',
-    'constants/**',
-    'assets/**',
-  ];
+  const internal = ['layouts/**', 'pages/**', 'components/**', 'utils/**', 'theme/**', 'constants/**', 'assets/**'];
   return external
     .map(pattern => ({ pattern, group: 'external', position: 'before' }))
     .concat(

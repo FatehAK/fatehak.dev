@@ -1,18 +1,21 @@
 ---
-import Picture from 'lib/PatchedPicture.astro';
+import { getPicture } from '@astrojs/image';
 
 const { title, src } = Astro.props;
+
+const { image, sources } = await getPicture({
+  src,
+  alt: title,
+  widths: [576, 768, 1200, 1400, 1600],
+  formats: ['avif', 'webp'],
+  fit: 'fill',
+});
 ---
 
 <figure class="mb-9 break-padding">
-  <Picture
-    src={src}
-    alt={title}
-    widths={[576, 768, 1200, 1400, 1600]}
-    sizes="(max-width: 700px) calc(100vw - 0.6rem), calc(48rem - 2rem)"
-    fit="fill"
-    formats={['avif', 'webp']}
-    class="rounded-sm"
-  />
+  <picture>
+    {sources.map(attrs => <source {...attrs} sizes="(max-width: 700px) calc(100vw - 0.6rem), calc(48rem - 2rem)" />)}
+    <img class="rounded-sm" {...image} loading="lazy" decoding="async" alt={title} />
+  </picture>
   <figcaption class="text-center pt-2 text-sm leading-[1.5] text-text-body/70">{title}</figcaption>
 </figure>

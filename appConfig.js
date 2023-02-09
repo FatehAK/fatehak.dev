@@ -27,12 +27,7 @@ export const COMPRESSION_CONFIG = {
   html: {
     removeAttributeQuotes: false,
   },
-  img: {
-    png: { quality: 100 },
-    jpeg: { quality: 100 },
-    jpg: { quality: 100 },
-    gif: { animated: true },
-  },
+  img: false,
   svg: {
     multipass: true,
     plugins: [

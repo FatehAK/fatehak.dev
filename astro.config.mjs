@@ -5,6 +5,7 @@ import getTargetBrowsers from 'browserslist-to-esbuild';
 import AstroPrefetch from '@astrojs/prefetch';
 import AstroSitemap from '@astrojs/sitemap';
 import AstroMdx from '@astrojs/mdx';
+import AstroImage from '@astrojs/image';
 import prettyCode from 'rehype-pretty-code';
 import remarkReadingTime from './scripts/remark-reading-time.js';
 import { APP_CONFIG, COMPRESSION_CONFIG, REHYPE_PRETTY_COFIG } from './appConfig.js';
@@ -19,6 +20,7 @@ export default defineConfig({
   site: SCRIPT.includes('astro build') ? APP_CONFIG.SITE_URL : LOCALHOST_URL,
   integrations: [
     AstroTailwindPlugin({ config: { applyBaseStyles: false } }),
+    AstroImage({ serviceEntryPoint: '@astrojs/image/sharp' }),
     AstroPrefetch({ throttle: 3 }),
     AstroMdx({
       syntaxHighlight: false,

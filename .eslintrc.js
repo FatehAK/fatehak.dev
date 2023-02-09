@@ -1,5 +1,5 @@
 const getImportGroups = () => {
-  const external = ['react', '@linaria/+(core|react)'];
+  const external = ['astro:', '@astrojs'];
   const internal = [
     'layouts/**',
     'pages/**',
@@ -84,9 +84,10 @@ module.exports = {
     'import/parsers': {
       '@typescript-eslint/parser': ['.js', '.jsx', '.ts', '.tsx'],
     },
+    'import/ignore': ['node_modules'],
     'import/resolver': {
       typescript: {
-        alwaysTryTypes: false,
+        alwaysTryTypes: true,
       },
       alias: {
         map: [
@@ -98,8 +99,9 @@ module.exports = {
           ['constants', './src/constants'],
           ['assets', './src/assets'],
           ['appConfig', './appConfig'],
+          ['@astrojs/image/components', ''],
         ],
-        extensions: ['.js', '.jsx', '.json', '.astro'],
+        extensions: ['.js', '.jsx', '.json', '.ts', '.tsx', '.astro'],
       },
     },
   },

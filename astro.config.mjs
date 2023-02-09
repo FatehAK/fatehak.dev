@@ -7,6 +7,7 @@ import AstroSitemap from '@astrojs/sitemap';
 import AstroMdx from '@astrojs/mdx';
 import AstroImage from '@astrojs/image';
 import prettyCode from 'rehype-pretty-code';
+import { rehypeAccessibleEmojis } from 'rehype-accessible-emojis';
 import remarkReadingTime from './scripts/remark-reading-time.js';
 import { APP_CONFIG, COMPRESSION_CONFIG, REHYPE_PRETTY_COFIG } from './appConfig.js';
 
@@ -20,13 +21,14 @@ export default defineConfig({
   site: SCRIPT.includes('astro build') ? APP_CONFIG.SITE_URL : LOCALHOST_URL,
   integrations: [
     AstroTailwindPlugin({ config: { applyBaseStyles: false } }),
-    AstroImage({ serviceEntryPoint: '@astrojs/image/sharp', cacheDir: './node_modules/.cache' }),
-    AstroPrefetch({ throttle: 3 }),
     AstroMdx({
       syntaxHighlight: false,
+      extendDefaultPlugins: true,
       remarkPlugins: [remarkReadingTime],
-      rehypePlugins: [[prettyCode, REHYPE_PRETTY_COFIG]],
+      rehypePlugins: [[prettyCode, REHYPE_PRETTY_COFIG], rehypeAccessibleEmojis],
     }),
+    AstroImage({ serviceEntryPoint: '@astrojs/image/sharp', cacheDir: './node_modules/.cache' }),
+    AstroPrefetch({ throttle: 3 }),
     AstroSitemap(),
     isProd && AstroCompress(COMPRESSION_CONFIG),
   ],

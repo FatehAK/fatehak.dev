@@ -1,26 +1,17 @@
 ---
-import { Picture } from '@astrojs/image/components';
+import Picture from 'lib/PatchedPicture.astro';
 
-// the max size of outer `main` container is 48rem ~ 768px, so we use that as an estimate to compute initial the aspect ratio
-const containerMaxWidth = 768;
-
-const { title, src, width = containerMaxWidth, height } = Astro.props;
-
-const aspectRatio = width / height;
+const { title, src } = Astro.props;
 ---
 
-<figure class="mb-9 break-padding" style={`aspect-ratio: ${aspectRatio};`}>
+<figure class="mb-9 break-padding">
   <Picture
     src={src}
     alt={title}
-    widths={[640, 768, 1200, 1449, 1920]}
-    aspectRatio={aspectRatio}
+    widths={[576, 768, 1200, 1400, 1600]}
     sizes="(max-width: 700px) calc(100vw - 0.6rem), calc(48rem - 2rem)"
     fit="fill"
-    width={width}
-    height={height}
     formats={['avif', 'webp']}
-    quality={10}
     class="rounded-sm"
   />
   <figcaption class="text-center pt-2 text-sm leading-[1.5] text-text-body/70">{title}</figcaption>

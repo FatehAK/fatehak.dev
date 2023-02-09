@@ -79,6 +79,13 @@ module.exports = {
       files: ['**/*.astro/*.js', '*.astro/*.js'],
       parser: '@typescript-eslint/parser',
     },
+    {
+      files: ['*.mdx', '*.md'],
+      extends: 'plugin:mdx/recommended',
+      rules: {
+        'no-unused-vars': 'off',
+      },
+    },
   ],
   settings: {
     'import/parsers': {
@@ -103,6 +110,9 @@ module.exports = {
         ],
         extensions: ['.js', '.jsx', '.json', '.ts', '.tsx', '.astro'],
       },
+    },
+    settings: {
+      'mdx/code-blocks': true,
     },
   },
 };

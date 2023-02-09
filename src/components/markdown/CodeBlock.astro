@@ -1,11 +1,31 @@
 ---
 import copyImage from 'assets/copy.svg';
 import tickImage from 'assets/tick.svg';
-import getLangIcon from './getLangIcon';
+import htmlIcon from 'assets/icons/html.svg';
+import cssIcon from 'assets/icons/css.svg';
+import jsIcon from 'assets/icons/js.svg';
+import tsIcon from 'assets/icons/ts.svg';
+import jsonIcon from 'assets/icons/json.svg';
+import jsxIcon from 'assets/icons/jsx.svg';
+import shellIcon from 'assets/icons/shell.svg';
+
+const iconMap = {
+  js: jsIcon,
+  html: htmlIcon,
+  css: cssIcon,
+  ts: tsIcon,
+  json: jsonIcon,
+  jsx: jsxIcon,
+  tsx: tsIcon,
+  shell: shellIcon,
+  bash: shellIcon,
+  console: shellIcon,
+};
+
 const props = Astro.props;
 
 const lang = props['data-language'];
-const langIcon = getLangIcon(lang);
+const langIcon = iconMap[lang];
 ---
 
 <div class="code-block-inner">
@@ -28,9 +48,9 @@ const langIcon = getLangIcon(lang);
   <pre><slot /></pre>
 </div>
 
-<style is:global>
+<style>
   /* wrapper */
-  div[data-rehype-pretty-code-fragment] {
+  :global([data-rehype-pretty-code-fragment]) {
     /* one off colors */
     --white: #d1d5db;
     --cyan: #22d3ee;
@@ -43,8 +63,17 @@ const langIcon = getLangIcon(lang);
     @apply break-padding;
   }
 
+  /* code title - lang icon */
+  .lang-icon {
+    user-select: none;
+    position: absolute;
+    top: 11px;
+    left: 16px;
+    display: none;
+  }
+
   /* code title */
-  div[data-rehype-pretty-code-title] {
+  :global([data-rehype-pretty-code-title]) {
     display: flex;
     align-items: center;
     height: 40px;
@@ -57,19 +86,10 @@ const langIcon = getLangIcon(lang);
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-  }
 
-  /* code title - lang icon */
-  .lang-icon {
-    user-select: none;
-    position: absolute;
-    top: 11px;
-    left: 16px;
-    display: none;
-  }
-
-  div[data-rehype-pretty-code-title] + .code-block-inner > .lang-icon {
-    display: block;
+    & + .code-block-inner > .lang-icon {
+      display: block;
+    }
   }
 
   pre {
@@ -77,7 +97,7 @@ const langIcon = getLangIcon(lang);
     line-height: 1.7;
   }
 
-  pre > code {
+  pre > :global(code) {
     all: inherit;
     overflow: auto;
     display: grid;
@@ -88,61 +108,56 @@ const langIcon = getLangIcon(lang);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
+    & > :global(.line) {
+      padding: 0 1.25rem;
+      border-left: 3px solid transparent;
+
+      @media (max-width: theme('screens.md.max')) {
+        padding: 0 1rem;
+      }
+    }
+
+    /* line highlighting */
+    & > :global(.line.highlighted)::before {
+      font-weight: bold;
+      color: theme('colors.text.code');
+    }
+
+    & > :global(.line.highlighted) {
+      background: theme('colors.text.code' / 12%);
+      border-left-color: var(--cyan);
+    }
+
+    /* line number */
+    &[data-line-numbers] {
+      counter-reset: line;
+
+      & > :global(.line)::before {
+        content: counter(line);
+        counter-increment: line;
+        user-select: none;
+        display: inline-block;
+        width: 1rem;
+        margin-right: 1rem;
+        color: theme('colors.text.code' / 22%);
+        text-align: right;
+      }
+
+      & > :global(.line):only-child::before {
+        content: none;
+      }
+    }
+
+    /* word highlighting */
+    & > :global(.line) :global(.word) {
+      padding: 0.2rem 0.25rem;
+      background: theme('colors.text.code' / 12%);
+      border-radius: 0.25rem;
+    }
+
     @media (max-width: theme('screens.md.max')) {
       max-height: unset;
     }
-  }
-
-  pre > code::selection {
-    color: transparent;
-    background: transparent;
-  }
-
-  pre > code > .line {
-    padding: 0 1.25rem;
-    border-left: 3px solid transparent;
-
-    @media (max-width: theme('screens.md.max')) {
-      padding: 0 1rem;
-    }
-  }
-
-  /* line number */
-  pre > code[data-line-numbers] {
-    counter-reset: line;
-  }
-
-  pre > code[data-line-numbers] > .line::before {
-    content: counter(line);
-    counter-increment: line;
-    user-select: none;
-    display: inline-block;
-    width: 1rem;
-    margin-right: 1rem;
-    color: theme('colors.text.code' / 22%);
-    text-align: right;
-  }
-
-  pre > code[data-line-numbers] > .line:only-child::before {
-    content: none;
-  }
-
-  /* line highlighting */
-  pre > code > .line.highlighted::before {
-    font-weight: bold;
-    color: theme('colors.text.code');
-  }
-
-  pre > code > .line.highlighted {
-    background: theme('colors.text.code' / 12%);
-    border-left-color: var(--cyan);
-  }
-
-  /* word highlighting */
-  pre > code > .line .word {
-    padding: 0.2rem 0.25rem;
-    background: theme('colors.text.code' / 12%);
-    border-radius: 0.25rem;
   }
 
   /* copy code */
@@ -152,7 +167,7 @@ const langIcon = getLangIcon(lang);
     border-top-right-radius: 10px;
   }
 
-  div[data-rehype-pretty-code-title] + .code-block-inner .copy-code {
+  :global([data-rehype-pretty-code-title]) + .code-block-inner .copy-code {
     opacity: 1;
     background-color: theme('colors.bg.code');
   }

@@ -27,6 +27,9 @@ module.exports = {
     {
       files: '**/*.astro',
       customSyntax: 'postcss-html',
+      rules: {
+        'selector-pseudo-class-no-unknown': null,
+      },
     },
   ],
 };

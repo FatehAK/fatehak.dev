@@ -20,7 +20,7 @@ export default defineConfig({
   site: SCRIPT.includes('astro build') ? APP_CONFIG.SITE_URL : LOCALHOST_URL,
   integrations: [
     AstroTailwindPlugin({ config: { applyBaseStyles: false } }),
-    AstroImage({ serviceEntryPoint: '@astrojs/image/sharp' }),
+    AstroImage({ serviceEntryPoint: '@astrojs/image/sharp', cacheDir: './node_modules/.cache' }),
     AstroPrefetch({ throttle: 3 }),
     AstroMdx({
       syntaxHighlight: false,

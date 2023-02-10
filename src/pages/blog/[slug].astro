@@ -48,6 +48,37 @@ const { readingTime } = remarkPluginFrontmatter;
 
 <style>
   /* markdown styles */
+  .prose {
+    position: relative;
+  }
+
+  /* heading anchor */
+  .prose :global(h2) {
+    &:hover > :global(a) {
+      visibility: visible;
+    }
+
+    & > :global(a) {
+      cursor: pointer;
+      position: absolute;
+      width: 100%;
+      margin-left: -25px;
+      padding-right: 4px;
+      font-weight: 300;
+      color: theme('colors.primary.DEFAULT');
+      visibility: hidden;
+      box-shadow: none;
+
+      &::after {
+        content: '#';
+      }
+
+      &:hover {
+        color: theme('colors.primary.DEFAULT');
+        box-shadow: none;
+      }
+    }
+  }
 
   /* horizontal ruler */
   .prose :global(hr) {

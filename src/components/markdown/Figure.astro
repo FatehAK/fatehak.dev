@@ -22,5 +22,5 @@ const children = await Astro.slots.render('default');
     {sources.map(attrs => <source {...attrs} sizes="(max-width: 700px) calc(100vw - 0.6rem), calc(48rem - 2rem)" />)}
     <img class="rounded-[6px]" {...image} alt={image.alt} loading="lazy" decoding="async" />
   </picture>
-  {children && <figcaption class="pt-2 text-sm leading-[1.5] text-text-body/70" set:html={children} />}
+  {children && <figcaption class="pt-2 text-center text-sm leading-[1.5] text-text-body/70" set:html={children} />}
 </figure>

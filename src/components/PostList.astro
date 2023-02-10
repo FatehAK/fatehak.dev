@@ -2,8 +2,6 @@
 import { getEntryBySlug } from 'astro:content';
 
 const { posts, groupByYears = true } = Astro.props;
-
-let currentYear = '';
 ---
 
 {
@@ -11,15 +9,12 @@ let currentYear = '';
     const postEntry = await getEntryBySlug('blog', post.slug);
     const { remarkPluginFrontmatter } = await postEntry!.render();
 
-    const postYear = post.data.date.getFullYear();
-    const isYearChanged = postYear !== currentYear;
-    currentYear = postYear;
-
+    const isYearChanged = post.data.date.getFullYear() !== posts[index - 1]?.data.date.getFullYear();
     return (
       <div
         class:list={[
           'post pt-3 pb-4 border-b border-bg-border relative',
-          { 'mb-3': index !== posts.length - 1, 'pt-14': groupByYears && isYearChanged },
+          { 'mb-3': index !== posts.length - 1, 'padding-extra': groupByYears && isYearChanged },
         ]}
         style={`animation-delay: ${index * 0.08}s`}
       >
@@ -51,6 +46,10 @@ let currentYear = '';
   .post {
     opacity: 0;
     animation: fadein 0.8s ease forwards;
+  }
+
+  .post.padding-extra {
+    padding-top: 3.5rem;
   }
 
   @media (hover: hover) and (pointer: fine) {

@@ -1,21 +1,23 @@
 ---
 import { getPicture } from '@astrojs/image';
 
-const { title, src } = Astro.props;
+const { alt, src } = Astro.props;
 
 const { image, sources } = await getPicture({
   src,
-  alt: title || 'presentational',
+  alt,
   widths: [576, 768, 1200, 1400, 1600],
   formats: ['avif', 'webp'],
   fit: 'fill',
 });
+
+const children = await Astro.slots.render('default');
 ---
 
-<figure class="mb-9 break-padding">
+<figure class="my-9 break-padding">
   <picture>
     {sources.map(attrs => <source {...attrs} sizes="(max-width: 700px) calc(100vw - 0.6rem), calc(48rem - 2rem)" />)}
-    <img class="rounded-[10px]" {...image} alt={image.alt} loading="lazy" decoding="async" />
+    <img class="rounded-[6px]" {...image} alt={image.alt} loading="lazy" decoding="async" />
   </picture>
-  {title && <figcaption class="text-center pt-2 text-sm leading-[1.5] text-text-body/70">{title}</figcaption>}
+  {children && <figcaption class="pt-2 text-sm leading-[1.5] text-text-body/70" set:html={children} />}
 </figure>

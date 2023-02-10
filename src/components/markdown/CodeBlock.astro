@@ -57,8 +57,9 @@ const langIcon = iconMap[lang];
 
     position: relative;
     overflow: hidden;
+    margin-bottom: 1rem;
     background-color: theme('colors.bg.code');
-    border-radius: 10px;
+    border-radius: 6px;
 
     @apply break-padding;
   }
@@ -109,12 +110,8 @@ const langIcon = iconMap[lang];
     -moz-osx-font-smoothing: grayscale;
 
     & > :global(.line) {
-      padding: 0 1.25rem;
+      padding: 0 1rem;
       border-left: 3px solid transparent;
-
-      @media (max-width: theme('screens.md.max')) {
-        padding: 0 1rem;
-      }
     }
 
     /* line highlighting */
@@ -164,7 +161,7 @@ const langIcon = iconMap[lang];
   .copy-code {
     opacity: 0;
     background-color: theme('colors.border.code');
-    border-top-right-radius: 10px;
+    border-top-right-radius: 6px;
   }
 
   :global(div[data-rehype-pretty-code-title]) + .code-block-inner .copy-code {

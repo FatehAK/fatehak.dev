@@ -1,6 +1,6 @@
 ---
 date: '2023-02-02T13:01:23.832Z'
-lastMod: '2023-02-09T21:05:47.414Z'
+lastMod: '2023-02-10T11:54:58.327Z'
 title: How to Save a JavaScript Function as a Bookmark
 seoTitle: How to Save a JavaScript Function as a Bookmark
 highlight: Bookmark
@@ -10,22 +10,36 @@ tags:
   - Chrome
 ---
 
-import image1 from 'assets/posts/first-post/test3.png';
 import image2 from 'assets/posts/first-post/test1.png';
 
 A noice content
 
-### Content
+### Inline Code
 
 This property is known as `document.querySelector(){:js}` which is something that must be used to select a element in the dom.
 
-## Image1
+### BlockQuote
 
-<Figure title="This is Foo" src={image1} />
+> `sharp` and `svgo` don't come installed as part of the package. You will have to install them manually and add it as a dev dependency. This is a design decision so you can choose to skip installing
+> `sharp`
+> if you only want to optimize svg assets using `svgo` and vice versa.
+>
+> ```console
+> npm install sharp --save-dev
+> ```
+>
+> ```console showLineNumbers
+> npm install svgo --save-dev
+> npm install svgo --save-dev
+> ```
 
-## Imag2
+> The software is provided "AS IS", without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose and noninfringement.
 
-<Figure title="Mouse events to mock Swipe" src={image2} />
+## Image
+
+<Figure alt="Mouse events to mock Swipe" src={image2}>
+  Mouse events to mock <code>Swipe</code>
+</Figure>
 
 ### JS
 

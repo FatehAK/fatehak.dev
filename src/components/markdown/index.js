@@ -1,9 +1,9 @@
 import CodeBlock from './CodeBlock.astro';
-import InlineCode from './InlineCode.astro';
 import Figure from './Figure.astro';
+import BlockQuote from './BlockQuote.astro';
 
 export default {
   pre: CodeBlock,
-  code: InlineCode,
+  blockquote: BlockQuote,
   Figure,
 };

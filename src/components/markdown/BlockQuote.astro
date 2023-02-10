@@ -1,0 +1,32 @@
+---
+const children = await Astro.slots.render('default');
+const hasPaddingBreakForChildren = children.includes('<pre') || children.includes('<figure');
+---
+
+<blockquote
+  class:list={['my-9 break-padding', { 'disable-inner-break': hasPaddingBreakForChildren }]}
+  set:html={children}
+/>
+
+<style>
+  blockquote {
+    padding: 0.8rem 1.4rem;
+    background-color: theme('colors.text.body' / 2%);
+    border-left: 3px solid theme('colors.primary.DEFAULT');
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+  }
+
+  blockquote.disable-inner-break :global(div[data-rehype-pretty-code-fragment]),
+  blockquote.disable-inner-break figure {
+    @media (max-width: theme('screens.md.max')) {
+      margin-right: unset;
+      margin-left: unset;
+    }
+
+    @media (max-width: theme('screens.sm.max')) {
+      margin-right: unset;
+      margin-left: unset;
+    }
+  }
+</style>

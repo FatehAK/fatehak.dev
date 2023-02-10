@@ -29,10 +29,13 @@
     "plugins": [
       "remark-lint",
       "remark-gfm",
-      "remark-emoji",
       "remark-frontmatter",
       "remark-preset-lint-consistent",
-      "remark-preset-lint-recommended"
+      "remark-preset-lint-recommended",
+      [
+        "remark-lint-list-item-indent",
+        "space"
+      ]
     ]
   },
   "dependencies": {

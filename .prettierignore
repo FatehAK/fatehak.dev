@@ -4,3 +4,5 @@ dist
 .vscode
 pnpm-lock.yaml
 .astro
+*.md
+*.mdx

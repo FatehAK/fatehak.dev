@@ -1,6 +1,6 @@
 ---
 date: '2023-02-02T13:01:23.832Z'
-lastMod: '2023-02-10T20:21:47.775Z'
+lastMod: '2023-02-10T21:02:52.221Z'
 title: How to Save a JavaScript Function as a Bookmark
 seoTitle: How to Save a JavaScript Function as a Bookmark
 highlight: Bookmark
@@ -18,7 +18,7 @@ A noice content
 
 This property is known as `document.querySelector(){:js}` which is [conventional-commits](https://www.conventionalcommits.org/en/v1.0.0/) that must be used to select a element in the dom.
 
-This is _italic_ text. This is **bold** text. This text is **_bold-italic_**
+This is *italic* text. This is **bold** text. This text is ***bold-italic***
 
 ## BlockQuote
 
@@ -35,13 +35,13 @@ This is _italic_ text. This is **bold** text. This text is **_bold-italic_**
 > npm install svgo --save-dev
 > ```
 
-> _"The software is provided, without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose and noninfringement."_
+> *"The software is provided, without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose and noninfringement."*
 
 In a hole in the ground there lived a hobbit. Not a nasty, dirty, wet hole, filled with the ends
 of worms and an oozy smell, nor yet a dry, bare, sandy hole with nothing in it to sit down on or to
 eat: it was a [hobbit-hole][1], and that means comfort.
 
-[1]: https://en.wikipedia.org/wiki/Hobbit#Lifestyle 'Hobbit lifestyles'
+[1]: https://en.wikipedia.org/wiki/Hobbit#Lifestyle "Hobbit lifestyles"
 
 Some of these words <ins>will be underlined</ins>.
 
@@ -57,7 +57,10 @@ I need to highlight these ==very important words==.
 
 Here's a simple footnote[^boo], and here's a longer one[^foo]
 
----
+## Lists
+
+* First nested list item
+* Second nested list item
 
 ## Image
 
@@ -68,8 +71,8 @@ Here's a simple footnote[^boo], and here's a longer one[^foo]
 ## JS
 
 ```js {4} showLineNumbers title="appConfig.js"
-const navContainer = document.querySelector('#nav-container') as HTMLElement;
-const readingProgressMobile = document.querySelector('#reading-progress') as HTMLElement;
+const navContainer = document.querySelector('#nav-container');
+const readingProgressMobile = document.querySelector('#reading-progress');
 
 let lastScrollY = document.documentElement.scrollTop;
 const isScrollProgressVisible = readingProgressMobile.dataset.reading === 'true';
@@ -88,22 +91,12 @@ window.addEventListener(
   },
   { capture: true, passive: true }
 );
-
-let isSpinning = true;
-const logo = document.querySelector('#logo') as HTMLElement;
-new IntersectionObserver(entry => {
-  if (entry[0].boundingClientRect.y < 0) {
-    logo.dataset.spin = 'false';
-  } else {
-    if (!isSpinning) logo.dataset.spin = 'true';
-    isSpinning = false;
-  }
-}).observe(document.querySelector('#top-of-site-pixel-anchor') as HTMLElement);
 ```
 
 This is <mark>Foo</mark>
 
----
+***
 
 [^boo]: This is the first footnote.
+
 [^foo]: This is the second footnote.

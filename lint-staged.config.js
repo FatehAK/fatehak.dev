@@ -7,5 +7,5 @@ module.exports = {
   '**/*.astro': [eslintCmd, stylelintCmd, prettierCmd],
   '**/*.css': [stylelintCmd, prettierCmd],
   '**/*.json': [prettierCmd],
-  '**/*.{md,mdx}': [eslintCmd, prettierCmd, 'node ./scripts/last-mod-updater.js'],
+  '**/*.{md,mdx}': [eslintCmd, 'node ./scripts/last-mod-updater.js'],
 };

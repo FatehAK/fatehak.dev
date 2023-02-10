@@ -43,6 +43,7 @@ specifiers:
   remark-lint: ^9.1.1
   remark-preset-lint-consistent: ^5.1.1
   remark-preset-lint-recommended: ^6.1.2
+  remark-preset-prettier: ^2.0.1
   rimraf: ^4.1.2
   sharp: ^0.31.3
   shiki: ^0.14.0
@@ -101,6 +102,7 @@ devDependencies:
   remark-lint: 9.1.1
   remark-preset-lint-consistent: 5.1.1
   remark-preset-lint-recommended: 6.1.2
+  remark-preset-prettier: 2.0.1_prettier@2.8.4
   rimraf: 4.1.2
   sharp: 0.31.3
   shiki: 0.14.0
@@ -6625,6 +6627,15 @@ packages:
       unified: 10.1.2
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /remark-preset-prettier/2.0.1_prettier@2.8.4:
+    resolution: {integrity: sha512-1+cZaM080zTlhQIvZDOj7SFWvW9zevfxsLjTZspLEsBYivMDwCyTodvNvaZLc9p5dUSMik/BjMFKicfhZXh7qg==}
+    engines: {node: '>=14.8'}
+    peerDependencies:
+      prettier: '>=1.0.0'
+    dependencies:
+      prettier: 2.8.4
     dev: true
 
   /remark-rehype/10.1.0:

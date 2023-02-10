@@ -55,7 +55,7 @@ const { readingTime } = remarkPluginFrontmatter;
   /* heading anchor */
   .prose :global(h2) {
     &:hover > :global(a) {
-      visibility: visible;
+      opacity: 1;
     }
 
     & > :global(a) {
@@ -66,7 +66,7 @@ const { readingTime } = remarkPluginFrontmatter;
       padding-right: 4px;
       font-weight: 300;
       color: theme('colors.primary.DEFAULT');
-      visibility: hidden;
+      opacity: 0;
       box-shadow: none;
 
       &::after {

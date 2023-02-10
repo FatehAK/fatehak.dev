@@ -3,11 +3,14 @@ import { getPicture } from '@astrojs/image';
 
 const { alt, src } = Astro.props;
 
+const isGif = src.format === 'gif';
+
 const { image, sources } = await getPicture({
   src,
   alt,
   widths: [576, 768, 1200, 1400, 1600],
-  formats: ['avif', 'webp'],
+  // @ts-ignore
+  formats: isGif ? ['gif'] : ['avif', 'webp'],
   fit: 'fill',
 });
 

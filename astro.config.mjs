@@ -7,7 +7,7 @@ import AstroSitemap from '@astrojs/sitemap';
 import AstroMdx from '@astrojs/mdx';
 import AstroImage from '@astrojs/image';
 import prettyCode from 'rehype-pretty-code';
-import { rehypeAccessibleEmojis } from 'rehype-accessible-emojis';
+import remarkEmoji from 'remark-emoji';
 import remarkReadingTime from './scripts/remark-reading-time.js';
 import { APP_CONFIG, COMPRESSION_CONFIG, REHYPE_PRETTY_COFIG } from './appConfig.js';
 
@@ -24,8 +24,8 @@ export default defineConfig({
     AstroMdx({
       syntaxHighlight: false,
       extendDefaultPlugins: true,
-      remarkPlugins: [remarkReadingTime],
-      rehypePlugins: [[prettyCode, REHYPE_PRETTY_COFIG], rehypeAccessibleEmojis],
+      remarkPlugins: [remarkReadingTime, [remarkEmoji, { accessible: true }]],
+      rehypePlugins: [[prettyCode, REHYPE_PRETTY_COFIG]],
     }),
     AstroImage({ serviceEntryPoint: '@astrojs/image/sharp', cacheDir: './node_modules/.cache' }),
     AstroPrefetch({ throttle: 3 }),

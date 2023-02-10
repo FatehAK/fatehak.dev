@@ -28,6 +28,8 @@
   "remarkConfig": {
     "plugins": [
       "remark-lint",
+      "remark-gfm",
+      "remark-emoji",
       "remark-frontmatter",
       "remark-preset-lint-consistent",
       "remark-preset-lint-recommended"
@@ -43,7 +45,6 @@
     "@astrojs/sitemap": "^1.0.1",
     "@astrojs/tailwind": "^3.0.1",
     "@commitlint/cli": "^17.4.2",
-    "@tailwindcss/typography": "^0.5.9",
     "@typescript-eslint/parser": "^5.51.0",
     "astro": "^2.0.9",
     "astro-compress": "^1.1.31",
@@ -72,8 +73,8 @@
     "prettier": "^2.8.4",
     "prettier-plugin-astro": "^0.8.0",
     "reading-time": "^1.5.0",
-    "rehype-accessible-emojis": "^0.3.2",
     "rehype-pretty-code": "^0.9.3",
+    "remark-emoji": "^3.1.0",
     "remark-frontmatter": "^4.0.1",
     "remark-lint": "^9.1.1",
     "remark-preset-lint-consistent": "^5.1.1",

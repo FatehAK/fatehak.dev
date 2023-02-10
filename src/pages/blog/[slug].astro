@@ -41,5 +41,89 @@ const { readingTime } = remarkPluginFrontmatter;
   <Tags tags={tags} />
   <Heading text={title} highlight={highlight} />
   <PostInfo date={date} lastMod={lastMod} readingTime={readingTime} />
-  <Content components={markdownComponents} />
+  <div class="prose">
+    <Content components={markdownComponents} />
+  </div>
 </PageLayout>
+
+<style>
+  /* markdown styles */
+
+  /* horizontal ruler */
+  .prose :global(hr) {
+    margin: 3rem 0;
+    border-color: theme('colors.bg.border');
+  }
+
+  /* bold text */
+  .prose :global(strong) {
+    font-weight: 700;
+    color: theme('colors.text.bold');
+  }
+
+  /* inline code */
+  .prose :global(code) {
+    padding: 3px 6px;
+    font-family: theme('fontFamily.mono');
+    font-size: 0.875rem;
+    color: theme('colors.text.code-inline');
+    background-color: theme('colors.bg.code' / 90%);
+    border: 1px solid theme('colors.bg.border');
+    border-radius: 6px;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* mark element */
+  .prose :global(mark) {
+    color: theme('colors.text.selection');
+    background-color: theme('colors.bg.selection');
+  }
+
+  /* footnotes */
+  .prose :global(sup) {
+    top: -5px;
+    left: 0.5px;
+    font-size: 0.6rem;
+    font-weight: 500;
+
+    & > :global(a[data-footnote-ref]) {
+      all: unset;
+      cursor: pointer;
+      font-weight: 500;
+      color: theme('colors.primary.DEFAULT');
+
+      &::before {
+        content: '[';
+      }
+
+      &::after {
+        content: ']';
+      }
+    }
+  }
+
+  .prose :global(section[data-footnotes]) {
+    & :global(a[data-footnote-backref]) {
+      display: none;
+    }
+
+    & :global(ol) {
+      counter-reset: item;
+
+      & > :global(li) {
+        counter-increment: item;
+        display: flex;
+
+        &::before {
+          content: counter(item);
+          margin-top: 1px;
+          margin-right: 5px;
+          font-size: 0.6rem;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+</style>

@@ -93,18 +93,22 @@ const langIcon = iconMap[lang];
     }
   }
 
-  pre {
+  .code-block-inner > pre {
     font-size: 0.85rem;
     line-height: 1.7;
   }
 
-  pre > :global(code) {
-    all: inherit;
+  .code-block-inner > pre > :global(code) {
     overflow: auto;
     display: grid;
     max-height: 48rem;
     padding: 1rem 0;
     font-family: theme('fontFamily.mono');
+    font-size: inherit;
+    color: inherit;
+    background-color: inherit;
+    border: 0;
+    border-radius: 0;
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

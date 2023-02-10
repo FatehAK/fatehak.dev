@@ -96,35 +96,12 @@
     }
   }
 
-  code {
-    padding: 3px 6px;
-    font-family: theme('fontFamily.mono');
-    font-size: 0.875rem;
-    color: theme('colors.text.code-inline');
-    background-color: theme('colors.bg.code' / 90%);
-    border: 1px solid theme('colors.bg.border');
-    border-radius: 6px;
-
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  strong {
-    font-weight: 700;
-    color: theme('colors.text.bold');
-  }
-
-  mark {
-    color: theme('colors.text.selection');
-    background-color: theme('colors.bg.selection');
-  }
-
   img {
     /* https://css-tricks.com/almanac/properties/c/content-visibility/ */
     content-visibility: auto;
   }
 
-  ul:not(.unset) {
+  /* ul:not(.unset) {
     padding-left: 0;
     list-style: none;
   }
@@ -153,7 +130,7 @@
   ol:not(.unset) > li {
     margin-top: 0.5em;
     margin-bottom: 0.5em;
-  }
+  } */
 
   .gradient-text {
     color: transparent;

@@ -120,3 +120,19 @@
 .fa-clock::before {
   content: '\f017';
 }
+
+.fa-code::before {
+  content: '\f121';
+}
+
+.fa-link::before {
+  content: '\f0c1';
+}
+
+.fa-paperclip::before {
+  content: '\f0c6';
+}
+
+.fa-screwdriver-wrench::before {
+  content: '\f7d9';
+}

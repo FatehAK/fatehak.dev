@@ -7,15 +7,20 @@ const hasOddProjects = projects.length % 2 !== 0;
 
 <section>
   <h2 class="mb-6">Projects</h2>
-  <div class="grid gap-6 md:gap-7 grid-cols-2 md:grid-cols-1">
+  <div class="card-list">
     {
       projects.map((p, index) => (
-        <div class="flex card" style={`animation-delay: ${index * 0.08}s`}>
-          <div class="w-full flex flex-col relative rounded-lg card-inner">
+        <div class="card" style={`animation-delay: ${index * 0.08}s`}>
+          <div class="card-inner">
             <div class="flex justify-between items-center mb-2">
               <div class="flex items-center">
                 <img class="mr-3" src={p.logo} width="20" height="20" loading="lazy" decoding="async" alt={p.name} />
-                <a class="unset flex items-center card-link" href={p.liveURL} target="_blank" rel="noopener noreferrer">
+                <a
+                  class="unset flex items-center project-link"
+                  href={p.liveURL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <p class="font-bold text-text-bold text-lg">{p.name}</p>
                   <i class="fas fa-arrow-up-right-from-square text-sm ml-2" />
                 </a>
@@ -31,7 +36,10 @@ const hasOddProjects = projects.length % 2 !== 0;
             <div class="flex mt-6">
               {p.technologies.map((tech, idx) => (
                 <div
-                  class:list={['flex justify-center items-center border border-bg-border pill', { 'ml-3': idx > 0 }]}
+                  class:list={[
+                    'flex justify-center items-center border border-bg-border tech-pill',
+                    { 'ml-3': idx > 0 },
+                  ]}
                 >
                   {tech}
                 </div>
@@ -42,7 +50,7 @@ const hasOddProjects = projects.length % 2 !== 0;
       ))
     }
     <div
-      class={`flex card items-center justify-center ${hasOddProjects ? '' : 'col-span-2 md:col-span-1'}`}
+      class:list={['card items-center justify-center', { 'col-span-2 md:col-span-1': !hasOddProjects }]}
       style={`animation-delay: ${projects.length * 0.08}s`}
     >
       <span>
@@ -55,48 +63,7 @@ const hasOddProjects = projects.length % 2 !== 0;
 </section>
 
 <style>
-  .card {
-    opacity: 0;
-    animation: fadein 0.8s ease forwards;
-  }
-
-  .card-inner {
-    position: relative;
-    padding: 1.6rem;
-    background: theme('backgroundImage.bg-gradient');
-
-    &::after {
-      content: '';
-      position: absolute;
-      z-index: -1;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      transform: translate3d(0, 0, 0); /* safari fix */
-      backface-visibility: hidden; /* safari fix */
-      background-image: linear-gradient(
-        235deg,
-        theme('colors.secondary.DEFAULT'),
-        theme('colors.bg.body'),
-        theme('colors.primary.DEFAULT')
-      );
-      filter: blur(6px);
-      transition: all 0.3s;
-    }
-
-    @media (hover: hover) and (pointer: fine) {
-      &:hover::after {
-        top: -4px;
-        right: -4px;
-        bottom: -4px;
-        left: -4px;
-        filter: blur(9px);
-      }
-    }
-  }
-
-  .card-link {
+  .project-link {
     box-shadow: inset 0 -1px 0 0 transparent;
     transition: all 0.2s;
 
@@ -108,7 +75,7 @@ const hasOddProjects = projects.length % 2 !== 0;
     }
   }
 
-  .pill {
+  .tech-pill {
     width: 58px;
     height: 22px;
     font-size: 0.7rem;

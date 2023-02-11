@@ -1,8 +1,16 @@
 ---
 import PageLayout from 'layouts/PageLayout.astro';
 import PageSEO from 'components/PageSEO.astro';
+import Heading from 'components/Heading.astro';
+import NotesList from './_notes/NotesList.astro';
 ---
 
 <PageLayout>
   <PageSEO title="Notes" slot="seo" />
+  <Heading text="My Notes" highlight="Notes" />
+  <p>
+    This page serves as an index to my notes and resources collected over time. I will be adding more sections in the
+    future, so stay tuned!
+  </p>
+  <NotesList />
 </PageLayout>

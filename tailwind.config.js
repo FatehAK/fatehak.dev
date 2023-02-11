@@ -85,7 +85,7 @@ module.exports = {
         '.slideup-text': {
           willChange: 'transform',
           transform: 'translateY(80px) translateZ(0)',
-          backfaceVisibility: 'hidden' /* safari fix */,
+          backfaceVisibility: 'hidden', // safari fix
           animation: 'slide-up 0.8s cubic-bezier(0.075, 0.82, 0.165, 1) forwards',
         },
         '.icon-link': {
@@ -93,6 +93,52 @@ module.exports = {
           '@media (hover: hover) and (pointer: fine)': {
             '&:hover': {
               color: 'rgb(var(--color-secondary))',
+            },
+          },
+        },
+        '.card-list': {
+          display: 'grid',
+          gap: '1.5rem',
+          gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
+          [mdQuery]: {
+            gridTemplateColumns: 'repeat(1, minmax(0, 1fr))',
+          },
+        },
+        '.card': {
+          display: 'flex',
+          opacity: '0',
+          animation: 'fadein 0.8s ease forwards',
+          '& > .card-inner': {
+            width: '100%',
+            display: 'flex',
+            flexDirection: 'column',
+            position: 'relative',
+            padding: '1.6rem',
+            background: `${theme('backgroundImage.bg-gradient')}`,
+            borderRadius: '0.5rem',
+            '&::after': {
+              content: '""',
+              position: 'absolute',
+              zIndex: '-100',
+              top: '0',
+              right: '0',
+              bottom: '0',
+              left: '0',
+              transform: 'translate3d(0, 0, 0)', // safari fix
+              backfaceVisibility: 'hidden', // safari fix
+              backgroundImage:
+                'linear-gradient(235deg, rgb(var(--color-secondary)), rgb(var(--color-bg-body)), rgb(var(--color-primary)))',
+              filter: 'blur(6px)',
+              transition: 'all 0.3s',
+            },
+            '@media (hover: hover) and (pointer: fine)': {
+              '&:hover::after': {
+                top: '-4px',
+                right: '-4px',
+                bottom: '-4px',
+                left: '-4px',
+                filter: 'blur(9px)',
+              },
             },
           },
         },

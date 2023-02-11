@@ -18,8 +18,8 @@ export default defineConfig({
   site: SCRIPT.includes('astro build') ? APP_CONFIG.SITE_URL : LOCALHOST_URL,
   integrations: [
     AstroTailwindPlugin({ config: { applyBaseStyles: false } }),
-    AstroMdx(MDX_CONFIG),
     AstroImage({ serviceEntryPoint: '@astrojs/image/sharp', cacheDir: './node_modules/.cache' }),
+    AstroMdx(MDX_CONFIG),
     AstroPrefetch({ throttle: 3 }),
     AstroSitemap(),
     isProd && AstroCompress(COMPRESSION_CONFIG),

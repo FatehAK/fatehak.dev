@@ -1,22 +1,56 @@
 ---
-import InfoIcon from 'components/svg/Info.astro';
-import BulbIcon from 'components/svg/Bulb.astro';
-import WarnIcon from 'components/svg/Warn.astro';
-
 const { icon = 'info' } = Astro.props;
-
-const IconComponent = {
-  info: InfoIcon,
-  bulb: BulbIcon,
-  warn: WarnIcon,
-}[icon];
-
-if (!IconComponent) throw new Error('Unkown Icon');
 ---
 
 <div class="callout my-5">
   <div class="flex items-center mr-4">
-    <IconComponent width="21" height="21" />
+    {
+      icon === 'info' && (
+        <svg
+          width="21"
+          height="21"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <circle cx="12" cy="12" r="10" fill="none" />
+          <path d="M12 16v-4M12 8h.01" stroke="currentColor" />
+        </svg>
+      )
+    }
+    {
+      icon === 'bulb' && (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="21"
+          height="21"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M9 18h6m-5 3h4m-4.999-6c0-2-.5-2.5-1.5-3.5S6.024 9.487 6.001 8c-.048-3.05 2-5 6-5s6.048 1.95 6 5c-.023 1.487-.5 2.5-1.5 3.5s-1.5 1.5-1.5 3.5" />
+        </svg>
+      )
+    }
+    {
+      icon === 'warn' && (
+        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none">
+          <path
+            d="M11.9998 9.00023V13.0002M11.9998 17.0002H12.0098M10.6151 3.89195L2.39019 18.0986C1.93398 18.8866 1.70588 19.2806 1.73959 19.6039C1.769 19.886 1.91677 20.1423 2.14613 20.309C2.40908 20.5002 2.86435 20.5002 3.77487 20.5002H20.2246C21.1352 20.5002 21.5904 20.5002 21.8534 20.309C22.0827 20.1423 22.2305 19.886 22.2599 19.6039C22.2936 19.2806 22.0655 18.8866 21.6093 18.0986L13.3844 3.89195C12.9299 3.10679 12.7026 2.71421 12.4061 2.58235C12.1474 2.46734 11.8521 2.46734 11.5935 2.58235C11.2969 2.71421 11.0696 3.10679 10.6151 3.89195Z"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      )
+    }
   </div>
   <p>
     <slot />

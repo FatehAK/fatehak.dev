@@ -1,7 +1,8 @@
 ---
 const { date, lastMod, readingTime } = Astro.props;
 
-const isPublishedDateSameAsModified = date.toLocaleDateString() === lastMod.toLocaleDateString();
+let isPublishedDateSameAsModified = true;
+if (lastMod) isPublishedDateSameAsModified = date.toLocaleDateString() === lastMod.toLocaleDateString();
 ---
 
 <div class="flex sm:flex-col justify-between items-center sm:items-start text-sm text-text-muted -mt-1 mb-10">

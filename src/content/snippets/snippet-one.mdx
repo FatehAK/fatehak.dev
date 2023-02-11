@@ -1,0 +1,26 @@
+---
+date: '2023-02-02T12:01:23.832Z'
+lastMod: '2023-02-11T20:54:49.347Z'
+title: Sorting keys in VSCode
+highlight: VSCode
+tags:
+  - VSCode
+---
+
+A super noice content
+
+```js showLineNumbers
+const getHashData = (array, key) => {
+  const hashVal = (str) => {
+      let hash = 0;
+      for (let i = 0; i < str.length; i++) {
+          let charCode = str.charCodeAt(i);
+          hash += charCode;
+      }
+      return hash;
+  };
+  const hash = hashVal(key);
+  const index = hash % array.length;
+  return array[index];
+};
+```

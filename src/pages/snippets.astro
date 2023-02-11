@@ -5,15 +5,15 @@ import PageSEO from 'components/PageSEO.astro';
 import Heading from 'components/Heading.astro';
 import PostList from 'components/PostList.astro';
 
-const postEntries = await getCollection('blog', ({ data }) => data.draft !== true);
+const postEntries = await getCollection('snippets', ({ data }) => data.draft !== true);
 
 const sortedPosts = postEntries.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
 <PageLayout>
-  <PageSEO slot="seo" title="My Blog" />
-  <Heading text="My Blog" highlight="Blog" />
+  <PageSEO slot="seo" title="Code Snippets" />
+  <Heading text="Code Snippets" highlight="Snippets" />
   <div class="-mt-3">
-    <PostList posts={sortedPosts} path="/blog" groupByYears showReadingTime />
+    <PostList posts={sortedPosts} path="/snippets" />
   </div>
 </PageLayout>

@@ -1,0 +1,39 @@
+---
+import { getCollection } from 'astro:content';
+import PageLayout from 'layouts/PageLayout.astro';
+import PageSEO from 'components/PageSEO.astro';
+import Heading from 'components/Heading.astro';
+import Prose from 'components/Prose.astro';
+import PostInfo from 'components/PostInfo.astro';
+import Tags from 'components/PostTags.astro';
+import markdownComponents from 'components/markdown';
+
+export async function getStaticPaths() {
+  const isProd = import.meta.env.BUILD === 'production';
+
+  const postEntries = await getCollection('snippets', ({ data }) => {
+    return isProd ? data.draft !== true : true;
+  });
+
+  return postEntries.map(entry => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+
+const { Content } = await entry.render();
+
+const { title, highlight, date, lastMod, tags } = entry.data;
+---
+
+<PageLayout>
+  <PageSEO slot="seo" title={title} description={`A snippet on ${title}`} />
+  <Tags tags={tags} />
+  <Heading text={title} highlight={highlight} />
+  <PostInfo date={date} lastMod={lastMod} />
+  <Prose>
+    <Content components={markdownComponents} />
+  </Prose>
+</PageLayout>

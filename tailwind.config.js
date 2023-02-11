@@ -75,6 +75,27 @@ module.exports = {
             marginLeft: '-0.9rem',
           },
         },
+        '.gradient-text': {
+          color: 'transparent',
+          backgroundImage:
+            'linear-gradient(to bottom right, rgb(var(--color-primary-light)), rgb(var(--color-primary)), rgb(var(--color-primary-light)))',
+          backgroundClip: 'text',
+          animation: 'gradient-move 4s ease infinite',
+        },
+        '.slideup-text': {
+          willChange: 'transform',
+          transform: 'translateY(80px) translateZ(0)',
+          backfaceVisibility: 'hidden' /* safari fix */,
+          animation: 'slide-up 0.8s cubic-bezier(0.075, 0.82, 0.165, 1) forwards',
+        },
+        '.icon-link': {
+          transition: 'color 0.2s',
+          '@media (hover: hover) and (pointer: fine)': {
+            '&:hover': {
+              color: 'rgb(var(--color-secondary))',
+            },
+          },
+        },
       });
     }),
   ],

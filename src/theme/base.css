@@ -137,58 +137,29 @@
     margin-bottom: 0.5em;
   } */
 
-  .gradient-text {
-    color: transparent;
-    background-image: linear-gradient(
-      to bottom right,
-      theme('colors.primary.light'),
-      theme('colors.primary.DEFAULT'),
-      theme('colors.primary.light')
-    );
-    background-clip: text;
-    animation: gradient-move 4s ease infinite;
-  }
-
-  .slideup-text {
-    will-change: transform;
-    transform: translateY(80px) translateZ(0);
-    backface-visibility: hidden; /* safari fix */
-    animation: slide-up 0.8s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
-  }
-
-  .icon-link {
-    transition: color 0.2s;
-
-    @media (hover: hover) and (pointer: fine) {
-      &:hover {
-        color: theme('colors.text.link');
-      }
+  /* animations */
+  @keyframes fadein {
+    to {
+      opacity: 1;
     }
   }
-}
 
-/* animations */
-@keyframes fadein {
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes slide-up {
-  to {
-    transform: translateY(0) translateZ(0);
-  }
-}
-
-@keyframes gradient-move {
-  0%,
-  100% {
-    background-position: 0;
-    background-size: 200% 200%;
+  @keyframes slide-up {
+    to {
+      transform: translateY(0) translateZ(0);
+    }
   }
 
-  50% {
-    background-position: 100%;
-    background-size: 200% 200%;
+  @keyframes gradient-move {
+    0%,
+    100% {
+      background-position: 0;
+      background-size: 200% 200%;
+    }
+
+    50% {
+      background-position: 100%;
+      background-size: 200% 200%;
+    }
   }
 }

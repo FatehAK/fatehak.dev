@@ -49,12 +49,12 @@
     "@astrojs/tailwind": "^3.0.1",
     "@commitlint/cli": "^17.4.2",
     "@typescript-eslint/parser": "^5.51.0",
-    "astro": "^2.0.9",
-    "astro-compress": "^1.1.31",
+    "astro": "^2.0.10",
+    "astro-compress": "^1.1.32",
     "browserslist-to-esbuild": "^1.2.0",
     "concurrently": "^7.6.0",
     "czg": "1.4.1",
-    "eslint": "^8.33.0",
+    "eslint": "^8.34.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-config-semistandard": "^17.0.0",
     "eslint-formatter-pretty": "^4.1.0",
@@ -86,14 +86,14 @@
     "remark-preset-lint-recommended": "^6.1.2",
     "rimraf": "^4.1.2",
     "sharp": "^0.31.3",
-    "shiki": "^0.14.0",
+    "shiki": "^0.14.1",
     "stylelint": "^14.16.1",
     "stylelint-config-clean-order": "^2.3.1",
-    "stylelint-config-prettier": "^9.0.4",
+    "stylelint-config-prettier": "^9.0.5",
     "stylelint-config-standard": "^29.0.0",
     "stylelint-declaration-block-no-ignored-properties": "^2.6.0",
     "stylelint-formatter-pretty": "^3.1.1",
-    "stylelint-order": "^6.0.1"
+    "stylelint-order": "^6.0.2"
   },
   "engines": {
     "node": ">=18"

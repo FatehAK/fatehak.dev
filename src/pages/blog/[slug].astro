@@ -3,9 +3,10 @@ import { getCollection } from 'astro:content';
 import PageLayout from 'layouts/PageLayout.astro';
 import ArticleSEO from 'components/ArticleSEO.astro';
 import Heading from 'components/Heading.astro';
+import Prose from 'components/Prose.astro';
+import PostInfo from 'components/PostInfo.astro';
+import Tags from 'components/PostTags.astro';
 import markdownComponents from 'components/markdown';
-import PostInfo from './_components/PostInfo.astro';
-import Tags from './_components/Tags.astro';
 
 export async function getStaticPaths() {
   const isProd = import.meta.env.BUILD === 'production';
@@ -41,120 +42,7 @@ const { readingTime } = remarkPluginFrontmatter;
   <Tags tags={tags} />
   <Heading text={title} highlight={highlight} />
   <PostInfo date={date} lastMod={lastMod} readingTime={readingTime} />
-  <div class="prose">
+  <Prose>
     <Content components={markdownComponents} />
-  </div>
+  </Prose>
 </PageLayout>
-
-<style>
-  /* markdown styles */
-  .prose {
-    position: relative;
-  }
-
-  /* heading anchor */
-  .prose :global(h2) {
-    &:hover > :global(a) {
-      opacity: 1;
-    }
-
-    & > :global(a) {
-      cursor: pointer;
-      position: absolute;
-      width: 100%;
-      margin-left: -25px;
-      padding-right: 4px;
-      font-weight: 300;
-      color: theme('colors.primary.DEFAULT');
-      opacity: 0;
-      box-shadow: none;
-
-      &::after {
-        content: '#';
-      }
-
-      &:hover {
-        color: theme('colors.primary.DEFAULT');
-        box-shadow: none;
-      }
-    }
-  }
-
-  /* horizontal ruler */
-  .prose :global(hr) {
-    margin: 3rem 0;
-    border-color: theme('colors.bg.border');
-  }
-
-  /* bold text */
-  .prose :global(strong) {
-    font-weight: 700;
-    color: theme('colors.text.bold');
-  }
-
-  /* inline code */
-  .prose :global(code) {
-    padding: 3px 6px;
-    font-family: theme('fontFamily.mono');
-    font-size: 0.875rem;
-    color: theme('colors.text.code-inline');
-    background-color: theme('colors.bg.code' / 90%);
-    border: 1px solid theme('colors.bg.border');
-    border-radius: 6px;
-
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  /* mark element */
-  .prose :global(mark) {
-    color: theme('colors.text.selection');
-    background-color: theme('colors.bg.selection');
-  }
-
-  /* footnotes */
-  .prose :global(sup) {
-    top: -5px;
-    left: 0.5px;
-    font-size: 0.6rem;
-    font-weight: 500;
-
-    & > :global(a[data-footnote-ref]) {
-      all: unset;
-      cursor: pointer;
-      font-weight: 500;
-      color: theme('colors.primary.DEFAULT');
-
-      &::before {
-        content: '[';
-      }
-
-      &::after {
-        content: ']';
-      }
-    }
-  }
-
-  .prose :global(section[data-footnotes]) {
-    & :global(a[data-footnote-backref]) {
-      display: none;
-    }
-
-    & :global(ol) {
-      counter-reset: item;
-
-      & > :global(li) {
-        counter-increment: item;
-        display: flex;
-
-        &::before {
-          content: counter(item);
-          margin-top: 1px;
-          margin-right: 5px;
-          font-size: 0.6rem;
-          font-weight: 500;
-        }
-      }
-    }
-  }
-</style>

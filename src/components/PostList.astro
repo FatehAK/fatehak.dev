@@ -1,29 +1,35 @@
 ---
 import { getEntryBySlug } from 'astro:content';
 
-const { posts, groupByYears = true } = Astro.props;
+const { posts, groupByYears, showReadingTime } = Astro.props;
 ---
 
 {
   posts.map(async (post, index) => {
-    const postEntry = await getEntryBySlug('blog', post.slug);
-    const { remarkPluginFrontmatter } = await postEntry!.render();
+    let readingTime;
+    if (showReadingTime) {
+      const postEntry = await getEntryBySlug(post.collection, post.slug);
+      const { remarkPluginFrontmatter } = await postEntry!.render();
+      readingTime = remarkPluginFrontmatter.readingTime;
+    }
 
-    const isYearChanged = post.data.date.getFullYear() !== posts[index - 1]?.data.date.getFullYear();
+    let isYearChanged;
+    if (groupByYears) isYearChanged = post.data.date.getFullYear() !== posts[index - 1]?.data.date.getFullYear();
+
     return (
       <div
         class:list={[
           'post pt-3 pb-4 border-b border-bg-border relative',
-          { 'mb-3': index !== posts.length - 1, 'padding-extra': groupByYears && isYearChanged },
+          { 'mb-3': index !== posts.length - 1, 'padding-extra': isYearChanged },
         ]}
         style={`animation-delay: ${index * 0.08}s`}
       >
-        {groupByYears && isYearChanged && (
+        {isYearChanged && (
           <span class="absolute -top-[22px] -left-[26px] text-text-muted font-bold text-[5.4rem] opacity-[14%] tracking-wide select-none -z-[1]">
             {post.data.date.getFullYear()}
           </span>
         )}
-        <a class="unset" href={`/blog/${post.slug}`}>
+        <a class="unset" href={`/${post.collection}/${post.slug}`}>
           <h2 class="mb-1 text-[1.18rem] font-[500] transition-colors duration-200">{post.data.title}</h2>
           <div class="text-sm text-text-muted">
             <time datetime={post.data.date.toISOString()}>
@@ -33,8 +39,12 @@ const { posts, groupByYears = true } = Astro.props;
                 day: '2-digit',
               })}
             </time>
-            <span class="mx-1 text-text-body/20">•</span>
-            <span>{remarkPluginFrontmatter.readingTime}</span>
+            {showReadingTime && (
+              <>
+                <span class="mx-1 text-text-body/20">•</span>
+                <span>{readingTime}</span>
+              </>
+            )}
           </div>
         </a>
       </div>

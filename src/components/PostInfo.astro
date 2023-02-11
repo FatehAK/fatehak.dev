@@ -36,7 +36,11 @@ const isPublishedDateSameAsModified = date.toLocaleDateString() === lastMod.toLo
       )
     }
   </div>
-  <div class="sm:mt-3">
-    <span>{readingTime}</span>
-  </div>
+  {
+    readingTime && (
+      <div class="sm:mt-3">
+        <span>{readingTime}</span>
+      </div>
+    )
+  }
 </div>

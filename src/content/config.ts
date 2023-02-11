@@ -24,6 +24,7 @@ const snippetsCollection = defineCollection({
     .object({
       draft: z.boolean().default(false),
       title: z.string(),
+      url: z.string().optional(),
       highlight: z.union([z.string(), z.array(z.string())]).default(''),
       date: z.string().transform(str => new Date(str)),
       lastMod: z

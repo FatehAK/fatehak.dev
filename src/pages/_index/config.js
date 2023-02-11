@@ -1,8 +1,8 @@
-import genzoLogo from 'assets/projects/genzo-logo.png';
-import viteImageOptimizerLogo from 'assets/projects/vite-logo.svg';
-import navigoLogo from 'assets/projects/navigo-logo.png';
-import notebyteLogo from 'assets/projects/notebyte-logo.png';
-import memriseLogo from 'assets/projects/memrise-logo.svg';
+import genzoLogo from 'assets/projects/genzo-logo.png?url';
+import viteImageOptimizerLogo from 'assets/projects/vite-logo.svg?url';
+import navigoLogo from 'assets/projects/navigo-logo.png?url';
+import notebyteLogo from 'assets/projects/notebyte-logo.png?url';
+import memriseLogo from 'assets/projects/memrise-logo.svg?url';
 
 export const projects = [
   {

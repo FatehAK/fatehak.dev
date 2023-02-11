@@ -96,6 +96,11 @@
     }
   }
 
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px dashed theme('colors.secondary.DEFAULT');
+  }
+
   img {
     /* https://css-tricks.com/almanac/properties/c/content-visibility/ */
     content-visibility: auto;

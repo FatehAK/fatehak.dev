@@ -10,10 +10,6 @@
 
   /* heading anchor */
   .prose :global(h2) {
-    &:hover > :global(a) {
-      opacity: 1;
-    }
-
     & > :global(a) {
       cursor: pointer;
       position: absolute;
@@ -29,9 +25,17 @@
         content: '#';
       }
 
-      &:hover {
-        color: theme('colors.primary.DEFAULT');
-        box-shadow: none;
+      @media (hover: hover) and (pointer: fine) {
+        &:hover {
+          color: theme('colors.primary.DEFAULT');
+          box-shadow: none;
+        }
+      }
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover > :global(a) {
+        opacity: 1;
       }
     }
   }

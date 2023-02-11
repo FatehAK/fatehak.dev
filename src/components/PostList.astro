@@ -1,13 +1,16 @@
 ---
 import { getEntryBySlug } from 'astro:content';
 
-const { posts, groupByYears, showReadingTime } = Astro.props;
+const { posts, path, groupByYears, showReadingTime } = Astro.props;
 ---
 
 {
   posts.map(async (post, index) => {
+    const isExternalPost = !!post.data.url;
+    const shouldShowReadingTime = showReadingTime && !isExternalPost;
+
     let readingTime;
-    if (showReadingTime) {
+    if (shouldShowReadingTime) {
       const postEntry = await getEntryBySlug(post.collection, post.slug);
       const { remarkPluginFrontmatter } = await postEntry!.render();
       readingTime = remarkPluginFrontmatter.readingTime;
@@ -29,8 +32,16 @@ const { posts, groupByYears, showReadingTime } = Astro.props;
             {post.data.date.getFullYear()}
           </span>
         )}
-        <a class="unset" href={`/${post.collection}/${post.slug}`}>
-          <h2 class="mb-1 text-[1.18rem] font-[500] transition-colors duration-200">{post.data.title}</h2>
+        <a
+          class="unset"
+          href={isExternalPost ? post.data.url : `${path}/${post.slug}`}
+          target={isExternalPost ? '_blank' : null}
+          rel={isExternalPost ? 'noopener noreferrer' : null}
+        >
+          <h2 class="mb-1 text-[1.18rem] font-[500] transition-colors duration-200">
+            {post.data.title}
+            {isExternalPost && <i class="fas fa-arrow-up-right-from-square relative -top-[2px] text-sm ml-1" />}
+          </h2>
           <div class="text-sm text-text-muted">
             <time datetime={post.data.date.toISOString()}>
               {post.data.date.toLocaleDateString('en-us', {
@@ -39,7 +50,7 @@ const { posts, groupByYears, showReadingTime } = Astro.props;
                 day: '2-digit',
               })}
             </time>
-            {showReadingTime && (
+            {shouldShowReadingTime && (
               <>
                 <span class="mx-1 text-text-body/20">•</span>
                 <span>{readingTime}</span>

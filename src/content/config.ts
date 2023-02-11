@@ -5,9 +5,10 @@ const blogCollection = defineCollection({
     .object({
       draft: z.boolean().default(false),
       title: z.string(),
-      seoTitle: z.string(),
-      highlight: z.union([z.string(), z.array(z.string())]).optional(),
-      description: z.string(),
+      seoTitle: z.string().optional(),
+      url: z.string().optional(),
+      highlight: z.union([z.string(), z.array(z.string())]).default(''),
+      description: z.string().optional(),
       date: z.string().transform(str => new Date(str)),
       lastMod: z
         .string()

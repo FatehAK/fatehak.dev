@@ -1,0 +1,39 @@
+---
+import InfoIcon from 'components/svg/Info.astro';
+import BulbIcon from 'components/svg/Bulb.astro';
+import WarnIcon from 'components/svg/Warn.astro';
+
+const { icon = 'info' } = Astro.props;
+
+const IconComponent = {
+  info: InfoIcon,
+  bulb: BulbIcon,
+  warn: WarnIcon,
+}[icon];
+
+if (!IconComponent) throw new Error('Unkown Icon');
+---
+
+<div class="callout my-5">
+  <div class="flex items-center mr-4">
+    <IconComponent width="21" height="21" />
+  </div>
+  <p>
+    <slot />
+  </p>
+</div>
+
+<style>
+  .callout {
+    display: flex;
+    padding: 1rem;
+    color: theme('colors.text.muted');
+    background-color: theme('colors.text.body' / 2%);
+    border: 1px solid theme('colors.bg.border');
+    border-radius: 6px;
+  }
+
+  .callout :global(p) {
+    margin: none !important;
+  }
+</style>

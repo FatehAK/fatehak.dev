@@ -38,7 +38,7 @@ module.exports = {
       text: {
         heading: 'rgb(var(--color-text-heading) / <alpha-value>)',
         body: 'rgb(var(--color-text-body) / <alpha-value>)',
-        muted: 'rgb(var(--color-text-body) / 56%)',
+        muted: 'rgb(var(--color-text-body) / 60%)',
         bold: 'rgb(var(--color-text-bold) / <alpha-value>)',
         code: 'rgb(var(--color-text-code) / <alpha-value>)',
         'code-inline': 'rgb(var(--color-text-code-inline) / <alpha-value>)',

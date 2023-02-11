@@ -1,0 +1,19 @@
+---
+const { width, height, ...rest } = Astro.props;
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width={width}
+  height={height}
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  {...rest}
+  ><path
+    d="M9 18h6m-5 3h4m-4.999-6c0-2-.5-2.5-1.5-3.5S6.024 9.487 6.001 8c-.048-3.05 2-5 6-5s6.048 1.95 6 5c-.023 1.487-.5 2.5-1.5 3.5s-1.5 1.5-1.5 3.5"
+  ></path></svg
+>

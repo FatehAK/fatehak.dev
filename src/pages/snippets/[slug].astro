@@ -28,7 +28,7 @@ const { Content } = await entry.render();
 const { title, highlight, date, lastMod, tags } = entry.data;
 ---
 
-<PageLayout>
+<PageLayout showBack>
   <PageSEO slot="seo" title={title} description={`A snippet on ${title}`} />
   <Tags tags={tags} />
   <Heading text={title} highlight={highlight} />

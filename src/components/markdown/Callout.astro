@@ -1,19 +1,15 @@
 ---
 let children = await Astro.slots.render('default');
-const hasPaddingBreakForChildren = children.includes('<pre') || children.includes('<figure');
+const hasPaddingBreakForChildren = children.includes('</pre>');
 
 function extractProps(): any {
-  // we use ;foo=bar; as as boundary for defining our props
+  // we use ;SOME_PROP; as as boundary for defining our props
   const regex = /;([^;\s]+);/;
   const matches = children.match(regex);
   if (matches) {
     children = children.replace(regex, '');
     const params = matches[1].split(',');
     return params.reduce((acc, cur) => {
-      if (cur.includes('=')) {
-        const [key, val] = cur.split('=');
-        acc[key] = val;
-      }
       acc[cur] = true;
       return acc;
     }, {});
@@ -21,12 +17,12 @@ function extractProps(): any {
   return {};
 }
 
-const { info } = extractProps();
+const { info: isInfoBlock } = extractProps();
 ---
 
-<aside class:list={['my-5 callout', { 'disable-inner-break': hasPaddingBreakForChildren, info: !!info }]}>
+<aside class:list={['my-5 callout', { 'disable-inner-break': hasPaddingBreakForChildren, info: isInfoBlock }]}>
   {
-    info && (
+    isInfoBlock && (
       <div class="callout-icon">
         <svg
           width="22"
@@ -81,16 +77,8 @@ const { info } = extractProps();
     border-radius: 50%;
   }
 
-  .callout.disable-inner-break :global(div[data-rehype-pretty-code-fragment]),
-  .callout.disable-inner-break :global(figure) {
-    @media (max-width: theme('screens.md.max')) {
-      margin-right: unset;
-      margin-left: unset;
-    }
-
-    @media (max-width: theme('screens.sm.max')) {
-      margin-right: unset;
-      margin-left: unset;
-    }
+  .callout.disable-inner-break :global(div[data-rehype-pretty-code-fragment]) {
+    margin-right: 0;
+    margin-left: 0;
   }
 </style>

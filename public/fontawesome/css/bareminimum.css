@@ -136,3 +136,7 @@
 .fa-screwdriver-wrench::before {
   content: '\f7d9';
 }
+
+.fa-arrow-left::before {
+  content: '\f060';
+}

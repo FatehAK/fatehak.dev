@@ -6029,7 +6029,7 @@ packages:
     dependencies:
       '@astrojs/compiler': 0.31.4
       prettier: 2.8.4
-      sass-formatter: 0.7.5
+      sass-formatter: 0.7.6
       synckit: 0.8.5
 
   /prettier-plugin-astro/0.8.0:
@@ -6038,7 +6038,7 @@ packages:
     dependencies:
       '@astrojs/compiler': 1.1.0
       prettier: 2.8.4
-      sass-formatter: 0.7.5
+      sass-formatter: 0.7.6
       synckit: 0.8.5
     dev: true
 
@@ -6792,8 +6792,8 @@ packages:
       is-regex: 1.1.4
     dev: true
 
-  /sass-formatter/0.7.5:
-    resolution: {integrity: sha512-NKFP8ddjhUYi6A/iD1cEtzkEs91U61kzqe3lY9SVNuvX7LGc88xnEN0mmsWL7Ol//YTi2GL/ol7b9XZ2+hgXuA==}
+  /sass-formatter/0.7.6:
+    resolution: {integrity: sha512-hXdxU6PCkiV3XAiSnX+XLqz2ohHoEnVUlrd8LEVMAI80uB1+OTScIkH9n6qQwImZpTye1r1WG1rbGUteHNhoHg==}
     dependencies:
       suf-log: 2.5.3
 

@@ -85,7 +85,6 @@ module.exports = {
         '.slideup-text': {
           willChange: 'transform',
           transform: 'translateY(80px) translateZ(0)',
-          backfaceVisibility: 'hidden', // safari fix
           animation: 'slide-up 0.8s cubic-bezier(0.075, 0.82, 0.165, 1) forwards',
         },
         '.icon-link': {

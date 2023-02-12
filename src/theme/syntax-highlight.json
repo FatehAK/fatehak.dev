@@ -3,7 +3,7 @@
   "type": "dark",
   "colors": {
     "editor.background": "#000000",
-    "editor.foreground": "#DCE3EA"
+    "editor.foreground": "#f0f0f0"
   },
   "tokenColors": [
     {
@@ -29,7 +29,7 @@
     {
       "scope": ["comment.block.documentation storage.type"],
       "settings": {
-        "foreground": "#DCE3EA",
+        "foreground": "#f0f0f0",
         "fontStyle": "italic"
       }
     },
@@ -92,7 +92,7 @@
     {
       "scope": "punctuation.definition.tag",
       "settings": {
-        "foreground": "#DCE3EA",
+        "foreground": "#f0f0f0",
         "fontStyle": ""
       }
     },
@@ -152,7 +152,7 @@
     {
       "scope": "variable.parameter",
       "settings": {
-        "foreground": "#DCE3EA",
+        "foreground": "#f0f0f0",
         "fontStyle": ""
       }
     },
@@ -187,7 +187,7 @@
     {
       "scope": ["support.type"],
       "settings": {
-        "foreground": "#DCE3EA",
+        "foreground": "#f0f0f0",
         "fontStyle": ""
       }
     },
@@ -215,7 +215,7 @@
     {
       "scope": "invalid.illegal",
       "settings": {
-        "foreground": "#DCE3EA"
+        "foreground": "#f0f0f0"
       }
     },
     {
@@ -267,7 +267,7 @@
     {
       "scope": "meta.property-value punctuation.separator.key-value",
       "settings": {
-        "foreground": "#DCE3EA"
+        "foreground": "#f0f0f0"
       }
     },
     {
@@ -294,7 +294,7 @@
     {
       "scope": "variable.other",
       "settings": {
-        "foreground": "#DCE3EA",
+        "foreground": "#f0f0f0",
         "fontStyle": "normal"
       }
     },
@@ -405,13 +405,13 @@
     {
       "scope": "meta.object.member variable.other.readwrite.tsx",
       "settings": {
-        "foreground": "#DCE3EA"
+        "foreground": "#f0f0f0"
       }
     },
     {
       "scope": "meta.structure.dictionary.json string.quoted.double.json",
       "settings": {
-        "foreground": "#DCE3EA"
+        "foreground": "#f0f0f0"
       }
     },
     {
@@ -537,7 +537,7 @@
       "name": "PHP: Class name",
       "scope": ["support.class.php"],
       "settings": {
-        "foreground": "#DCE3EA"
+        "foreground": "#f0f0f0"
       }
     },
     {

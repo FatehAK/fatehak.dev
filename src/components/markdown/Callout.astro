@@ -10,25 +10,23 @@ function extractProps(): any {
     children = children.replace(regex, '');
     const params = matches[1].split(',');
     return params.reduce((acc, cur) => {
-      const [key, val] = cur.split('=');
-      acc[key] = val;
+      if (cur.includes('=')) {
+        const [key, val] = cur.split('=');
+        acc[key] = val;
+      }
+      acc[cur] = true;
       return acc;
     }, {});
   }
   return {};
 }
 
-const { showIcon } = extractProps();
+const { info } = extractProps();
 ---
 
-<aside
-  class:list={[
-    'my-5 callout',
-    { 'disable-inner-break': hasPaddingBreakForChildren, 'border-left': showIcon, 'break-padding': !showIcon },
-  ]}
->
+<aside class:list={['my-5 callout', { 'disable-inner-break': hasPaddingBreakForChildren, info: !!info }]}>
   {
-    showIcon && (
+    info && (
       <div class="callout-icon">
         <svg
           width="22"
@@ -51,16 +49,19 @@ const { showIcon } = extractProps();
 
 <style>
   .callout {
+    padding-left: 1rem;
+    font-style: italic;
+    color: theme('colors.text.bold');
+    border-left: 3px solid theme('colors.primary.DEFAULT');
+  }
+
+  .callout.info {
     position: relative;
     padding: 1rem 1.3rem;
-    color: theme('colors.text.muted');
+    font-style: normal;
     background-color: theme('colors.text.body' / 2%);
     border: 1px solid theme('colors.bg.border');
     border-radius: 6px;
-  }
-
-  .callout.border-left {
-    border-left: 1px solid theme('colors.primary.DEFAULT');
     border-radius: 4px;
     border-top-right-radius: 6px;
     border-bottom-right-radius: 6px;

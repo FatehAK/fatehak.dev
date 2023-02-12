@@ -52,8 +52,8 @@ const { posts, path, groupByYears, showReadingTime } = Astro.props;
             </time>
             {shouldShowReadingTime && (
               <>
-                <span class="mx-1 text-text-body/20">•</span>
-                <span>{readingTime}</span>
+                <span class="text-text-body/20">•</span>
+                <span>&nbsp;{readingTime}</span>
               </>
             )}
           </div>

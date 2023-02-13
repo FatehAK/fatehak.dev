@@ -45,6 +45,7 @@
   "devDependencies": {
     "@astrojs/image": "^0.14.1",
     "@astrojs/prefetch": "^0.1.2",
+    "@astrojs/rss": "^2.1.0",
     "@astrojs/sitemap": "^1.0.1",
     "@astrojs/tailwind": "^3.0.1",
     "@commitlint/cli": "^17.4.2",

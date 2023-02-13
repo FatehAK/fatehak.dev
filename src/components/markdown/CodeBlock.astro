@@ -57,7 +57,6 @@ const langIcon = iconMap[lang];
 
     position: relative;
     overflow: hidden;
-    margin-bottom: 1rem;
     background-color: theme('colors.bg.code');
     border-radius: 6px;
 
@@ -93,19 +92,14 @@ const langIcon = iconMap[lang];
     }
   }
 
-  .code-block-inner > pre {
-    font-size: 0.85rem;
-    line-height: 1.7;
-  }
-
   .code-block-inner > pre > :global(code) {
     overflow: auto;
     display: grid;
     max-height: 48rem;
     padding: 1rem 0;
     font-family: theme('fontFamily.mono');
-    font-size: inherit;
-    color: inherit;
+    font-weight: 400;
+    line-height: 1.7;
     background-color: inherit;
     border: 0;
     border-radius: 0;
@@ -113,19 +107,22 @@ const langIcon = iconMap[lang];
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
+    &::before {
+      content: '';
+    }
+
+    &::after {
+      content: '';
+    }
+
     & > :global(.line) {
       padding: 0 1rem;
       border-left: 3px solid transparent;
     }
 
     /* line highlighting */
-    & > :global(.line.highlighted)::before {
-      font-weight: bold;
-      color: theme('colors.text.code');
-    }
-
     & > :global(.line.highlighted) {
-      background: theme('colors.text.code' / 12%);
+      background: theme('colors.bg.code-highlight' / 12%);
       border-left-color: var(--cyan);
     }
 
@@ -140,7 +137,7 @@ const langIcon = iconMap[lang];
         display: inline-block;
         width: 1rem;
         margin-right: 1rem;
-        color: theme('colors.text.code' / 22%);
+        color: theme('colors.bg.code-highlight' / 22%);
         text-align: right;
       }
 
@@ -150,9 +147,9 @@ const langIcon = iconMap[lang];
     }
 
     /* word highlighting */
-    & > :global(.line) :global(.word) {
+    & > :global(.line .word) {
       padding: 0.2rem 0.25rem;
-      background: theme('colors.text.code' / 12%);
+      background: theme('colors.bg.code-highlight' / 12%);
       border-radius: 0.25rem;
     }
 

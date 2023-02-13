@@ -37,6 +37,13 @@
   />
   <link
     rel="preload"
+    href="/fonts/inter/inter-v12-latin-600.woff2"
+    as="font"
+    type="font/woff2"
+    crossorigin="crossorigin"
+  />
+  <link
+    rel="preload"
     href="/fonts/inter/inter-v12-latin-700.woff2"
     as="font"
     type="font/woff2"
@@ -73,6 +80,18 @@
 
       /* regular name, postscript name, server url */
       src: local('Inter Medium'), local('Inter-Medium'), url('/fonts/inter/inter-v12-latin-500.woff2') format('woff2');
+    }
+
+    /* inter-600 - latin */
+    @font-face {
+      font-family: Inter;
+      font-weight: 600;
+      font-style: normal;
+      font-display: swap;
+
+      /* regular name, postscript name, server url */
+      src: local('Inter SemiBold'), local('Inter-SemiBold'),
+        url('/fonts/inter/inter-v12-latin-600.woff2') format('woff2');
     }
 
     /* inter-700 - latin */

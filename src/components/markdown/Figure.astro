@@ -17,7 +17,7 @@ const { image, sources } = await getPicture({
 const children = await Astro.slots.render('default');
 ---
 
-<figure class="my-9 break-padding">
+<figure class="break-padding">
   <picture>
     {sources.map(attrs => <source {...attrs} sizes="(max-width: 700px) calc(100vw - 0.6rem), calc(48rem - 2rem)" />)}
     <img class="rounded-[6px]" {...image} alt={image.alt} loading="lazy" decoding="async" />

@@ -11,7 +11,7 @@
     font-feature-settings: 'case' 1, 'rlig' 1, 'calt' 0;
     line-height: 1.84;
     color: theme('colors.text.body');
-    text-rendering: optimizelegibility;
+    text-size-adjust: 100%;
     tab-size: 2;
     background: theme('colors.bg.body');
   }
@@ -44,40 +44,34 @@
   h2,
   h3,
   h4,
-  h5,
-  h6 {
+  h5 {
     color: theme('colors.text.heading');
   }
 
   h1 {
     font-size: 3rem;
-    font-weight: bold;
+    font-weight: 700;
     line-height: 1.15;
     letter-spacing: -0.0669rem;
   }
 
   h2 {
     font-size: 1.5rem;
-    font-weight: bold;
+    font-weight: 700;
   }
 
   h3 {
-    font-size: 1.4rem;
-    font-weight: bold;
+    font-size: 1.25rem;
+    font-weight: 600;
   }
 
   h4 {
-    font-size: 1.3rem;
-    font-weight: bold;
-  }
-
-  h5 {
-    font-size: 1.18rem;
+    font-size: 1.06rem;
     font-weight: 500;
   }
 
-  h6 {
-    font-size: 1.1rem;
+  h5 {
+    font-size: 1rem;
     font-weight: 500;
   }
 
@@ -99,6 +93,11 @@
   a:focus-visible,
   button:focus-visible {
     outline: 2px dashed theme('colors.secondary.DEFAULT');
+  }
+
+  p:not(.unset) {
+    margin-top: 1.25em;
+    margin-bottom: 1.25em;
   }
 
   img {

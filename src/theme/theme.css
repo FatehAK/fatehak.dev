@@ -3,18 +3,18 @@
   --color-bg-body: 16 24 34; /* #101822 */
   --color-bg-gradient: 11 16 24; /* #0b1018 */
   --color-primary: 34 211 238; /* #22d3ee */
-  --color-primary-light: 138 255 255 /* #8affff */;
-  --color-primary-dark: 3 163 191 /* #03a3bf */;
+  --color-primary-light: 138 255 255; /* #8affff */
+  --color-primary-dark: 3 163 191; /* #03a3bf */
   --color-secondary: 248 113 113; /* #f87171 */
   --color-text-selection: 0 0 0; /* #000 */
   --color-bg-selection: 34 211 238; /* #22d3ee */
   --color-text-heading: 255 255 255; /* #fff */
-  --color-text-body: 209 213 219; /* #d1d5db */
+  --color-text-body: 207 211 217; /* #d1d5db */
   --color-text-bold: 255 255 255; /* #fff */
   --color-bg-code: 26 34 44; /* #1a222c */
+  --color-bg-code-highlight: 156 163 175; /* #9ca3af */
   --color-border-code: 39 51 62; /* #27333e */
-  --color-text-code: 156 163 175; /* #9ca3af */
-  --color-text-code-inline: 209 213 219; /* #d1d5db */
+  --color-text-code: 255 255 255; /* #fff */
 
   color-scheme: dark;
 }
@@ -33,9 +33,9 @@
   --color-text-body: 55 65 81; /* #374151 */
   --color-text-bold: 17 24 39; /* #111827 */
   --color-bg-code: 32 42 53; /* #202a35 */
+  --color-bg-code-highlight: 175 182 200; /* #afb6c8 */
   --color-border-code: 47 61 75; /* #e7e7e7 */
-  --color-text-code: 175 182 200; /* #afb6c8 */
-  --color-text-code-inline: 209 213 219; /* #d1d5db */
+  --color-text-code: 255 255 255; /* #fff */
 
   color-scheme: light;
 }

@@ -7,11 +7,11 @@ import { notesData } from './config';
     notesData.map((data, index) => (
       <a class="unset card" href={data.path} style={`animation-delay: ${index * 0.08}s`}>
         <div class="card-inner">
-          <p class="flex items-center mb-2">
+          <div class="flex items-center mb-2">
             <span class="font-bold text-lg text-text-bold">{data.name}</span>
             <i class={`fas fa-${data.icon} ml-2 text-primary text-[1.1rem]`} />
-          </p>
-          <p>{data.description}</p>
+          </div>
+          <p class="unset">{data.description}</p>
         </div>
       </a>
     ))

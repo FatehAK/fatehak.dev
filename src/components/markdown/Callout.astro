@@ -20,7 +20,7 @@ function extractProps(): any {
 const { info: isInfoBlock } = extractProps();
 ---
 
-<aside class:list={['my-5 callout', { 'disable-inner-break': hasPaddingBreakForChildren, info: isInfoBlock }]}>
+<aside class:list={['callout', { 'disable-inner-break': hasPaddingBreakForChildren, info: isInfoBlock }]}>
   {
     isInfoBlock && (
       <div class="callout-icon">

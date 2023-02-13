@@ -69,7 +69,7 @@ export const MDX_CONFIG = {
   remarkPlugins: [remarkReadingTime, [remarkEmoji, { accessible: true }]],
   rehypePlugins: [
     rehypeSlug,
-    [rehypeHeadingsAutoLink, { test: ['h2'] }],
+    [rehypeHeadingsAutoLink, { test: ['h2', 'h3'] }],
     [
       rehypePrettyCode,
       {

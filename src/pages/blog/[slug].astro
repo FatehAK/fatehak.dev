@@ -41,10 +41,10 @@ const { readingTime } = remarkPluginFrontmatter;
     readingTime={readingTime}
   />
   <Tags tags={tags} />
-  <Heading text={title} highlight={highlight} />
+  <Heading class="text-[2.5rem]" text={title} highlight={highlight} />
   <PostInfo date={date} lastMod={lastMod} readingTime={readingTime} />
+  <TOC headings={headings} />
   <Prose>
-    <TOC headings={headings} />
     <Content components={markdownComponents} />
   </Prose>
 </PageLayout>

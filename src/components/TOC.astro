@@ -1,7 +1,8 @@
 ---
 const { headings: inputHeadings } = Astro.props;
 
-const headings = inputHeadings.filter(h => h.depth === 2);
+// only `h2` headings are considered for toc generation
+const headings = inputHeadings.filter(h => h.depth === 2 && h.slug !== 'footnote-label');
 ---
 
 {
@@ -9,7 +10,7 @@ const headings = inputHeadings.filter(h => h.depth === 2);
     <nav class="toc-wrapper lg:hidden">
       <div class="font-bold text-text-bold">On this page</div>
       <toc-scroll-spy>
-        <ul class="toc-list mt-4">
+        <ul class="toc-list mt-3">
           {headings.map(h => {
             return (
               <li class="toc-list-item">
@@ -28,8 +29,8 @@ const headings = inputHeadings.filter(h => h.depth === 2);
 <style>
   .toc-wrapper {
     position: fixed;
-    top: 20rem;
-    left: 8rem;
+    top: 18rem;
+    left: 7rem;
     overflow: auto;
     overscroll-behavior: contain;
     max-width: 18rem;
@@ -45,7 +46,7 @@ const headings = inputHeadings.filter(h => h.depth === 2);
   }
 
   .toc-list li {
-    padding: 0.5rem 0;
+    padding: 0.2rem 0;
     font-weight: 500;
   }
 

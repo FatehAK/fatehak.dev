@@ -1,5 +1,5 @@
 ---
-const { text, highlight } = Astro.props;
+const { text, class: className, highlight } = Astro.props;
 
 let newText = text;
 if (highlight?.length) {
@@ -14,5 +14,5 @@ if (highlight?.length) {
 ---
 
 <div class="overflow-hidden mb-6">
-  <h1 class="slideup-text" set:html={newText} />
+  <h1 class:list={['slideup-text', `${className || ''}`]} set:html={newText} />
 </div>

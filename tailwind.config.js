@@ -24,6 +24,7 @@ module.exports = {
         body: 'rgb(var(--color-bg-body) / <alpha-value>)',
         gradient: 'rgb(var(--color-bg-gradient) / <alpha-value>)',
         code: 'rgb(var(--color-bg-code) / <alpha-value>)',
+        'code-highlight': 'rgb(var(--color-bg-code-highlight) / <alpha-value>)',
         selection: 'rgb(var(--color-bg-selection) / <alpha-value>)',
         border: 'rgb(var(--color-text-body) / 10%)',
       },

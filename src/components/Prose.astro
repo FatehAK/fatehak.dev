@@ -3,8 +3,127 @@
 </article>
 
 <style>
-  /* heading anchors */
+  .prose > :global(:first-child) {
+    margin-top: 0;
+  }
+
+  .prose > :global(:last-child) {
+    margin-bottom: 0;
+  }
+
+  /*
+   * BLOCK ELEMENTS - START
+  */
   .prose :global(h2) {
+    margin-top: 2em;
+    margin-bottom: 1em;
+    line-height: 1.33;
+
+    &.sr-only {
+      margin: 0;
+    }
+  }
+
+  .prose :global(h3) {
+    margin-top: 1.6em;
+    margin-bottom: 0.6em;
+    line-height: 1.6;
+  }
+
+  .prose :global(h4) {
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    line-height: 1.5;
+  }
+
+  .prose :global(hr) {
+    margin-top: 3em;
+    margin-bottom: 3em;
+    border-color: theme('colors.bg.border');
+  }
+
+  .prose :global(figure) {
+    margin-top: 2em;
+    margin-bottom: 2em;
+
+    & > :global(figcaption p) {
+      margin: 0;
+    }
+  }
+
+  .prose :global(aside) {
+    margin-top: 1.6em;
+    margin-bottom: 1.6em;
+
+    &.info > :global(blockquote > p:first-child),
+    &.info > :global(blockquote > div:first-child) {
+      margin-top: 0;
+    }
+
+    &.info > :global(blockquote > p:last-child),
+    &.info > :global(blockquote > div:last-child) {
+      margin-bottom: 0;
+    }
+  }
+
+  .prose :global(div[data-rehype-pretty-code-fragment]) {
+    margin-top: 1.25em;
+    margin-bottom: 1.25em;
+  }
+
+  .prose :global(hr + *),
+  .prose :global(h2 + *),
+  .prose :global(h3 + *),
+  .prose :global(h4 + *) {
+    margin-top: 0;
+  }
+
+  /*
+   * BLOCK ELEMENTS - END
+  */
+
+  /*
+   * INLINE ELEMENTS - START
+  */
+
+  .prose :global(strong) {
+    font-weight: 600;
+    color: theme('colors.text.bold');
+  }
+
+  .prose :global(code) {
+    padding: 3px 4px;
+    font-family: theme('fontFamily.mono');
+    font-size: 0.875rem;
+    color: theme('colors.text.code');
+    background-color: theme('colors.bg.code' / 90%);
+    border: 1px solid theme('colors.bg.border');
+    border-radius: 6px;
+
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+
+    &::before {
+      content: '`';
+    }
+
+    &::after {
+      content: '`';
+    }
+  }
+
+  .prose :global(mark) {
+    color: theme('colors.text.selection');
+    background-color: theme('colors.bg.selection');
+  }
+
+  /*
+   * INLINE ELEMENTS - END
+  */
+
+  /* heading anchors */
+  .prose :global(h2),
+  .prose :global(h3) {
     position: relative;
 
     & > :global(a) {
@@ -36,38 +155,6 @@
         opacity: 1;
       }
     }
-  }
-
-  /* horizontal ruler */
-  .prose :global(hr) {
-    margin: 3rem 0;
-    border-color: theme('colors.bg.border');
-  }
-
-  /* bold text */
-  .prose :global(strong) {
-    font-weight: 700;
-    color: theme('colors.text.bold');
-  }
-
-  /* inline code */
-  .prose :global(code) {
-    padding: 3px 6px;
-    font-family: theme('fontFamily.mono');
-    font-size: 0.875rem;
-    color: theme('colors.text.code-inline');
-    background-color: theme('colors.bg.code' / 90%);
-    border: 1px solid theme('colors.bg.border');
-    border-radius: 6px;
-
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  /* mark element */
-  .prose :global(mark) {
-    color: theme('colors.text.selection');
-    background-color: theme('colors.bg.selection');
   }
 
   /* footnotes */
@@ -111,6 +198,11 @@
           margin-right: 5px;
           font-size: 0.6rem;
           font-weight: 500;
+        }
+
+        & :global(p) {
+          margin: 0;
+          margin-bottom: 0.5em;
         }
       }
     }

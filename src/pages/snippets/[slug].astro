@@ -31,7 +31,7 @@ const { title, highlight, date, lastMod, tags } = entry.data;
 <PageLayout showBack>
   <PageSEO slot="seo" title={title} description={`A snippet on ${title}`} />
   <Tags tags={tags} />
-  <Heading text={title} highlight={highlight} />
+  <Heading class="text-[2.5rem]" text={title} highlight={highlight} />
   <PostInfo date={date} lastMod={lastMod} />
   <Prose>
     <Content components={markdownComponents} />

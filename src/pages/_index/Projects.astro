@@ -21,7 +21,7 @@ const hasOddProjects = projects.length % 2 !== 0;
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <p class="font-bold text-text-bold text-lg">{p.name}</p>
+                  <p class="unset font-bold text-text-bold text-lg">{p.name}</p>
                   <i class="fas fa-arrow-up-right-from-square text-sm ml-2" />
                 </a>
               </div>
@@ -32,7 +32,7 @@ const hasOddProjects = projects.length % 2 !== 0;
                 </a>
               </div>
             </div>
-            <p>{p.description}</p>
+            <p class="unset">{p.description}</p>
             <div class="flex mt-6">
               {p.technologies.map((tech, idx) => (
                 <div

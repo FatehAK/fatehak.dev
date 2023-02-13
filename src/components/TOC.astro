@@ -58,7 +58,6 @@ const headings = inputHeadings.filter(h => h.depth === 2);
   /* global NodeListOf */
   class TocScrollSpy extends HTMLElement {
     tocActiveClass: string;
-    tocVisibleClass: string;
     observer: IntersectionObserver;
     activeAnchorHref: string;
 
@@ -69,16 +68,30 @@ const headings = inputHeadings.filter(h => h.depth === 2);
     }
 
     connectedCallback() {
-      const articleContent = document.querySelector('article') as HTMLElement;
-      const sections = articleContent?.querySelectorAll('section[data-heading-rank="2"]') as NodeListOf<Element>;
-      this.observer = new IntersectionObserver(this.scrollSpy, {
-        rootMargin: '-30% 0px -60% 0px',
+      const initObserver = shouldConnect => {
+        if (shouldConnect) {
+          const articleContent = document.querySelector('article') as HTMLElement;
+          const sections = articleContent?.querySelectorAll('section[data-heading-rank="2"]') as NodeListOf<Element>;
+          this.observer = new IntersectionObserver(this.scrollSpy, {
+            rootMargin: '-30% 0px -60% 0px',
+          });
+          sections?.forEach(e => this.observer.observe(e));
+        } else {
+          this.observer?.disconnect();
+        }
+      };
+
+      // only connect the observer on viewports larger than 1366px
+      const mql = window.matchMedia('(min-width: 1366px)');
+      initObserver(mql.matches);
+
+      mql.addEventListener('change', e => {
+        initObserver(e.matches);
       });
-      sections?.forEach(e => this.observer.observe(e));
     }
 
     disconnectedCallback() {
-      this.observer.disconnect();
+      this.observer?.disconnect();
     }
 
     scrollSpy(entries) {

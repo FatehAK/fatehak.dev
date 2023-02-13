@@ -121,6 +121,47 @@
    * INLINE ELEMENTS - END
   */
 
+  /* OTHERS */
+
+  /* ol, ul */
+  .prose :global(ol),
+  .prose :global(ul) {
+    margin-top: 1.25em;
+    margin-bottom: 1.25em;
+    list-style-type: none;
+
+    & :global(li) {
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+    }
+  }
+
+  .prose :global(ol > li) {
+    position: relative;
+    padding-left: 2.2em;
+
+    &::before {
+      content: counter(list-item, decimal) '.';
+      position: absolute;
+      left: 7px;
+      font-weight: 500;
+      color: theme('colors.primary.DEFAULT');
+    }
+  }
+
+  .prose :global(ul > li) {
+    position: relative;
+    padding-left: 2.2em;
+
+    &::before {
+      content: '>';
+      position: absolute;
+      left: 7px;
+      font-weight: 600;
+      color: theme('colors.primary.DEFAULT');
+    }
+  }
+
   /* heading anchors */
   .prose :global(h2),
   .prose :global(h3) {

@@ -19,12 +19,9 @@ if (lastMod) isPublishedDateSameAsModified = date.toLocaleDateString() === lastM
     {
       !isPublishedDateSameAsModified && (
         <>
-          <span class="mx-[0.14rem] text-text-body/20">∕</span>
+          <span class="mx-[0.14rem] text-text-body/30">—</span>
           <span>
-            <span>
-              <i class="fas fa-clock text-primary mr-1" />
-              Updated
-            </span>
+            Updated
             <time datetime={lastMod.toISOString()}>
               {lastMod.toLocaleDateString('en-us', {
                 year: 'numeric',
@@ -40,7 +37,10 @@ if (lastMod) isPublishedDateSameAsModified = date.toLocaleDateString() === lastM
   {
     readingTime && (
       <div class="sm:mt-3">
-        <span>{readingTime}</span>
+        <>
+          <i class="fas fa-clock text-primary mr-2" />
+          <span>{readingTime}</span>
+        </>
       </div>
     )
   }

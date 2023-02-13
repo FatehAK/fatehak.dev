@@ -64,6 +64,12 @@ const { showReadingProgress = false } = Astro.props;
 
   let lastScrollY = document.documentElement.scrollTop;
   const isScrollProgressVisible = readingProgressMobile.dataset.reading === 'true';
+  let isMobileOrTablet = false;
+
+  window.matchMedia('(max-width: 700px)').addEventListener('change', e => {
+    if (e.matches) isMobileOrTablet = true;
+    else isMobileOrTablet = false;
+  });
 
   window.addEventListener(
     'scroll',
@@ -99,8 +105,11 @@ const { showReadingProgress = false } = Astro.props;
         }
 
         checkNavBorder();
-        checkNavVisibility();
-        if (isScrollProgressVisible) checkReadingProgressMobile();
+
+        if (isMobileOrTablet) {
+          checkNavVisibility();
+          if (isScrollProgressVisible) checkReadingProgressMobile();
+        }
       }
 
       checkScroll();

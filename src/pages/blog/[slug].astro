@@ -7,6 +7,7 @@ import Prose from 'components/Prose.astro';
 import PostInfo from 'components/PostInfo.astro';
 import Tags from 'components/PostTags.astro';
 import markdownComponents from 'components/markdown';
+import TOC from 'components/TOC.astro';
 
 export async function getStaticPaths() {
   const isProd = import.meta.env.BUILD === 'production';
@@ -23,7 +24,7 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 
-const { Content, remarkPluginFrontmatter } = await entry.render();
+const { Content, remarkPluginFrontmatter, headings } = await entry.render();
 
 const { title, seoTitle, highlight, description, date, lastMod, tags } = entry.data;
 const { readingTime } = remarkPluginFrontmatter;
@@ -43,6 +44,7 @@ const { readingTime } = remarkPluginFrontmatter;
   <Heading text={title} highlight={highlight} />
   <PostInfo date={date} lastMod={lastMod} readingTime={readingTime} />
   <Prose>
+    <TOC headings={headings} />
     <Content components={markdownComponents} />
   </Prose>
 </PageLayout>

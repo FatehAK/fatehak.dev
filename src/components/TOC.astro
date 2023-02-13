@@ -1,0 +1,108 @@
+---
+const { headings: inputHeadings } = Astro.props;
+
+const headings = inputHeadings.filter(h => h.depth === 2);
+---
+
+{
+  headings.length > 1 && (
+    <nav class="toc-wrapper lg:hidden">
+      <div class="font-bold text-text-bold">On this page</div>
+      <toc-scroll-spy>
+        <ul class="toc-list mt-4">
+          {headings.map(h => {
+            return (
+              <li class="toc-list-item">
+                <a class="unset toc-anchor" href={`#${h.slug}`}>
+                  {h.text}
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </toc-scroll-spy>
+    </nav>
+  )
+}
+
+<style>
+  .toc-wrapper {
+    position: fixed;
+    top: 20rem;
+    left: 8rem;
+    overflow: auto;
+    overscroll-behavior: contain;
+    max-width: 18rem;
+    max-height: 50vh;
+    opacity: 0;
+    animation: fadein 0.4s ease forwards;
+  }
+
+  .toc-list {
+    padding-right: 1rem;
+    font-size: 0.9rem;
+    list-style: none;
+  }
+
+  .toc-list li {
+    padding: 0.5rem 0;
+    font-weight: 500;
+  }
+
+  .toc-anchor.scroll-spy-active {
+    color: theme('colors.primary.DEFAULT');
+  }
+</style>
+
+<script>
+  /* global NodeListOf */
+  class TocScrollSpy extends HTMLElement {
+    tocActiveClass: string;
+    tocVisibleClass: string;
+    observer: IntersectionObserver;
+    activeAnchorHref: string;
+
+    constructor() {
+      super();
+      this.scrollSpy = this.scrollSpy.bind(this);
+      this.tocActiveClass = 'scroll-spy-active';
+    }
+
+    connectedCallback() {
+      const articleContent = document.querySelector('article') as HTMLElement;
+      const sections = articleContent?.querySelectorAll('section[data-heading-rank="2"]') as NodeListOf<Element>;
+      this.observer = new IntersectionObserver(this.scrollSpy, {
+        rootMargin: '-30% 0px -60% 0px',
+      });
+      sections?.forEach(e => this.observer.observe(e));
+    }
+
+    disconnectedCallback() {
+      this.observer.disconnect();
+    }
+
+    scrollSpy(entries) {
+      const indexOfElementIntersecting = entries.findIndex(entry => entry.intersectionRatio > 0);
+
+      const headingAnchors = new Map(
+        [...this.querySelectorAll('a')].map(anchor => [anchor.getAttribute('href'), anchor])
+      );
+
+      if (indexOfElementIntersecting > -1) {
+        const intersectionSection = entries[indexOfElementIntersecting].target;
+        this.activeAnchorHref = `#${intersectionSection.getAttribute('aria-labelledby')}`;
+        headingAnchors.get(this.activeAnchorHref)!.classList.add(this.tocActiveClass);
+      }
+
+      if (this.activeAnchorHref) {
+        // remove active class if present on other anchors
+        headingAnchors.forEach(anchor => {
+          if (anchor.getAttribute('href') !== this.activeAnchorHref) {
+            anchor.classList.remove(this.tocActiveClass);
+          }
+        });
+      }
+    }
+  }
+  customElements.define('toc-scroll-spy', TocScrollSpy);
+</script>

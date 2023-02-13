@@ -48,6 +48,7 @@
     "@astrojs/sitemap": "^1.0.1",
     "@astrojs/tailwind": "^3.0.1",
     "@commitlint/cli": "^17.4.2",
+    "@hbsnow/rehype-sectionize": "^1.0.7",
     "@typescript-eslint/parser": "^5.51.0",
     "astro": "^2.0.10",
     "astro-compress": "^1.1.32",

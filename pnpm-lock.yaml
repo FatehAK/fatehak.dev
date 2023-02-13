@@ -7,6 +7,7 @@ specifiers:
   '@astrojs/sitemap': ^1.0.1
   '@astrojs/tailwind': ^3.0.1
   '@commitlint/cli': ^17.4.2
+  '@hbsnow/rehype-sectionize': ^1.0.7
   '@typescript-eslint/parser': ^5.51.0
   astro: ^2.0.10
   astro-compress: ^1.1.32
@@ -65,6 +66,7 @@ devDependencies:
   '@astrojs/sitemap': 1.0.1
   '@astrojs/tailwind': 3.0.1_upxfr3vo6eqc4bnlrw3r7vx7nu
   '@commitlint/cli': 17.4.2
+  '@hbsnow/rehype-sectionize': 1.0.7
   '@typescript-eslint/parser': 5.51.0_7kw3g6rralp5ps6mg3uyzz6azm
   astro: 2.0.10_@types+node@18.13.0
   astro-compress: 1.1.32
@@ -1105,6 +1107,15 @@ packages:
       strip-json-comments: 3.1.1
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /@hbsnow/rehype-sectionize/1.0.7:
+    resolution: {integrity: sha512-twbVxCFf4YwgTm6FIdGtHfJ14vvIHedk2fqZTpE3X6+vszEeZlMTy7tOyI9KaP/6S2DN2Jnk7zZGtZANTD+vEg==}
+    engines: {node: '>=16.0.0'}
+    dependencies:
+      hast-util-heading: 2.0.1
+      hast-util-heading-rank: 2.1.1
+      rehype: 12.0.1
     dev: true
 
   /@humanwhocodes/config-array/0.11.8:
@@ -3683,6 +3694,13 @@ packages:
     resolution: {integrity: sha512-iAuRp+ESgJoRFJbSyaqsfvJDY6zzmFoEnL1gtz1+U8gKtGGj1p0CVlysuUAUjq95qlZESHINLThwJzNGmgGZxA==}
     dependencies:
       '@types/hast': 2.3.4
+    dev: true
+
+  /hast-util-heading/2.0.1:
+    resolution: {integrity: sha512-nwRggTanShzHRYMUX46lm6pbJ2c1+TUQCETahENb6yR6c8ro8MkE0hRJm8G0IqAZl35ONgJiW8RC8+D3484vYg==}
+    dependencies:
+      '@types/hast': 2.3.4
+      hast-util-is-element: 2.1.3
     dev: true
 
   /hast-util-is-element/2.1.3:

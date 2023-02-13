@@ -1,6 +1,6 @@
 ---
 date: '2023-02-02T13:01:23.832Z'
-lastMod: '2023-02-12T13:56:54.796Z'
+lastMod: '2023-02-13T11:44:10.994Z'
 title: How to Save a JavaScript Function as a Bookmark
 seoTitle: How to Save a JavaScript Function as a Bookmark
 highlight: Bookmark
@@ -10,95 +10,56 @@ tags:
   - Chrome
 ---
 
-import image2 from 'assets/posts/first-post/test1.png';
+After working on my personal portfolio with Gatsby, I took some time to transition my project to Typescript. It was the perfect opportunity to learn how to use it as I have never worked with it in the past. A breadcrumbs component shows where in the site hierarchy the user is. The name is from Hansel and Gretel, who dropped breadcrumbs behind them in some dark woods and were able to find their way home by tracing crumbs backwards.
 
-A noice content
-
-## Inline Code
-
-This property is known as `document.querySelector(){:js}` which is [conventional-commits](https://www.conventionalcommits.org/en/v1.0.0/) that must be used to select a element in the dom.
-
-This is *italic* text. This is **bold** text. This text is ***bold-italic***
+The breadcrumbs in this post are not standard breadcrumbs, they're breadcrumb-like. They offer additional functionality by putting sibling pages right into the navigation with a, making multi-tiered access possible.
 
 
-## BlockQuote
+## Overview
 
-This property is known as `document.querySelector(){:js}` which is [conventional-commits](https://www.conventionalcommits.org/en/v1.0.0/) that must be used to select a element in the dom.
+A breadcrumbs component shows where in the site hierarchy the user is. The name is from Hansel and Gretel, who dropped breadcrumbs behind them in some dark woods and were able to find their way home by tracing crumbs backwards.
 
-> ;info;
-> `sharp` and `svgo` don't come installed as part of the package. You will have to install them manually and add it as a dev dependency. This is a design decision so you can choose to skip installing
-> `sharp`
-> if you only want to optimize svg assets using `svgo` and vice versa.
->
-> ```console
-> npm install sharp --save-dev
-> ```
->
-> ```console showLineNumbers
-> npm install svgo --save-dev
-> npm install svgo --save-dev
-> ```
+The breadcrumbs in this post are not standard breadcrumbs, they're breadcrumb-like. They offer additional functionality by putting sibling pages right into the navigation with a, making multi-tiered access possible.
 
-> Who is this intended for?
+After working on my personal portfolio with Gatsby, I took some time to transition my project to Typescript. It was the perfect opportunity to learn how to use it as I have never worked with it in the past.
+Learning about how to write Typescript types and how to use it wasn’t much of a problem as I’m used to working with Flow. However, it was the whole set up of tslint, remembering to install type definitions and simply writing custom type definitions that were new to me and not as easy as I would have expected. This is why I thought this would deserve a little article containing an up to date guide explaining how to set up all these tools and get them to run properly on an existing project.
 
-In a hole in the ground there lived a hobbit. Not a nasty, dirty, wet hole, filled with the ends
-of worms and an oozy smell, nor yet a dry, bare, sandy hole with nothing in it to sit down on or to
-eat: it was a [hobbit-hole][1], and that means comfort.
+### Background UX
 
-[1]: https://en.wikipedia.org/wiki/Hobbit#Lifestyle "Hobbit lifestyles"
+In the component demo video above, the placeholder categories are genres of video games. This trail is created by navigating the following path: `home » rpg » indie » on sale`, as shown below.
 
-Some of these words <ins>will be underlined</ins>.
+## Information architecture
 
-> Do not push the big red button.
+I find it's helpful to think in terms of collections and items.
 
-:warning: Hi, I love emojis a lot :zap:
+After working on my personal portfolio with Gatsby, I took some time to transition my project to Typescript. It was the perfect opportunity to learn how to use it as I have never worked with it in the past.
+Learning about how to write Typescript types and how to use it wasn’t much of a problem as I’m used to working with Flow. However, it was the whole set up of tslint, remembering to install type definitions and simply writing custom type definitions that were new to me and not as easy as I would have expected. This is why I thought this would deserve a little article containing an up to date guide explaining how to set up all these tools and get them to run properly on an existing project.
 
-I need to highlight these ==very important words==.
+After working on my personal portfolio with Gatsby, I took some time to transition my project to Typescript. It was the perfect opportunity to learn how to use it as I have never worked with it in the past.
+Learning about how to write Typescript types and how to use it wasn’t much of a problem as I’m used to working with Flow. However, it was the whole set up of tslint, remembering to install type definitions and simply writing custom type definitions that were new to me and not as easy as I would have expected. This is why I thought this would deserve a little article containing an up to date guide explaining how to set up all these tools and get them to run properly on an existing project.
 
-~~The world is flat.~~ We now know that the world is round.
+After working on my personal portfolio with Gatsby, I took some time to transition my project to Typescript. It was the perfect opportunity to learn how to use it as I have never worked with it in the past.
+Learning about how to write Typescript types and how to use it wasn’t much of a problem as I’m used to working with Flow. However, it was the whole set up of tslint, remembering to install type definitions and simply writing custom type definitions that were new to me and not as easy as I would have expected. This is why I thought this would deserve a little article containing an up to date guide explaining how to set up all these tools and get them to run properly on an existing project.
 
-Here's a simple footnote[^boo], and here's a longer one[^foo]
+## Layouts
 
-## Lists
+### Markup
 
-* First nested list item
-* Second nested list item
+Good components begin with appropriate HTML. In this next section I'll cover my markup choices and how they impact the overall component.
 
-## Image
+Learning about how to write Typescript types and how to use it wasn’t much of a problem as I’m used to working with Flow. However, it was the whole set up of tslint, remembering to install type definitions and simply writing custom type definitions that were new to me and not as easy as I would have expected. This is why I thought this would deserve a little article containing an up to date guide explaining how to set up all these tools and get them to run properly on an existing project.
 
-<Figure alt="Mouse events to mock Swipe" src={image2}>
-  Mouse events to mock <code>Swipe</code>
-</Figure>
-
-## JS
-
-```js {4} showLineNumbers title="appConfig.js"
-const navContainer = document.querySelector('#nav-container');
-const readingProgressMobile = document.querySelector('#reading-progress');
-
-let lastScrollY = document.documentElement.scrollTop;
-const isScrollProgressVisible = readingProgressMobile.dataset.reading === 'true';
-
-window.addEventListener(
-  'scroll',
-  function () {
-    function checkScroll() {
-      const st = document.documentElement.scrollTop;
-      const scrollHeight = document.documentElement.scrollHeight;
-      const clientHeight = document.documentElement.clientHeight;
-    }
-
-    checkScroll();
-    window.requestAnimationFrame(checkScroll);
-  },
-  { capture: true, passive: true }
-);
+#### Dark and light scheme
+```html
+<meta name="color-scheme" content="dark light">
 ```
 
-This is <mark>Foo</mark>
+### Styles
+Since the color uses system colors, it's mostly gaps and stacks for styles!
 
-***
+## Conclusion
 
-[^boo]: This is the first footnote.
+Good components begin with appropriate HTML. In this next section I'll cover my markup choices and how they impact the overall component.
+After working on my personal portfolio with Gatsby, I took some time to transition my project to Typescript. It was the perfect opportunity to learn how to use it as I have never worked with it in the past.
 
-[^foo]: This is the second footnote.
+Learning about how to write Typescript types and how to use it wasn’t much of a problem as I’m used to working with Flow. However, it was the whole set up of tslint, remembering to install type definitions and simply writing custom type definitions that were new to me and not as easy as I would have expected. This is why I thought this would deserve a little article containing an up to date guide explaining how to set up all these tools and get them to run properly on an existing project.

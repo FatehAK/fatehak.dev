@@ -29,7 +29,7 @@ const headings = inputHeadings.filter(h => h.depth === 2 && h.slug !== 'footnote
 <style>
   .toc-wrapper {
     position: fixed;
-    top: 18rem;
+    top: 17rem;
     left: 7rem;
     overflow: auto;
     overscroll-behavior: contain;
@@ -50,8 +50,20 @@ const headings = inputHeadings.filter(h => h.depth === 2 && h.slug !== 'footnote
     font-weight: 500;
   }
 
-  .toc-anchor.scroll-spy-active {
-    color: theme('colors.primary.DEFAULT');
+  .toc-anchor {
+    opacity: 0.4;
+    transition: opacity 0.2s;
+
+    &.scroll-spy-active {
+      color: theme('colors.primary.DEFAULT');
+      opacity: 1;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      &:not(.scroll-spy-active):hover {
+        opacity: 0.9;
+      }
+    }
   }
 </style>
 

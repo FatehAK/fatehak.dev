@@ -1,6 +1,6 @@
 ---
 date: '2023-02-02T12:01:23.832Z'
-lastMod: '2023-02-06T11:43:46.170Z'
+lastMod: '2023-02-14T18:14:47.035Z'
 title: Building an Alert Component in Svelte
 seoTitle: Building an Alert Component in Svelte
 highlight: Svelte
@@ -10,4 +10,95 @@ tags:
   - guide
 ---
 
-A super noice content
+import image2 from 'assets/posts/first-post/test1.png';
+
+A noice content
+
+## Inline Code
+
+This property is known as `document.querySelector(){:js}` which is [conventional-commits](https://www.conventionalcommits.org/en/v1.0.0/) that must be used to select a element in the dom.
+
+This is *italic* text. This is **bold** text. This text is ***bold-italic***
+
+
+## BlockQuote
+
+This property is known as `document.querySelector(){:js}` which is [conventional-commits](https://www.conventionalcommits.org/en/v1.0.0/) that must be used to select a element in the dom.
+
+> ;info;
+> `sharp` and `svgo` don't come installed as part of the package. You will have to install them manually and add it as a dev dependency. This is a design decision so you can choose to skip installing
+> `sharp`
+> if you only want to optimize svg assets using `svgo` and vice versa.
+>
+> ```console
+> npm install sharp --save-dev
+> ```
+>
+> ```console showLineNumbers
+> npm install svgo --save-dev
+> npm install svgo --save-dev
+> ```
+
+> Who is this intended for?
+
+In a hole in the ground there lived a hobbit. Not a nasty, dirty, wet hole, filled with the ends
+of worms and an oozy smell, nor yet a dry, bare, sandy hole with nothing in it to sit down on or to
+eat: it was a [hobbit-hole][1], and that means comfort.
+
+[1]: https://en.wikipedia.org/wiki/Hobbit#Lifestyle "Hobbit lifestyles"
+
+Some of these words <ins>will be underlined</ins>.
+
+> Do not push the big red button.
+
+Hi, I love emojis a lot :zap:
+
+I need to highlight these ==very important words==.
+
+~~The world is flat.~~ We now know that the world is round.
+
+Here's a simple footnote[^boo], and here's a longer one[^foo]
+
+## Lists
+
+* First nested list item
+* Second nested list item
+
+## Image
+
+<Figure alt="Mouse events to mock Swipe" src={image2}>
+  Mouse events to mock <code>Swipe</code>
+</Figure>
+
+## JS
+
+```js {4} showLineNumbers title="appConfig.js"
+const navContainer = document.querySelector('#nav-container');
+const readingProgressMobile = document.querySelector('#reading-progress');
+
+let lastScrollY = document.documentElement.scrollTop;
+const isScrollProgressVisible = readingProgressMobile.dataset.reading === 'true';
+
+window.addEventListener(
+  'scroll',
+  function () {
+    function checkScroll() {
+      const st = document.documentElement.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight;
+      const clientHeight = document.documentElement.clientHeight;
+    }
+
+    checkScroll();
+    window.requestAnimationFrame(checkScroll);
+  },
+  { capture: true, passive: true }
+);
+```
+
+This is <mark>Foo</mark>
+
+***
+
+[^boo]: This is the first footnote.
+
+[^foo]: This is the second footnote.

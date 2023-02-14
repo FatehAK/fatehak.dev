@@ -7,6 +7,7 @@ import Prose from 'components/Prose.astro';
 import PostInfo from 'components/PostInfo.astro';
 import Tags from 'components/PostTags.astro';
 import markdownComponents from 'components/markdown';
+import PostPagination from 'components/PostPagination.astro';
 
 export async function getStaticPaths() {
   const isProd = import.meta.env.BUILD === 'production';
@@ -36,4 +37,5 @@ const { title, highlight, date, lastMod, tags } = entry.data;
   <Prose>
     <Content components={markdownComponents} />
   </Prose>
+  <PostPagination collection="snippets" current={entry} />
 </PageLayout>

@@ -222,6 +222,8 @@
   }
 
   .prose :global(section[data-footnotes]) {
+    margin-bottom: 3rem;
+
     & :global(a[data-footnote-backref]) {
       display: none;
     }
@@ -232,6 +234,7 @@
       & > :global(li) {
         counter-increment: item;
         display: flex;
+        padding-left: 1rem;
 
         &::before {
           content: counter(item);
@@ -243,7 +246,6 @@
 
         & :global(p) {
           margin: 0;
-          margin-bottom: 0.5em;
         }
       }
     }

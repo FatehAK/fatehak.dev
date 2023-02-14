@@ -9,6 +9,7 @@ import Tags from 'components/PostTags.astro';
 import markdownComponents from 'components/markdown';
 import TOC from 'components/TOC.astro';
 import BackToTop from 'components/BackToTop.astro';
+import PostPagination from 'components/PostPagination.astro';
 
 export async function getStaticPaths() {
   const isProd = import.meta.env.BUILD === 'production';
@@ -49,4 +50,5 @@ const { readingTime } = remarkPluginFrontmatter;
     <Content components={markdownComponents} />
   </Prose>
   <BackToTop />
+  <PostPagination collection="blog" current={entry} />
 </PageLayout>

@@ -1,0 +1,133 @@
+---
+import { getCollection } from 'astro:content';
+
+const { collection, current } = Astro.props;
+
+const getSiblingItems = async () => {
+  const postEntries = await getCollection(collection, ({ data }) => data.draft !== true);
+  if (!postEntries.length || postEntries.length === 1) return;
+
+  const sortedPosts = postEntries.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+  // find the index for the given item
+  const currentIndex = sortedPosts.findIndex(allItem => allItem.slug === current.slug);
+
+  // if current is the first item, we grab the next item alone
+  if (current.slug === sortedPosts[0].slug) {
+    return {
+      next: sortedPosts[currentIndex + 1],
+      previous: undefined,
+    };
+  }
+
+  // if current is the last item, we grab the previous item alone
+  if (current.slug === sortedPosts[sortedPosts.length - 1].slug) {
+    return {
+      next: undefined,
+      previous: sortedPosts[currentIndex - 1],
+    };
+  }
+
+  // if current is in the middle, we grab previous and next items
+  return {
+    next: sortedPosts[currentIndex + 1],
+    previous: sortedPosts[currentIndex - 1],
+  };
+};
+
+const siblings = await getSiblingItems();
+
+if (!siblings) return undefined;
+---
+
+<nav class="foo mt-8 flex md:flex-col">
+  <div class="flex-1 flex mr-6 md:mr-0 md:mb-5">
+    {
+      siblings.previous && (
+        <div class="sibling-link-wrap md:h-[6.75rem]">
+          <i class="fas fa-arrow-left ml-4 prev" />
+          <a class="unset text-right sibling-link" href={siblings.previous.slug}>
+            <div>Previous Post</div>
+            <span class="clamp-lines">{siblings.previous.data.title}</span>
+          </a>
+        </div>
+      )
+    }
+  </div>
+  <div class="flex-1 flex">
+    {
+      siblings.next && (
+        <div class="sibling-link-wrap md:h-[6.75rem]">
+          <a class="unset text-left sibling-link" href={siblings.next.slug}>
+            <div>Next Post</div>
+            <span class="clamp-lines">{siblings.next.data.title}</span>
+          </a>
+          <i class="fas fa-arrow-right mr-4 next" />
+        </div>
+      )
+    }
+  </div>
+</nav>
+
+<style>
+  .sibling-link-wrap {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    border: 1px solid theme('colors.bg.border');
+    border-radius: 6px;
+
+    & > i {
+      align-self: center;
+      font-size: 1rem;
+      color: theme('colors.primary.DEFAULT');
+      transition: transform 0.2s;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover > a {
+        color: theme('colors.primary.DEFAULT');
+      }
+
+      &:hover > i.next {
+        transform: translateX(4px);
+      }
+
+      &:hover > i.prev {
+        transform: translateX(-4px);
+      }
+    }
+  }
+
+  .sibling-link {
+    overflow: hidden;
+    display: block;
+    margin: 0.8rem 0;
+    line-height: 1.5rem;
+    transition: color 0.2s;
+
+    &::after {
+      content: '';
+      position: absolute;
+      z-index: 1;
+      inset: 0;
+    }
+
+    & > div {
+      padding: 0 1rem;
+      font-size: 0.8rem;
+      font-weight: 300;
+      color: theme('colors.text.muted');
+    }
+
+    & .clamp-lines {
+      overflow: hidden;
+      display: -webkit-box;
+      padding: 0 1rem;
+
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+  }
+</style>

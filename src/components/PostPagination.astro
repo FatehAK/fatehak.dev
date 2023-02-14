@@ -73,10 +73,11 @@ if (!siblings) return undefined;
     width: 100%;
     border: 1px solid theme('colors.bg.border');
     border-radius: 0.75rem;
+    transition: border-color 0.3s;
 
     @media (hover: hover) and (pointer: fine) {
-      &:hover > a {
-        color: theme('colors.primary.DEFAULT');
+      &:hover {
+        border-color: theme('colors.primary.dark');
       }
     }
   }

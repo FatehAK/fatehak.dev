@@ -124,8 +124,6 @@ module.exports = {
               right: '0',
               bottom: '0',
               left: '0',
-              transform: 'translate3d(0, 0, 0)', // safari fix
-              backfaceVisibility: 'hidden', // safari fix
               backgroundImage:
                 'linear-gradient(235deg, rgb(var(--color-secondary)), rgb(var(--color-bg-body)), rgb(var(--color-primary)))',
               filter: 'blur(6px)',

@@ -1,4 +1,5 @@
 ---
+import waveImage from 'assets/wave.png?url';
 import { APP_CONFIG } from 'appConfig';
 import { technologies, resumeURL } from './config';
 ---
@@ -6,9 +7,8 @@ import { technologies, resumeURL } from './config';
 <Fragment>
   <p>
     <span
-      >Hey there&nbsp;👋🏻&nbsp;&nbsp;I’m Fateh, a Front-End engineer based in <span class="font-[500] text-text-bold"
-        >Chennai, India</span
-      >.</span
+      >Hey there<img class="hand-wave" src={waveImage} width="20" height="20" alt="wave" />I’m Fateh, a Front-End
+      engineer based in <span class="font-[500] text-text-bold">Chennai, India</span>.</span
     >
   </p>
   <p>
@@ -26,7 +26,7 @@ import { technologies, resumeURL } from './config';
     the world on a multitude of devices pretty amazing!
   </p>
   <p>
-    <h5>Few technologies in my current stack:</h5>
+    <h5 class="mb-3">Few technologies in my current stack:</h5>
     <div class="tech-item-grid">
       {
         technologies.map((item, index) => (
@@ -58,6 +58,11 @@ import { technologies, resumeURL } from './config';
 </Fragment>
 
 <style>
+  .hand-wave {
+    display: inline-block;
+    margin: 0 0.5rem 4px 0.4rem;
+  }
+
   .tech-item-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));

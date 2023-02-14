@@ -1,12 +1,13 @@
 ---
 import magicImage from 'assets/magic.svg?url';
+import waveImage from 'assets/wave.png?url';
 import { APP_CONFIG } from 'appConfig';
 ---
 
 <section class="mb-14">
   <div class="overflow-hidden mb-4 sm:max-w-[16rem]">
     <h1 class="slideup-text leading-[1.25]">
-      <span>Hi <span class="hand-wave mr-2">👋🏻</span> I’m</span>
+      <span>Hi <span class="hand-wave mr-1"><img src={waveImage} width="47" height="60" alt="wave" /></span> I’m</span>
       <span class="gradient-text">
         {APP_CONFIG.USER.shortName}
       </span>
@@ -46,6 +47,7 @@ import { APP_CONFIG } from 'appConfig';
   .hand-wave {
     transform-origin: 70% 70%;
     display: inline-block;
+    margin-bottom: -5px;
     animation-name: wave-animation;
     animation-duration: 2.5s;
     animation-delay: 0.4s;

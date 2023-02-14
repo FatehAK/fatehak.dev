@@ -42,13 +42,17 @@ const { readingTime } = remarkPluginFrontmatter;
     tags={tags}
     readingTime={readingTime}
   />
-  <Tags tags={tags} />
-  <Heading text={title} highlight={highlight} isPost />
-  <PostInfo date={date} lastMod={lastMod} readingTime={readingTime} />
-  <TOC headings={headings} />
-  <Prose>
-    <Content components={markdownComponents} />
-  </Prose>
-  <BackToTop />
-  <PostPagination collection="blog" current={entry} />
+  <div class="h-full flex flex-col justify-between">
+    <div>
+      <Tags tags={tags} />
+      <Heading text={title} highlight={highlight} isPost />
+      <PostInfo date={date} lastMod={lastMod} readingTime={readingTime} />
+      <TOC headings={headings} />
+      <Prose>
+        <Content components={markdownComponents} />
+      </Prose>
+      <BackToTop />
+    </div>
+    <PostPagination path="/blog" current={entry} />
+  </div>
 </PageLayout>

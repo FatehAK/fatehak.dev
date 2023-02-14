@@ -1,10 +1,10 @@
 ---
 import { getCollection } from 'astro:content';
 
-const { collection, current } = Astro.props;
+const { path, current } = Astro.props;
 
 const getSiblingItems = async () => {
-  const postEntries = await getCollection(collection, ({ data }) => data.draft !== true);
+  const postEntries = await getCollection(current.collection, ({ data }) => data.draft !== true);
   if (!postEntries.length || postEntries.length === 1) return;
 
   const sortedPosts = postEntries.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
@@ -41,13 +41,12 @@ if (!siblings) return undefined;
 ---
 
 <nav class="foo mt-8 flex md:flex-col">
-  <div class="flex-1 flex mr-6 md:mr-0 md:mb-5">
+  <div class="flex-1 flex mr-10 md:mr-0 md:mb-5">
     {
       siblings.previous && (
         <div class="sibling-link-wrap md:h-[6.75rem]">
-          <i class="fas fa-arrow-left ml-4 prev" />
-          <a class="unset text-right sibling-link" href={siblings.previous.slug}>
-            <div>Previous Post</div>
+          <a class="unset text-left sibling-link" href={`${path}/${siblings.previous.slug}`}>
+            <div>Previous</div>
             <span class="clamp-lines">{siblings.previous.data.title}</span>
           </a>
         </div>
@@ -57,12 +56,11 @@ if (!siblings) return undefined;
   <div class="flex-1 flex">
     {
       siblings.next && (
-        <div class="sibling-link-wrap md:h-[6.75rem]">
-          <a class="unset text-left sibling-link" href={siblings.next.slug}>
-            <div>Next Post</div>
+        <div class="sibling-link-wrap justify-end md:h-[6.75rem]">
+          <a class="unset text-right sibling-link" href={`${path}/${siblings.next.slug}`}>
+            <div>Next</div>
             <span class="clamp-lines">{siblings.next.data.title}</span>
           </a>
-          <i class="fas fa-arrow-right mr-4 next" />
         </div>
       )
     }
@@ -72,30 +70,13 @@ if (!siblings) return undefined;
 <style>
   .sibling-link-wrap {
     position: relative;
-    display: flex;
-    justify-content: space-between;
     width: 100%;
     border: 1px solid theme('colors.bg.border');
-    border-radius: 6px;
-
-    & > i {
-      align-self: center;
-      font-size: 1rem;
-      color: theme('colors.primary.DEFAULT');
-      transition: transform 0.2s;
-    }
+    border-radius: 0.75rem;
 
     @media (hover: hover) and (pointer: fine) {
       &:hover > a {
         color: theme('colors.primary.DEFAULT');
-      }
-
-      &:hover > i.next {
-        transform: translateX(4px);
-      }
-
-      &:hover > i.prev {
-        transform: translateX(-4px);
       }
     }
   }
@@ -105,6 +86,7 @@ if (!siblings) return undefined;
     display: block;
     margin: 0.8rem 0;
     line-height: 1.5rem;
+    color: theme('colors.text.bold');
     transition: color 0.2s;
 
     &::after {
@@ -119,6 +101,7 @@ if (!siblings) return undefined;
       font-size: 0.8rem;
       font-weight: 300;
       color: theme('colors.text.muted');
+      letter-spacing: 0.03rem;
     }
 
     & .clamp-lines {

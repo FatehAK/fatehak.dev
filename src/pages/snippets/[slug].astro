@@ -31,11 +31,15 @@ const { title, highlight, date, lastMod, tags } = entry.data;
 
 <PageLayout showBack>
   <PageSEO slot="seo" title={title} description={`A snippet on ${title}`} />
-  <Tags tags={tags} />
-  <Heading text={title} highlight={highlight} isPost />
-  <PostInfo date={date} lastMod={lastMod} />
-  <Prose>
-    <Content components={markdownComponents} />
-  </Prose>
-  <PostPagination collection="snippets" current={entry} />
+  <div class="h-full flex flex-col justify-between">
+    <div>
+      <Tags tags={tags} />
+      <Heading text={title} highlight={highlight} isPost />
+      <PostInfo date={date} lastMod={lastMod} />
+      <Prose>
+        <Content components={markdownComponents} />
+      </Prose>
+    </div>
+    <PostPagination path="/snippets" current={entry} />
+  </div>
 </PageLayout>

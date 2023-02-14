@@ -64,6 +64,9 @@ module.exports = {
         parser: '@typescript-eslint/parser',
         extraFileExtensions: ['.astro'],
       },
+      rules: {
+        'astro/jsx-a11y/anchor-has-content': 'off',
+      },
     },
     {
       // Define the configuration for `<script>` tag.

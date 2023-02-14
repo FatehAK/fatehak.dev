@@ -86,35 +86,20 @@
    * INLINE ELEMENTS - START
   */
 
-  .prose :global(strong) {
-    font-weight: 600;
-    color: theme('colors.text.bold');
-  }
-
   .prose :global(code) {
-    padding: 3px 4px;
-    font-family: theme('fontFamily.mono');
     font-size: 0.875rem;
-    color: theme('colors.text.code');
-    background-color: theme('colors.bg.code' / 90%);
-    border: 1px solid theme('colors.bg.border');
-    border-radius: 6px;
-
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-
-    &::before {
-      content: '`';
-    }
-
-    &::after {
-      content: '`';
-    }
   }
 
-  .prose :global(mark) {
-    color: theme('colors.text.selection');
-    background-color: theme('colors.bg.selection');
+  .prose :global(h2 code),
+  .prose :global(h3 code),
+  .prose :global(h4 code),
+  .prose :global(h5 code) {
+    padding: 0;
+    font-size: inherit;
+    font-weight: bold;
+    color: inherit;
+    background-color: transparent;
+    border: 0;
   }
 
   /*
@@ -199,25 +184,18 @@
   }
 
   /* footnotes */
-  .prose :global(sup) {
-    top: -5px;
-    left: 0.5px;
-    font-size: 0.6rem;
+  .prose :global(a[data-footnote-ref]) {
+    all: unset;
+    cursor: pointer;
     font-weight: 500;
+    color: theme('colors.primary.DEFAULT');
 
-    & > :global(a[data-footnote-ref]) {
-      all: unset;
-      cursor: pointer;
-      font-weight: 500;
-      color: theme('colors.primary.DEFAULT');
+    &::before {
+      content: '[';
+    }
 
-      &::before {
-        content: '[';
-      }
-
-      &::after {
-        content: ']';
-      }
+    &::after {
+      content: ']';
     }
   }
 

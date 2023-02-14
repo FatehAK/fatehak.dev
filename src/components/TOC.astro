@@ -3,10 +3,12 @@ const { headings: inputHeadings } = Astro.props;
 
 // only `h2` headings are considered for toc generation
 const headings = inputHeadings.filter(h => h.depth === 2 && h.slug !== 'footnote-label');
+
+if (headings.length <= 1) return undefined;
 ---
 
 {
-  headings.length > 1 && (
+  (
     <nav class="toc-wrapper lg:hidden">
       <div class="font-bold text-text-bold">On this page</div>
       <toc-scroll-spy>
@@ -14,9 +16,7 @@ const headings = inputHeadings.filter(h => h.depth === 2 && h.slug !== 'footnote
           {headings.map(h => {
             return (
               <li class="toc-list-item">
-                <a class="unset toc-anchor" href={`#${h.slug}`}>
-                  {h.text}
-                </a>
+                <a class="unset toc-anchor" href={`#${h.slug}`} />
               </li>
             );
           })}
@@ -54,6 +54,18 @@ const headings = inputHeadings.filter(h => h.depth === 2 && h.slug !== 'footnote
     opacity: 0.4;
     transition: opacity 0.2s;
 
+    & :global(a) {
+      display: none;
+    }
+
+    & :global(code) {
+      padding: 0;
+      font-weight: bold;
+      color: inherit;
+      background-color: transparent;
+      border: 0;
+    }
+
     &.scroll-spy-active {
       color: theme('colors.primary.DEFAULT');
       opacity: 1;
@@ -68,6 +80,13 @@ const headings = inputHeadings.filter(h => h.depth === 2 && h.slug !== 'footnote
 </style>
 
 <script>
+  // ensure h2 children are injected into our toc anchor
+  const headings = document.querySelectorAll('.prose h2');
+  headings?.forEach(head => {
+    const anchor = document.querySelector(`.toc-anchor[href="#${head.getAttribute('id')}"]`) as HTMLElement;
+    if (anchor) anchor.innerHTML = head.innerHTML;
+  });
+
   /* global NodeListOf */
   class TocScrollSpy extends HTMLElement {
     tocActiveClass: string;
@@ -111,7 +130,7 @@ const headings = inputHeadings.filter(h => h.depth === 2 && h.slug !== 'footnote
       const indexOfElementIntersecting = entries.findIndex(entry => entry.intersectionRatio > 0);
 
       const headingAnchors = new Map(
-        [...this.querySelectorAll('a')].map(anchor => [anchor.getAttribute('href'), anchor])
+        [...this.querySelectorAll('.toc-anchor')].map(anchor => [anchor.getAttribute('href'), anchor])
       );
 
       if (indexOfElementIntersecting > -1) {

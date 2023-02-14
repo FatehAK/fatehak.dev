@@ -140,3 +140,7 @@
 .fa-arrow-left::before {
   content: '\f060';
 }
+
+.fa-arrow-turn-up::before {
+  content: '\f148';
+}

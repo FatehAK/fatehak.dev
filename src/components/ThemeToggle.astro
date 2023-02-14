@@ -37,9 +37,12 @@
   class ThemeToggle extends HTMLElement {
     constructor() {
       super();
+    }
+
+    connectedCallback() {
       let currentMode = document.documentElement.getAttribute('data-theme');
-      const toggle = this.querySelector('button');
-      const iconElem = toggle?.querySelector('#theme-toggle-circle');
+      const toggle = this.querySelector('button') as HTMLElement;
+      const iconElem = toggle.querySelector('#theme-toggle-circle') as HTMLElement;
 
       if (iconElem) {
         // set the toggle mode based on the html classname
@@ -52,7 +55,7 @@
         // remove visibility class after setting initial dark/light class
         iconElem.classList.remove('invisible');
 
-        toggle?.addEventListener('click', () => {
+        toggle.addEventListener('click', () => {
           if (currentMode === 'dark') {
             iconElem.classList.remove('dark-icon');
             iconElem.classList.add('light-icon');

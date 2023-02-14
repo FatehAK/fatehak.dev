@@ -182,6 +182,9 @@ const langIcon = iconMap[lang];
   class CopyCode extends HTMLElement {
     constructor() {
       super();
+    }
+
+    connectedCallback() {
       const copyCodeBtn = this.querySelector('.copy-code-btn') as HTMLElement;
       const copyCodeSuccess = this.querySelector('.copy-code-success') as HTMLElement;
 

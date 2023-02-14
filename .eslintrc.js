@@ -53,6 +53,7 @@ module.exports = {
     ],
     'import/no-unresolved': ['error', { ignore: ['^virtual:', '^astro:'] }],
     'promise/always-return': ['error', { ignoreLastCallback: true }],
+    'no-useless-constructor': 'off',
   },
   plugins: ['only-warn'],
   overrides: [

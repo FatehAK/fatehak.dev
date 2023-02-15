@@ -100,6 +100,10 @@
     color: inherit;
     background-color: transparent;
     border: 0;
+
+    & :global(span) {
+      color: inherit !important;
+    }
   }
 
   /*
@@ -129,7 +133,6 @@
       content: counter(list-item, decimal) '.';
       position: absolute;
       left: 7px;
-      font-weight: 500;
       color: theme('colors.primary.DEFAULT');
     }
   }
@@ -139,10 +142,12 @@
     padding-left: 2.2em;
 
     &::before {
-      content: '>';
+      content: '⮑';
       position: absolute;
+      top: 3px;
       left: 7px;
-      font-weight: 600;
+      font-size: 0.7rem;
+      font-weight: 500;
       color: theme('colors.primary.DEFAULT');
     }
   }

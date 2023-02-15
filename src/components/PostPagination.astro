@@ -44,7 +44,7 @@ if (!siblings) return undefined;
   <div class="flex-1 flex mr-10 md:mr-0 md:mb-5">
     {
       siblings.previous && (
-        <div class="sibling-link-wrap md:h-[6.75rem]">
+        <div class="sibling-link-wrap">
           <a class="unset text-left sibling-link" href={`${path}/${siblings.previous.slug}`}>
             <div>Previous</div>
             <span class="clamp-lines">{siblings.previous.data.title}</span>
@@ -56,7 +56,7 @@ if (!siblings) return undefined;
   <div class="flex-1 flex">
     {
       siblings.next && (
-        <div class="sibling-link-wrap justify-end md:h-[6.75rem]">
+        <div class="sibling-link-wrap justify-end">
           <a class="unset text-right sibling-link" href={`${path}/${siblings.next.slug}`}>
             <div>Next</div>
             <span class="clamp-lines">{siblings.next.data.title}</span>
@@ -102,7 +102,7 @@ if (!siblings) return undefined;
       font-size: 0.8rem;
       font-weight: 300;
       color: theme('colors.text.muted');
-      letter-spacing: 0.03rem;
+      letter-spacing: 0.02rem;
     }
 
     & .clamp-lines {

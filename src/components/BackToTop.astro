@@ -2,7 +2,7 @@
 ---
 
 <back-to-top>
-  <div class="justify-end mt-8 hidden">
+  <div class="flex justify-end mt-8">
     <button type="button" class="text-primary text-sm py-3 back-to-top" aria-label="Back to top">
       Back to top<i class="fas fa-arrow-turn-up ml-1"></i>
     </button>
@@ -20,10 +20,12 @@
       const clientHeight = document.documentElement.clientHeight;
 
       // don't show the button when content is not scrollable
-      if (scrollHeight === clientHeight) return;
+      if (scrollHeight === clientHeight) {
+        const backToTopBtnWrapper = this.querySelector('div') as HTMLElement;
+        backToTopBtnWrapper.style.display = 'none';
 
-      const backToTopBtnWrapper = this.querySelector('div') as HTMLElement;
-      backToTopBtnWrapper.style.display = 'flex';
+        return;
+      }
 
       const backToTopBtn = this.querySelector('button') as HTMLElement;
 

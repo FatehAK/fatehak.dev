@@ -10,11 +10,11 @@
   --color-bg-selection: 34 211 238; /* #22d3ee */
   --color-text-heading: 255 255 255; /* #fff */
   --color-text-body: 207 211 217; /* #d1d5db */
-  --color-text-bold: 255 255 255; /* #fff */
+  --color-text-bold: 248 248 248; /* #f8f8f8 */
   --color-bg-code: 26 34 44; /* #1a222c */
   --color-bg-code-highlight: 156 163 175; /* #9ca3af */
   --color-border-code: 39 51 62; /* #27333e */
-  --color-text-code: 255 255 255; /* #fff */
+  --color-text-code: 248 248 248; /* #f8f8f8 */
 
   color-scheme: dark;
 }
@@ -29,13 +29,13 @@
   --color-secondary: 34 212 242; /* #22d4f2 */
   --color-text-selection: 255 255 255; /* #fff */
   --color-bg-selection: 244 112 114; /* #f47072 */
-  --color-text-heading: 17 24 39; /* #111827 */
+  --color-text-heading: 14 20 32; /* #0e1420 */
   --color-text-body: 55 65 81; /* #374151 */
   --color-text-bold: 17 24 39; /* #111827 */
   --color-bg-code: 32 42 53; /* #202a35 */
   --color-bg-code-highlight: 175 182 200; /* #afb6c8 */
   --color-border-code: 47 61 75; /* #e7e7e7 */
-  --color-text-code: 255 255 255; /* #fff */
+  --color-text-code: 248 248 248; /* #f8f8f8 */
 
   color-scheme: light;
 }

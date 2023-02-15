@@ -10,9 +10,9 @@ if (headings.length <= 1) return undefined;
 {
   (
     <nav class="toc-wrapper lg:hidden">
-      <div class="font-bold text-text-bold">On this page</div>
+      <div class="text-[0.94rem] font-[600] text-text-heading">On this page</div>
       <toc-scroll-spy>
-        <ul class="toc-list mt-3">
+        <ul class="toc-list mt-2">
           {headings.map(h => {
             return (
               <li class="toc-list-item">
@@ -30,7 +30,7 @@ if (headings.length <= 1) return undefined;
   .toc-wrapper {
     position: fixed;
     top: 17rem;
-    left: 7rem;
+    left: 4rem;
     overflow: auto;
     overscroll-behavior: contain;
     max-width: 18rem;
@@ -64,6 +64,10 @@ if (headings.length <= 1) return undefined;
       color: inherit;
       background-color: transparent;
       border: 0;
+
+      & :global(span) {
+        color: inherit !important;
+      }
     }
 
     &.scroll-spy-active {

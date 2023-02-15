@@ -2,8 +2,8 @@
   "name": "One Hunter Theme",
   "type": "dark",
   "colors": {
-    "editor.background": "#000000",
-    "editor.foreground": "#fff"
+    "editor.background": "#1a222c",
+    "editor.foreground": "#f8f8f8"
   },
   "tokenColors": [
     {
@@ -29,7 +29,7 @@
     {
       "scope": ["comment.block.documentation storage.type"],
       "settings": {
-        "foreground": "#fff",
+        "foreground": "#f8f8f8",
         "fontStyle": "italic"
       }
     },
@@ -92,7 +92,7 @@
     {
       "scope": "punctuation.definition.tag",
       "settings": {
-        "foreground": "#fff",
+        "foreground": "#f8f8f8",
         "fontStyle": ""
       }
     },
@@ -152,7 +152,7 @@
     {
       "scope": "variable.parameter",
       "settings": {
-        "foreground": "#fff",
+        "foreground": "#f8f8f8",
         "fontStyle": ""
       }
     },
@@ -187,7 +187,7 @@
     {
       "scope": ["support.type"],
       "settings": {
-        "foreground": "#fff",
+        "foreground": "#f8f8f8",
         "fontStyle": ""
       }
     },
@@ -215,7 +215,7 @@
     {
       "scope": "invalid.illegal",
       "settings": {
-        "foreground": "#fff"
+        "foreground": "#f8f8f8"
       }
     },
     {
@@ -267,7 +267,7 @@
     {
       "scope": "meta.property-value punctuation.separator.key-value",
       "settings": {
-        "foreground": "#fff"
+        "foreground": "#f8f8f8"
       }
     },
     {
@@ -294,7 +294,7 @@
     {
       "scope": "variable.other",
       "settings": {
-        "foreground": "#fff",
+        "foreground": "#f8f8f8",
         "fontStyle": "normal"
       }
     },
@@ -405,13 +405,13 @@
     {
       "scope": "meta.object.member variable.other.readwrite.tsx",
       "settings": {
-        "foreground": "#fff"
+        "foreground": "#f8f8f8"
       }
     },
     {
       "scope": "meta.structure.dictionary.json string.quoted.double.json",
       "settings": {
-        "foreground": "#fff"
+        "foreground": "#f8f8f8"
       }
     },
     {
@@ -537,7 +537,7 @@
       "name": "PHP: Class name",
       "scope": ["support.class.php"],
       "settings": {
-        "foreground": "#fff"
+        "foreground": "#f8f8f8"
       }
     },
     {

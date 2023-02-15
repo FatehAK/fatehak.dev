@@ -16,7 +16,7 @@
     "stylelint-check": "stylelint --max-warnings=25 --custom-formatter=node_modules/stylelint-formatter-pretty --aei --cache --cache-strategy content --cache-location ./node_modules/.cache/.stylelintcache '{**/*,*}.{css,astro}'",
     "stylelint-fix": "pnpm stylelint-check --fix",
     "eslint-check": "eslint --max-warnings=25 --format=pretty --cache --cache-strategy content --cache-location ./node_modules/.cache/.eslintcache '{**/*,*}.{js,ts,mjs,astro,mdx,md}'",
-    "eslint-fix": "pnpm eslint-check --fix",
+    "eslint-fix": "eslint --max-warnings=25 --format=pretty --cache --cache-strategy content --cache-location ./node_modules/.cache/.eslintcache '{**/*,*}.{js,ts,mjs,astro} --fix",
     "prepare": "husky install",
     "lint-staged": "lint-staged",
     "cz": "czg"
@@ -83,6 +83,7 @@
     "rehype-slug": "^5.1.0",
     "remark-emoji": "^3.1.0",
     "remark-frontmatter": "^4.0.1",
+    "remark-gfm": "^3.0.1",
     "remark-lint": "^9.1.1",
     "remark-preset-lint-consistent": "^5.1.1",
     "remark-preset-lint-recommended": "^6.1.2",

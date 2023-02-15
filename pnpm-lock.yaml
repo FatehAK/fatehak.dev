@@ -42,6 +42,7 @@ specifiers:
   rehype-slug: ^5.1.0
   remark-emoji: ^3.1.0
   remark-frontmatter: ^4.0.1
+  remark-gfm: ^3.0.1
   remark-lint: ^9.1.1
   remark-preset-lint-consistent: ^5.1.1
   remark-preset-lint-recommended: ^6.1.2
@@ -102,6 +103,7 @@ devDependencies:
   rehype-slug: 5.1.0
   remark-emoji: 3.1.0
   remark-frontmatter: 4.0.1
+  remark-gfm: 3.0.1
   remark-lint: 9.1.1
   remark-preset-lint-consistent: 5.1.1
   remark-preset-lint-recommended: 6.1.2

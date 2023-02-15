@@ -75,10 +75,19 @@ module.exports = {
       parser: '@typescript-eslint/parser',
     },
     {
-      files: ['*.mdx', '*.md'],
-      extends: 'plugin:mdx/recommended',
+      files: ['*.md', '*.mdx'],
+      parser: 'eslint-plugin-markdownlint/parser',
+      extends: ['plugin:markdownlint/recommended'],
       rules: {
-        'no-unused-vars': 'off',
+        'markdownlint/md033': 'off', // allow html tags
+        'markdownlint/md013': 'off', // no limit on line length
+        'markdownlint/md014': 'off', // allow $ prefix for shell cmds
+        'markdownlint/md004': ['error', { style: 'dash' }], // dash ul
+        'markdownlint/md049': ['error', { style: 'asterisk' }], // asterisk em
+        'markdownlint/md050': ['error', { style: 'asterisk' }], // asterisk b
+        'markdownlint/md003': ['error', { style: 'atx' }], // atx style headings
+        'markdownlint/md035': ['error', { style: '---' }], // style for hr
+        'markdownlint/md048': ['error', { style: 'backtick' }], // codefence style
       },
     },
   ],
@@ -96,7 +105,6 @@ module.exports = {
           ['layout', './src/layouts'],
           ['pages', './src/pages'],
           ['components', './src/components'],
-          ['lib', './src/lib'],
           ['utils', './src/utils'],
           ['theme', './src/theme'],
           ['constants', './src/constants'],

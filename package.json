@@ -16,7 +16,7 @@
     "stylelint-check": "stylelint --max-warnings=25 --custom-formatter=node_modules/stylelint-formatter-pretty --aei --cache --cache-strategy content --cache-location ./node_modules/.cache/.stylelintcache '{**/*,*}.{css,astro}'",
     "stylelint-fix": "pnpm stylelint-check --fix",
     "eslint-check": "eslint --max-warnings=25 --format=pretty --cache --cache-strategy content --cache-location ./node_modules/.cache/.eslintcache '{**/*,*}.{js,ts,mjs,astro,mdx,md}'",
-    "eslint-fix": "eslint --max-warnings=25 --format=pretty --cache --cache-strategy content --cache-location ./node_modules/.cache/.eslintcache '{**/*,*}.{js,ts,mjs,astro} --fix",
+    "eslint-fix": "pnpm eslint-check --fix",
     "prepare": "husky install",
     "lint-staged": "lint-staged",
     "cz": "czg"
@@ -25,19 +25,6 @@
     "defaults and supports es6-module",
     "maintained node versions"
   ],
-  "remarkConfig": {
-    "plugins": [
-      "remark-lint",
-      "remark-gfm",
-      "remark-frontmatter",
-      "remark-preset-lint-consistent",
-      "remark-preset-lint-recommended",
-      [
-        "remark-lint-list-item-indent",
-        "space"
-      ]
-    ]
-  },
   "dependencies": {
     "@astrojs/mdx": "^0.16.0",
     "tailwindcss": "^3.2.6"
@@ -65,7 +52,7 @@
     "eslint-plugin-astro": "^0.23.0",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-jsx-a11y": "^6.7.1",
-    "eslint-plugin-mdx": "^2.0.5",
+    "eslint-plugin-markdownlint": "^0.4.0",
     "eslint-plugin-only-warn": "^1.1.0",
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-sonarjs": "^0.18.0",
@@ -82,11 +69,6 @@
     "rehype-pretty-code": "^0.9.3",
     "rehype-slug": "^5.1.0",
     "remark-emoji": "^3.1.0",
-    "remark-frontmatter": "^4.0.1",
-    "remark-gfm": "^3.0.1",
-    "remark-lint": "^9.1.1",
-    "remark-preset-lint-consistent": "^5.1.1",
-    "remark-preset-lint-recommended": "^6.1.2",
     "rimraf": "^4.1.2",
     "sharp": "^0.31.3",
     "shiki": "^0.14.1",

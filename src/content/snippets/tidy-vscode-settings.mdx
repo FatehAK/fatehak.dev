@@ -1,0 +1,100 @@
+---
+date: '2023-02-16T18:27:14.902Z'
+lastMod: '2023-02-16T20:25:03.630Z'
+title: Tidy up your VSCode settings
+highlight: VSCode
+tags:
+  - ide
+  - vscode
+---
+
+VSCode's plugin ecosystem is vast, and there are tons of settings to configure as we go along our development work.
+
+One fine day, I was adding a few extensions for working with [Astro](https://astro.build/) and was changing a configuration. At this moment I noticed what an unmaintainable mess the `settings.json` file has become after years of experimenting with various extensions, themes, custom configs and what not!
+
+Sometimes there would be an extension config right in the middle of some default settings or the reverse. I grew tired of sifting through the `settings.json` file to understand where's what. Also, I felt we adjust our settings adhoc and forget to check if a group for it already exists.
+
+## Implementation
+
+To solve this, I thought let's quickly create a simple script to sort all settings by keeping the top level parent keys as the reference point.
+
+```js {4,16}
+const json = {}; // Pass content of settings.json here
+
+function sortVSCodeSettings(json) {
+  // STEP 1: group by parent keys
+  const groups = {};
+  for (key in json) {
+    // if the key includes a `.` we consider it as a parent key to sort on
+    if (key.includes('.')) {
+      const parent = `$$${key.split('.')[0]}`;
+      groups[parent] = { ...groups[parent], [key]: json[key] };
+    } else {
+      groups[key] = json[key];
+    }
+  }
+
+  // STEP 2: flatten all groups
+  let result = {};
+  for (key in groups) {
+    // a `$$` prefix means it's a parent key
+    if (key.startsWith('$$')) {
+      result = { ...result, ...groups[key] };
+    } else {
+      result[key] = groups[key];
+    }
+  }
+  return result;
+}
+
+sortVSCodeSettings(json);
+```
+
+Input ungrouped settings:
+
+```json
+{
+  "editor.fontFamily": "Source Code Pro",
+  "workbench.editor.highlightModifiedTabs": true,
+  "workbench.editor.wrapTabs": true,
+  "editor.tabSize": 2,
+  "editor.fontSize": 14,
+  "workbench.colorTheme": "Greyspace",
+  "html.autoClosingTags": true,
+  "html.format.wrapLineLength": 140,
+  "javascript.preferences.quoteStyle": "single",
+  "eslint.runtime": "node",
+  "workbench.editor.tabCloseButton": "right",
+  "eslint.execArgv": ["--max_old_space_size=8192"],
+  "html.format.maxPreserveNewLines": 1,
+  // ...150 more lines of ungrouped keys
+}
+```
+
+Sorted Output:
+
+```json
+{
+   "editor.fontFamily": "Source Code Pro",
+   "editor.tabSize": 2,
+   "editor.fontSize": 14,
+   "workbench.editor.highlightModifiedTabs": true,
+   "workbench.editor.wrapTabs": true,
+   "workbench.colorTheme": "Greyspace",
+   "workbench.editor.tabCloseButton": "right",
+   "html.autoClosingTags": true,
+   "html.format.wrapLineLength": 140,
+   "html.format.maxPreserveNewLines": 1,
+   "javascript.preferences.quoteStyle": "single",
+   "eslint.runtime": "node",
+   "eslint.execArgv": ["--max_old_space_size=8192"],
+   // ...rest
+}
+```
+
+The script is simple you will have to pass the content of your `settings.json` as the input and you get a sorted json as the output.
+
+> ;info;
+> **Tip**: You can view your settings by typing in `Open User Settings (JSON)` in the command pallete.
+
+My settings now feel super organized and accessible for sure!

@@ -67,9 +67,8 @@ const langIcon = iconMap[lang];
   .lang-icon {
     user-select: none;
     position: absolute;
-    top: 11px;
-    left: 16px;
-    display: none;
+    top: 4px;
+    right: 6px;
   }
 
   /* code title */
@@ -88,15 +87,16 @@ const langIcon = iconMap[lang];
     -moz-osx-font-smoothing: grayscale;
 
     & + .code-block-inner > .lang-icon {
-      display: block;
+      top: 11px;
+      left: 16px;
     }
   }
 
   .code-block-inner > pre > :global(code) {
     overflow: auto;
     display: grid;
-    max-height: 48rem;
-    padding: 1rem 0;
+    max-height: 80rem;
+    padding: 1.1rem 0;
     font-family: theme('fontFamily.mono');
     font-weight: 400;
     line-height: 1.7;

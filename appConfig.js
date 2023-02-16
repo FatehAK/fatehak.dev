@@ -3,6 +3,7 @@ import rehypePrettyCode from 'rehype-pretty-code';
 import rehypeSlug from 'rehype-slug';
 import rehypeHeadingsAutoLink from 'rehype-autolink-headings';
 import rehypeSectionize from '@hbsnow/rehype-sectionize';
+import rehypeExternalLinks from 'rehype-external-links';
 import themeJSON from './src/theme/syntax-highlight.json';
 import remarkReadingTime from './scripts/remark-reading-time.js';
 
@@ -94,6 +95,7 @@ export const MDX_CONFIG = {
         },
       },
     ],
+    [rehypeExternalLinks, { target: '_blank', rel: 'noopener noreferrer' }],
     rehypeSectionize,
   ],
 };

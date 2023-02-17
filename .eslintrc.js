@@ -82,6 +82,7 @@ module.exports = {
         'markdownlint/md033': 'off', // allow html tags
         'markdownlint/md013': 'off', // no limit on line length
         'markdownlint/md014': 'off', // allow $ prefix for shell cmds
+        'markdownlint/md041': 'off', // disable h1 first rule
         'markdownlint/md004': ['error', { style: 'dash' }], // dash ul
         'markdownlint/md049': ['error', { style: 'asterisk' }], // asterisk em
         'markdownlint/md050': ['error', { style: 'asterisk' }], // asterisk b

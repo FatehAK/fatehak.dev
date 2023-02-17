@@ -4,10 +4,9 @@ const matter = require('gray-matter');
 (async () => {
   const [, , ...mdFilePaths] = process.argv;
 
-  const contentPaths = mdFilePaths.filter(p => !!p.match(/\/content\//));
   const modifiedDate = new Date().toISOString();
 
-  const handles = contentPaths.map(async path => {
+  const handles = mdFilePaths.map(async path => {
     const file = matter.read(path);
     const { data: currentFrontmatter } = file;
 

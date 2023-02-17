@@ -1,5 +1,10 @@
 ---
-const { date, lastMod, readingTime } = Astro.props;
+const { date: inputDate, lastMod: inputLastMod, readingTime } = Astro.props;
+
+let date = inputDate;
+let lastMod = inputLastMod;
+if (typeof date === 'string') date = new Date(date);
+if (typeof lastMod === 'string') lastMod = new Date(lastMod);
 
 let isPublishedDateSameAsModified = true;
 if (lastMod) isPublishedDateSameAsModified = date.toLocaleDateString() === lastMod.toLocaleDateString();

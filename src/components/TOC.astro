@@ -107,7 +107,7 @@ if (headings.length <= 1) return undefined;
           const articleContent = document.querySelector('article') as HTMLElement;
           const sections = articleContent?.querySelectorAll('section[data-heading-rank="2"]') as NodeListOf<Element>;
           this.observer = new IntersectionObserver(this.scrollSpy, {
-            rootMargin: '-30% 0px -60% 0px',
+            rootMargin: '-5% 0px -90% 0px',
           });
           sections?.forEach(e => this.observer.observe(e));
         } else {

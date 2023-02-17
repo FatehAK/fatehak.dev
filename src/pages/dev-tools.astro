@@ -2,9 +2,25 @@
 import PageLayout from 'layouts/PageLayout.astro';
 import PageSEO from 'components/PageSEO.astro';
 import Heading from 'components/Heading.astro';
+import Prose from 'components/Prose.astro';
+import TOC from 'components/TOC.astro';
+import PostInfo from 'components/PostInfo.astro';
+import BackToTop from 'components/BackToTop.astro';
+import markdownComponents from 'components/markdown';
+import * as mdxContent from './_dev-tools/content.mdx';
+
+const { Content, getHeadings, frontmatter } = mdxContent;
+
+const headings = await getHeadings();
 ---
 
 <PageLayout>
   <PageSEO slot="seo" title="Dev Tools" />
   <Heading text="Dev Tools" highlight="Tools" />
+  <PostInfo date={frontmatter.date} lastMod={frontmatter.lastMod} />
+  <TOC headings={headings} />
+  <Prose>
+    <Content components={markdownComponents} />
+  </Prose>
+  <BackToTop />
 </PageLayout>

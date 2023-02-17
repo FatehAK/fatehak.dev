@@ -109,13 +109,9 @@
     padding: 3px 4px;
     font-family: theme('fontFamily.mono');
     font-size: inherit;
-    color: theme('colors.text.code');
-    background-color: theme('colors.bg.code' / 90%);
+    background-color: theme('colors.text.body' / 2%);
     border: 1px solid theme('colors.bg.border');
     border-radius: 6px;
-
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
 
     &::before {
       content: '`';

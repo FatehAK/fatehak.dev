@@ -59,11 +59,9 @@ if (headings.length <= 1) return undefined;
     }
 
     & :global(code) {
-      padding: 0;
       font-weight: bold;
-      color: inherit;
-      background-color: transparent;
-      border: 0;
+      color: inherit !important;
+      filter: none !important;
 
       & :global(span) {
         color: inherit !important;

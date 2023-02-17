@@ -15,7 +15,7 @@
    * BLOCK ELEMENTS - START
   */
   .prose :global(h2) {
-    margin-top: 2em;
+    margin-top: 1.8em;
     margin-bottom: 1em;
     line-height: 1.33;
 
@@ -25,13 +25,13 @@
   }
 
   .prose :global(h3) {
-    margin-top: 1.6em;
+    margin-top: 1.5em;
     margin-bottom: 0.6em;
     line-height: 1.6;
   }
 
   .prose :global(h4) {
-    margin-top: 1.5em;
+    margin-top: 1.4em;
     margin-bottom: 0.5em;
     line-height: 1.5;
   }
@@ -94,12 +94,10 @@
   .prose :global(h3 code),
   .prose :global(h4 code),
   .prose :global(h5 code) {
-    padding: 0;
     font-size: inherit;
-    font-weight: bold;
-    color: inherit;
-    background-color: transparent;
-    border: 0;
+    font-weight: inherit;
+    color: inherit !important;
+    filter: none !important;
 
     & :global(span) {
       color: inherit !important;
@@ -122,12 +120,23 @@
     & :global(li) {
       margin-top: 0.5em;
       margin-bottom: 0.5em;
+
+      & :global(p:first-of-type) {
+        margin-bottom: 0;
+      }
     }
+  }
+
+  .prose :global(ul ol),
+  .prose :global(ul ul),
+  .prose :global(ol ul),
+  .prose :global(ol ol) {
+    margin-top: 0;
   }
 
   .prose :global(ol > li) {
     position: relative;
-    padding-left: 2.2em;
+    padding-left: 2.1em;
 
     &::before {
       content: counter(list-item, decimal) '.';
@@ -139,14 +148,14 @@
 
   .prose :global(ul > li) {
     position: relative;
-    padding-left: 2.2em;
+    padding-left: 2.1em;
 
     &::before {
-      content: '⮑';
+      content: '>';
       position: absolute;
-      top: 3px;
+      top: -1px;
       left: 7px;
-      font-size: 0.7rem;
+      font-size: 0.96rem;
       font-weight: 500;
       color: theme('colors.primary.DEFAULT');
     }

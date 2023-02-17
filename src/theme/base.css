@@ -106,20 +106,26 @@
   }
 
   code:not(.unset) {
-    padding: 3px 4px;
     font-family: theme('fontFamily.mono');
     font-size: inherit;
-    background-color: theme('colors.text.body' / 2%);
-    border: 1px solid theme('colors.bg.border');
-    border-radius: 6px;
+
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
 
     &::before {
       content: '`';
+      font-weight: 600;
     }
 
     &::after {
       content: '`';
+      font-weight: 600;
     }
+  }
+
+  [data-theme='light'] code:not(.unset) {
+    color: theme('colors.text.code');
+    filter: invert(1);
   }
 
   mark:not(.unset) {

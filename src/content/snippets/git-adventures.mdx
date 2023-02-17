@@ -1,0 +1,59 @@
+---
+date: '2023-02-17T10:50:34.069Z'
+lastMod: '2023-02-17T14:00:31.238Z'
+title: Adventures with Git
+highlight: Git
+tags:
+  - git
+---
+
+A compilation of various `git` commands as I went on with my daily development work are listed here. I plan to keep this page updated as I explore more.
+
+- **Clone with submodules**: `git clone --recurse-submodules [repo]{:bash}`
+
+- **Clone a single branch**: `git clone --single-branch -b [branch name] [repo]{:shell}`
+
+- **Add or update submodules to an already cloned project**:
+  - `git submodule update --init --recursive{:shell}` (add)
+  - `git submodule update --recursive --remote{:shell}` (update)
+
+- **Delete local branches non-existent on remote**: `git branch -vv | grep 'origin/.*: gone]' | awk '{print $1}' | xargs git branch -d{:shell}`
+
+- **Rebase a `feature` branch onto `main`**:
+  1. Check out and pull both branches.
+  2. `git checkout main && git pull{:shell}`
+  3. `git rebase [feat_branch]{:shell}`
+  4. Also, rebase with origin if needed `git rebase origin/main{:shell}`
+  5. Resolve conflicts if any and do `git add .{:shell}`
+  6. `git rebase --continue{:shell}`
+
+- **Cherry pick**:
+
+  1. Pull both branches and checkout `main`.
+  2. Gather `SHA`'s of commits you'd like to pick from your `feat` branch.
+  3. Do `git cherry-pick [COMMIT_SHA]{:shell}` (note: `COMMIT_SHA` should be taken in the oldest first order)
+  4. Resolve conflicts if any and do `git add .{:shell}`
+  5. `git cherry-pick --continue{:shell}`
+
+- **Revert a commit**:
+  - `git revert HEAD{:shell}` (will revert the topmost commit)
+  - `git revert [SHA]{:shell}`
+
+- **Push a new branch to remote**: `git push --set-upstream origin [local_branch]{:shell}`
+
+- **Reset a file in local**: `git checkout HEAD -- [path to file]{:shell}`
+
+- **Check which git tag has a given commit**: `git tag --contains [SHA]{:shell}`
+
+- **Create a patch from changes**:
+  - `git diff > [patch_name.patch]{:shell}` for unstaged changes.
+  - `git diff --cached [patch_name.patch]{:shell}` for staged changes.
+  - `git diff HEAD [patch_name.patch]{:shell}` for both staged and unstaged changes.
+
+- **Create a patch from commit**: `git format-patch -1 HEAD{:shell}` (-1 signifies one commit to be added in patch)
+
+- **Apply a local patch**: `git apply [patch_path]{:shell}`
+
+- **Apply a patch from commit**: `git am -3 < file.patch{:shell}`
+
+- **Stash only unstaged changes**: `git stash -k{:shell}`

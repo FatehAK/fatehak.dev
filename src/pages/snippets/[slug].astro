@@ -32,7 +32,7 @@ const { title, highlight, date, lastMod, tags } = entry.data;
 <PageLayout showBack>
   <PageSEO slot="seo" title={title} description={`A snippet on ${title}`} />
   <div class="h-full flex flex-col justify-between">
-    <div class="mb-4">
+    <div>
       <Tags tags={tags} />
       <Heading text={title} highlight={highlight} isPost />
       <PostInfo date={date} lastMod={lastMod} />

@@ -1,0 +1,27 @@
+---
+---
+
+<div class="mt-12 mb-10 flex justify-center">
+  <svg preserveAspectRatio="none" fill="none" class="slash-line" style="width: 100%; max-width: 100px;">
+    <line x1="0" y1="0" x2="20" y2="10"></line>
+    <line x1="20" y1="0" x2="40" y2="10"></line>
+    <line x1="40" y1="0" x2="60" y2="10"></line>
+    <line x1="60" y1="0" x2="80" y2="10"></line>
+    <line x1="80" y1="0" x2="100" y2="10"></line>
+  </svg>
+</div>
+
+<style>
+  .slash-line {
+    overflow: visible;
+    display: block;
+    height: 0.625rem;
+
+    & > line {
+      stroke: theme('colors.text.body' / 18%);
+      stroke-linecap: round;
+      stroke-width: 2px;
+      vector-effect: non-scaling-stroke;
+    }
+  }
+</style>

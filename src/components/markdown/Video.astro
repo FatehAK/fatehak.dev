@@ -1,0 +1,21 @@
+---
+const { src } = Astro.props;
+const children = await Astro.slots.render('default');
+---
+
+<div class="video-container break-padding">
+  <video class="rounded-[6px]" width="704" controls muted disablepictureinpicture>
+    <source src={src} type="video/mp4" />
+  </video>
+  {
+    children && (
+      <div class="video-caption pt-2 text-center text-sm leading-[1.5] text-text-body/70" set:html={children} />
+    )
+  }
+</div>
+
+<style>
+  video {
+    aspect-ratio: 16/9;
+  }
+</style>

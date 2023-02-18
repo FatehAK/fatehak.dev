@@ -8,9 +8,9 @@ const isGif = src.format === 'gif';
 const { image, sources } = await getPicture({
   src,
   alt,
-  widths: [576, 768, 1200, 1400, 1600],
+  widths: [576, 768, 1400],
   // @ts-ignore
-  formats: isGif ? ['gif'] : ['avif', 'webp'],
+  formats: isGif ? ['gif'] : ['webp'],
   fit: 'fill',
 });
 

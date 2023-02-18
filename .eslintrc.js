@@ -66,6 +66,7 @@ module.exports = {
       },
       rules: {
         'astro/jsx-a11y/anchor-has-content': 'off',
+        'astro/jsx-a11y/media-has-caption': 'off',
       },
     },
     {

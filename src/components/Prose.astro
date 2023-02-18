@@ -7,10 +7,6 @@
     margin-top: 0;
   }
 
-  .prose > :global(:last-child) {
-    margin-bottom: 0;
-  }
-
   /*
    * BLOCK ELEMENTS - START
   */
@@ -42,11 +38,13 @@
     border-color: theme('colors.bg.border');
   }
 
-  .prose :global(figure) {
+  .prose :global(figure),
+  .prose :global(.video-container) {
     margin-top: 2em;
     margin-bottom: 2em;
 
-    & > :global(figcaption p) {
+    & > :global(figcaption p),
+    & > :global(.video-caption p) {
       margin: 0;
     }
   }
@@ -214,7 +212,7 @@
   }
 
   .prose :global(section[data-footnotes]) {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 
     & :global(a[data-footnote-backref]) {
       display: none;

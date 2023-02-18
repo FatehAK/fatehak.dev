@@ -1,0 +1,125 @@
+---
+date: '2023-02-18T09:12:07.197Z'
+lastMod: '2023-02-18T20:05:44.202Z'
+title: Hassle-free NPM package publishing with release-it
+seoTitle: Hassle-free NPM package publishing with release-it
+highlight: release-it
+description: Publish your package to NPM without any hassle using release-it
+tags:
+  - npm
+---
+
+import demoVideo from 'assets/posts/hassle-free-publish-releaseit/demo.mp4';
+import semverImage from 'assets/posts/hassle-free-publish-releaseit/semver.png';
+import ghReleasesImage from 'assets/posts/hassle-free-publish-releaseit/gh-releases.png';
+
+I've just created my first NPM package and was scouring the web for ways to automate the process of publishing it.
+
+Here were my requirements:
+
+- A single command from start to end.
+- Every release should follow [semver](https://semver.org/) with automatic creation of git tags.
+- Simple way to choose the type of release. (major / minor / patch)
+- Auto generation of release notes based on commit history.
+- Possibility to draft a release on GitHub. (nice to have)
+
+<Figure alt="Semantic Versioning" src={semverImage}>
+  A git tag with semver (credit: baeldung)
+</Figure>
+
+As I was searching for tools that could accomplish the above, I came across [release-it](https://github.com/release-it/release-it) which satisfied all of my requirements with the the right amount of flexibility.
+
+## Demo
+
+Here is a short demo of me publishing a package using [release-it](https://github.com/release-it/release-it):
+
+<Video src={demoVideo}>Publishing my package <a href="https://github.com/FatehAK/genzo-cli">genzo</a> to NPM</Video>
+
+A GitHub release is created with the `draft` status and also the changelog and assets are prefilled and uploaded already without any manual intervention.
+
+<Figure alt="GitHub draft release" src={ghReleasesImage}>
+ A GitHub draft release with the changelog prefilled (can be made succinct later)
+</Figure>
+
+The whole process only took around a minute else we would have to type in various commands in sequence for bumping the version, generating a git tag, creating a tarball, writing a changelog and finally publishing the package to NPM.
+
+All of these steps are automated by [release-it](https://github.com/release-it/release-it) and every aspect of it is customizable as well with a configuration file.
+
+## Installation
+
+```shell
+npm install -D release-it
+```
+
+After installation, add release-it to the `scripts` section in your `package.json` file.
+
+```json title="package.json"
+{
+  "name": "my-package",
+  "version": "0.0.0",
+  "scripts": {
+    "release": "release-it"
+  },
+}
+```
+
+Now create a `.release-it.js` file in your project's `root` directory. We will use this to configure it.
+
+## Usage
+
+Once your package is ready to be published, run the following command in the terminal:
+
+```shell
+npm run release
+```
+
+You will be shown the changelog first and then followed by a series of prompts with the option to choose the type of release (major / minor / patch).
+
+> ;info;
+> By default release-it will bump the `version` key in `package.json`. So, if the package is being published for the first time make sure its initially set to `0.0.0`.
+
+Here is the configuration I used to publish the package as shown in the demo:
+
+```js title=".release-it.js"
+module.exports = {
+  git: {
+    commitMessage: 'chore: Release v${version}',
+    tagName: 'v${version}',
+    requireCommits: true, // require commits since last tag
+    requireCleanWorkingDir: true, // exits if local not upto date with remote or if workdir is unclean
+  },
+  github: {
+    release: true, // creates a github release
+    draft: true, // github releases are only drafted, confirm the draft in github releases page to publish it
+    releaseName: '✨ v${version}',
+    commitArgs: ['-S'], // creates gpg signed commits
+    tagArgs: ['-s'], // creates gpg signed tags
+    assets: ['tar/*.tgz'], // assets to be included in the GitHub releases page
+  },
+  npm: {
+    publish: true,
+  },
+  hooks: {
+    // runs lint before publishing
+    'before:init': ['pnpm lint'],
+    // build the package to publish and the generate a tarball for use in github releases
+    'after:bump': 'pnpm build && pnpm tarball',
+    'after:release': 'echo Successfully created a release v${version} for ${repo.repository}.',
+  },
+};
+```
+
+The added support for lifecycle `hooks` is my favorite feature as it allows us to run tasks at various stages of publishing. (eg. you could run your `lint` and `test` jobs before we begin the release process saving us time if they were to fail later)
+
+You can refer its [documentation](https://github.com/release-it/release-it#release-it-) to learn more about the configuration.
+
+<SlashLine />
+
+That's all folks!
+
+I loved the intuitive prompt based approach offered by [release-it](https://github.com/release-it/release-it) as it helps reduce the friction involved in package publishing.
+
+Hope this post motivated you to streamline your package release process!
+
+<Feedback />
+---

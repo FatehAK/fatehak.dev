@@ -195,6 +195,48 @@
     }
   }
 
+  /* table */
+  .prose :global(.table-wrap) {
+    overflow-x: auto;
+
+    &.center {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  .prose :global(table) {
+    width: 100%;
+    white-space: nowrap;
+  }
+
+  .prose :global(th) {
+    padding: 0.625rem 1rem;
+    padding-top: 0;
+    font-weight: 500;
+    color: theme('colors.text.bold');
+    text-align: left;
+    border-bottom: 2px solid theme('colors.bg.border');
+  }
+
+  .prose :global(td) {
+    padding: 0.625rem 1rem;
+    vertical-align: top;
+  }
+
+  .prose :global(tr:not(:last-of-type) td) {
+    border-bottom: 1px solid theme('colors.bg.border');
+  }
+
+  .prose :global(th:not(:last-of-type)),
+  .prose :global(td:not(:last-of-type)) {
+    border-right: 1px dotted theme('colors.bg.border');
+  }
+
+  .prose :global(tr td) {
+    border-bottom: 2px solid theme('colors.bg.border');
+  }
+
   /* footnotes */
   .prose :global(a[data-footnote-ref]) {
     all: unset;

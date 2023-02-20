@@ -1,10 +1,10 @@
 ---
 import { getImage } from '@astrojs/image';
 
-// in order of smallest to largest
 const widths = [576, 768, 1400];
+const maxWidth = Math.max(...widths);
 
-const { alt, src } = Astro.props;
+const { alt, src, aspectRatio } = Astro.props;
 
 // in order of latest to oldest
 const formats = src.format === 'gif' ? ['gif'] : ['webp', 'png'];
@@ -15,24 +15,28 @@ let fallback = {};
 for (const format of formats) {
   let srcset = '';
   for (let i = 0; i < widths.length; i++) {
+    const width = widths[i];
     const attrs: any = await getImage({
       src,
       alt,
       // @ts-ignore
       format,
-      width: widths[i],
+      width,
+      aspectRatio,
       quality: 100,
+      fit: 'contain',
+      // to fill remaining space if aspectRatio is present
+      background: 'rgba(116, 116, 125, 0.5)',
     });
-    const isLast = i === widths.length - 1;
-    // we assign the last image with the largest dimension as the fallback
-    if (isLast && (format === 'png' || format === 'gif')) {
+    // we assign the image with the largest dimension and older format as the fallback
+    if (width === maxWidth && (format === 'png' || format === 'gif')) {
       fallback = {
         width: attrs.width,
         height: attrs.height,
         src: attrs.src,
       };
     }
-    srcset += `${decodeURI(attrs.src)} ${widths[i]}w${isLast ? '' : ', '}`;
+    srcset += `${decodeURI(attrs.src)} ${width}w${i === widths.length - 1 ? '' : ', '}`;
   }
   sources.push({ srcset, type: `image/${format}` });
 }

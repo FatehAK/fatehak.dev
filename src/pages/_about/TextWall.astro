@@ -1,7 +1,7 @@
 ---
 import waveImage from 'assets/wave.png?url';
 import { APP_CONFIG } from 'appConfig';
-import { technologies, resumeURL } from './config';
+import { technologies } from './config';
 ---
 
 <Fragment>
@@ -43,17 +43,10 @@ import { technologies, resumeURL } from './config';
     front-end, performance, and open source!
   </p>
   <p>
-    I’m just off my personal break and <span class="font-[500] text-text-bold">currently open</span> to explore new opportunities.
-  </p>
-  <p>
     You can reach me at <a
       href={`mailto:${APP_CONFIG.USER.social.email}`}
       onclick="this.href=this.href.replace('@@','.')">fa7ehak[at]gmail<span class="hidden">@@</span>.com</a
     >
-  </p>
-  <p>
-    <span>View my&nbsp;</span><a href={resumeURL} target="_blank" rel="noopener noreferrer">Résumé</a><i
-      class="fas fa-arrow-up-right-from-square text-sm ml-1"></i>
   </p>
 </Fragment>
 

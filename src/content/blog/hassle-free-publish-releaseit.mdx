@@ -1,21 +1,23 @@
 ---
 date: '2023-02-18T09:12:07.197Z'
-lastMod: '2023-02-18T20:05:44.202Z'
+lastMod: '2023-02-20T20:19:56.364Z'
 title: Hassle-free NPM package publishing with release-it
 seoTitle: Hassle-free NPM package publishing with release-it
 highlight: release-it
-description: Publish your package to NPM without any hassle using release-it
+description: >-
+  Learn how to automate your package publishing to NPM without any hassle using
+  release-it
 tags:
-  - npm
+  - tooling
 ---
 
 import demoVideo from 'assets/posts/hassle-free-publish-releaseit/demo.mp4';
 import semverImage from 'assets/posts/hassle-free-publish-releaseit/semver.png';
 import ghReleasesImage from 'assets/posts/hassle-free-publish-releaseit/gh-releases.png';
 
-I've just created my first NPM package and was scouring the web for ways to automate the process of publishing it.
+I've just created my first NPM package and was scouring the web for ways to automate the publishing step.
 
-Here were my requirements:
+I had the following requirements:
 
 - A single command from start to end.
 - Every release should follow [semver](https://semver.org/) with automatic creation of git tags.
@@ -27,23 +29,23 @@ Here were my requirements:
   A git tag with semver (credit: baeldung)
 </Figure>
 
-As I was searching for tools that could accomplish the above, I came across [release-it](https://github.com/release-it/release-it) which satisfied all of my requirements with the the right amount of flexibility.
+As I was searching for tools to accomplish the above, I came across [release-it](https://github.com/release-it/release-it), which satisfied all of my requirements with the right amount of flexibility.
 
 ## Demo
 
-Here is a short demo of me publishing a package using [release-it](https://github.com/release-it/release-it):
+Here is a short demo of me publishing a package using release-it:
 
-<Video src={demoVideo}>Publishing my package <a href="https://github.com/FatehAK/genzo-cli">genzo</a> to NPM</Video>
+<Video src={demoVideo}>Publishing my package to NPM</Video>
 
-A GitHub release is created with the `draft` status and also the changelog and assets are prefilled and uploaded already without any manual intervention.
+A GitHub release is created with the `draft` status containing a prefilled changelog and uploaded assets without any manual intervention.
 
 <Figure alt="GitHub draft release" src={ghReleasesImage}>
  A GitHub draft release with the changelog prefilled (can be made succinct later)
 </Figure>
 
-The whole process only took around a minute else we would have to type in various commands in sequence for bumping the version, generating a git tag, creating a tarball, writing a changelog and finally publishing the package to NPM.
+The whole process only took **around a minute** with **release-it**. Usually, we have to type in various commands in sequence for bumping the version, generating a git tag, creating a tarball, writing a changelog, and finally publishing the package to NPM.
 
-All of these steps are automated by [release-it](https://github.com/release-it/release-it) and every aspect of it is customizable as well with a configuration file.
+All of these steps are automated by release-it, and every aspect of it is customizable with a configuration file.
 
 ## Installation
 
@@ -109,17 +111,19 @@ module.exports = {
 };
 ```
 
-The added support for lifecycle `hooks` is my favorite feature as it allows us to run tasks at various stages of publishing. (eg. you could run your `lint` and `test` jobs before we begin the release process saving us time if they were to fail later)
+The added support for lifecycle `hooks` is my favorite feature since it allows us to run tasks at various stages of publishing. Using these hooks, we could run our `lint` and `test` jobs before we begin the release process saving us time if they were to fail later.
 
-You can refer its [documentation](https://github.com/release-it/release-it#release-it-) to learn more about the configuration.
+Refer to its [documentation](https://github.com/release-it/release-it#release-it-) to learn more about the configuration.
 
 <SlashLine />
 
-That's all folks!
+## Conclusion
 
-I loved the intuitive prompt based approach offered by [release-it](https://github.com/release-it/release-it) as it helps reduce the friction involved in package publishing.
+I loved the intuitive prompt-based approach offered by [release-it](https://github.com/release-it/release-it) as it helps reduce the friction involved in package publishing.
 
-Hope this post motivated you to streamline your package release process!
+You can also check out my [package](https://github.com/FatehAK/genzo-cli) as a reference in setting it up.
+
+I hope this post motivated you to streamline your package release process!
 
 <Feedback />
 ---

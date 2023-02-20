@@ -51,8 +51,7 @@ const langIcon = iconMap[lang];
 <style>
   /* wrapper */
   :global(div[data-rehype-pretty-code-fragment]) {
-    /* one off colors */
-    --white: #d1d5db;
+    /* one off color */
     --cyan: #22d3ee;
 
     position: relative;
@@ -80,7 +79,7 @@ const langIcon = iconMap[lang];
     padding-left: 2.625rem;
     font-size: 0.82rem;
     font-weight: 500;
-    color: var(--white);
+    color: theme('colors.text.code');
     border-bottom: 0.5px solid theme('colors.border.code');
 
     -webkit-font-smoothing: antialiased;
@@ -121,7 +120,7 @@ const langIcon = iconMap[lang];
 
     /* line highlighting */
     & > :global(.line.highlighted) {
-      background: theme('colors.bg.code-highlight' / 12%);
+      background-color: theme('colors.border.code' / 80%);
       border-left-color: var(--cyan);
     }
 
@@ -136,7 +135,7 @@ const langIcon = iconMap[lang];
         display: inline-block;
         width: 1rem;
         margin-right: 1rem;
-        color: theme('colors.bg.code-highlight' / 22%);
+        color: theme('colors.text.code' / 10%);
         text-align: right;
       }
 
@@ -148,7 +147,7 @@ const langIcon = iconMap[lang];
     /* word highlighting */
     & > :global(.line .word) {
       padding: 0.2rem 0.25rem;
-      background: theme('colors.bg.code-highlight' / 12%);
+      background-color: theme('colors.border.code' / 80%);
       border-radius: 0.25rem;
     }
 

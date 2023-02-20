@@ -1,13 +1,13 @@
 ---
 date: '2023-02-17T10:50:34.069Z'
-lastMod: '2023-02-18T20:05:44.202Z'
+lastMod: '2023-02-20T20:19:56.364Z'
 title: Adventures with Git
 highlight: Git
 tags:
   - git
 ---
 
-A compilation of various `git` commands as I went on with my daily development work are listed here. I plan to keep this page updated as I explore more.
+A compilation of various `git` commands as I went on with my daily development work is listed here. I plan to keep this page updated as I explore more.
 
 - **Clone with submodules**: `git clone --recurse-submodules [repo]{:bash}`
 
@@ -28,7 +28,6 @@ A compilation of various `git` commands as I went on with my daily development w
   6. `git rebase --continue{:shell}`
 
 - **Cherry pick**:
-
   1. Pull both branches and checkout `main`.
   2. Gather `SHA`'s of commits you'd like to pick from your `feat` branch.
   3. Do `git cherry-pick [COMMIT_SHA]{:shell}` (note: `COMMIT_SHA` should be taken in the oldest first order)

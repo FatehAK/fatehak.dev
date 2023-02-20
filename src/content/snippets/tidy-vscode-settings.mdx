@@ -1,22 +1,21 @@
 ---
 date: '2023-02-16T18:27:14.902Z'
-lastMod: '2023-02-18T20:05:44.202Z'
+lastMod: '2023-02-20T20:19:56.364Z'
 title: Tidy up your VSCode settings
 highlight: VSCode
 tags:
   - ide
-  - vscode
 ---
 
-VSCode's plugin ecosystem is vast, and there are tons of settings to configure as we go along our development work.
+VSCode's plugin ecosystem is vast and there are tons of settings to be configured as we do our development work.
 
-One fine day, I was adding a few extensions for working with [Astro](https://astro.build/) and was changing a configuration. At this moment I noticed what an unmaintainable mess the `settings.json` file has become after years of experimenting with various extensions, themes, custom configs and what not!
+One fine day, I was adding extensions for working with [Astro](https://astro.build/), this required a config change in `settings.json`. At this moment, I noticed my `settings.json` file has become an unmaintainable mess after years of experimenting with various extensions, themes, custom configs, and whatnot!
 
-Sometimes there would be an extension config right in the middle of some default settings or the reverse. I grew tired of sifting through the `settings.json` file to understand where's what. Also, I felt we adjust our settings adhoc and forget to check if a group for it already exists.
+Sometimes there would be an extension config in the middle of some default settings or the vice versa. I grew tired of sifting through the `settings.json` file to understand where's what. Also, I felt we adjust our settings ad-hoc and forget to check if a settings group for it already exists.
 
 ## Implementation
 
-To solve this, I thought let's quickly create a simple script to sort all settings by keeping the top level parent keys as the reference point.
+To solve this, I created a simple script to sort all settings by keeping the top-level parent keys as the reference point.
 
 ```js {4,16}
 const json = {}; // Pass content of settings.json here
@@ -92,10 +91,10 @@ Sorted Output:
 }
 ```
 
-You have to pass the content of your `settings.json` as the input and you get a sorted json as the output.
+You have to pass the content of your `settings.json` as the input, and you get a sorted json as the output.
 
 > ;info;
-> **Tip**: You can view your settings by typing in `Open User Settings (JSON)` in the command pallete.
+> **Tip**: You can view your settings by typing in `Open User Settings (JSON)` in the command palette.
 
 My settings now feel super organized and accessible for sure!
 

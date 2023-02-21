@@ -14,6 +14,8 @@
     text-size-adjust: 100%;
     tab-size: 2;
     background: theme('colors.bg.body');
+
+    -webkit-tap-highlight-color: transparent;
   }
 
   ::selection {

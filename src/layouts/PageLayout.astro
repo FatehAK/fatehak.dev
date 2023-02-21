@@ -7,6 +7,8 @@ import Footer from 'components/Footer.astro';
 import { APP_CONFIG } from 'appConfig';
 
 const { showBack, showReadingProgress } = Astro.props;
+
+const isProd = import.meta.env.BUILD === 'production';
 ---
 
 <!DOCTYPE html>
@@ -108,5 +110,14 @@ const { showBack, showReadingProgress } = Astro.props;
       // code to prevent transitions from firing on page load (Bug observed in Safari mobile's webkit engine)
       document.body.classList.remove('no-transition');
     </script>
+    {
+      isProd && (
+        <script
+          is:inline
+          src={`https://static.cloudflareinsights.com/beacon.min.js?token=${APP_CONFIG.CLOUDFLARE_ANALYTICS_TOKEN}`}
+          defer
+        />
+      )
+    }
   </body>
 </html>

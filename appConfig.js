@@ -8,7 +8,7 @@ import themeJSON from './src/theme/syntax-highlight.json';
 import remarkReadingTime from './scripts/remark-reading-time.js';
 
 export const APP_CONFIG = {
-  SITE_URL: 'https://fatehak.pages.dev',
+  SITE_URL: 'https://fatehak.dev',
   META: {
     title: 'FatehAK - Front-End Engineer, Open Sourcerer',
     description: 'Software Engineer. Love engineering clean and performant web applications',
@@ -26,6 +26,7 @@ export const APP_CONFIG = {
       behance: 'https://www.behance.net/fateh_ak_/projects',
     },
   },
+  CLOUDFLARE_ANALYTICS_TOKEN: '829042926c0f40708468a2bfaddf496e',
 };
 
 export const COMPRESSION_CONFIG = {

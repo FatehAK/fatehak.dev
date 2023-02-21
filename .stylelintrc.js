@@ -7,7 +7,7 @@ propertyOrder.rules['order/properties-order'][1].emptyLineMinimumPropertyThresho
 module.exports = {
   defaultSeverity: 'warning',
   reportDescriptionlessDisables: true,
-  extends: ['stylelint-config-standard', 'stylelint-config-prettier'],
+  extends: ['stylelint-config-standard'],
   plugins: ['stylelint-declaration-block-no-ignored-properties', 'stylelint-order'],
   rules: {
     ...propertyOrder.rules,

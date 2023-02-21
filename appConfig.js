@@ -20,7 +20,7 @@ export const APP_CONFIG = {
     shortName: 'Fateh',
     social: {
       twitter: '@Fateh_AK_',
-      email: 'me@fatehak@@dev',
+      email: 'hi@fatehak@@dev',
       linkedin: 'https://linkedin.com/in/fatehak',
       github: 'https://github.com/fatehak',
       behance: 'https://www.behance.net/fateh_ak_/projects',

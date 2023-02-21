@@ -1,6 +1,6 @@
 ---
 date: '2023-02-18T09:12:07.197Z'
-lastMod: '2023-02-20T20:19:56.364Z'
+lastMod: '2023-02-21T10:52:33.047Z'
 title: Hassle-free NPM package publishing with release-it
 seoTitle: Hassle-free NPM package publishing with release-it
 highlight: release-it
@@ -15,9 +15,9 @@ import demoVideo from 'assets/posts/hassle-free-publish-releaseit/demo.mp4';
 import semverImage from 'assets/posts/hassle-free-publish-releaseit/semver.png';
 import ghReleasesImage from 'assets/posts/hassle-free-publish-releaseit/gh-releases.png';
 
-I've just created my first NPM package and was scouring the web for ways to automate the publishing step.
+I've just created my first NPM package and was searching the web for ways to automate the publishing step.
 
-I had the following requirements:
+I had the following requirements in mind:
 
 - A single command from start to end.
 - Every release should follow [semver](https://semver.org/) with automatic creation of git tags.
@@ -40,10 +40,10 @@ Here is a short demo of me publishing a package using release-it:
 A GitHub release is created with the `draft` status containing a prefilled changelog and uploaded assets without any manual intervention.
 
 <Figure alt="GitHub draft release" src={ghReleasesImage}>
- A GitHub draft release with the changelog prefilled (can be made succinct later)
+ A GitHub draft release with the changelog prefilled (can be edited later)
 </Figure>
 
-The whole process only took **around a minute** with **release-it**. Usually, we have to type in various commands in sequence for bumping the version, generating a git tag, creating a tarball, writing a changelog, and finally publishing the package to NPM.
+The whole process only took **around a minute** with release-it. Usually, we have to type in various commands in sequence for bumping the version, generating a git tag, creating a tarball, writing a changelog, and finally publishing the package to NPM.
 
 All of these steps are automated by release-it, and every aspect of it is customizable with a configuration file.
 
@@ -53,9 +53,9 @@ All of these steps are automated by release-it, and every aspect of it is custom
 npm install -D release-it
 ```
 
-After installation, add release-it to the `scripts` section in your `package.json` file.
+After installation, add release-it to the `scripts` section in your package.json file.
 
-```json title="package.json"
+```json
 {
   "name": "my-package",
   "version": "0.0.0",
@@ -78,7 +78,7 @@ npm run release
 You will be shown the changelog first and then followed by a series of prompts with the option to choose the type of release (major / minor / patch).
 
 > ;info;
-> By default release-it will bump the `version` key in `package.json`. So, if the package is being published for the first time make sure its initially set to `0.0.0`.
+> By default release-it will bump the `version` key in package.json. So, if the package is being published for the first time make sure its initially set to `0.0.0`.
 
 Here is the configuration I used to publish the package as shown in the demo:
 
@@ -111,7 +111,7 @@ module.exports = {
 };
 ```
 
-The added support for lifecycle `hooks` is my favorite feature since it allows us to run tasks at various stages of publishing. Using these hooks, we could run our `lint` and `test` jobs before we begin the release process saving us time if they were to fail later.
+The added support for **lifecycle hooks** is my favorite feature since it allows us to run tasks at various stages of publishing. Using these hooks, we could run our lint and test jobs before we begin the release process saving us time if they were to fail later.
 
 Refer to its [documentation](https://github.com/release-it/release-it#release-it-) to learn more about the configuration.
 

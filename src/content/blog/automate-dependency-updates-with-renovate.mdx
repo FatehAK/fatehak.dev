@@ -1,6 +1,6 @@
 ---
 date: '2023-02-19T07:46:15.235Z'
-lastMod: '2023-02-20T20:19:56.364Z'
+lastMod: '2023-02-21T10:52:33.047Z'
 title: Automate dependency updates with Renovate
 seoTitle: Automate your dependency updates with Renovate
 highlight: Renovate
@@ -10,6 +10,7 @@ description: >-
 tags:
   - tooling
 ---
+import memeImage from 'assets/posts/automate-dependency-updates-renovate/meme.jpg';
 import onboardPRImage from 'assets/posts/automate-dependency-updates-renovate/onboard-pr.png';
 import depUpdatePrImage from 'assets/posts/automate-dependency-updates-renovate/dep-update-pr.png';
 import depDashImage from 'assets/posts/automate-dependency-updates-renovate/dep-dash.png';
@@ -19,20 +20,25 @@ Every modern web project has a plethora of **dependencies** bundled together. It
 
 The hard truth is dependencies go **out-of-date** rapidly, with patches and minor releases coming out every other week. It is important to keep them updated continuously rather than deferring this activity for later every time. The added advantage is that updates could bring potential bug fixes and patches for critical security vulnerabilities. (or introduce new ones as well, we'll see how we can tackle this later in the article)
 
-Developers dread getting assigned a dependency updation task, and this is true when it's been ages since you've last done it or you are totally out of loop of any changes.
+Developers **dread** getting assigned a dependency updation task especially when it's been ages since they've last done it.
+
+<Figure alt="Boromir is frustrated dealing with dependencies" src={memeImage} widths={[500]}>
+  Even <a href="https://lotr.fandom.com/wiki/Boromir" target="_blank">Boromir</a> is frustrated!
+</Figure>
 
 We should leverage the tools available to solve such problems. [Renovate](https://www.mend.io/free-developer-tools/renovate/) is one such tool that does the job swimmingly!
 
 ## Setup Renovate
 
-Let's take a look at setting it up. There are two ways to set up Renovate:
+Let's take a look at setting it up. There are three ways to set up Renovate:
 
-- Self-Hosting the service
+- Self Hosting a docker image
 - Using the built-in GitHub / GitLab app
+- NPM package
 
-Usually, self-hosting would be the better approach for private projects, but as my use case already revolved around projects hosted on GitHub, we'll take that route instead.
+Usually, self-hosting is the better approach for private projects, but as my use case already revolved around projects hosted on GitHub, we'll take that route instead.
 
-You can add the [GitHub app](https://github.com/marketplace/renovate) from the marketplace and give it access to your repository of choice.
+You can add the [GitHub app](https://github.com/marketplace/renovate) from the marketplace and give it access to your repository.
 
 Renovate will create an onboarding PR shortly to merge a `renovate.json` configuration file into your repository.
 
@@ -40,24 +46,24 @@ Renovate will create an onboarding PR shortly to merge a `renovate.json` configu
   Onboarding PR created by Renovate Bot
 </Figure>
 
-A basic configuration file is created at the repository `<root>` with the onboarding PR.
+A basic configuration file is created at the repository `<root>` with the PR.
 
-```json title="renovate.json"
+```json
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:base"]
 }
 ```
 
-Renovate will now scan your `package.json` for dependencies. The default update style is through PRs which are raised for all `dependencies`, `devDependencies`, and `peerDependencies`. (we will see later how we can customize this)
+Renovate will now scan your package.json file for dependencies. The default update style is via PRs which are raised for all **dependencies**, **dev dependencies**, and **peer dependencies**. (you can customize this)
 
 <Figure alt="Onboarding PR created by Renovate Bot" src={depUpdatePrImage}>
-  Renovate raised a PR automatically to update eslint-plugin-import :partying_face:
+  Renovate raised a PR automatically to update eslint-plugin-import <span style="color: initial;">:partying_face:</span>
 </Figure>
 
-A PR is raised with details such as **release notes**, **age**, **adoption rate**, and more for every dependency. These details can help us make an informed decision and ensures we stay in the loop if there are any breaking changes or vulnerabilities.
+A PR is raised with details such as **release notes**, **age**, **adoption rate**, and more for every dependency. This helps us make an informed decision and ensures we stay in the loop in case there are any breaking changes or vulnerabilities.
 
-Supported package managers include [npm](https://www.npmjs.com/), [yarn](https://yarnpkg.com/), and [pnpm](https://pnpm.io/), so your `lock` files will be kept in sync with the updates too.
+Supported package managers include **npm**, **yarn**, and **pnpm**, so your lock files will be kept in sync with the updates too.
 
 The **customizability** part is where it really shines. Let's check out some ways to make it even more seamless.
 
@@ -65,31 +71,33 @@ The **customizability** part is where it really shines. Let's check out some way
 
 You can set **schedules** to tell Renovate when to run the updates.
 
-An example schedule looks like below:
+An example schedule looks like:
 
 ```json
-"schedule": ["before 11am every saturday"]
+"schedule": [
+  "before 11am every saturday"
+]
 ```
 
-Renovate uses the UTC timezone by default which you can override:
+The default timezone is UTC which you can override:
 
 ```json
 "timezone": "Asia/Kolkata"
 ```
 
-You can also set Renovate to **rebase automatically** whenever it's behind the base branch to avoid potential merge conflicts. It can come in handy when we are running it on a schedule.
+You can also set it to **rebase automatically** whenever the PR is behind to avoid merge conflicts. It can come in handy when we are running it on a schedule.
 
 ```json
 "rebaseWhen": "behind-base-branch"
 ```
 
-Scheduling has helped me stay on top of updates, as I know precisely when the updates will be raised which makes me plan better for that day.
+With scheduling, I know precisely when the updates will be raised which makes me plan better for that day.
 
 Refer to the documentation on [schedules](https://docs.renovatebot.com/key-concepts/scheduling/) to learn more about the syntax.
 
 ## Grouping updates
 
-Let's consider we have **10 dependencies** that need to be updated. Renovate will see this and raise **10 PRs** on your branch. A better approach is to group dependency updates that belong together.
+Let's consider we have **10 dependencies** in our repository that are out-of-date. Renovate will see this and raise **10 PRs** on your branch. A better approach is to group dependency updates that belong together.
 
 You can think of creating meaningful groups. For example, you can group all updates to **eslint** and its plugins in a single PR.
 
@@ -127,9 +135,9 @@ Think deeply as to which dependencies belong together. There could be some you k
 
 ## Automerge
 
-By default, Renovate raises a PR that must be manually reviewed and merged. While this flow is ideal for any critical dependencies and updates to major versions but for devDependencies or any trivial ones, this will slow you down.
+By default, Renovate raises a PR that must be manually reviewed and merged. While this flow is ideal for any critical dependencies and updates to major versions but for dev dependencies or any trivial ones, this will slow you down.
 
-For dependencies you are super confident about, you can configure Renovate to automerge the PRs.
+To configure Renovate to automerge the PRs:
 
 ```json
 {
@@ -143,11 +151,11 @@ For dependencies you are super confident about, you can configure Renovate to au
 }
 ```
 
-The above snippet will automerge PRs for the **rimraf** package only for `minor` and `patch` releases, but for `major` releases, you must merge the PR manually.
+This will automerge PRs for the **rimraf** package only for minor and patch releases, but for major releases, you must merge the PR manually.
 
-You can even tell Renovate to **automerge a branch** instead of a PR. Whenever a PR gets merged on GitHub, you get an annoying email adding noise to your mailbox.
+You can even tell Renovate to **automerge a branch** instead of a PR. Whenever a PR gets merged on GitHub, you get an email adding noise to your mailbox.
 
-To avoid it, we can tell Renovate to create a temporary branch instead and merge it automatically and silently in ninja style!
+To avoid it, we can tell Renovate to create a temporary branch instead and merge it automatically and silently in *ninja style!*
 
 ```json {3}
 {
@@ -158,9 +166,9 @@ To avoid it, we can tell Renovate to create a temporary branch instead and merge
 }
 ```
 
-You can avoid merge commits by passing `rebase` as the automerge strategy.
+If you prefer to avoid merge commits, then set `rebase` as the automerge strategy.
 
-In the `branch` strategy, details such as release notes and adoption rates are missing because these are generated only for PRs. So, we can set the `commitBodyTable` flag to at least get the bare minimum details.
+In the `branch` strategy, details such as release notes and adoption rates are absent as they are generated only for PRs. So, we can set the `commitBodyTable` flag to at least get the bare minimum details.
 
 <div class="table-wrap">
   | datasource | package     | from   | to     |
@@ -169,9 +177,9 @@ In the `branch` strategy, details such as release notes and adoption rates are m
   | npm        | rimraf      | 3.1.0  | 3.1.1  |
 </div>
 
-Renovate creates branches with the prefix `renovate/`, so you can configure your **CI** to run relevant tests and build jobs on it before it gets merged.
+Renovate creates branches with the prefix `renovate/`, so you can configure your <abbr title="Continuous Integration">CI</abbr> to run relevant tests and build jobs on it before it gets merged.
 
-On a GitHub repository, Renovate requires all status checks to be passing before the merge happens, regardless you can bypass this:
+On a GitHub repository, Renovate requires **passing status checks** before merging, if you don't have any workflows configured you can bypass this temporarily:
 
 ```json
 {
@@ -180,13 +188,13 @@ On a GitHub repository, Renovate requires all status checks to be passing before
 ```
 
 > ;info;
-> **Caution**: Use the automerge feature only when you are **confident** of your CI pipeline and set it up to avoid critical dependencies and `major` releases.
+> **Caution**: Use the automerge feature only when you are **confident** of your <abbr title="Continuous Integration">CI</abbr> pipeline and set it up to avoid critical dependencies and `major` releases.
 
 Learn more about [automerge](https://docs.renovatebot.com/key-concepts/automerge/) on Renovate's official docs.
 
 ## Dependency Dashboard
 
-The Dependency Dashboard is one of the coolest features of Renovate. If enabled, Renovate creates an `issue` in your repository containing the status of all your dependencies about to be merged, and this works nicely when automerge and scheduling are enabled.
+The Dependency Dashboard is one of the coolest features of Renovate. If enabled, Renovate creates an **issue** in your repository containing the status of all your dependencies about to be merged, and this works nicely when automerge and scheduling are enabled.
 
 <Figure alt="Onboarding PR created by Renovate Bot" src={depDashImage}>
   Dependency Dashboard listing all pending updates
@@ -200,10 +208,10 @@ To enable it:
 }
 ```
 
-An additional feature supported by the Dashboard is **package approval**. For example, if you have automerge enabled, you can tell Renovate that all `major` dependencies need to be approved first before are automerged.
+An additional feature supported by the Dashboard is **package approval**. For example, if you have automerge enabled, you can tell Renovate that all major dependencies need to be approved first before are automerged.
 
 <Figure alt="Onboarding PR created by Renovate Bot" src={depDashApprovalImage}>
-  All <code>major</code> dependencies require approval
+  All major dependencies require approval
 </Figure>
 
 You can configure it like so:
@@ -229,7 +237,7 @@ Or you can even tell it require approval only for certain packages:
 }
 ```
 
-Note that not all platforms support this feature. Here is an excerpt from the Renovate docs:
+Not all platforms support this feature. Here is an excerpt from the Renovate docs:
 
 > The Dependency Dashboard requires that the host platforms supports the concept of issues with dynamic Markdown checkboxes.
 
@@ -239,7 +247,7 @@ Learn more about the [dashboard](https://docs.renovatebot.com/key-concepts/dashb
 
 I've set up Renovate for some of my projects and NPM packages. My main focus was on reducing PR noise and simplicity.
 
-Scheduling is set for **before 11am every saturday** with `branch` auto merges and package groups set up for `minor + patch` and `major` versions. The dashboard approval flow is set for all `major` versions.
+Scheduling is set for **before 11am every saturday** with **branch** automerge and package groups set up for **minor + patch** and **major** versions. The dashboard approval flow is set for all major versions.
 
 ```json {5,10,14,20-27,31-36} showLineNumbers title="renovate.json"
 {
@@ -291,7 +299,7 @@ Scheduling is set for **before 11am every saturday** with `branch` auto merges a
 }
 ```
 
-Some additional things include disabling the auto-updation of `peerDependencies` and the Node version since updating them can be problematic for other dependencies.
+I've also disabled the auto-updation of peer dependencies and the Node version since updating them can be problematic for other dependencies.
 
 > ;info;
 > **Renovate is not limited to Node alone!** You can add support for additional managers like dockerfile, pip, gomod, etc through the `enabledManagers` property. Check out all [supported managers](https://docs.renovatebot.com/modules/manager/#supported-managers) in the docs.
@@ -304,9 +312,9 @@ With this configuration, I take one quick look at Renovate's dashboard early mor
 
 Renovate is free, feature-packed, has a regular maintenance schedule, and is used globally by several top-tier [companies](https://github.com/renovatebot/renovate#who-uses-renovate).
 
-I enjoy automating things like this. I used to constantly think about what would happen to my projects given the rapidly changing state of the Web. This is what led me to Renovate. In a way, it has helped me stay on top of the latest advancements. I consider it a prerequisite now for setting up any new project.
+I enjoy automating things like this. I used to constantly think about what would happen to my projects given the rapidly changing state of the Web. And this is what led me to Renovate. In a way, it has helped me stay on top of the latest advancements. I consider it a prerequisite now for setting up any new project.
 
-This article only touched the tip of an iceberg, do check out its super detailed [docs](https://docs.renovatebot.com/) to learn more. You can also check out my [repository](https://github.com/FatehAK/vite-plugin-image-optimizer) as a reference.
+Take a look at its super detailed [docs](https://docs.renovatebot.com/). You can also check out my [repository](https://github.com/FatehAK/vite-plugin-image-optimizer) as a reference.
 
 So, what are you waiting for? Time to get automatin! :rocket:
 

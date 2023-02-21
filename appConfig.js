@@ -26,7 +26,6 @@ export const APP_CONFIG = {
       behance: 'https://www.behance.net/fateh_ak_/projects',
     },
   },
-  CLOUDFLARE_ANALYTICS_TOKEN: '7f556488383a4b9fb52323be73ba0485',
 };
 
 export const COMPRESSION_CONFIG = {

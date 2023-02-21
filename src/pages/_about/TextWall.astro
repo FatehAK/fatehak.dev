@@ -46,7 +46,8 @@ import { technologies } from './config';
   <p>
     You can reach me at <a
       href={`mailto:${APP_CONFIG.USER.social.email}`}
-      onclick="this.href=this.href.replace('@@','.')">fa7ehak[at]gmail<span class="hidden">@@</span>.com</a
+      rel="nofollow"
+      onclick="this.href=this.href.replace('@@','.')">{APP_CONFIG.USER.social.email.replace('@@', '.')}</a
     >
   </p>
 </Fragment>

@@ -5,7 +5,7 @@ import { notesData } from './config';
 <div class="mt-8 card-list">
   {
     notesData.map((data, index) => (
-      <a class="unset card" href={data.path} style={`animation-delay: ${index * 0.08}s`}>
+      <a class="unset card" rel="prefetch" href={data.path} style={`animation-delay: ${index * 0.08}s`}>
         <div class="card-inner">
           <div class="flex items-center mb-2">
             <span class="font-bold text-lg text-text-bold">{data.name}</span>

@@ -40,7 +40,7 @@ const { posts, path, groupByYears, showReadingTime } = Astro.props;
         >
           <h2 class="mb-1 text-[1.18rem] font-[500] transition-colors duration-200">
             {post.data.title}
-            {isExternalPost && <i class="fas fa-arrow-up-right-from-square relative -top-[2px] text-sm ml-1" />}
+            {isExternalPost && <i class="icon-arrow-up-right-from-square relative -top-[2px] text-sm ml-1" />}
           </h2>
           <div class="text-sm text-text-muted">
             <time datetime={post.data.date.toISOString()}>

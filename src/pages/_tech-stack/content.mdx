@@ -1,0 +1,66 @@
+---
+date: '2023-02-24T14:19:08.937Z'
+lastMod: '2023-02-24T17:23:27.501Z'
+---
+import metricMobile from 'assets/tech-stack/lighthouse-mobile.png';
+import metricDesktop from 'assets/tech-stack/lighthouse-desktop.png';
+
+I've always wanted a platform to showcase my projects and share my thoughts on the Web. This website started with the aim of fulfilling that dream.
+
+Hope you've enjoyed it so far! :smile:
+
+## The Stack
+
+Technologies used to build the website:
+
+- [Astro](https://astro.build/) and [MDX](https://mdxjs.com/)
+- Web Components for interactivity.
+- Tailwind CSS for theming.
+- [Remark](https://github.com/remarkjs/remark) and [Rehype](https://github.com/rehypejs/rehype) plugins for markdown transforms.
+- Prettier, Stylelint, Eslint for formatting.
+- [Husky](https://typicode.github.io/husky/#/), [lint-staged](https://github.com/okonet/lint-staged), [commitlint](https://cz-git.qbb.sh/) for clean commits
+- Github Actions for CI/CD.
+- [Cloudflare](https://www.cloudflare.com) for publishing, DNS, and analytics.
+
+## Metrics
+
+I wanted to build the website with **speed** and **usability** in mind. So, I tried to use every trick to achieve maximum performance and ease of use.
+
+Here is everything I've done so far:
+
+- Kept JS payloads minimal with the '**no-framework**' strategy and used Web components for interactivity, this lead to a total payload size of just **6kB**!
+- Prefetched on-page internal links at browser **idle** time.
+- Prevented [CLS](https://web.dev/cls/) for images and video elements.
+- Served images in **next-gen** formats with fallbacks.
+- Optimal delivery of images based on **viewport size**.
+- Self Hosted and preloaded critical fonts. Used [font subsetting](https://fonts.google.com/knowledge/glossary/subsetting) to further reduce file sizes from **700kB** to **90kB**!
+- Removed [FOUC](https://en.wikipedia.org/wiki/Flash_of_unstyled_content) through proper asset loading.
+- Set up Cloudflare with **Brotli** compression and configured headers for early **preload hints** and optimal cache TTL.
+- Built accessible custom MDX components for a great reading experience.
+
+## The Final Test
+
+I wanted to verify if all the optimizations I've done so far actually worked, so I did a Lighthouse test for my site [fatehak.dev](https://fatehak.dev).
+
+To my surprise, I got an overall score of **100** consistently for both Mobile and Desktop on a five run average. It feels great when your hard work finally pays off! :tada:
+
+<Figure src={metricMobile}>
+   Lighthouse Report for <strong>Mobile</strong>
+</Figure>
+
+<Figure src={metricDesktop}>
+  Lighthouse report for <strong>Desktop</strong>
+</Figure>
+
+## Addendum
+
+Here are some of the tools that came in handy for testing my website's performance:
+
+- [PageSpeed Insights](https://pagespeed.web.dev/) - Google's offical page speed tester tool
+- [Webpage Test](https://www.webpagetest.org/) - Visualize your page request timeline
+- [Debug Bear](https://www.debugbear.com/test/website-speed) - Claims to be more accurate than PageSpeed Insights
+- [Lighthouse Metrics](https://lighthouse-metrics.com/) - Tests your website across several global servers
+- [Yellow Lab](https://yellowlab.tools/) - Loved this one, it gives you various insights and tips on improving speed
+
+<SlashLine />
+---

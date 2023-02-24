@@ -1,0 +1,22 @@
+---
+import PageLayout from 'layouts/PageLayout.astro';
+import PageSEO from 'components/PageSEO.astro';
+import Heading from 'components/Heading.astro';
+import Prose from 'components/Prose.astro';
+import PostInfo from 'components/PostInfo.astro';
+import BackToTop from 'components/BackToTop.astro';
+import markdownComponents from 'components/markdown';
+import * as mdxContent from './_tech-stack/content.mdx';
+
+const { Content, frontmatter } = mdxContent;
+---
+
+<PageLayout>
+  <PageSEO slot="seo" title="Tech Stack" />
+  <Heading text="Tech Stack" highlight="Stack" />
+  <PostInfo date={frontmatter.date} lastMod={frontmatter.lastMod} />
+  <Prose>
+    <Content components={markdownComponents} />
+  </Prose>
+  <BackToTop />
+</PageLayout>

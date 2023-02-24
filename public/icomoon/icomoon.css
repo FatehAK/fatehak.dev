@@ -44,6 +44,7 @@ i {
 .icon-clock:before {
   content: '\e905';
 }
+
 .icon-code:before {
   content: '\e906';
 }
@@ -55,6 +56,7 @@ i {
 .icon-heart:before {
   content: '\e908';
 }
+
 .icon-linkedin:before {
   content: '\e909';
 }
@@ -77,4 +79,8 @@ i {
 
 .icon-screwdriver-wrench:before {
   content: '\e90e';
+}
+
+.icon-wand-spark:before {
+  content: '\e90f';
 }

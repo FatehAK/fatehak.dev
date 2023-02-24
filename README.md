@@ -52,11 +52,7 @@ I wanted to verify if all the optimizations I've done so far actually worked, so
 
 To my surprise, I got an overall score of **100** consistently for both Mobile and Desktop on a five run average. It feels great when your hard work finally pays off! 🎉
 
-Mobile Report:
-![general usage](./docs/lighthouse-mobile.png)
-
-Desktop Report:
-![general usage](./docs/lighthouse-desktop.png)
+![mobile report](https://images2.imgbox.com/c8/ba/GJrHVwO0_o.png)
 
 ## Links
 

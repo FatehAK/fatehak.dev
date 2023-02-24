@@ -159,17 +159,4 @@
       transform: translateY(0) translateZ(0);
     }
   }
-
-  @keyframes gradient-move {
-    0%,
-    100% {
-      background-position: 0;
-      background-size: 200% 200%;
-    }
-
-    50% {
-      background-position: 100%;
-      background-size: 200% 200%;
-    }
-  }
 }

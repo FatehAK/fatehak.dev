@@ -79,7 +79,8 @@ module.exports = {
           backgroundImage:
             'linear-gradient(to bottom right, rgb(var(--color-primary-light)), rgb(var(--color-primary)), rgb(var(--color-primary-light)))',
           backgroundClip: 'text',
-          animation: 'gradient-move 4s ease infinite',
+          backgroundPosition: 0,
+          backgroundSize: '200% 200%',
         },
         '.slideup-text': {
           willChange: 'transform',

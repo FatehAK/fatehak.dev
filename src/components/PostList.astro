@@ -34,7 +34,7 @@ const { posts, path, groupByYears, showReadingTime } = Astro.props;
         )}
         <a
           class="unset"
-          href={isExternalPost ? post.data.url : `${path}/${post.slug}`}
+          href={isExternalPost ? post.data.url : `${path}/${post.slug}/`}
           target={isExternalPost ? '_blank' : null}
           rel={isExternalPost ? 'noopener noreferrer' : 'prefetch'}
         >

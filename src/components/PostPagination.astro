@@ -45,7 +45,12 @@ if (!siblings) return undefined;
     {
       siblings.previous && (
         <div class="sibling-link-wrap">
-          <a class="unset text-left sibling-link" href={`${path}/${siblings.previous.slug}`}>
+          <a
+            class="unset text-left sibling-link"
+            href={siblings.previous.data.url ? siblings.previous.data.url : `${path}/${siblings.previous.slug}/`}
+            target={siblings.previous.data.url ? '_blank' : null}
+            rel={siblings.previous.data.url ? 'noopener noreferrer' : 'prefetch'}
+          >
             <div>Previous</div>
             <span class="clamp-lines">{siblings.previous.data.title}</span>
           </a>
@@ -57,7 +62,12 @@ if (!siblings) return undefined;
     {
       siblings.next && (
         <div class="sibling-link-wrap justify-end">
-          <a class="unset text-right sibling-link" href={`${path}/${siblings.next.slug}`}>
+          <a
+            class="unset text-right sibling-link"
+            href={siblings.next.data.url ? siblings.next.data.url : `${path}/${siblings.next.slug}/`}
+            target={siblings.next.data.url ? '_blank' : null}
+            rel={siblings.next.data.url ? 'noopener noreferrer' : 'prefetch'}
+          >
             <div>Next</div>
             <span class="clamp-lines">{siblings.next.data.title}</span>
           </a>

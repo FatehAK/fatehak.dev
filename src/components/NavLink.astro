@@ -1,6 +1,6 @@
 ---
 const { href, class: className, ...props } = Astro.props;
-const path = Astro.url.pathname.replace(/\/$/, '');
+const path = Astro.url.pathname;
 
 const isHome = href === '/' && path === '';
 const isOtherPages =

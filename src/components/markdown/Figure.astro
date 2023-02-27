@@ -3,7 +3,7 @@ import { getImage } from '@astrojs/image';
 
 const DEFAULT_WIDTHS = [576, 768, 1400];
 
-const { alt, src, widths: widthsProp, aspectRatio } = Astro.props;
+const { alt, src, widths: widthsProp, aspectRatio, lazy = true } = Astro.props;
 
 const widths = widthsProp || DEFAULT_WIDTHS;
 const maxWidth = Math.max(...widths);
@@ -28,7 +28,7 @@ for (const format of formats) {
       quality: 100,
     });
     // we assign the image with the largest dimension and older format as the fallback
-    if (width === maxWidth && (format === 'png' || format === 'jpg' || format === 'gif')) {
+    if (width === maxWidth && format.match(/\b(?:png|jpe?g|gif)\b/)) {
       fallback = {
         width: attrs.width,
         height: attrs.height,
@@ -41,12 +41,17 @@ for (const format of formats) {
 }
 
 const children = await Astro.slots.render('default');
+
+const imgProps: any = {
+  ...fallback,
+  ...(lazy ? { loading: 'lazy', decoding: 'async' } : {}),
+};
 ---
 
 <figure class="break-padding">
   <picture class="flex justify-center">
     {sources.map(attrs => <source {...attrs} sizes="(max-width: 700px) calc(100vw - 0.6rem), calc(48rem - 2rem)" />)}
-    <img class="rounded-[6px]" {...fallback} alt={alt} loading="lazy" decoding="async" />
+    <img class="rounded-[6px]" {...imgProps} alt={alt} />
   </picture>
   {children && <figcaption class="pt-2 text-center text-sm leading-[1.5] text-text-body/70" set:html={children} />}
 </figure>

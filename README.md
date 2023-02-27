@@ -40,7 +40,7 @@ Here is everything I've done so far:
 - Prefetched on-page internal links at browser **idle** time.
 - Prevented [CLS](https://web.dev/cls/) for images and video elements.
 - Served images in **next-gen** formats with fallbacks.
-- Optimal delivery of images based on **viewport size**.
+- Optimal delivery of images based on viewport size and lazy loaded them.
 - Self Hosted and preloaded critical fonts. Used [font subsetting](https://fonts.google.com/knowledge/glossary/subsetting) to further reduce file sizes from **700kB** to **90kB**!
 - Removed [FOUC](https://en.wikipedia.org/wiki/Flash_of_unstyled_content) through proper asset loading.
 - Set up Cloudflare with **Brotli** compression and configured headers for early **preload hints** and optimal cache TTL.

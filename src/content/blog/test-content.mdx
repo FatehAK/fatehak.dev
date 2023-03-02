@@ -1,6 +1,6 @@
 ---
 date: '2023-02-18T09:12:07.197Z'
-lastMod: '2023-03-02T18:38:16.921Z'
+lastMod: '2023-03-02T18:42:43.413Z'
 title: Hassle-free NPM package publishing with release-it
 seoTitle: Hassle-free NPM package publishing with release-it
 highlight: release-it
@@ -9,6 +9,7 @@ tags:
   - tooling
 ---
 
+import demoVideo from 'assets/posts/hassle-free-publish-releaseit/demo.mp4';
 import semverImage from 'assets/posts/hassle-free-publish-releaseit/semver.png';
 import ghReleasesImage from 'assets/posts/hassle-free-publish-releaseit/gh-releases.png';
 
@@ -31,6 +32,8 @@ As I was searching for tools to accomplish the above, I came across [release-it]
 ## Demo
 
 Here is a short demo of me publishing a package using release-it:
+
+<Video src={demoVideo}>Publishing my package to NPM</Video>
 
 A GitHub release is created with the `draft` status containing a prefilled changelog and uploaded assets without any manual intervention.
 
@@ -76,6 +79,35 @@ You will be shown the changelog first and then followed by a series of prompts w
 > By default release-it will bump the `version` key in package.json. So, if the package is being published for the first time make sure its initially set to `0.0.0`.
 
 Here is the configuration I used to publish the package as shown in the demo:
+
+```js
+module.exports = {
+  git: {
+    commitMessage: 'chore: Release v${version}',
+    tagName: 'v${version}',
+    requireCommits: true, // require commits since last tag
+    requireCleanWorkingDir: true, // exits if local not upto date with remote or if workdir is unclean
+  },
+  github: {
+    release: true, // creates a github release
+    draft: true, // github releases are only drafted, confirm the draft in github releases page to publish it
+    releaseName: '✨ v${version}',
+    commitArgs: ['-S'], // creates gpg signed commits
+    tagArgs: ['-s'], // creates gpg signed tags
+    assets: ['tar/*.tgz'], // assets to be included in the GitHub releases page
+  },
+  npm: {
+    publish: true,
+  },
+  hooks: {
+    // runs lint before publishing
+    'before:init': ['pnpm lint'],
+    // build the package to publish and the generate a tarball for use in github releases
+    'after:bump': 'pnpm build && pnpm tarball',
+    'after:release': 'echo Successfully created a release v${version} for ${repo.repository}.',
+  },
+};
+```
 
 The added support for **lifecycle hooks** is my favourite feature since it allows us to run tasks at various stages of publishing. Using these hooks, we could run our lint and test jobs before we begin the release process saving us time if they were to fail later.
 

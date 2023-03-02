@@ -1,6 +1,6 @@
 ---
 date: '2023-02-18T09:12:07.197Z'
-lastMod: '2023-02-27T09:32:53.399Z'
+lastMod: '2023-03-02T11:51:10.668Z'
 title: Hassle-free NPM package publishing with release-it
 seoTitle: Hassle-free NPM package publishing with release-it
 highlight: release-it
@@ -40,10 +40,10 @@ Here is a short demo of me publishing a package using release-it:
 A GitHub release is created with the `draft` status containing a prefilled changelog and uploaded assets without any manual intervention.
 
 <Figure alt="GitHub draft release" src={ghReleasesImage}>
- A GitHub draft release with the changelog prefilled (can be edited later)
+ A GitHub draft release with the changelog prefilled
 </Figure>
 
-The whole process only took **around a minute** with release-it. Usually, we have to type in various commands in sequence for bumping the version, generating a git tag, creating a tarball, writing a changelog, and finally publishing the package to NPM.
+The whole process only took **under a minute** with release-it. Usually, we have to type in various commands in sequence for bumping the version, generating a git tag, creating a tarball, writing a changelog, and finally publishing the package to NPM.
 
 All of these steps are automated by release-it, and every aspect of it is customizable with a configuration file.
 
@@ -111,7 +111,7 @@ module.exports = {
 };
 ```
 
-The added support for **lifecycle hooks** is my favorite feature since it allows us to run tasks at various stages of publishing. Using these hooks, we could run our lint and test jobs before we begin the release process saving us time if they were to fail later.
+The added support for **lifecycle hooks** is my favourite feature since it allows us to run tasks at various stages of publishing. Using these hooks, we could run our lint and test jobs before we begin the release process saving us time if they were to fail later.
 
 Refer to its [documentation](https://github.com/release-it/release-it#release-it-) to learn more about the configuration.
 

@@ -1,6 +1,6 @@
 ---
 date: '2023-02-19T07:46:15.235Z'
-lastMod: '2023-02-27T09:32:53.399Z'
+lastMod: '2023-03-02T11:51:10.668Z'
 title: Automate dependency updates with Renovate
 seoTitle: Automate your dependency updates with Renovate
 highlight: Renovate
@@ -58,7 +58,7 @@ A basic configuration file is created at the repository `<root>` with the PR.
 
 Renovate will now scan your package.json file for dependencies. The default update style is via PRs which are raised for all **dependencies**, **dev dependencies**, and **peer dependencies**. (you can customize this)
 
-<Figure alt="Onboarding PR created by Renovate Bot" src={depUpdatePrImage}>
+<Figure alt="Renovate raised a PR automatically to update eslint-plugin-import" src={depUpdatePrImage}>
   Renovate raised a PR automatically to update eslint-plugin-import <span style="color: initial;">:partying_face:</span>
 </Figure>
 
@@ -197,7 +197,7 @@ Learn more about [automerge](https://docs.renovatebot.com/key-concepts/automerge
 
 The Dependency Dashboard is one of the coolest features of Renovate. If enabled, Renovate creates an **issue** in your repository containing the status of all your dependencies about to be merged, and this works nicely when automerge and scheduling are enabled.
 
-<Figure alt="Onboarding PR created by Renovate Bot" src={depDashImage}>
+<Figure alt="Dependency Dashboard listing all pending updates" src={depDashImage}>
   Dependency Dashboard listing all pending updates
 </Figure>
 
@@ -211,7 +211,7 @@ To enable it:
 
 An additional feature supported by the Dashboard is **package approval**. For example, if you have automerge enabled, you can tell Renovate that all major dependencies need to be approved first before are automerged.
 
-<Figure alt="Onboarding PR created by Renovate Bot" src={depDashApprovalImage}>
+<Figure alt="All major dependencies require approval" src={depDashApprovalImage}>
   All major dependencies require approval
 </Figure>
 

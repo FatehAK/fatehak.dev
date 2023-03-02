@@ -6,20 +6,20 @@ import memriseLogo from 'assets/projects/memrise-logo.svg?url';
 
 export const projects = [
   {
-    name: 'genzo',
-    logo: genzoLogo,
-    githubURL: 'https://github.com/FatehAK/genzo-cli',
-    liveURL: 'https://www.npmjs.com/package/genzo',
-    description: 'Rapidly scaffold your projects with custom templates in the CLI ⚡️',
-    technologies: ['Node', 'CLI'],
-  },
-  {
     name: 'vite-plugin',
     logo: viteImageOptimizerLogo,
     githubURL: 'https://github.com/FatehAK/vite-plugin-image-optimizer',
     liveURL: 'https://www.npmjs.com/package/vite-plugin-image-optimizer',
     description: 'Optimize your images using Sharp.js and SVGO at build time.',
     technologies: ['Node', 'Vite'],
+  },
+  {
+    name: 'genzo',
+    logo: genzoLogo,
+    githubURL: 'https://github.com/FatehAK/genzo-cli',
+    liveURL: 'https://www.npmjs.com/package/genzo',
+    description: 'Rapidly scaffold your projects with custom templates in the CLI ⚡️',
+    technologies: ['Node', 'CLI'],
   },
   {
     name: 'navigo',

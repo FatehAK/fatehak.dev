@@ -1,7 +1,7 @@
 ---
 import { APP_CONFIG } from 'appConfig';
 
-const { title, description, date, lastMod, tags = [], readingTime, banner = 'banner.png' } = Astro.props;
+const { title, description, date, lastMod, tags = [], readingTime, banner = '/banners/default.png' } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
 const bannerURL = new URL(banner, Astro.site).toString();

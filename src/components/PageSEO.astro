@@ -5,7 +5,7 @@ const {
   index = false,
   title = APP_CONFIG.META.title,
   description = APP_CONFIG.META.description,
-  banner = 'banner.png',
+  banner = '/banners/default.png',
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();

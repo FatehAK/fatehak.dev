@@ -9,6 +9,7 @@ const blogCollection = defineCollection({
       url: z.string().optional(),
       highlight: z.union([z.string(), z.array(z.string())]).default(''),
       description: z.string().optional(),
+      banner: z.string().optional(),
       date: z.string().transform(str => new Date(str)),
       lastMod: z
         .string()

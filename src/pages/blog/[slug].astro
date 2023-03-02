@@ -28,7 +28,7 @@ const { entry } = Astro.props;
 
 const { Content, remarkPluginFrontmatter, headings } = await entry.render();
 
-const { title, seoTitle, highlight, description, date, lastMod, tags } = entry.data;
+const { title, seoTitle, highlight, description, banner, date, lastMod, tags } = entry.data;
 const { readingTime } = remarkPluginFrontmatter;
 ---
 
@@ -37,6 +37,7 @@ const { readingTime } = remarkPluginFrontmatter;
     slot="seo"
     title={seoTitle}
     description={description}
+    banner={banner}
     date={date}
     lastMod={lastMod}
     tags={tags}

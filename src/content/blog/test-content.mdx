@@ -1,0 +1,76 @@
+---
+date: '2023-02-18T09:12:07.197Z'
+lastMod: '2023-03-02T18:18:02.951Z'
+title: Hassle-free NPM package publishing with release-it
+seoTitle: Hassle-free NPM package publishing with release-it
+highlight: release-it
+description: Learn how to automate publishing NPM packages easily with release-it
+tags:
+  - tooling
+---
+
+I've just created my first NPM package and was searching the web for ways to automate the publishing step.
+
+I had the following requirements in mind:
+
+- A single command from start to end.
+- Every release should follow [semver](https://semver.org/) with automatic creation of git tags.
+- Simple way to choose the type of release. (major / minor / patch)
+- Auto generation of release notes based on commit history.
+- Possibility to draft a release on GitHub. (nice to have)
+
+As I was searching for tools to accomplish the above, I came across [release-it](https://github.com/release-it/release-it), which satisfied all of my requirements with the right amount of flexibility.
+
+## Demo
+
+A GitHub release is created with the `draft` status containing a prefilled changelog and uploaded assets without any manual intervention.
+
+The whole process only took **under a minute** with release-it. Usually, we have to type in various commands in sequence for bumping the version, generating a git tag, creating a tarball, writing a changelog, and finally publishing the package to NPM.
+
+All of these steps are automated by release-it, and every aspect of it is customizable with a configuration file.
+
+## Installation
+
+```shell
+npm install -D release-it
+```
+
+After installation, add release-it to the `scripts` section in your package.json file.
+
+```json
+{
+  "name": "my-package",
+  "version": "0.0.0",
+  "scripts": {
+    "release": "release-it"
+  },
+}
+```
+
+Now create a `.release-it.js` file in your project's `root` directory. We will use this to configure it.
+
+## Usage
+
+Once your package is ready to be published, run the following command in the terminal:
+
+```shell
+npm run release
+```
+
+You will be shown the changelog first and then followed by a series of prompts with the option to choose the type of release (major / minor / patch).
+
+> By default release-it will bump the `version` key in package.json. So, if the package is being published for the first time make sure its initially set to `0.0.0`.
+
+Here is the configuration I used to publish the package as shown in the demo:
+
+The added support for **lifecycle hooks** is my favourite feature since it allows us to run tasks at various stages of publishing. Using these hooks, we could run our lint and test jobs before we begin the release process saving us time if they were to fail later.
+
+Refer to its [documentation](https://github.com/release-it/release-it#release-it-) to learn more about the configuration.
+
+## Conclusion
+
+I loved the intuitive prompt-based approach offered by [release-it](https://github.com/release-it/release-it) as it helps reduce the friction involved in package publishing.
+
+You can also check out my [package](https://github.com/FatehAK/genzo-cli) as a reference in setting it up.
+
+I hope this post motivated you to streamline your package release process!

@@ -1,5 +1,5 @@
-import remarkEmoji from 'remark-emoji';
 import rehypePrettyCode from 'rehype-pretty-code';
+import { rehypeAccessibleEmojis } from 'rehype-accessible-emojis';
 import rehypeSlug from 'rehype-slug';
 import rehypeHeadingsAutoLink from 'rehype-autolink-headings';
 import rehypeSectionize from '@hbsnow/rehype-sectionize';
@@ -67,8 +67,9 @@ export const COMPRESSION_CONFIG = {
 export const MDX_CONFIG = {
   syntaxHighlight: false,
   extendDefaultPlugins: true,
-  remarkPlugins: [remarkReadingTime, [remarkEmoji, { accessible: true }]],
+  remarkPlugins: [remarkReadingTime],
   rehypePlugins: [
+    rehypeAccessibleEmojis,
     rehypeSlug,
     [rehypeHeadingsAutoLink, { test: ['h2', 'h3'] }],
     [

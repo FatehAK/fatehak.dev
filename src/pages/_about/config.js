@@ -1,11 +1,11 @@
 export const technologies = [
   'React, Next.js',
   'Node.js',
-  'Astro',
+  'TypeScript',
   'Vite, Webpack',
-  'Jest',
-  'AWS',
-  'GitHub Actions',
+  'Astro',
+  'SASS, Tailwind',
+  'AWS, Cloudflare',
   'Docker',
 ];
 

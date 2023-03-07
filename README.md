@@ -1,10 +1,9 @@
 <div align="center">
   <a href="https://fatehak.dev">
-    <img width="100" height="120" hspace="10"
-      src="https://fatehak.dev/icons/logo.svg" alt="logo">
+    <img width="100" height="120" hspace="10" src="https://fatehak.dev/icons/logo.svg" alt="logo" />
   </a>
   <h1>fatehak.dev</h1>
-  <img src="https://img.shields.io/github/package-json/dependency-version/fatehak/fatehak.dev/dev/astro" alt="vite" />
+  <img src="https://img.shields.io/github/package-json/dependency-version/fatehak/fatehak.dev/dev/astro" alt="astro" />
   <img src="https://img.shields.io/badge/pnpm-latest-yellow" alt="pnpm" />
   <img src="https://img.shields.io/github/actions/workflow/status/fatehak/fatehak.dev/lint_build_publish.yaml?branch=main" alt="build status" />
 </div>

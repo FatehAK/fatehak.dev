@@ -39,28 +39,9 @@ const isProd = import.meta.env.BUILD === 'production';
     <meta name="twitter:creator" content={APP_CONFIG.USER.social.twitter} />
     <meta name="twitter:card" content="summary_large_image" />
     <slot name="seo" />
-    <style is:inline>
-      .no-transition *,
-      .no-transition *::before,
-      .no-transition *::after {
-        -webkit-transition: none !important;
-        -moz-transition: none !important;
-        -ms-transition: none !important;
-        -o-transition: none !important;
-        transition: none !important;
-      }
-    </style>
-    <script is:inline>
-      (function () {
-        if (typeof window !== 'undefined') {
-          const storageTheme = sessionStorage.getItem('theme');
-          if (storageTheme) document.documentElement.setAttribute('data-theme', storageTheme);
-        }
-      })();
-    </script>
     <FontFace />
   </head>
-  <body class="min-h-screen no-transition">
+  <body class="min-h-screen">
     <Navbar showReadingProgress={showReadingProgress} />
     <main class="w-full max-w-3xl pt-12 px-8 sm:px-6 relative">
       {
@@ -107,8 +88,12 @@ const isProd = import.meta.env.BUILD === 'production';
       }
     </style>
     <script is:inline>
-      // code to prevent transitions from firing on page load (Bug observed in Safari mobile's webkit engine)
-      document.body.classList.remove('no-transition');
+      (function () {
+        if (typeof window !== 'undefined') {
+          const storageTheme = sessionStorage.getItem('theme');
+          if (storageTheme) document.documentElement.setAttribute('data-theme', storageTheme);
+        }
+      })();
     </script>
     {
       isProd && (

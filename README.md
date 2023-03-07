@@ -52,7 +52,7 @@ I wanted to verify if all the optimizations I've done so far actually worked, so
 
 To my surprise, I got an overall score of **100** consistently for both Mobile and Desktop on a five run average. It feels great when your hard work finally pays off! 🎉
 
-![mobile report](https://images2.imgbox.com/c8/ba/GJrHVwO0_o.png)
+![mobile report](https://images2.imgbox.com/b3/47/BIBJwIMA_o.png)
 
 ## Links
 

@@ -21,7 +21,7 @@ specifiers:
   eslint-formatter-pretty: ^4.1.0
   eslint-import-resolver-alias: ^1.1.2
   eslint-import-resolver-typescript: ^3.5.3
-  eslint-plugin-astro: ^0.23.0
+  eslint-plugin-astro: ^0.24.0
   eslint-plugin-import: ^2.27.5
   eslint-plugin-jsx-a11y: ^6.7.1
   eslint-plugin-markdownlint: ^0.4.1
@@ -78,7 +78,7 @@ devDependencies:
   eslint-formatter-pretty: 4.1.0
   eslint-import-resolver-alias: 1.1.2_5rfvta7qn57kxm7ir36ta6fixq
   eslint-import-resolver-typescript: 3.5.3_yckic57kx266ph64dhq6ozvb54
-  eslint-plugin-astro: 0.23.0_eslint@8.35.0
+  eslint-plugin-astro: 0.24.0_eslint@8.35.0
   eslint-plugin-import: 2.27.5_yiggpkcwtyhpwcphetqfqiayhm
   eslint-plugin-jsx-a11y: 6.7.1_eslint@8.35.0
   eslint-plugin-markdownlint: 0.4.1_eslint@8.35.0
@@ -1464,25 +1464,12 @@ packages:
       - supports-color
     dev: true
 
-  /@typescript-eslint/scope-manager/5.53.0:
-    resolution: {integrity: sha512-Opy3dqNsp/9kBBeCPhkCNR7fmdSQqA+47r21hr9a14Bx0xnkElEQmhoHga+VoaoQ6uDHjDKmQPIYcUcKJifS7w==}
-    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
-    dependencies:
-      '@typescript-eslint/types': 5.53.0
-      '@typescript-eslint/visitor-keys': 5.53.0
-    dev: true
-
   /@typescript-eslint/scope-manager/5.54.1:
     resolution: {integrity: sha512-zWKuGliXxvuxyM71UA/EcPxaviw39dB2504LqAmFDjmkpO8qNLHcmzlh6pbHs1h/7YQ9bnsO8CCcYCSA8sykUg==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dependencies:
       '@typescript-eslint/types': 5.54.1
       '@typescript-eslint/visitor-keys': 5.54.1
-    dev: true
-
-  /@typescript-eslint/types/5.53.0:
-    resolution: {integrity: sha512-5kcDL9ZUIP756K6+QOAfPkigJmCPHcLN7Zjdz76lQWWDdzfOhZDTj1irs6gPBKiXx5/6O3L0+AvupAut3z7D2A==}
-    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
 
   /@typescript-eslint/types/5.54.1:
@@ -1509,14 +1496,6 @@ packages:
       typescript: 4.9.5
     transitivePeerDependencies:
       - supports-color
-    dev: true
-
-  /@typescript-eslint/visitor-keys/5.53.0:
-    resolution: {integrity: sha512-JqNLnX3leaHFZEN0gCh81sIvgrp/2GOACZNgO4+Tkf64u51kTpAyWFOY8XHx8XuXr3N2C9zgPPHtcpMg6z1g0w==}
-    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
-    dependencies:
-      '@typescript-eslint/types': 5.53.0
-      eslint-visitor-keys: 3.3.0
     dev: true
 
   /@typescript-eslint/visitor-keys/5.54.1:
@@ -1749,14 +1728,14 @@ packages:
       terser: 5.16.5
     dev: true
 
-  /astro-eslint-parser/0.11.0:
-    resolution: {integrity: sha512-vcz8KBQ20WNOot6qK6w7DQtz2hwg+aLLqlUa6nAnitJLqbR12GxJN/+96U3O+VI4da5Up+FMWqNoL9mywSENtA==}
+  /astro-eslint-parser/0.12.0:
+    resolution: {integrity: sha512-1r8TXPHoUk6OSNzeGOGpklmPedleYVpZU50jIPfsQjzrGMs+XpCSCc8+AATnKraPYnTvkmNClhjafSY6w3H90g==}
     engines: {node: ^14.18.0 || >=16.0.0}
     dependencies:
-      '@astrojs/compiler': 1.1.1
-      '@typescript-eslint/scope-manager': 5.53.0
-      '@typescript-eslint/types': 5.53.0
-      astrojs-compiler-sync: 0.3.1_@astrojs+compiler@1.1.1
+      '@astrojs/compiler': 1.2.0
+      '@typescript-eslint/scope-manager': 5.54.1
+      '@typescript-eslint/types': 5.54.1
+      astrojs-compiler-sync: 0.3.1_@astrojs+compiler@1.2.0
       debug: 4.3.4
       eslint-visitor-keys: 3.3.0
       espree: 9.4.1
@@ -1838,13 +1817,13 @@ packages:
       - supports-color
       - terser
 
-  /astrojs-compiler-sync/0.3.1_@astrojs+compiler@1.1.1:
+  /astrojs-compiler-sync/0.3.1_@astrojs+compiler@1.2.0:
     resolution: {integrity: sha512-IzPuzkwdiRIZoBhCTuFhuBMWVESXgthTdwQ24QS8LvLargcWAA4E21KmZo4wimsmOG5vj4KKs9QFpy9zhXuo9Q==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
       '@astrojs/compiler': '>=0.27.0'
     dependencies:
-      '@astrojs/compiler': 1.1.1
+      '@astrojs/compiler': 1.2.0
       synckit: 0.8.5
     dev: true
 
@@ -2910,15 +2889,15 @@ packages:
       - supports-color
     dev: true
 
-  /eslint-plugin-astro/0.23.0_eslint@8.35.0:
-    resolution: {integrity: sha512-KsIL1sOrz40qf/d9RP4E3sH6+p6nrIBBXB6rPuE9EWb5de+m9BWfvURuoECXfiXCmQh8UlHJUxgSWxn1bLsD8g==}
+  /eslint-plugin-astro/0.24.0_eslint@8.35.0:
+    resolution: {integrity: sha512-oRGBMZPAFHhAHD8cyZez4OA5LRkgxLA+RtCIInC4nzw8thO/uojMdKXDri+sy2IFsGcu2PpOw70Uik0U5/izug==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
       eslint: '>=7.0.0'
     dependencies:
       '@jridgewell/sourcemap-codec': 1.4.14
-      '@typescript-eslint/types': 5.53.0
-      astro-eslint-parser: 0.11.0
+      '@typescript-eslint/types': 5.54.1
+      astro-eslint-parser: 0.12.0
       eslint: 8.35.0
       eslint-utils: 3.0.0_eslint@8.35.0
       postcss: 8.4.21

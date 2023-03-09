@@ -99,7 +99,7 @@ jobs:
           key: ${{ github.sha }}-${{ github.run_number }}
 
       - name: Publish to Cloudflare Pages
-        uses: cloudflare/pages-action@1
+        uses: cloudflare/pages-action@v1
         id: cfp
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}

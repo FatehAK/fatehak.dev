@@ -14,7 +14,7 @@ specifiers:
   astro-compress: ^1.1.35
   browserslist-to-esbuild: ^1.2.0
   concurrently: ^7.6.0
-  czg: 1.5.3
+  czg: 1.6.0
   eslint: ^8.36.0
   eslint-config-prettier: ^8.7.0
   eslint-config-semistandard: ^17.0.0
@@ -71,7 +71,7 @@ devDependencies:
   astro-compress: 1.1.35
   browserslist-to-esbuild: 1.2.0
   concurrently: 7.6.0
-  czg: 1.5.3
+  czg: 1.6.0
   eslint: 8.36.0
   eslint-config-prettier: 8.7.0_eslint@8.36.0
   eslint-config-semistandard: 17.0.0_5ejimrbnrp4lr3vckxupihvblq
@@ -2386,8 +2386,8 @@ packages:
       css-tree: 2.2.1
     dev: true
 
-  /czg/1.5.3:
-    resolution: {integrity: sha512-prQB6tiJdRhw59Ec5t8lZPmhwL2ZmUIwmjF7+V9mB/2mMu1Tj9IcdNn/6/+nb6v/CSIT6kAIGpLb+hC2l5UuqA==}
+  /czg/1.6.0:
+    resolution: {integrity: sha512-bFAXzGUrwanQ/VDL+s6zhoXxZbZNHCoAF0R2VAaHoFNpyAFeOrQ66TLP7FydaRsnXdBzRazfN+BUVdKUkyoHGw==}
     hasBin: true
     dev: true
 

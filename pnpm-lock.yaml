@@ -21,7 +21,7 @@ specifiers:
   eslint-formatter-pretty: ^4.1.0
   eslint-import-resolver-alias: ^1.1.2
   eslint-import-resolver-typescript: ^3.5.3
-  eslint-plugin-astro: ^0.24.0
+  eslint-plugin-astro: ^0.25.0
   eslint-plugin-import: ^2.27.5
   eslint-plugin-jsx-a11y: ^6.7.1
   eslint-plugin-markdownlint: ^0.4.1
@@ -78,7 +78,7 @@ devDependencies:
   eslint-formatter-pretty: 4.1.0
   eslint-import-resolver-alias: 1.1.2_5rfvta7qn57kxm7ir36ta6fixq
   eslint-import-resolver-typescript: 3.5.3_eakrjjutlgqjxe5ydhtnd4qdmy
-  eslint-plugin-astro: 0.24.0_eslint@8.36.0
+  eslint-plugin-astro: 0.25.0_eslint@8.36.0
   eslint-plugin-import: 2.27.5_v7jo3sddp7aqau7pajjy572cju
   eslint-plugin-jsx-a11y: 6.7.1_eslint@8.36.0
   eslint-plugin-markdownlint: 0.4.1_eslint@8.36.0
@@ -1485,11 +1485,6 @@ packages:
     dependencies:
       '@typescript-eslint/types': 5.55.0
       '@typescript-eslint/visitor-keys': 5.55.0
-    dev: true
-
-  /@typescript-eslint/types/5.54.1:
-    resolution: {integrity: sha512-G9+1vVazrfAfbtmCapJX8jRo2E4MDXxgm/IMOF4oGh3kq7XuK3JRkOg6y2Qu1VsTRmWETyTkWt1wxy7X7/yLkw==}
-    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
 
   /@typescript-eslint/types/5.55.0:
@@ -2914,17 +2909,17 @@ packages:
       - supports-color
     dev: true
 
-  /eslint-plugin-astro/0.24.0_eslint@8.36.0:
-    resolution: {integrity: sha512-oRGBMZPAFHhAHD8cyZez4OA5LRkgxLA+RtCIInC4nzw8thO/uojMdKXDri+sy2IFsGcu2PpOw70Uik0U5/izug==}
+  /eslint-plugin-astro/0.25.0_eslint@8.36.0:
+    resolution: {integrity: sha512-uSitJCU2g4Lv1vats5cfCtEL2lIqAU5MuHrIVCrBUTuIb3BZWAbij8TY9kW9PcRE386erw6uifOSVZ/fLLu/8A==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
       eslint: '>=7.0.0'
     dependencies:
+      '@eslint-community/eslint-utils': 4.2.0_eslint@8.36.0
       '@jridgewell/sourcemap-codec': 1.4.14
-      '@typescript-eslint/types': 5.54.1
+      '@typescript-eslint/types': 5.55.0
       astro-eslint-parser: 0.12.0
       eslint: 8.36.0
-      eslint-utils: 3.0.0_eslint@8.36.0
       postcss: 8.4.21
       postcss-selector-parser: 6.0.11
     transitivePeerDependencies:

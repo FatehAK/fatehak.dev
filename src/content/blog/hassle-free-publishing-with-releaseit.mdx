@@ -1,6 +1,6 @@
 ---
 date: '2023-02-18T09:12:07.197Z'
-lastMod: '2023-03-03T08:47:13.115Z'
+lastMod: '2023-03-23T12:20:34.364Z'
 title: Hassle-free NPM package publishing with release-it
 seoTitle: Hassle-free NPM package publishing with release-it
 highlight: release-it
@@ -92,7 +92,7 @@ module.exports = {
   github: {
     release: true, // creates a github release
     draft: true, // github releases are only drafted, confirm the draft in github releases page to publish it
-    releaseName: '✨ v${version}',
+    releaseName: 'v${version}',
     commitArgs: ['-S'], // creates gpg signed commits
     tagArgs: ['-s'], // creates gpg signed tags
     assets: ['tar/*.tgz'], // assets to be included in the GitHub releases page

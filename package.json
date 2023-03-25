@@ -38,7 +38,7 @@
     "@commitlint/cli": "^17.5.0",
     "@hbsnow/rehype-sectionize": "^1.0.7",
     "@typescript-eslint/parser": "^5.56.0",
-    "astro": "^2.1.6",
+    "astro": "^2.1.7",
     "astro-compress": "^1.1.35",
     "browserslist-to-esbuild": "^1.2.0",
     "concurrently": "^7.6.0",
@@ -61,7 +61,7 @@
     "lint-staged": "^13.2.0",
     "mdast-util-to-string": "^3.1.1",
     "postcss-html": "^1.5.0",
-    "postcss-preset-env": "^8.0.1",
+    "postcss-preset-env": "^8.1.0",
     "prettier": "^2.8.7",
     "prettier-plugin-astro": "^0.8.0",
     "reading-time": "^1.5.0",
@@ -72,7 +72,7 @@
     "rehype-slug": "^5.1.0",
     "remark-emoji": "^3.1.1",
     "rimraf": "^4.4.1",
-    "sharp": "^0.31.3",
+    "sharp": "^0.32.0",
     "shiki": "^0.14.1",
     "stylelint": "^15.3.0",
     "stylelint-config-clean-order": "^5.0.0",
@@ -84,5 +84,5 @@
   "engines": {
     "node": ">=18"
   },
-  "packageManager": "pnpm@7.30.0"
+  "packageManager": "pnpm@7.30.3"
 }

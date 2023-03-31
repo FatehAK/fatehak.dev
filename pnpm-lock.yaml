@@ -1,16 +1,16 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@astrojs/image': ^0.16.3
+  '@astrojs/image': ^0.16.4
   '@astrojs/mdx': ^0.18.2
   '@astrojs/prefetch': ^0.2.1
-  '@astrojs/rss': ^2.3.1
+  '@astrojs/rss': ^2.3.2
   '@astrojs/sitemap': ^1.2.1
   '@astrojs/tailwind': ^3.1.1
   '@commitlint/cli': ^17.5.1
   '@hbsnow/rehype-sectionize': ^1.0.7
   '@typescript-eslint/parser': ^5.57.0
-  astro: ^2.1.8
+  astro: ^2.1.9
   astro-compress: ^1.1.35
   browserslist-to-esbuild: ^1.2.0
   concurrently: ^7.6.0
@@ -33,7 +33,7 @@ specifiers:
   lint-staged: ^13.2.0
   mdast-util-to-string: ^3.1.1
   postcss-html: ^1.5.0
-  postcss-preset-env: ^8.2.0
+  postcss-preset-env: ^8.3.0
   prettier: ^2.8.7
   prettier-plugin-astro: ^0.8.0
   reading-time: ^1.5.0
@@ -55,19 +55,19 @@ specifiers:
   tailwindcss: ^3.3.1
 
 dependencies:
-  '@astrojs/mdx': 0.18.2_astro@2.1.8+rollup@3.19.1
+  '@astrojs/mdx': 0.18.2_astro@2.1.9+rollup@3.19.1
   tailwindcss: 3.3.1_aesdjsunmf4wiehhujt67my7tu
 
 devDependencies:
-  '@astrojs/image': 0.16.3_astro@2.1.8+sharp@0.32.0
+  '@astrojs/image': 0.16.4_astro@2.1.9+sharp@0.32.0
   '@astrojs/prefetch': 0.2.1
-  '@astrojs/rss': 2.3.1
+  '@astrojs/rss': 2.3.2
   '@astrojs/sitemap': 1.2.1
-  '@astrojs/tailwind': 3.1.1_ifmplgxak3zrlz7cxlpfwto72a
+  '@astrojs/tailwind': 3.1.1_r527nuriyglnhxe4ddihhqjo3e
   '@commitlint/cli': 17.5.1
   '@hbsnow/rehype-sectionize': 1.0.7
   '@typescript-eslint/parser': 5.57.0_bcnce6t2n5ss3lv2getliffzhq
-  astro: 2.1.8_ayvz6c44ptatevwgjm6fehy6ji
+  astro: 2.1.9_ayvz6c44ptatevwgjm6fehy6ji
   astro-compress: 1.1.35
   browserslist-to-esbuild: 1.2.0
   concurrently: 7.6.0
@@ -90,7 +90,7 @@ devDependencies:
   lint-staged: 13.2.0
   mdast-util-to-string: 3.1.1
   postcss-html: 1.5.0
-  postcss-preset-env: 8.2.0_postcss@8.4.21
+  postcss-preset-env: 8.3.0_postcss@8.4.21
   prettier: 2.8.7
   prettier-plugin-astro: 0.8.0
   reading-time: 1.5.0
@@ -133,17 +133,17 @@ packages:
   /@astrojs/compiler/1.3.0:
     resolution: {integrity: sha512-VxSj3gh/UTB/27rkRCT7SvyGjWtuxUO7Jf7QqDduch7j/gr/uA5P/Q5I/4zIIrZjy2yQAKyKLoox2QI2mM/BSA==}
 
-  /@astrojs/image/0.16.3_astro@2.1.8+sharp@0.32.0:
-    resolution: {integrity: sha512-uBs9rKF03jckd0SlNU06PZU8L+WdDCjbvkrsF4QXlArhGExPi5rQi7UVquJFMEQZsVrNxY4mj8M6KBhggXO0Ug==}
+  /@astrojs/image/0.16.4_astro@2.1.9+sharp@0.32.0:
+    resolution: {integrity: sha512-oNTzECuUEQxrWZ5YZlQOd6vr/KfdMF5vLi7EarduG6mUfqmbHkbOA3LVM1hpcKA8IFp5iadNWn99teS8ZcIFRg==}
     peerDependencies:
-      astro: ^2.1.8
+      astro: ^2.1.9
       sharp: '>=0.31.0'
     peerDependenciesMeta:
       sharp:
         optional: true
     dependencies:
       '@altano/tiny-async-pool': 1.0.2
-      astro: 2.1.8_ayvz6c44ptatevwgjm6fehy6ji
+      astro: 2.1.9_ayvz6c44ptatevwgjm6fehy6ji
       http-cache-semantics: 4.1.1
       image-size: 1.0.2
       kleur: 4.1.5
@@ -169,13 +169,13 @@ packages:
       vscode-languageserver-types: 3.17.3
       vscode-uri: 3.0.7
 
-  /@astrojs/markdown-remark/2.1.1_astro@2.1.8:
+  /@astrojs/markdown-remark/2.1.1_astro@2.1.9:
     resolution: {integrity: sha512-qVb5QCDeX2huUTzmt0cb7IXZ1iUS5k5kzatl2XE6BGZFPPZwhN2rUAf6oKDBOO+TcvFqIgns0AfA5gq2km/J9g==}
     peerDependencies:
       astro: ^2.1.4
     dependencies:
       '@astrojs/prism': 2.1.1
-      astro: 2.1.8_ayvz6c44ptatevwgjm6fehy6ji
+      astro: 2.1.9_ayvz6c44ptatevwgjm6fehy6ji
       github-slugger: 1.5.0
       import-meta-resolve: 2.2.2
       rehype-raw: 6.1.1
@@ -192,13 +192,13 @@ packages:
       - supports-color
     dev: false
 
-  /@astrojs/markdown-remark/2.1.2_astro@2.1.8:
+  /@astrojs/markdown-remark/2.1.2_astro@2.1.9:
     resolution: {integrity: sha512-rYkmFEv2w7oEk6ZPgxHkhWzwcxSUGc1vJU0cbCu5sHF8iFNnc1cmMsjXWa5DrU5sCEf8VVYE1iFlbbnFzvHQJw==}
     peerDependencies:
       astro: ^2.1.5
     dependencies:
       '@astrojs/prism': 2.1.1
-      astro: 2.1.8_ayvz6c44ptatevwgjm6fehy6ji
+      astro: 2.1.9_ayvz6c44ptatevwgjm6fehy6ji
       github-slugger: 1.5.0
       import-meta-resolve: 2.2.2
       rehype-raw: 6.1.1
@@ -214,11 +214,11 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /@astrojs/mdx/0.18.2_astro@2.1.8+rollup@3.19.1:
+  /@astrojs/mdx/0.18.2_astro@2.1.9+rollup@3.19.1:
     resolution: {integrity: sha512-eSR6R62I5cwM6AH8r4UhyBwcV/KKLaZ2siXDA9QR9O4uzUBRnT4gwvoGOvaqpjZCvdNJ2ThaVjePH4DFvxFhaQ==}
     engines: {node: '>=16.12.0'}
     dependencies:
-      '@astrojs/markdown-remark': 2.1.1_astro@2.1.8
+      '@astrojs/markdown-remark': 2.1.1_astro@2.1.9
       '@astrojs/prism': 2.1.1
       '@mdx-js/mdx': 2.3.0
       '@mdx-js/rollup': 2.3.0_rollup@3.19.1
@@ -253,8 +253,8 @@ packages:
     dependencies:
       prismjs: 1.29.0
 
-  /@astrojs/rss/2.3.1:
-    resolution: {integrity: sha512-s9yHKfWDUQvhm5GGfbeb1fEzVL19yVv3uz6TF7nT/4/uW2w4jWgGtqQMkzeEhckvwRVT3xavHP8b+S9TKHMgAg==}
+  /@astrojs/rss/2.3.2:
+    resolution: {integrity: sha512-R/nKOY7O48RQhD8d2i7yJBMS4sTHEHp17zFQIlrGfGXBHYKOOdyeF36UyjECSN3oglKwpi+vdGzQW/UGwJcNHg==}
     dependencies:
       fast-xml-parser: 4.1.3
       kleur: 4.1.5
@@ -267,14 +267,14 @@ packages:
       zod: 3.21.4
     dev: true
 
-  /@astrojs/tailwind/3.1.1_ifmplgxak3zrlz7cxlpfwto72a:
+  /@astrojs/tailwind/3.1.1_r527nuriyglnhxe4ddihhqjo3e:
     resolution: {integrity: sha512-Wx/ZtVnmtfqHWGVzvUEYZm8rufVKVgDIef0q6fzwUxoT1EpTTwBkTbpnzooogewMLOh2eTscasGe3Ih2HC1wVA==}
     peerDependencies:
       astro: ^2.1.3
       tailwindcss: ^3.0.24
     dependencies:
       '@proload/core': 0.3.3
-      astro: 2.1.8_ayvz6c44ptatevwgjm6fehy6ji
+      astro: 2.1.9_ayvz6c44ptatevwgjm6fehy6ji
       autoprefixer: 10.4.14_postcss@8.4.21
       postcss: 8.4.21
       postcss-load-config: 4.0.1_aesdjsunmf4wiehhujt67my7tu
@@ -715,30 +715,6 @@ packages:
       '@csstools/css-tokenizer': 2.1.0
     dev: true
 
-  /@csstools/css-calc/1.0.1_ppok7cytzjc65mcyxmtit3wdyi:
-    resolution: {integrity: sha512-VBI8X0bmStfc85wWTa2bsbnlBQxgW4FmJ0Ts9ar9UqytE6kii3yg6GO+wpgzht2oK5Qlbpkm1Fy2kcqVmu6f3Q==}
-    engines: {node: ^14 || ^16 || >=18}
-    peerDependencies:
-      '@csstools/css-parser-algorithms': ^2.0.1
-      '@csstools/css-tokenizer': ^2.0.1
-    dependencies:
-      '@csstools/css-parser-algorithms': 2.0.1_5vzy4lghjvuzkedkkk4tqwjftm
-      '@csstools/css-tokenizer': 2.1.0
-    dev: true
-
-  /@csstools/css-color-parser/1.0.0_ppok7cytzjc65mcyxmtit3wdyi:
-    resolution: {integrity: sha512-u3JrK+pQIGGnXe+YhohWwAwOum2y25NRdEjRQFD3moMnOJgmU/nj8BPAF6DDQAooy8Ty9RNKiAh2njuqwMgUNQ==}
-    engines: {node: ^14 || ^16 || >=18}
-    peerDependencies:
-      '@csstools/css-parser-algorithms': ^2.1.0
-      '@csstools/css-tokenizer': ^2.1.0
-    dependencies:
-      '@csstools/color-helpers': 2.0.0
-      '@csstools/css-calc': 1.0.1_ppok7cytzjc65mcyxmtit3wdyi
-      '@csstools/css-parser-algorithms': 2.0.1_5vzy4lghjvuzkedkkk4tqwjftm
-      '@csstools/css-tokenizer': 2.1.0
-    dev: true
-
   /@csstools/css-color-parser/1.1.0_eu5cdbcexitnvbdq5yia3g22um:
     resolution: {integrity: sha512-jRpIhjThaH8jxuJ8Q1H+jai/dekP5952kzLHTuN+rPI48eF2esf/18TMb3N/HtEgmnybhfiwUO6Ph2OkHi3jpA==}
     engines: {node: ^14 || ^16 || >=18}
@@ -797,6 +773,17 @@ packages:
       '@csstools/css-tokenizer': 2.1.0
     dev: true
 
+  /@csstools/media-query-list-parser/2.0.2_eu5cdbcexitnvbdq5yia3g22um:
+    resolution: {integrity: sha512-8V6JD8Av1HttuClYr1ZBu0LRVe5Nnz4qrv8RppO8mobsX/USBHZy5JQOXYIlpOVhl46nzkx3X5cfH6CqUghjrQ==}
+    engines: {node: ^14 || ^16 || >=18}
+    peerDependencies:
+      '@csstools/css-parser-algorithms': ^2.0.0
+      '@csstools/css-tokenizer': ^2.0.0
+    dependencies:
+      '@csstools/css-parser-algorithms': 2.1.0_5vzy4lghjvuzkedkkk4tqwjftm
+      '@csstools/css-tokenizer': 2.1.0
+    dev: true
+
   /@csstools/postcss-cascade-layers/3.0.1_postcss@8.4.21:
     resolution: {integrity: sha512-dD8W98dOYNOH/yX4V4HXOhfCOnvVAg8TtsL+qCGNoKXuq5z2C/d026wGWgySgC8cajXXo/wNezS31Glj5GcqrA==}
     engines: {node: ^14 || ^16 || >=18}
@@ -826,8 +813,8 @@ packages:
     peerDependencies:
       postcss: ^8.4
     dependencies:
-      '@csstools/css-color-parser': 1.0.0_ppok7cytzjc65mcyxmtit3wdyi
-      '@csstools/css-parser-algorithms': 2.0.1_5vzy4lghjvuzkedkkk4tqwjftm
+      '@csstools/css-color-parser': 1.1.0_eu5cdbcexitnvbdq5yia3g22um
+      '@csstools/css-parser-algorithms': 2.1.0_5vzy4lghjvuzkedkkk4tqwjftm
       '@csstools/css-tokenizer': 2.1.0
       '@csstools/postcss-progressive-custom-properties': 2.1.0_postcss@8.4.21
       postcss: 8.4.21
@@ -862,8 +849,8 @@ packages:
     peerDependencies:
       postcss: ^8.4
     dependencies:
-      '@csstools/css-color-parser': 1.0.0_ppok7cytzjc65mcyxmtit3wdyi
-      '@csstools/css-parser-algorithms': 2.0.1_5vzy4lghjvuzkedkkk4tqwjftm
+      '@csstools/css-color-parser': 1.1.0_eu5cdbcexitnvbdq5yia3g22um
+      '@csstools/css-parser-algorithms': 2.1.0_5vzy4lghjvuzkedkkk4tqwjftm
       '@csstools/css-tokenizer': 2.1.0
       postcss: 8.4.21
     dev: true
@@ -919,15 +906,28 @@ packages:
       postcss: 8.4.21
     dev: true
 
+  /@csstools/postcss-media-minmax/1.0.0_postcss@8.4.21:
+    resolution: {integrity: sha512-qXHZ0QVDszKf4SsLazOEzFl+m+IkhHOigqMy/gHNIzAtqB3XeBQUa+dTi1ROmQBDH1HXktGwy+tafFBg9UoaxA==}
+    engines: {node: ^14 || ^16 || >=18}
+    peerDependencies:
+      postcss: ^8.4
+    dependencies:
+      '@csstools/css-calc': 1.0.1_eu5cdbcexitnvbdq5yia3g22um
+      '@csstools/css-parser-algorithms': 2.1.0_5vzy4lghjvuzkedkkk4tqwjftm
+      '@csstools/css-tokenizer': 2.1.0
+      '@csstools/media-query-list-parser': 2.0.2_eu5cdbcexitnvbdq5yia3g22um
+      postcss: 8.4.21
+    dev: true
+
   /@csstools/postcss-media-queries-aspect-ratio-number-values/1.0.1_postcss@8.4.21:
     resolution: {integrity: sha512-V9yQqXdje6OfqDf6EL5iGOpi6N0OEczwYK83rql9UapQwFEryXlAehR5AqH8QqLYb6+y31wUXK6vMxCp0920Zg==}
     engines: {node: ^14 || ^16 || >=18}
     peerDependencies:
       postcss: ^8.4
     dependencies:
-      '@csstools/css-parser-algorithms': 2.0.1_5vzy4lghjvuzkedkkk4tqwjftm
+      '@csstools/css-parser-algorithms': 2.1.0_5vzy4lghjvuzkedkkk4tqwjftm
       '@csstools/css-tokenizer': 2.1.0
-      '@csstools/media-query-list-parser': 2.0.1_ppok7cytzjc65mcyxmtit3wdyi
+      '@csstools/media-query-list-parser': 2.0.1_eu5cdbcexitnvbdq5yia3g22um
       postcss: 8.4.21
     dev: true
 
@@ -957,8 +957,8 @@ packages:
     peerDependencies:
       postcss: ^8.4
     dependencies:
-      '@csstools/css-color-parser': 1.0.0_ppok7cytzjc65mcyxmtit3wdyi
-      '@csstools/css-parser-algorithms': 2.0.1_5vzy4lghjvuzkedkkk4tqwjftm
+      '@csstools/css-color-parser': 1.1.0_eu5cdbcexitnvbdq5yia3g22um
+      '@csstools/css-parser-algorithms': 2.1.0_5vzy4lghjvuzkedkkk4tqwjftm
       '@csstools/css-tokenizer': 2.1.0
       '@csstools/postcss-progressive-custom-properties': 2.1.0_postcss@8.4.21
       postcss: 8.4.21
@@ -990,8 +990,8 @@ packages:
     peerDependencies:
       postcss: ^8.4
     dependencies:
-      '@csstools/css-calc': 1.0.1_ppok7cytzjc65mcyxmtit3wdyi
-      '@csstools/css-parser-algorithms': 2.0.1_5vzy4lghjvuzkedkkk4tqwjftm
+      '@csstools/css-calc': 1.0.1_eu5cdbcexitnvbdq5yia3g22um
+      '@csstools/css-parser-algorithms': 2.1.0_5vzy4lghjvuzkedkkk4tqwjftm
       '@csstools/css-tokenizer': 2.1.0
       postcss: 8.4.21
     dev: true
@@ -1013,8 +1013,8 @@ packages:
     peerDependencies:
       postcss: ^8.4
     dependencies:
-      '@csstools/css-calc': 1.0.1_ppok7cytzjc65mcyxmtit3wdyi
-      '@csstools/css-parser-algorithms': 2.0.1_5vzy4lghjvuzkedkkk4tqwjftm
+      '@csstools/css-calc': 1.0.1_eu5cdbcexitnvbdq5yia3g22um
+      '@csstools/css-parser-algorithms': 2.1.0_5vzy4lghjvuzkedkkk4tqwjftm
       '@csstools/css-tokenizer': 2.1.0
       postcss: 8.4.21
     dev: true
@@ -1885,8 +1885,8 @@ packages:
       - supports-color
     dev: true
 
-  /astro/2.1.8_ayvz6c44ptatevwgjm6fehy6ji:
-    resolution: {integrity: sha512-4XryaPNUSf6u9rwzd4gd9lX3KpVaann8DesWxIPE3IdhpVjzY0U0wqUjuvkw3DKUbKr4eLbbvJDb4+5h0q623g==}
+  /astro/2.1.9_ayvz6c44ptatevwgjm6fehy6ji:
+    resolution: {integrity: sha512-UkbG0lgue1b/t4yMI+AkAGEfdOwcPS2RUYQ/QIurtKjP6W5gtKQveRTBuHH7iwiBziH+z8Ecc5/OAALoXSvMlQ==}
     engines: {node: '>=16.12.0', npm: '>=6.14.0'}
     hasBin: true
     peerDependencies:
@@ -1897,7 +1897,7 @@ packages:
     dependencies:
       '@astrojs/compiler': 1.3.0
       '@astrojs/language-server': 0.28.3
-      '@astrojs/markdown-remark': 2.1.2_astro@2.1.8
+      '@astrojs/markdown-remark': 2.1.2_astro@2.1.9
       '@astrojs/telemetry': 2.1.0
       '@astrojs/webapi': 2.1.0
       '@babel/core': 7.21.3
@@ -2497,8 +2497,8 @@ packages:
     engines: {node: '>= 6'}
     dev: true
 
-  /cssdb/7.5.2:
-    resolution: {integrity: sha512-Xpu7Bf5Vlw+G7ikA2Lg/lVCRTSY8D5M5qFUgGNFyS4pa8ufGLyCBxIX/3if3krHlF1SKSfVPI/YsAWLDVEbocw==}
+  /cssdb/7.5.3:
+    resolution: {integrity: sha512-NQNRhrEnS6cW+RU/foLphb6xI/MDA70bI3Cy6VxJU8ilxgyTYz1X9zUzFGVTG5nGPylcKAGIt/UNc4deT56lQQ==}
     dev: true
 
   /cssesc/3.0.0:
@@ -5957,15 +5957,6 @@ packages:
       postcss-value-parser: 4.2.0
     dev: true
 
-  /postcss-media-minmax/5.0.0_postcss@8.4.21:
-    resolution: {integrity: sha512-yDUvFf9QdFZTuCUg0g0uNSHVlJ5X1lSzDZjPSFaiCWvjgsvu8vEVxtahPrLMinIDEEGnx6cBe6iqdx5YWz08wQ==}
-    engines: {node: '>=10.0.0'}
-    peerDependencies:
-      postcss: ^8.1.0
-    dependencies:
-      postcss: 8.4.21
-    dev: true
-
   /postcss-media-query-parser/0.2.3:
     resolution: {integrity: sha512-3sOlxmbKcSHMjlUXQZKQ06jOswE7oVkXPxmZdoB1r5l0q6gTFTQSHxNxOrCccElbW7dxNytifNEo8qidX2Vsig==}
     dev: true
@@ -6027,8 +6018,8 @@ packages:
       postcss-value-parser: 4.2.0
     dev: true
 
-  /postcss-preset-env/8.2.0_postcss@8.4.21:
-    resolution: {integrity: sha512-m5wWWANGQlXFYpgIcuatUWXYFQDhSfxeet4RiwietcuDpnXWpkY9JbzegR73DP0V6MUbhiIIl0vVjfJyql+Esw==}
+  /postcss-preset-env/8.3.0_postcss@8.4.21:
+    resolution: {integrity: sha512-VFc/bhwRo37RoTVzCTCKDJLw0lwsqLRCTc7dkJkfs9S7XXfTbk7QkhbMWHd2L+iZsAsE5yqdSRBZ41/Q828TbA==}
     engines: {node: ^14 || ^16 || >=18}
     peerDependencies:
       postcss: ^8.4
@@ -6044,6 +6035,7 @@ packages:
       '@csstools/postcss-logical-float-and-clear': 1.0.1_postcss@8.4.21
       '@csstools/postcss-logical-resize': 1.0.1_postcss@8.4.21
       '@csstools/postcss-logical-viewport-units': 1.0.2_postcss@8.4.21
+      '@csstools/postcss-media-minmax': 1.0.0_postcss@8.4.21
       '@csstools/postcss-media-queries-aspect-ratio-number-values': 1.0.1_postcss@8.4.21
       '@csstools/postcss-nested-calc': 2.0.2_postcss@8.4.21
       '@csstools/postcss-normalize-display-values': 2.0.1_postcss@8.4.21
@@ -6059,7 +6051,7 @@ packages:
       css-blank-pseudo: 5.0.2_postcss@8.4.21
       css-has-pseudo: 5.0.2_postcss@8.4.21
       css-prefers-color-scheme: 8.0.2_postcss@8.4.21
-      cssdb: 7.5.2
+      cssdb: 7.5.3
       postcss: 8.4.21
       postcss-attribute-case-insensitive: 6.0.2_postcss@8.4.21
       postcss-clamp: 4.1.0_postcss@8.4.21
@@ -6079,7 +6071,6 @@ packages:
       postcss-initial: 4.0.1_postcss@8.4.21
       postcss-lab-function: 5.2.0_postcss@8.4.21
       postcss-logical: 6.1.0_postcss@8.4.21
-      postcss-media-minmax: 5.0.0_postcss@8.4.21
       postcss-nesting: 11.2.1_postcss@8.4.21
       postcss-opacity-percentage: 2.0.0_postcss@8.4.21
       postcss-overflow-shorthand: 4.0.1_postcss@8.4.21

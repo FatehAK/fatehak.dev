@@ -31,7 +31,7 @@ specifiers:
   gray-matter: ^4.0.3
   husky: ^8.0.3
   lint-staged: ^13.2.0
-  mdast-util-to-string: ^3.1.1
+  mdast-util-to-string: ^3.2.0
   postcss-html: ^1.5.0
   postcss-preset-env: ^8.3.0
   prettier: ^2.8.7
@@ -50,7 +50,7 @@ specifiers:
   stylelint-config-clean-order: ^5.0.0
   stylelint-config-standard: ^31.0.0
   stylelint-declaration-block-no-ignored-properties: ^2.7.0
-  stylelint-formatter-pretty: ^3.1.1
+  stylelint-formatter-pretty: ^3.2.0
   stylelint-order: ^6.0.3
   tailwindcss: ^3.3.1
 
@@ -88,7 +88,7 @@ devDependencies:
   gray-matter: 4.0.3
   husky: 8.0.3
   lint-staged: 13.2.0
-  mdast-util-to-string: 3.1.1
+  mdast-util-to-string: 3.2.0
   postcss-html: 1.5.0
   postcss-preset-env: 8.3.0_postcss@8.4.21
   prettier: 2.8.7
@@ -107,7 +107,7 @@ devDependencies:
   stylelint-config-clean-order: 5.0.0_stylelint@15.4.0
   stylelint-config-standard: 31.0.0_stylelint@15.4.0
   stylelint-declaration-block-no-ignored-properties: 2.7.0_stylelint@15.4.0
-  stylelint-formatter-pretty: 3.1.1
+  stylelint-formatter-pretty: 3.2.0
   stylelint-order: 6.0.3_stylelint@15.4.0
 
 packages:
@@ -4680,7 +4680,7 @@ packages:
       '@types/mdast': 3.0.10
       '@types/unist': 2.0.6
       decode-named-character-reference: 1.0.2
-      mdast-util-to-string: 3.1.1
+      mdast-util-to-string: 3.2.0
       micromark: 3.1.0
       micromark-util-decode-numeric-character-reference: 1.0.0
       micromark-util-decode-string: 1.0.2
@@ -4830,13 +4830,13 @@ packages:
       '@types/unist': 2.0.6
       longest-streak: 3.1.0
       mdast-util-phrasing: 3.0.1
-      mdast-util-to-string: 3.1.1
+      mdast-util-to-string: 3.2.0
       micromark-util-decode-string: 1.0.2
       unist-util-visit: 4.1.2
       zwitch: 2.0.4
 
-  /mdast-util-to-string/3.1.1:
-    resolution: {integrity: sha512-tGvhT94e+cVnQt8JWE9/b3cUQZWS732TJxXHktvP+BYo62PpYD53Ls/6cC60rW21dW+txxiM4zMdc6abASvZKA==}
+  /mdast-util-to-string/3.2.0:
+    resolution: {integrity: sha512-V4Zn/ncyN1QNSqSBxTrMOLpjr+IKdHl2v3KVLoWmDPscP4r9GcCi71gjgvUV1SFSKh92AjAG4peFuBl2/YgCJg==}
     dependencies:
       '@types/mdast': 3.0.10
 
@@ -6992,8 +6992,8 @@ packages:
       stylelint: 15.4.0
     dev: true
 
-  /stylelint-formatter-pretty/3.1.1:
-    resolution: {integrity: sha512-sHsbwd/AzzKnldARIQkjDj6L5tGNOBs5vfIhMz40oLSaV+GW2RNYKYoqxtt6cgLf91OURXu0tI/l0fbQw7EVrg==}
+  /stylelint-formatter-pretty/3.2.0:
+    resolution: {integrity: sha512-qUGdmJIKFcNamAgkf/I0NraOxlLqclSoAmBameWNR5EsOvm0Kwy2iMYi5z9hbQhFaCZ+TWSbwHmkB6XNbJWrQw==}
     engines: {node: '>=14'}
     dependencies:
       ansi-escapes: 4.3.2
@@ -7001,6 +7001,7 @@ packages:
       picocolors: 1.0.0
       plur: 4.0.0
       string-width: 4.2.3
+      supports-hyperlinks: 3.0.0
     dev: true
 
   /stylelint-order/6.0.3_stylelint@15.4.0:

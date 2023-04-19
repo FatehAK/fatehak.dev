@@ -68,7 +68,7 @@
     "rehype-accessible-emojis": "^0.3.2",
     "rehype-autolink-headings": "^6.1.1",
     "rehype-external-links": "^2.0.1",
-    "rehype-pretty-code": "^0.9.4",
+    "rehype-pretty-code": "^0.9.5",
     "rehype-slug": "^5.1.0",
     "remark-emoji": "^3.1.1",
     "rimraf": "^4.4.1",
@@ -84,5 +84,5 @@
   "engines": {
     "node": ">=18"
   },
-  "packageManager": "pnpm@7.32.1"
+  "packageManager": "pnpm@7.32.2"
 }

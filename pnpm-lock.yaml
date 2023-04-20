@@ -11,7 +11,7 @@ specifiers:
   '@hbsnow/rehype-sectionize': ^1.0.7
   '@typescript-eslint/parser': ^5.59.0
   astro: ^2.3.0
-  astro-compress: ^1.1.36
+  astro-compress: ^1.1.39
   browserslist-to-esbuild: ^1.2.0
   concurrently: ^7.6.0
   czg: 1.6.1
@@ -68,7 +68,7 @@ devDependencies:
   '@hbsnow/rehype-sectionize': 1.0.7
   '@typescript-eslint/parser': 5.59.0_gtjzorxa7eg3ns2qwm6k5om4ri
   astro: 2.3.0_ayvz6c44ptatevwgjm6fehy6ji
-  astro-compress: 1.1.36
+  astro-compress: 1.1.39
   browserslist-to-esbuild: 1.2.0
   concurrently: 7.6.0
   czg: 1.6.1
@@ -1800,8 +1800,8 @@ packages:
     hasBin: true
     dev: false
 
-  /astro-compress/1.1.36:
-    resolution: {integrity: sha512-iAth3dQrSZg+bXia2DqsAa0NKt8oxxOJbZawPXxkPF+k2tdQflp2nfTrm3JozIbav6LF0ZhQhe306skh+5g/5Q==}
+  /astro-compress/1.1.39:
+    resolution: {integrity: sha512-ypMe3YoWl99KsxfUmOpguir1wpZbPKMTFTrfpD8Ny1eGTr/H8kDrFyIEw5QIk+WGQThUKopPnWQPAKmnti/BrA==}
     dependencies:
       '@types/csso': 5.0.0
       '@types/html-minifier-terser': 7.0.0
@@ -1811,7 +1811,7 @@ packages:
       html-minifier-terser: 7.2.0
       sharp: 0.32.0
       svgo: 3.0.2
-      terser: 5.16.9
+      terser: 5.17.1
     dev: true
 
   /astro-eslint-parser/0.13.1:
@@ -3930,7 +3930,7 @@ packages:
       entities: 4.4.0
       param-case: 3.0.4
       relateurl: 0.2.7
-      terser: 5.16.9
+      terser: 5.17.1
     dev: true
 
   /html-tags/3.3.1:
@@ -7210,8 +7210,8 @@ packages:
       inherits: 2.0.4
       readable-stream: 3.6.2
 
-  /terser/5.16.9:
-    resolution: {integrity: sha512-HPa/FdTB9XGI2H1/keLFZHxl6WNvAI4YalHGtDQTlMnJcoqSab1UwL4l1hGEhs6/GmLHBZIg/YgB++jcbzoOEg==}
+  /terser/5.17.1:
+    resolution: {integrity: sha512-hVl35zClmpisy6oaoKALOpS0rDYLxRFLHhRuDlEGTKey9qHjS1w9GMORjuwIMt70Wan4lwsLYyWDVnWgF+KUEw==}
     engines: {node: '>=10'}
     hasBin: true
     dependencies:

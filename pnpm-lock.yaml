@@ -11,7 +11,7 @@ specifiers:
   '@hbsnow/rehype-sectionize': ^1.0.7
   '@typescript-eslint/parser': ^5.59.0
   astro: ^2.3.0
-  astro-compress: ^1.1.41
+  astro-compress: ^1.1.42
   browserslist-to-esbuild: ^1.2.0
   concurrently: ^7.6.0
   czg: 1.6.1
@@ -68,7 +68,7 @@ devDependencies:
   '@hbsnow/rehype-sectionize': 1.0.7
   '@typescript-eslint/parser': 5.59.0_iacogk7kkaymxepzhgcbytyi7q
   astro: 2.3.0_ayvz6c44ptatevwgjm6fehy6ji
-  astro-compress: 1.1.41
+  astro-compress: 1.1.42
   browserslist-to-esbuild: 1.2.0
   concurrently: 7.6.0
   czg: 1.6.1
@@ -1816,8 +1816,8 @@ packages:
     hasBin: true
     dev: false
 
-  /astro-compress/1.1.41:
-    resolution: {integrity: sha512-avAlzu3uNWLIKCXS5OlnJEmO779Ua8f3kdNaTqv5+BOIGel1glXqQNM8diIV48nVfuEp7aVSLaij1udjsvLAjw==}
+  /astro-compress/1.1.42:
+    resolution: {integrity: sha512-heMdV3amY/k1NA4FHuNu1Nwady834tY79x8O39fBSlSvBpgESUCX2qergd7sMsaWushwqr47hWaSrfItELGaUg==}
     dependencies:
       '@lightrix/config': 0.0.11
       '@lightrix/scripts': 1.0.3
@@ -3967,7 +3967,7 @@ packages:
     dependencies:
       camel-case: 4.1.2
       clean-css: 5.3.2
-      commander: 10.0.0
+      commander: 10.0.1
       entities: 4.4.0
       param-case: 3.0.4
       relateurl: 0.2.7

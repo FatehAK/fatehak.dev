@@ -41,7 +41,7 @@
     "astro": "^2.3.2",
     "astro-compress": "^1.1.42",
     "browserslist-to-esbuild": "^1.2.0",
-    "concurrently": "^7.6.0",
+    "concurrently": "^8.0.1",
     "czg": "1.6.1",
     "eslint": "^8.39.0",
     "eslint-config-prettier": "^8.8.0",
@@ -71,12 +71,12 @@
     "rehype-pretty-code": "^0.9.5",
     "rehype-slug": "^5.1.0",
     "remark-emoji": "^3.1.1",
-    "rimraf": "^4.4.1",
+    "rimraf": "^5.0.0",
     "sharp": "^0.32.1",
     "shiki": "^0.14.1",
     "stylelint": "^15.6.0",
     "stylelint-config-clean-order": "^5.0.1",
-    "stylelint-config-standard": "^31.0.0",
+    "stylelint-config-standard": "^33.0.0",
     "stylelint-declaration-block-no-ignored-properties": "^2.7.0",
     "stylelint-formatter-pretty": "^3.2.0",
     "stylelint-order": "^6.0.3"
@@ -84,5 +84,5 @@
   "engines": {
     "node": ">=18"
   },
-  "packageManager": "pnpm@7.32.2"
+  "packageManager": "pnpm@8.3.1"
 }

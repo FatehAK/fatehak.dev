@@ -3,27 +3,27 @@ lockfileVersion: '6.0'
 dependencies:
   '@astrojs/mdx':
     specifier: ^0.19.0
-    version: 0.19.0(astro@2.3.3)(rollup@3.21.2)
+    version: 0.19.0(astro@2.3.4)(rollup@3.21.2)
   tailwindcss:
     specifier: ^3.3.2
     version: 3.3.2(ts-node@10.9.1)
 
 devDependencies:
   '@astrojs/image':
-    specifier: ^0.16.6
-    version: 0.16.6(astro@2.3.3)(sharp@0.32.1)
+    specifier: ^0.16.7
+    version: 0.16.7(astro@2.3.4)(sharp@0.32.1)
   '@astrojs/prefetch':
     specifier: ^0.2.1
     version: 0.2.1
   '@astrojs/rss':
-    specifier: ^2.4.0
-    version: 2.4.0
+    specifier: ^2.4.1
+    version: 2.4.1
   '@astrojs/sitemap':
     specifier: ^1.2.2
     version: 1.2.2
   '@astrojs/tailwind':
     specifier: ^3.1.2
-    version: 3.1.2(astro@2.3.3)(tailwindcss@3.3.2)(ts-node@10.9.1)
+    version: 3.1.2(astro@2.3.4)(tailwindcss@3.3.2)(ts-node@10.9.1)
   '@commitlint/cli':
     specifier: ^17.6.1
     version: 17.6.1
@@ -34,8 +34,8 @@ devDependencies:
     specifier: ^5.59.2
     version: 5.59.2(eslint@8.39.0)(typescript@5.0.4)
   astro:
-    specifier: ^2.3.3
-    version: 2.3.3(@types/node@18.16.3)(sharp@0.32.1)
+    specifier: ^2.3.4
+    version: 2.3.4(@types/node@18.16.3)(sharp@0.32.1)
   astro-compress:
     specifier: ^1.1.42
     version: 1.1.42
@@ -142,23 +142,23 @@ devDependencies:
     specifier: ^0.14.2
     version: 0.14.2
   stylelint:
-    specifier: ^15.6.0
-    version: 15.6.0
+    specifier: ^15.6.1
+    version: 15.6.1
   stylelint-config-clean-order:
     specifier: ^5.0.1
-    version: 5.0.1(stylelint@15.6.0)
+    version: 5.0.1(stylelint@15.6.1)
   stylelint-config-standard:
     specifier: ^33.0.0
-    version: 33.0.0(stylelint@15.6.0)
+    version: 33.0.0(stylelint@15.6.1)
   stylelint-declaration-block-no-ignored-properties:
     specifier: ^2.7.0
-    version: 2.7.0(stylelint@15.6.0)
+    version: 2.7.0(stylelint@15.6.1)
   stylelint-formatter-pretty:
     specifier: ^3.2.0
     version: 3.2.0
   stylelint-order:
     specifier: ^6.0.3
-    version: 6.0.3(stylelint@15.6.0)
+    version: 6.0.3(stylelint@15.6.1)
 
 packages:
 
@@ -180,17 +180,17 @@ packages:
   /@astrojs/compiler@1.3.2:
     resolution: {integrity: sha512-W/2Mdsq75ruK31dPVlXLdvAoknYDcm6+zXiFToSzQWI7wZqqR+51XTFgx90ojYbefk7z4VOJSVtZBz2pA82F5A==}
 
-  /@astrojs/image@0.16.6(astro@2.3.3)(sharp@0.32.1):
-    resolution: {integrity: sha512-/MJ0aByhuNAT7VeMwXVjS0e5IH8MxsYeEnymOJ0/1VBmZFmcbtb1nUeLE0uO3EV3kNYGRJtwGyald8YJ9ncW4A==}
+  /@astrojs/image@0.16.7(astro@2.3.4)(sharp@0.32.1):
+    resolution: {integrity: sha512-8X1DnMh3lUTA7BNt7dF0rfWTXNwvLoPWWXtLi+TdO3CW1SvdY9LJRuCEWwHfnKzcQ0EC2TfLwjukpbtJuCRxjw==}
     peerDependencies:
-      astro: ^2.2.2
+      astro: ^2.3.4
       sharp: '>=0.31.0'
     peerDependenciesMeta:
       sharp:
         optional: true
     dependencies:
       '@altano/tiny-async-pool': 1.0.2
-      astro: 2.3.3(@types/node@18.16.3)(sharp@0.32.1)
+      astro: 2.3.4(@types/node@18.16.3)(sharp@0.32.1)
       http-cache-semantics: 4.1.1
       image-size: 1.0.2
       kleur: 4.1.5
@@ -218,13 +218,13 @@ packages:
       vscode-languageserver-types: 3.17.3
       vscode-uri: 3.0.7
 
-  /@astrojs/markdown-remark@2.1.4(astro@2.3.3):
+  /@astrojs/markdown-remark@2.1.4(astro@2.3.4):
     resolution: {integrity: sha512-z5diCcFo2xkBAJ11KySAIKpZZkULZmzUvWsZ2VWIOrR6QrEgEfVl5jTpgPSedx4m+xUPuemlUviOotGB7ItNsQ==}
     peerDependencies:
       astro: ^2.3.0
     dependencies:
       '@astrojs/prism': 2.1.1
-      astro: 2.3.3(@types/node@18.16.3)(sharp@0.32.1)
+      astro: 2.3.4(@types/node@18.16.3)(sharp@0.32.1)
       github-slugger: 1.5.0
       import-meta-resolve: 2.2.2
       rehype-raw: 6.1.1
@@ -240,11 +240,11 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /@astrojs/mdx@0.19.0(astro@2.3.3)(rollup@3.21.2):
+  /@astrojs/mdx@0.19.0(astro@2.3.4)(rollup@3.21.2):
     resolution: {integrity: sha512-McFpMV+npinIEKnY5t9hsdzLd76g78GgIRUPxem2OeXPNB8xr2pNS28GeU0+6Pn5STnB+sgcyyeqXLgzauOlMQ==}
     engines: {node: '>=16.12.0'}
     dependencies:
-      '@astrojs/markdown-remark': 2.1.4(astro@2.3.3)
+      '@astrojs/markdown-remark': 2.1.4(astro@2.3.4)
       '@astrojs/prism': 2.1.1
       '@mdx-js/mdx': 2.3.0
       '@mdx-js/rollup': 2.3.0(rollup@3.21.2)
@@ -280,8 +280,8 @@ packages:
     dependencies:
       prismjs: 1.29.0
 
-  /@astrojs/rss@2.4.0:
-    resolution: {integrity: sha512-cbSgrNUCmwfzXTEqfK/6vk+Ut5auHnIpv6Z5e5JaiDPUX7vcn3175nFBj68ujcb5HGY0rQ9ohGY4a4VX3ScmDg==}
+  /@astrojs/rss@2.4.1:
+    resolution: {integrity: sha512-c+j6Dwxc/t50/v7xhM88RKbxh9SjaQMw0IdLeeOqQAdcLT2Me7nUUWwx0BbPnu6RO0YxT5Up1Sl/OdrA60tfSw==}
     dependencies:
       fast-xml-parser: 4.2.2
       kleur: 4.1.5
@@ -294,14 +294,14 @@ packages:
       zod: 3.21.4
     dev: true
 
-  /@astrojs/tailwind@3.1.2(astro@2.3.3)(tailwindcss@3.3.2)(ts-node@10.9.1):
+  /@astrojs/tailwind@3.1.2(astro@2.3.4)(tailwindcss@3.3.2)(ts-node@10.9.1):
     resolution: {integrity: sha512-KyZ84WExLRU/TRIQm09ce+ND/0UG9AK9+7k/gjCbxuKScc/RieZ73oh4MkoEFrN/9OToMklvt+wmkAt3+u/ubQ==}
     peerDependencies:
       astro: ^2.3.3
       tailwindcss: ^3.0.24
     dependencies:
       '@proload/core': 0.3.3
-      astro: 2.3.3(@types/node@18.16.3)(sharp@0.32.1)
+      astro: 2.3.4(@types/node@18.16.3)(sharp@0.32.1)
       autoprefixer: 10.4.14(postcss@8.4.23)
       postcss: 8.4.23
       postcss-load-config: 4.0.1(postcss@8.4.23)(ts-node@10.9.1)
@@ -2098,19 +2098,19 @@ packages:
       - supports-color
     dev: true
 
-  /astro@2.3.3(@types/node@18.16.3)(sharp@0.32.1):
-    resolution: {integrity: sha512-LH9e42VoK8QqHCbZcFAf0GGZs4WVjfq3kJ/hrYgwpPyf8e2uUym4W9+DzM6+vEn7kbUq8Ec0l63zQQl3eXqxZQ==}
+  /astro@2.3.4(@types/node@18.16.3)(sharp@0.32.1):
+    resolution: {integrity: sha512-bP3HC8ayCPxB8n+PoeacabsfWna0eu4itiUDJklfP3uuMCAPZN0j5LbyZREMH/0qErUOai75ctpeLoKwZixTSQ==}
     engines: {node: '>=16.12.0', npm: '>=6.14.0'}
     hasBin: true
     peerDependencies:
-      sharp: ^0.31.3
+      sharp: '>=0.31.0'
     peerDependenciesMeta:
       sharp:
         optional: true
     dependencies:
       '@astrojs/compiler': 1.3.2
       '@astrojs/language-server': 1.0.0
-      '@astrojs/markdown-remark': 2.1.4(astro@2.3.3)
+      '@astrojs/markdown-remark': 2.1.4(astro@2.3.4)
       '@astrojs/telemetry': 2.1.1
       '@astrojs/webapi': 2.1.1
       '@babel/core': 7.21.5
@@ -7239,39 +7239,39 @@ packages:
       inline-style-parser: 0.1.1
     dev: false
 
-  /stylelint-config-clean-order@5.0.1(stylelint@15.6.0):
+  /stylelint-config-clean-order@5.0.1(stylelint@15.6.1):
     resolution: {integrity: sha512-zKLXjTgrkZqiml0VXv7Syl11XLpzRErW+1/qSEjIQ+aHAFjGuRq6Uwal9OzxtDHvpoIhlc4wCYjougWDuLN5aA==}
     peerDependencies:
       stylelint: '>=14'
     dependencies:
-      stylelint: 15.6.0
-      stylelint-order: 6.0.3(stylelint@15.6.0)
+      stylelint: 15.6.1
+      stylelint-order: 6.0.3(stylelint@15.6.1)
     dev: true
 
-  /stylelint-config-recommended@12.0.0(stylelint@15.6.0):
+  /stylelint-config-recommended@12.0.0(stylelint@15.6.1):
     resolution: {integrity: sha512-x6x8QNARrGO2sG6iURkzqL+Dp+4bJorPMMRNPScdvaUK8PsynriOcMW7AFDKqkWAS5wbue/u8fUT/4ynzcmqdQ==}
     peerDependencies:
       stylelint: ^15.5.0
     dependencies:
-      stylelint: 15.6.0
+      stylelint: 15.6.1
     dev: true
 
-  /stylelint-config-standard@33.0.0(stylelint@15.6.0):
+  /stylelint-config-standard@33.0.0(stylelint@15.6.1):
     resolution: {integrity: sha512-eyxnLWoXImUn77+ODIuW9qXBDNM+ALN68L3wT1lN2oNspZ7D9NVGlNHb2QCUn4xDug6VZLsh0tF8NyoYzkgTzg==}
     peerDependencies:
       stylelint: ^15.5.0
     dependencies:
-      stylelint: 15.6.0
-      stylelint-config-recommended: 12.0.0(stylelint@15.6.0)
+      stylelint: 15.6.1
+      stylelint-config-recommended: 12.0.0(stylelint@15.6.1)
     dev: true
 
-  /stylelint-declaration-block-no-ignored-properties@2.7.0(stylelint@15.6.0):
+  /stylelint-declaration-block-no-ignored-properties@2.7.0(stylelint@15.6.1):
     resolution: {integrity: sha512-44SpI9+9Oc1ICuwwRfwS/3npQ2jPobDSTnwWdNgZGryGqQCp17CgEIWjCv1BgUOSzND3RqywNCNLKvO1AOxbfg==}
     engines: {node: '>=6'}
     peerDependencies:
       stylelint: ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0 || ^14.0.0 || ^15.0.0
     dependencies:
-      stylelint: 15.6.0
+      stylelint: 15.6.1
     dev: true
 
   /stylelint-formatter-pretty@3.2.0:
@@ -7286,18 +7286,18 @@ packages:
       supports-hyperlinks: 3.0.0
     dev: true
 
-  /stylelint-order@6.0.3(stylelint@15.6.0):
+  /stylelint-order@6.0.3(stylelint@15.6.1):
     resolution: {integrity: sha512-1j1lOb4EU/6w49qZeT2SQVJXm0Ht+Qnq9GMfUa3pMwoyojIWfuA+JUDmoR97Bht1RLn4ei0xtLGy87M7d29B1w==}
     peerDependencies:
       stylelint: ^14.0.0 || ^15.0.0
     dependencies:
       postcss: 8.4.23
       postcss-sorting: 8.0.2(postcss@8.4.23)
-      stylelint: 15.6.0
+      stylelint: 15.6.1
     dev: true
 
-  /stylelint@15.6.0:
-    resolution: {integrity: sha512-Cqzpc8tvJm77KaM8qUbhpJ/UYK55Ia0whQXj4b9IId9dlPICO7J8Lyo15SZWiHxKjlvy3p5FQor/3n6i8ignXg==}
+  /stylelint@15.6.1:
+    resolution: {integrity: sha512-d8icFBlVl93Elf3Z5ABQNOCe4nx69is3D/NZhDLAie1eyYnpxfeKe7pCfqzT5W4F8vxHCLSDfV8nKNJzogvV2Q==}
     engines: {node: ^14.13.1 || >=16.0.0}
     hasBin: true
     dependencies:

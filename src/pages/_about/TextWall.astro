@@ -12,49 +12,47 @@ import { technologies } from './config';
     >
   </p>
   <p>
-    Currently, I've taken a break from professional work to focus on building <span class="font-[500] text-text-bold"
-      >open-source</span
-    > tools and achieving my <span class="font-[500] text-text-bold">personal goals</span>.
+    Having previously worked at <a href="https://www.thoughtworks.com/" target="_blank" rel="noopener noreferrer"
+      >Thoughtworks</a
+    >, I have around <span class="font-[500] text-text-bold">4 years</span> of experience as a Front-End engineer and have
+    developed performant web applications at scale using cutting-edge tools and technologies with an expertise in React.js.
   </p>
   <p>
-    Having worked with <a href="https://www.thoughtworks.com/" target="_blank" rel="noopener noreferrer">Thoughtworks</a
-    > previously, I have around <span class="font-[500] text-text-bold">4 years</span> of experience as a Front-End engineer
-    developing performant web applications at scale using cutting-edge tools and technologies.
-  </p>
-  <p>
-    <span class="font-[500] text-text-bold">Front-End is my passion!</span> I enjoy exploring its ever-changing world as
-    there's always something new to learn and experiment with. I like to give users that first impression that makes them
-    want to stay on the page.
-  </p>
-  <p>
-    I have a natural curiosity and thirst for knowledge, and I find it exciting to build something that is accessible to
-    people all around the world!
-  </p>
-  <p>
-    <h5 class="mb-3">Few technologies in my current stack:</h5>
-    <div class="tech-item-grid">
-      {
-        technologies.map((item, index) => (
-          <div class="tech-item" style={`animation-delay: ${index * 0.06}s`}>
-            <i class="icon-arrow-right text-primary mr-3" />
-            <span>{item}</span>
-          </div>
-        ))
-      }
-    </div>
-  </p>
-  <p>
-    My most recent obsession has been around dev tooling and bundlers, and I’m always open to chat about all things
-    front-end, performance, and open source!
-  </p>
-  <p>
-    You can reach me at <a
-      href={`mailto:${APP_CONFIG.USER.social.email}`}
-      rel="nofollow"
-      onclick="this.href=this.href.replace('@@','.')">{APP_CONFIG.USER.social.email.replace('@@', '.')}</a
-    >
+    Currently, I've taken a break from professional work to focus on building open-source tools and achieving my
+    personal goals.
   </p>
 </Fragment>
+<span class="font-[500] text-text-bold">Front-End is my passion!</span> I enjoy exploring its ever-changing world as there's
+always something new to learn and experiment with. I like to create an impactful first impression for users that makes them
+want to stay on the page.
+<p>
+  I have a natural curiosity and drive, and I find it exciting to build something that is accessible to people all
+  around the world!
+</p>
+<p>
+  <h5 class="mb-3">Few technologies in my current stack:</h5>
+  <div class="tech-item-grid">
+    {
+      technologies.map((item, index) => (
+        <div class="tech-item" style={`animation-delay: ${index * 0.06}s`}>
+          <i class="icon-arrow-right text-primary mr-3" />
+          <span>{item}</span>
+        </div>
+      ))
+    }
+  </div>
+</p>
+<p>
+  My most recent obsession has been around dev tooling and bundlers, and I’m always open to chat about all things
+  front-end, performance, and open source!
+</p>
+<p>
+  You can reach me at <a
+    href={`mailto:${APP_CONFIG.USER.social.email}`}
+    rel="nofollow"
+    onclick="this.href=this.href.replace('@@','.')">{APP_CONFIG.USER.social.email.replace('@@', '.')}</a
+  >
+</p>
 
 <style>
   .hand-wave {

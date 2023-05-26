@@ -63,7 +63,7 @@
     "postcss-html": "^1.5.0",
     "postcss-preset-env": "^8.4.1",
     "prettier": "^2.8.8",
-    "prettier-plugin-astro": "^0.9.0",
+    "prettier-plugin-astro": "^0.9.1",
     "reading-time": "^1.5.0",
     "rehype-accessible-emojis": "^0.3.2",
     "rehype-autolink-headings": "^6.1.1",

@@ -41,7 +41,7 @@
     "astro": "^2.5.6",
     "astro-compress": "^1.1.46",
     "browserslist-to-esbuild": "^1.2.0",
-    "concurrently": "^8.0.1",
+    "concurrently": "^8.1.0",
     "czg": "1.6.1",
     "eslint": "^8.41.0",
     "eslint-config-prettier": "^8.8.0",

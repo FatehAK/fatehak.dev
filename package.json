@@ -74,7 +74,7 @@
     "rimraf": "^5.0.1",
     "sharp": "^0.32.1",
     "shiki": "^0.14.2",
-    "stylelint": "^15.6.2",
+    "stylelint": "^15.6.3",
     "stylelint-config-clean-order": "^5.0.1",
     "stylelint-config-standard": "^33.0.0",
     "stylelint-declaration-block-no-ignored-properties": "^2.7.0",

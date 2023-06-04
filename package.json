@@ -39,7 +39,7 @@
     "@hbsnow/rehype-sectionize": "^1.0.7",
     "@typescript-eslint/parser": "^5.59.8",
     "astro": "^2.5.7",
-    "astro-compress": "^1.1.46",
+    "astro-compress": "^1.1.47",
     "browserslist-to-esbuild": "^1.2.0",
     "concurrently": "^8.1.0",
     "czg": "1.6.1",

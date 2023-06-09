@@ -7,7 +7,7 @@ settings:
 dependencies:
   '@astrojs/mdx':
     specifier: ^0.19.7
-    version: 0.19.7(astro@2.6.1)
+    version: 0.19.7(astro@2.6.2)
   tailwindcss:
     specifier: ^3.3.2
     version: 3.3.2(ts-node@10.9.1)
@@ -15,7 +15,7 @@ dependencies:
 devDependencies:
   '@astrojs/image':
     specifier: ^0.17.0
-    version: 0.17.0(astro@2.6.1)(sharp@0.32.1)
+    version: 0.17.0(astro@2.6.2)(sharp@0.32.1)
   '@astrojs/prefetch':
     specifier: ^0.2.3
     version: 0.2.3
@@ -27,7 +27,7 @@ devDependencies:
     version: 1.3.3
   '@astrojs/tailwind':
     specifier: ^3.1.3
-    version: 3.1.3(astro@2.6.1)(tailwindcss@3.3.2)(ts-node@10.9.1)
+    version: 3.1.3(astro@2.6.2)(tailwindcss@3.3.2)(ts-node@10.9.1)
   '@commitlint/cli':
     specifier: ^17.6.5
     version: 17.6.5
@@ -38,8 +38,8 @@ devDependencies:
     specifier: ^5.59.9
     version: 5.59.9(eslint@8.42.0)(typescript@5.0.4)
   astro:
-    specifier: ^2.6.1
-    version: 2.6.1(@types/node@20.2.5)(sharp@0.32.1)
+    specifier: ^2.6.2
+    version: 2.6.2(@types/node@20.2.5)(sharp@0.32.1)
   astro-compress:
     specifier: ^1.1.47
     version: 1.1.47
@@ -47,8 +47,8 @@ devDependencies:
     specifier: ^1.2.0
     version: 1.2.0
   concurrently:
-    specifier: ^8.1.0
-    version: 8.1.0
+    specifier: ^8.2.0
+    version: 8.2.0
   czg:
     specifier: 1.6.1
     version: 1.6.1
@@ -128,8 +128,8 @@ devDependencies:
     specifier: ^2.1.0
     version: 2.1.0
   rehype-pretty-code:
-    specifier: ^0.9.6
-    version: 0.9.6(shiki@0.14.2)
+    specifier: ^0.9.7
+    version: 0.9.7(shiki@0.14.2)
   rehype-slug:
     specifier: ^5.1.0
     version: 5.1.0
@@ -181,14 +181,10 @@ packages:
       '@jridgewell/gen-mapping': 0.3.3
       '@jridgewell/trace-mapping': 0.3.18
 
-  /@astrojs/compiler@1.4.2:
-    resolution: {integrity: sha512-xoRp7JpiMZPK/beUcZEM5kM44Z/h20wwwQcl54duPqQMyySG9vZ5xMM6dYiQmn7b3XzpZs0cT6TRDoJJ5gwHAQ==}
-    dev: true
-
   /@astrojs/compiler@1.5.0:
     resolution: {integrity: sha512-k04X/7nlMklU0HQUScxbCTf5n8/Vr+0U0bawb9QWulWxd6qJf3FmBrNATgTYiltjB4pc5HBqmmttAfFi7m4lLg==}
 
-  /@astrojs/image@0.17.0(astro@2.6.1)(sharp@0.32.1):
+  /@astrojs/image@0.17.0(astro@2.6.2)(sharp@0.32.1):
     resolution: {integrity: sha512-YSolAMFtABhmgLH5BCeGX5e7QKApgSI1XcxO+HLqHFayQKVQ9r6fwslodTjzQkqxgcWEcQKF4nFR4Sq3hAq6YQ==}
     peerDependencies:
       astro: ^2.6.0
@@ -198,7 +194,7 @@ packages:
         optional: true
     dependencies:
       '@altano/tiny-async-pool': 1.0.2
-      astro: 2.6.1(@types/node@20.2.5)(sharp@0.32.1)
+      astro: 2.6.2(@types/node@20.2.5)(sharp@0.32.1)
       http-cache-semantics: 4.1.1
       image-size: 1.0.2
       kleur: 4.1.5
@@ -228,13 +224,13 @@ packages:
       vscode-languageserver-types: 3.17.3
       vscode-uri: 3.0.7
 
-  /@astrojs/markdown-remark@2.2.1(astro@2.6.1):
+  /@astrojs/markdown-remark@2.2.1(astro@2.6.2):
     resolution: {integrity: sha512-VF0HRv4GpC1XEMLnsKf6jth7JSmlt9qpqP0josQgA2eSpCIAC/Et+y94mgdBIZVBYH/yFnMoIxgKVe93xfO2GA==}
     peerDependencies:
       astro: ^2.5.0
     dependencies:
       '@astrojs/prism': 2.1.2
-      astro: 2.6.1(@types/node@20.2.5)(sharp@0.32.1)
+      astro: 2.6.2(@types/node@20.2.5)(sharp@0.32.1)
       github-slugger: 1.5.0
       import-meta-resolve: 2.2.2
       rehype-raw: 6.1.1
@@ -250,11 +246,11 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /@astrojs/mdx@0.19.7(astro@2.6.1):
+  /@astrojs/mdx@0.19.7(astro@2.6.2):
     resolution: {integrity: sha512-mfEbBD7oi8yBHhcJucEjnrquREkJ3os+jioURP8BR2B8tOV2rV2j8trvmLUgfS+P/+HevGObxCTjcRYxn6T7eg==}
     engines: {node: '>=16.12.0'}
     dependencies:
-      '@astrojs/markdown-remark': 2.2.1(astro@2.6.1)
+      '@astrojs/markdown-remark': 2.2.1(astro@2.6.2)
       '@astrojs/prism': 2.1.2
       '@mdx-js/mdx': 2.3.0
       acorn: 8.8.2
@@ -303,14 +299,14 @@ packages:
       zod: 3.21.4
     dev: true
 
-  /@astrojs/tailwind@3.1.3(astro@2.6.1)(tailwindcss@3.3.2)(ts-node@10.9.1):
+  /@astrojs/tailwind@3.1.3(astro@2.6.2)(tailwindcss@3.3.2)(ts-node@10.9.1):
     resolution: {integrity: sha512-10S1omrv5K5HRVAZ0fBgN5vQykn2HRL332LAVFyBASMn1Ff6gDfSK+CPUeUu94eZUOEaPnECLK8EHAqZ8iY9CA==}
     peerDependencies:
       astro: ^2.5.0
       tailwindcss: ^3.0.24
     dependencies:
       '@proload/core': 0.3.3
-      astro: 2.6.1(@types/node@20.2.5)(sharp@0.32.1)
+      astro: 2.6.2(@types/node@20.2.5)(sharp@0.32.1)
       autoprefixer: 10.4.14(postcss@8.4.24)
       postcss: 8.4.24
       postcss-load-config: 4.0.1(postcss@8.4.24)(ts-node@10.9.1)
@@ -1869,10 +1865,10 @@ packages:
     resolution: {integrity: sha512-3F8l1h7+5MNxzDg1cSQxEloalG7fj64K6vOERChUVG7RLnAzSoafADnPQlU8DpMM3WRNfRHSC4NwUCORk/aPrA==}
     engines: {node: ^14.18.0 || >=16.0.0}
     dependencies:
-      '@astrojs/compiler': 1.4.2
+      '@astrojs/compiler': 1.5.0
       '@typescript-eslint/scope-manager': 5.59.9
       '@typescript-eslint/types': 5.59.9
-      astrojs-compiler-sync: 0.3.2(@astrojs/compiler@1.4.2)
+      astrojs-compiler-sync: 0.3.2(@astrojs/compiler@1.5.0)
       debug: 4.3.4
       eslint-visitor-keys: 3.4.1
       espree: 9.5.2
@@ -1881,8 +1877,8 @@ packages:
       - supports-color
     dev: true
 
-  /astro@2.6.1(@types/node@20.2.5)(sharp@0.32.1):
-    resolution: {integrity: sha512-hQSMhUHMCVhUNa0xZfWnlVfz6MaRnfKtXHEBIA+rq1p3s9Z+rjKQmZq/Dk6G2vH1LMhudTojsBv7uMKumd+OnQ==}
+  /astro@2.6.2(@types/node@20.2.5)(sharp@0.32.1):
+    resolution: {integrity: sha512-yscuSbZAtlg3jlHxsGWrzEfbBHz+l5iwl1tfUKVOE4FijepRpwJgFDSCaVI5Z2+af2nXKZpst5H9qAUx+uZ6zg==}
     engines: {node: '>=16.12.0', npm: '>=6.14.0'}
     hasBin: true
     peerDependencies:
@@ -1894,7 +1890,7 @@ packages:
       '@astrojs/compiler': 1.5.0
       '@astrojs/internal-helpers': 0.1.0
       '@astrojs/language-server': 1.0.5
-      '@astrojs/markdown-remark': 2.2.1(astro@2.6.1)
+      '@astrojs/markdown-remark': 2.2.1(astro@2.6.2)
       '@astrojs/telemetry': 2.1.1
       '@astrojs/webapi': 2.2.0
       '@babel/core': 7.22.1
@@ -1958,13 +1954,13 @@ packages:
       - supports-color
       - terser
 
-  /astrojs-compiler-sync@0.3.2(@astrojs/compiler@1.4.2):
+  /astrojs-compiler-sync@0.3.2(@astrojs/compiler@1.5.0):
     resolution: {integrity: sha512-q/8Z30WNpsktLKS5NdT/6QAF9Q/C4ucLldqUpHgvRhuj/6jkJyOQfapQxkTKp8MK4RjH9sSsClfrTIdk8JZlKw==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
       '@astrojs/compiler': '>=0.27.0'
     dependencies:
-      '@astrojs/compiler': 1.4.2
+      '@astrojs/compiler': 1.5.0
       synckit: 0.8.5
     dev: true
 
@@ -2361,8 +2357,8 @@ packages:
   /concat-map@0.0.1:
     resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
 
-  /concurrently@8.1.0:
-    resolution: {integrity: sha512-0AB6eOAtaW/r/kX2lCdolaWtT191ICeuJjEJvI9hT3zbPFuZ/iZaJwMRKwbuwADome7OKxk73L7od+fsveZ7tA==}
+  /concurrently@8.2.0:
+    resolution: {integrity: sha512-nnLMxO2LU492mTUj9qX/az/lESonSZu81UznYDoXtz1IQf996ixVqPAgHXwvHiHCAef/7S8HIK+fTFK7Ifk8YA==}
     engines: {node: ^14.13.0 || >=16.0.0}
     hasBin: true
     dependencies:
@@ -2371,7 +2367,7 @@ packages:
       lodash: 4.17.21
       rxjs: 7.8.1
       shell-quote: 1.8.1
-      spawn-command: 0.0.2-1
+      spawn-command: 0.0.2
       supports-color: 8.1.1
       tree-kill: 1.2.2
       yargs: 17.7.2
@@ -6406,12 +6402,13 @@ packages:
       parse5: 6.0.1
       unified: 10.1.2
 
-  /rehype-pretty-code@0.9.6(shiki@0.14.2):
-    resolution: {integrity: sha512-l94QKT6w00AIJp1FsbVnbKmcEckKdYkJQfstgiSI4GTt/hSdDrnQRz6rP8r01x1rXNFC2exMG4WY0X7fOpVQGw==}
+  /rehype-pretty-code@0.9.7(shiki@0.14.2):
+    resolution: {integrity: sha512-QBYciToqn6osk7G1mnXXSfjpszB4H/ZoyS8STvr57W/dNkaRBhXhcfgzahjFB880h10xwsL8oxgDvDCpracsfg==}
     engines: {node: ^12.16.0 || >=13.2.0}
     peerDependencies:
       shiki: '*'
     dependencies:
+      '@types/hast': 2.3.4
       hash-obj: 4.0.0
       parse-numeric-range: 1.3.0
       shiki: 0.14.2
@@ -6856,8 +6853,8 @@ packages:
   /space-separated-tokens@2.0.2:
     resolution: {integrity: sha512-PEGlAwrG8yXGXRjW32fGbg66JAlOAwbObuqVoJpv/mRgoWDQfgH1wDPvtzWyUSNAXBGSk8h755YDbbcEy3SH2Q==}
 
-  /spawn-command@0.0.2-1:
-    resolution: {integrity: sha512-n98l9E2RMSJ9ON1AKisHzz7V42VDiBQGY6PB1BwRglz99wpVsSuGzQ+jOi6lFXBGVTCrRpltvjm+/XA+tpeJrg==}
+  /spawn-command@0.0.2:
+    resolution: {integrity: sha512-zC8zGoGkmc8J9ndvml8Xksr1Amk9qBujgbF0JAIWO7kXr43w0h/0GJNM/Vustixu+YE8N/MTrQ7N31FvHUACxQ==}
     dev: true
 
   /spdx-correct@3.2.0:

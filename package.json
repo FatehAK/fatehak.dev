@@ -68,7 +68,7 @@
     "rehype-accessible-emojis": "^0.3.2",
     "rehype-autolink-headings": "^6.1.1",
     "rehype-external-links": "^2.1.0",
-    "rehype-pretty-code": "^0.9.7",
+    "rehype-pretty-code": "^0.9.8",
     "rehype-slug": "^5.1.0",
     "remark-emoji": "^3.1.1",
     "rimraf": "^5.0.1",

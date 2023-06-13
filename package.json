@@ -70,7 +70,7 @@
     "rehype-external-links": "^2.1.0",
     "rehype-pretty-code": "^0.9.8",
     "rehype-slug": "^5.1.0",
-    "remark-emoji": "^3.1.1",
+    "remark-emoji": "^3.1.2",
     "rimraf": "^5.0.1",
     "sharp": "^0.32.1",
     "shiki": "^0.14.2",

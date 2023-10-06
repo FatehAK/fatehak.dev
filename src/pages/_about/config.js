@@ -1,7 +1,7 @@
 export const technologies = [
   'React, Next.js',
-  'Node.js',
   'TypeScript',
+  'Node.js',
   'Vite, Webpack',
   'Astro',
   'SASS, Tailwind',

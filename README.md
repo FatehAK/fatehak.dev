@@ -1,11 +1,11 @@
 <div align="center">
-  <a href="https://fatehak.dev">
-    <img width="100" height="120" hspace="10" src="https://fatehak.dev/icons/logo.svg" alt="logo" />
+  <a href="https://fazk.dev">
+    <img width="100" height="120" hspace="10" src="https://fazk.dev/icons/logo.svg" alt="logo" />
   </a>
-  <h1>fatehak.dev</h1>
-  <img src="https://img.shields.io/github/package-json/dependency-version/fatehak/fatehak.dev/dev/astro" alt="astro" />
+  <h1>fazk.dev</h1>
+  <img src="https://img.shields.io/github/package-json/dependency-version/fatehak/fazk.dev/dev/astro" alt="astro" />
   <img src="https://img.shields.io/badge/pnpm-latest-yellow" alt="pnpm" />
-  <img src="https://img.shields.io/github/actions/workflow/status/fatehak/fatehak.dev/lint_build_publish.yaml?branch=main" alt="build status" />
+  <img src="https://img.shields.io/github/actions/workflow/status/fatehak/fazk.dev/lint_build_publish.yaml?branch=main" alt="build status" />
 </div>
 
 <p>&nbsp;</p>
@@ -14,7 +14,7 @@ My personal website and blog built with [Astro](https://astro.build) and [MDX](h
 
 I've always wanted a platform to showcase my projects and share my thoughts on the Web. This website started with the aim of fulfilling that dream. Hope you enjoy it! 😄
 
-Take a look: [https://fatehak.dev](https://fatehak.dev)
+Take a look: [https://fazk.dev](https://fazk.dev)
 
 ## Uses
 
@@ -47,7 +47,7 @@ Here is everything I've done so far:
 
 ## Lighthouse Test
 
-I wanted to verify if all the optimizations I've done so far actually worked, so I did a Lighthouse test for my site [fatehak.dev](https://fatehak.dev).
+I wanted to verify if all the optimizations I've done so far actually worked, so I did a Lighthouse test for my site [fazk.dev](https://fazk.dev).
 
 To my surprise, I got an overall score of **100** consistently for both Mobile and Desktop on a five run average. It feels great when your hard work finally pays off! 🎉
 

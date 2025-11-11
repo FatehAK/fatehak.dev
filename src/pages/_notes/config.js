@@ -1,10 +1,10 @@
 export const notesData = [
-  {
-    name: 'Snippets',
-    description: 'Code snippets for simple to complex tasks.',
-    icon: 'code',
-    path: '/snippets/',
-  },
+  // {
+  //   name: 'Snippets',
+  //   description: 'Code snippets for simple to complex tasks.',
+  //   icon: 'code',
+  //   path: '/snippets/',
+  // },
   {
     name: 'Tech Stack',
     description: 'Tech and perf metrics used to build this website.',

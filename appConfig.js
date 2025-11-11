@@ -8,20 +8,20 @@ import themeJSON from './src/theme/syntax-highlight.json';
 import remarkReadingTime from './scripts/remark-reading-time.js';
 
 export const APP_CONFIG = {
-  SITE_URL: 'https://fatehak.dev',
+  SITE_URL: 'https://fazk.dev',
   META: {
-    title: 'FatehAK - Front-End Engineer, Open Sourcerer',
+    title: 'Faz - Software Engineer, Open Sourcerer',
     description: 'Software Engineer. Love engineering clean and performant web applications',
-    appName: 'fatehak.dev',
+    appName: 'fazk.dev',
     appBackground: '#101822',
   },
   USER: {
-    name: 'FatehAK',
-    shortName: 'Fateh',
+    name: 'Fateh K',
+    shortName: 'Faz',
     social: {
       twitter: '@Fateh_AK_',
-      email: 'hi@fatehak@@dev',
-      linkedin: 'https://linkedin.com/in/fatehak',
+      email: 'hi@fazk@@dev',
+      linkedin: 'https://linkedin.com/in/faz07',
       github: 'https://github.com/fatehak',
       behance: 'https://www.behance.net/fateh_ak_/projects',
     },

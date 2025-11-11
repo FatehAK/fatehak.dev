@@ -1,12 +1,12 @@
 {
-  "name": "fatehak.dev",
-  "short_name": "fatehak.dev",
+  "name": "fazk.dev",
+  "short_name": "fazk.dev",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#101822",
   "lang": "en",
   "scope": "/",
-  "description": "Front-End Engineer, Open Sourcerer",
+  "description": "Software Engineer, Open Sourcerer",
   "theme_color": "#101822",
   "orientation": "any",
   "icons": [

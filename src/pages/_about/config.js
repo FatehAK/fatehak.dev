@@ -6,7 +6,7 @@ export const technologies = [
   'React Native',
   'Tailwind CSS',
   'Figma',
-  'PostgresSQL',
+  'PostgreSQL',
   'GraphQL',
   'Prisma',
   'AWS, Cloudflare',
